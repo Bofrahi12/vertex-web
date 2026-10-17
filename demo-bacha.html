@@ -387,6 +387,21 @@ h1.mega .o{color:var(--gold)}
 .order-btn{margin:0 22px 22px;background:linear-gradient(120deg,var(--gold2),var(--gold));border:0;color:#1A1206;font-family:var(--font-g);font-weight:800;font-size:.95rem;padding:17px;border-radius:10px;box-shadow:0 12px 34px rgba(227,160,8,.3);transition:box-shadow .25s}
 .order-btn:hover{box-shadow:0 16px 44px rgba(227,160,8,.5)}
 @media(max-width:980px){.build-grid{grid-template-columns:1fr}}
+
+.q-body{padding:24px 20px 28px}
+.q-title{font-family:var(--font-d);font-weight:900;font-size:1.45rem;color:var(--white);margin:0 0 4px}
+.q-sum{color:var(--gold2);font-weight:700;font-size:.92rem;margin:0 0 18px}
+.q-f{margin-bottom:14px}
+.q-f label{display:block;font-family:var(--font-g);font-weight:700;font-size:.88rem;margin-bottom:7px;color:var(--white)}
+.q-input{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--white);font-family:inherit;font-size:1rem}
+.q-input:focus{outline:2px solid rgba(227,160,8,.5);border-color:rgba(227,160,8,.6)}
+.q-input.err{border-color:#e5484d!important;outline:2px solid rgba(229,72,77,.35)}
+.q-err{color:#ff8589;font-size:.8rem;margin:6px 2px 0;display:none}
+.q-err.on{display:block}
+.q-methods{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.q-when{color:var(--muted);font-size:.84rem;margin:2px 0 16px}
+.q-confirm{width:100%;background:linear-gradient(120deg,var(--gold2),var(--gold));border:0;color:#1A1206;font-family:var(--font-g);font-weight:800;font-size:1rem;padding:17px;border-radius:12px;box-shadow:0 12px 34px rgba(227,160,8,.3);cursor:pointer}
+.q-note{color:var(--faint);font-size:.78rem;text-align:center;margin:12px 0 0}
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);z-index:150;background:var(--gold);color:#1A1206;font-family:var(--font-g);font-weight:800;font-size:.84rem;padding:13px 24px;border-radius:99px;box-shadow:0 16px 40px rgba(0,0,0,.5);opacity:0;pointer-events:none}
 .finale{text-align:center;margin-top:11vh}
 .finale .big-order{font-family:var(--font-d);font-weight:900;line-height:1.2;font-size:clamp(3rem,9.5vw,8rem)}
@@ -1170,6 +1185,24 @@ body{padding-bottom:84px}
     <button class="order-btn sheet-add" id="sheetAdd" type="button">زيدها للسلة</button>
   </div>
 </aside>
+<div class="sheet-backdrop" id="quickBackdrop" hidden></div>
+<aside class="dish-sheet" id="quickSheet" hidden role="dialog" aria-modal="true" aria-labelledby="qTitle">
+  <button class="sheet-x" id="quickClose" type="button" aria-label="إغلاق">✕</button>
+  <div class="q-body">
+    <h3 class="q-title" id="qTitle">كمّل طلبك</h3>
+    <p class="q-sum" id="qSum"></p>
+    <div class="q-f"><label for="qName" id="qNameL">الاسم الكامل</label><input class="q-input" id="qName" type="text" autocomplete="name" placeholder="مثال: يوسف العلوي"><p class="q-err" id="qNameErr"></p></div>
+    <div class="q-f"><label for="qPhone" id="qPhoneL">رقم الهاتف</label><input class="q-input" id="qPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 XX XX XX XX"><p class="q-err" id="qPhoneErr"></p></div>
+    <div class="q-methods" id="qMethods" role="radiogroup" aria-label="طريقة الوصول">
+      <button type="button" class="method" data-qmethod="pickup"><b id="qPickupB">الاستلام من المطعم</b><span id="qPickupS">البرانص 2 — قريب من مركز الحليب</span></button>
+      <button type="button" class="method" data-qmethod="delivery"><b id="qDelB">التوصيل لباب الدار</b><span id="qDelS">رسوم التوصيل تتأكد في واتساب</span></button>
+    </div>
+    <div class="q-f" id="qAddrWrap" hidden><label for="qAddr" id="qAddrL">الحومة والعنوان — مطلوب للتوصيل</label><input class="q-input" id="qAddr" type="text" autocomplete="street-address" placeholder="مثال: البرانص 2، زنقة 5، رقم 12"><p class="q-err" id="qAddrErr"></p></div>
+    <p class="q-when" id="qWhen"></p>
+    <button class="q-confirm" id="quickConfirm" type="button">أكّد الطلب في واتساب ←</button>
+    <p class="q-note" id="qNote">الدفع نقداً عند الاستلام — والموعد والعنوان يتأكدو مع المطعم في واتساب</p>
+  </div>
+</aside>
 <div class="toast" id="toast" role="status"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
@@ -1840,7 +1873,7 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
       cn.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
       return;
     }
-    if (!/^(\+?212|0)(5|6|7)[0-9]{8}$/.test((state.phone || "").replace(/[\s-]/g, ""))) {
+    if (!validPhone(state.phone)) {
       toast(T("needPhone"));
       const cp = document.getElementById("custPhone"); cp.classList.add("err"); cp.focus();
       cp.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
@@ -1852,6 +1885,72 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
       addrBlock.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
       return;
     }
+    window.open("https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(buildOrderMessage(state, total)), "_blank");
+  });
+
+  /* ---------- v23: طلب سريع — ورقة إتمام مضغوطة من زر «كمّل الطلب» ---------- */
+  function normPhone(v){
+    let d = (v || "").replace(/[^\d]/g, "");
+    if (d.startsWith("00212")) d = d.slice(2);
+    if (d.startsWith("212") && d.length === 12) d = "0" + d.slice(3);
+    if (/^[567]\d{8}$/.test(d)) d = "0" + d;
+    return d;
+  }
+  function validPhone(v){ return /^0(5|6|7)\d{8}$/.test(normPhone(v)); }
+  const qSheet = document.getElementById("quickSheet"), qBd = document.getElementById("quickBackdrop");
+  const qName = document.getElementById("qName"), qPhone = document.getElementById("qPhone"), qAddr = document.getElementById("qAddr");
+  const qNameErr = document.getElementById("qNameErr"), qPhoneErr = document.getElementById("qPhoneErr"), qAddrErr = document.getElementById("qAddrErr");
+  function qSetMethod(m){
+    setMethod(m);
+    document.querySelectorAll("#qMethods .method").forEach(b => { const on = b.dataset.qmethod === m; b.classList.toggle("sel", on); b.setAttribute("aria-checked", on ? "true" : "false"); });
+    document.getElementById("qAddrWrap").hidden = m !== "delivery";
+  }
+  function qOpen(){
+    if (!cart.size) { toast(T("cartEmptyToast")); return; }
+    qName.value = state.name || ""; qPhone.value = state.phone || ""; qAddr.value = state.address || "";
+    [qName, qPhone, qAddr].forEach(i => i.classList.remove("err"));
+    [qNameErr, qPhoneErr, qAddrErr].forEach(e => e.classList.remove("on"));
+    qSetMethod(state.method);
+    const fr = LANG === "fr";
+    document.getElementById("qTitle").textContent = fr ? "Finalisez votre commande" : "كمّل طلبك";
+    document.getElementById("qSum").textContent = (fr ? "Votre commande : " : "طلبك: ") + [...cart.values()].reduce((a, i) => a + i.qty, 0) + (fr ? " article(s) · " : " أطباق · ") + fmt(cartTotal());
+    document.getElementById("qNameL").textContent = fr ? "Nom complet" : "الاسم الكامل";
+    document.getElementById("qPhoneL").textContent = fr ? "Numéro de téléphone" : "رقم الهاتف";
+    document.getElementById("qAddrL").textContent = fr ? "Quartier et adresse — requis pour la livraison" : "الحومة والعنوان — مطلوب للتوصيل";
+    document.getElementById("qPickupB").textContent = fr ? "À emporter au restaurant" : "الاستلام من المطعم";
+    document.getElementById("qPickupS").textContent = fr ? "Branes 2 — près du Centre Laitier" : "البرانص 2 — قريب من مركز الحليب";
+    document.getElementById("qDelB").textContent = fr ? "Livraison à domicile" : "التوصيل لباب الدار";
+    document.getElementById("qDelS").textContent = fr ? "Frais confirmés sur WhatsApp" : "رسوم التوصيل تتأكد في واتساب";
+    document.getElementById("qWhen").textContent = (fr ? "Rendez-vous : " : "الموعد: ") + (state.date || (fr ? "Aujourd'hui" : "اليوم")) + " · " + state.time;
+    document.getElementById("quickConfirm").textContent = fr ? "Confirmer sur WhatsApp ←" : "أكّد الطلب في واتساب ←";
+    document.getElementById("qNote").textContent = fr ? "Paiement en espèces à la réception — le rendez-vous se confirme avec le restaurant sur WhatsApp" : "الدفع نقداً عند الاستلام — والموعد يتأكد مع المطعم في واتساب";
+    qSheet.hidden = false; qBd.hidden = false;
+    requestAnimationFrame(()=>{ qSheet.classList.add("open"); qBd.classList.add("open"); });
+    const sb = document.getElementById("stickybar"); if (sb) sb.classList.add("sb-hide");
+    if (window.__lenis) window.__lenis.stop();
+    document.body.style.overflow = "hidden";
+  }
+  function qClose(){
+    qSheet.classList.remove("open"); qBd.classList.remove("open");
+    setTimeout(()=>{ qSheet.hidden = true; qBd.hidden = true; }, 300);
+    if (window.__lenis) window.__lenis.start();
+    document.body.style.overflow = "";
+  }
+  window.addEventListener("bacha:quick", qOpen);
+  document.getElementById("quickClose").addEventListener("click", qClose);
+  qBd.addEventListener("click", qClose);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !qSheet.hidden) qClose(); });
+  qName.addEventListener("input", ()=>{ state.name = qName.value; const cn = document.getElementById("custName"); if (cn) cn.value = qName.value; qName.classList.remove("err"); qNameErr.classList.remove("on"); });
+  qPhone.addEventListener("input", ()=>{ state.phone = qPhone.value; const cp = document.getElementById("custPhone"); if (cp) cp.value = qPhone.value; qPhone.classList.remove("err"); qPhoneErr.classList.remove("on"); });
+  qAddr.addEventListener("input", ()=>{ state.address = qAddr.value.trim(); const ai = document.getElementById("addrInput"); if (ai) ai.value = qAddr.value; qAddr.classList.remove("err"); qAddrErr.classList.remove("on"); recalc(); });
+  document.querySelectorAll("#qMethods .method").forEach(b => b.addEventListener("click", ()=> qSetMethod(b.dataset.qmethod)));
+  document.getElementById("quickConfirm").addEventListener("click", ()=>{
+    state.name = qName.value; state.phone = qPhone.value; state.address = qAddr.value.trim();
+    if (!state.name || state.name.trim().length < 2) { qName.classList.add("err"); qNameErr.textContent = T("needName"); qNameErr.classList.add("on"); qName.focus(); return; }
+    if (!validPhone(state.phone)) { qPhone.classList.add("err"); qPhoneErr.textContent = T("needPhone"); qPhoneErr.classList.add("on"); qPhone.focus(); return; }
+    if (state.method === "delivery" && !state.address) { qAddr.classList.add("err"); qAddrErr.textContent = T("needAddress"); qAddrErr.classList.add("on"); qAddr.focus(); return; }
+    const total = recalc();
+    qClose();
     window.open("https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(buildOrderMessage(state, total)), "_blank");
   });
 
@@ -2280,7 +2379,7 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
   function PT(k, n){ var d = DICT[curLang()] || DICT.ar; var v = d[k] || DICT.ar[k] || k; if (n !== undefined) v = v.replace('{n}', n); return v; }
   var sb=document.getElementById('stickybar'), sbTxt=document.getElementById('sbTxt'), sbBtn=document.getElementById('sbBtn');
   var target='#menu', orderVisible=false;
-  if(sbBtn){ sbBtn.addEventListener('click',function(){ var t=document.querySelector(target); if(t) t.scrollIntoView({behavior:'smooth'}); }); }
+  if(sbBtn){ sbBtn.addEventListener('click',function(){ var n=document.querySelectorAll('#cartLines .cart-line').length; if(n>0){ window.dispatchEvent(new Event('bacha:quick')); return; } var t=document.querySelector(target); if(t) t.scrollIntoView({behavior:'smooth'}); }); }
   function updBar(){
     if(!sb) return;
     var n=document.querySelectorAll('#cartLines .cart-line').length;
@@ -2289,7 +2388,9 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
     else { sbTxt.textContent=PT('barEmpty'); sbBtn.textContent=PT('barOrder'); target='#menu'; }
     var sheet=document.getElementById('dishSheet');
     var sheetOpen=sheet && !sheet.hidden;
-    sb.classList.toggle('sb-hide', !!sheetOpen || orderVisible);
+    var qs=document.getElementById('quickSheet');
+    var qOpen=qs && !qs.hidden;
+    sb.classList.toggle('sb-hide', !!sheetOpen || !!qOpen || orderVisible);
   }
   var ord=document.getElementById('order');
   if(ord && 'IntersectionObserver' in window){ new IntersectionObserver(function(e){ orderVisible=e[0].isIntersecting; updBar(); },{threshold:.06}).observe(ord); }
