@@ -99,15 +99,48 @@
       Object.keys(groups).forEach(function(k){ var g = groups[k]; g.list.sort(function(a, b){ return a.ord - b.ord; }).forEach(function(x){ g.par.appendChild(x.card); }); });
     }
   }
+  function replaceIn(root, map){
+    if (!root || !document.createTreeWalker) return;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: function(n){
+      var p = n.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      var tag = p.tagName;
+      if (tag === "SCRIPT" || tag === "STYLE" || tag === "TEXTAREA" || tag === "NOSCRIPT") return NodeFilter.FILTER_REJECT;
+      if (p.closest && p.closest("[data-vx-skip]")) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }});
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(n){
+      var raw = n.nodeValue, trimmed = raw.trim();
+      if (trimmed && map[trimmed] !== undefined) n.nodeValue = raw.replace(trimmed, map[trimmed]);
+    });
+  }
+  var demoBusy = false, demoTimer = null, demoArmed = false;
+  function applyDemo(C){
+    if (!C || !C.demos) return;
+    var pid = pidOf(location.pathname);
+    var map = C.demos[pid];
+    if (!map || !Object.keys(map).length || !document.body) return;
+    replaceIn(document.body, map);
+    if (!demoArmed) {
+      demoArmed = true;
+      new MutationObserver(function(){
+        if (demoBusy) return;
+        clearTimeout(demoTimer);
+        demoTimer = setTimeout(function(){ demoBusy = true; replaceIn(document.body, map); setTimeout(function(){ demoBusy = false; }, 60); }, 600);
+      }).observe(document.body, { subtree: true, childList: true, characterData: true });
+    }
+  }
   var last = null, t = null;
   function load(){
     var ctrl = ("AbortController" in window) ? new AbortController() : null;
     var to = ctrl ? setTimeout(function(){ ctrl.abort(); }, 3500) : null;
     fetch(SRC, { cache: "no-store", signal: ctrl ? ctrl.signal : undefined })
       .then(function(r){ return r.json(); })
-      .then(function(C){ if (to) clearTimeout(to); last = C; apply(C); })
+      .then(function(C){ if (to) clearTimeout(to); last = C; apply(C); applyDemo(C); })
       .catch(function(){});
   }
-  new MutationObserver(function(){ if (!last) return; clearTimeout(t); t = setTimeout(function(){ apply(last); }, 450); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "dir", "class"] });
+  new MutationObserver(function(){ if (!last) return; clearTimeout(t); t = setTimeout(function(){ apply(last); applyDemo(last); }, 450); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "dir", "class"] });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", load); else load();
 })();
