@@ -645,6 +645,13 @@ footer .f-mid{font-family:var(--font-g);font-weight:600;font-size:.7rem;color:va
 .pop-wrap{margin-top:9vh;border-top:1px solid var(--line);padding-top:7vh}
 .pop-wrap .cat-grid{margin-top:34px}
 
+.sheet-brand{display:flex;flex-direction:column;align-items:center;gap:7px;padding:30px 16px 22px;background:radial-gradient(120% 150% at 50% 0%,#261C0D 0%,#151009 55%,#0C0A06 100%);border-bottom:1px solid rgba(227,160,8,.35)}
+.sheet-brand img{width:66px;height:66px}
+.sheet-brand-name{font-family:var(--serif);font-size:1.4rem;font-weight:800;color:var(--gold2);line-height:1.1}
+.sheet-brand-slogan{font-size:.8rem;color:var(--mut)}
+.cat-card .cimg-brand{background:radial-gradient(120% 150% at 50% 0%,#261C0D 0%,#151009 55%,#0C0A06 100%)}
+.cat-card .cimg-brand::after{content:"";position:absolute;inset:0;background:url('demo-bacha/favicon.svg') center/76px no-repeat;pointer-events:none}
+.cat-card .cimg .cprice,.cat-card .cimg .cbadge{z-index:2}
 </style>
 
 <style id="persuasion-css">
@@ -665,6 +672,10 @@ footer .f-mid{font-family:var(--font-g);font-weight:600;font-size:.7rem;color:va
 .onetap-hint{margin:8px 0 4px;text-align:center;font-size:.8rem;color:var(--muted,#b6b0a1)}
 body{padding-bottom:84px}
 @media(max-width:760px){.fricard{flex-direction:column;align-items:flex-start}#sbTxt{font-size:.8rem}#stickybar{bottom:60px}.toast{bottom:128px!important}}
+.sheet-brand{display:flex;flex-direction:column;align-items:center;gap:7px;padding:30px 16px 22px;background:radial-gradient(120% 150% at 50% 0%,#261C0D 0%,#151009 55%,#0C0A06 100%);border-bottom:1px solid rgba(227,160,8,.35)}
+.sheet-brand img{width:66px;height:66px}
+.sheet-brand-name{font-family:var(--serif);font-size:1.4rem;font-weight:800;color:var(--gold2);line-height:1.1}
+.sheet-brand-slogan{font-size:.8rem;color:var(--mut)}
 </style>
 <link rel="preload" as="image" href="demo-bacha/hero-poster.webp" fetchpriority="high">
 </head>
@@ -806,20 +817,20 @@ body{padding-bottom:84px}
 <section class="scene" id="menu" data-chapter="05" data-name="الكتالوغ" aria-label="الكتالوغ">
   <div class="layers-head">
     <p class="spec" data-i18n="menuSpec">05. الكتالوغ — تخصصات الباشا</p>
-    <h2 class="big">تخصصات الدار<br><span class="grad-gold">بصور حقيقية من مطبخنا</span></h2>
+    <h2 class="big">تخصصات الدار<br><span class="grad-gold">من مطبخ الباشا نفسه</span></h2>
   </div>
   <div class="cat-grid">
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-lahssa.webp')"><span class="cprice">35 درهم</span><span class="cbadge">الأكثر طلباً</span></div><div class="cbody"><h3>لحسة الباشا</h3><p>توقيع الدار والطبق اللي شهّرها — كتغلي وكتوصل سخونة.</p><button class="add-btn" type="button" data-add="lahssa">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-pizza.webp')"><span class="cprice">55 درهم</span><span class="cbadge">توقيع الباشا</span></div><div class="cbody"><h3>بيتزا ثمار البحر</h3><p>قمرون وكلامار وفطر على عجينة رقيقة — نجمة الحساب.</p><button class="add-btn" type="button" data-add="pizza">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-veggie.webp')"><span class="cprice">45 درهم</span></div><div class="cbody"><h3>بيتزا الخضار</h3><p>باذنجان وفلفلة وذرة وطماطم على عجينة رقيقة — خفيفة ومليانة نكهة.</p><button class="add-btn" type="button" data-add="veggie">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-crispy.webp')"><span class="cprice">45 درهم</span></div><div class="cbody"><h3>برغر كرسبي</h3><p>قطعة كرسبي مقرمشة بالجبن — كتتركب قدامك.</p><button class="add-btn" type="button" data-add="crispy">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-emince.webp')"><span class="cprice">70 درهم</span></div><div class="cbody"><h3>إمينسي الدجاج</h3><p>دجاج بصلصة الفطر الكريمية مع روز وخضرة — طبق رئيسي كامل.</p><button class="add-btn" type="button" data-add="emince">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-emincev.webp')"><span class="cprice">95 درهم</span></div><div class="cbody"><h3>إمينسي اللحم</h3><p>لحم بقري بصلصة الفطر الكريمية مع روز وبيري وخضرة — طبق رئيسي فاخر.</p><button class="add-btn" type="button" data-add="emincev">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-kampiro.webp')"><span class="cprice">45 درهم</span></div><div class="cbody"><h3>كامبيرو الباشا</h3><p>ساندويتش عامر بالدجاج والفلفلة والجبن، مع بطاطس وصلصة الدار.</p><button class="add-btn" type="button" data-add="kampiro">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-couscous.webp')"><span class="cprice">60 درهم</span><span class="cbadge">نهار الجمعة</span></div><div class="cbody"><h3>كسكس الجمعة</h3><p>موعد الجمعة المقدس: سميدة، لحم، خضرة وتفاية ذهبية.</p><button class="add-btn" type="button" data-add="couscous">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-pasticho.webp')"><span class="cprice">45 درهم</span></div><div class="cbody"><h3>باستيشو</h3><p>باستا غراتان بالجبن، كتخرج من الفرن وهي كتغلي.</p><button class="add-btn" type="button" data-add="pasticho">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-platter.webp')"><span class="cprice">110 درهم</span><span class="cbadge">للمشاركة</span></div><div class="cbody"><h3>طبق مشترك الباشا</h3><p>كلامار مقرمش ومقليات الدار مع الصلصات — طبق كيجمع الحباب.</p><button class="add-btn" type="button" data-add="platter">+ زيدها للطلب</button></div></article>
-    <article class="cat-card"><div class="cimg" style="background-image:url('demo-bacha/p-formule.webp')"><span class="cprice">85 درهم</span><span class="cbadge">عرض خاص</span></div><div class="cbody"><h3>فورمول الباشا</h3><p>بيتزا + لحسة + باستيشو — العرض اللي كيهضرو عليه كاملين.</p><button class="add-btn" type="button" data-add="formule">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">35 درهم</span><span class="cbadge">الأكثر طلباً</span></div><div class="cbody"><h3>لحسة الباشا</h3><p>توقيع الدار والطبق اللي شهّرها — كتغلي وكتوصل سخونة.</p><button class="add-btn" type="button" data-add="lahssa">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">55 درهم</span><span class="cbadge">توقيع الباشا</span></div><div class="cbody"><h3>بيتزا ثمار البحر</h3><p>قمرون وكلامار وفطر على عجينة رقيقة — نجمة الحساب.</p><button class="add-btn" type="button" data-add="pizza">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">45 درهم</span></div><div class="cbody"><h3>بيتزا الخضار</h3><p>باذنجان وفلفلة وذرة وطماطم على عجينة رقيقة — خفيفة ومليانة نكهة.</p><button class="add-btn" type="button" data-add="veggie">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">45 درهم</span></div><div class="cbody"><h3>برغر كرسبي</h3><p>قطعة كرسبي مقرمشة بالجبن — كتتركب قدامك.</p><button class="add-btn" type="button" data-add="crispy">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">70 درهم</span></div><div class="cbody"><h3>إمينسي الدجاج</h3><p>دجاج بصلصة الفطر الكريمية مع روز وخضرة — طبق رئيسي كامل.</p><button class="add-btn" type="button" data-add="emince">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">95 درهم</span></div><div class="cbody"><h3>إمينسي اللحم</h3><p>لحم بقري بصلصة الفطر الكريمية مع روز وبيري وخضرة — طبق رئيسي فاخر.</p><button class="add-btn" type="button" data-add="emincev">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">45 درهم</span></div><div class="cbody"><h3>كامبيرو الباشا</h3><p>ساندويتش عامر بالدجاج والفلفلة والجبن، مع بطاطس وصلصة الدار.</p><button class="add-btn" type="button" data-add="kampiro">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">60 درهم</span><span class="cbadge">نهار الجمعة</span></div><div class="cbody"><h3>كسكس الجمعة</h3><p>موعد الجمعة المقدس: سميدة، لحم، خضرة وتفاية ذهبية.</p><button class="add-btn" type="button" data-add="couscous">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">45 درهم</span></div><div class="cbody"><h3>باستيشو</h3><p>باستا غراتان بالجبن، كتخرج من الفرن وهي كتغلي.</p><button class="add-btn" type="button" data-add="pasticho">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">110 درهم</span><span class="cbadge">للمشاركة</span></div><div class="cbody"><h3>طبق مشترك الباشا</h3><p>كلامار مقرمش ومقليات الدار مع الصلصات — طبق كيجمع الحباب.</p><button class="add-btn" type="button" data-add="platter">+ زيدها للطلب</button></div></article>
+    <article class="cat-card"><div class="cimg cimg-brand"><span class="cprice">85 درهم</span><span class="cbadge">عرض خاص</span></div><div class="cbody"><h3>فورمول الباشا</h3><p>بيتزا + لحسة + باستيشو — العرض اللي كيهضرو عليه كاملين.</p><button class="add-btn" type="button" data-add="formule">+ زيدها للطلب</button></div></article>
   </div>
   <div class="boards-wrap">
     <p class="spec" style="justify-content:center">المنيو الأصلي</p>
@@ -853,7 +864,7 @@ body{padding-bottom:84px}
   <h2 class="big">أرقامنا<br><span class="grad-gold">بلا تزويق</span></h2>
   <div class="stats">
     <div class="stat"><b><span data-count="51">51</span><small>ألف+</small></b><h4>متابع على إنستغرام</h4><p>مجتمع كيكبر كل نهار حول أطباق الباشا وحكاياتها.</p></div>
-    <div class="stat"><b data-count="13">13</b><h4>تخصصاً بصور حقيقية</h4><p>كل وحدة بصورتها الحقيقية من مطبخ الباشا نفسه — والبرغر والسباغيتي عندهم فصولهم الخاصة.</p></div>
+    <div class="stat"><b data-count="13">13</b><h4>تخصصاً بتوقيع الشيف</h4><p>كل وحدة من مطبخ الباشا نفسه، بلمسة الشيف أيوب — والبرغر والسباغيتي عندهم فصولهم الخاصة.</p></div>
     <div class="stat"><b><span data-count="35">35</span><small>درهم</small></b><h4>ثمن أشهر طبق</h4><p>اللحسة ولّات حديث المدينة — وبثمن في متناول الجميع.</p></div>
     <div class="stat"><b data-count="7">7</b><h4>أيام في الأسبوع</h4><p>الدار خدامة كل نهار، ونهار الجمعة عندو طقسو الخاص: الكسكس.</p></div>
   </div>
@@ -1156,19 +1167,16 @@ body{padding-bottom:84px}
 
 </main>
 <div id="stickybar">
-  <span id="sbTxt" data-i18n="barEmpty">أطباق الشيف — بصور حقيقية</span>
+  <span id="sbTxt" data-i18n="barEmpty">مطعم الباشا — كل طبق له حكاية</span>
   <button class="sb-btn" id="sbBtn" type="button" data-i18n="barOrder">اطلب دابا</button>
 </div>
 <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
 <aside class="dish-sheet" id="dishSheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheetName">
   <button class="sheet-x" id="sheetClose" type="button" aria-label="إغلاق">✕</button>
-  <div class="sheet-media">
-    <img id="sheetImg" src="" alt="" decoding="async">
-    <div id="sheetViewer"></div>
-    <span class="sheet-3d-badge" id="sheet3dBadge">عرض ثلاثي الأبعاد — صورة الطبق الحقيقية</span>
-    <div class="sheet-glare" id="sheetGlare"></div>
-    <span class="sheet-tilt-hint" id="sheetTiltHint">اسحب الصورة ودوّرها — عرض ثلاثي الأبعاد</span>
-    <div class="sheet-angles" id="sheetAngles"></div>
+  <div class="sheet-brand">
+    <img src="demo-bacha/favicon.svg" alt="مطعم الباشا">
+    <div class="sheet-brand-name">مطعم الباشا</div>
+    <div class="sheet-brand-slogan">كل طبق له حكاية</div>
   </div>
   <div class="sheet-body">
     <h3 id="sheetName"></h3>
@@ -1375,8 +1383,6 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
      «النموذج ثلاثي الأبعاد في طور الإعداد» — بلا ادعاءات كاذبة. */
   var LANG = "ar";
   var MODELS = { lahssa: "", burger: "", pizza: "", veggie: "", spaghetti: "", formule: "", kampiro: "", crispy: "", emince: "", emincev: "", pasticho: "", platter: "", couscous: "", nuggets: "", tenders: "", bravas: "", tortilla_esp: "", tortilla_gambas: "", calamars: "", cheese_fries: "", mozza: "", sal_marocaine: "", sal_russe: "", sal_cesar: "", sal_avocat: "", sal_fdm: "", sal_nicoise: "", sal_cesar_gambas: "", sal_royale: "", sw_curry: "", sw_tandoori: "", sw_fajitas: "", sw_grille: "", sw_povalo: "", sw_escalope: "", sw_fdm: "", sw_american: "", tacos_poulet_l: "", tacos_poulet_xl: "", tacos_nuggets_l: "", tacos_nuggets_xl: "", tacos_cordon_l: "", tacos_cordon_xl: "", tacos_vh_l: "", tacos_vh_xl: "", tacos_fdm_l: "", tacos_fdm_xl: "", tacos_curry_l: "", tacos_curry_xl: "", tacos_tandoori_l: "", tacos_tandoori_xl: "", tacos_mixte_l: "", tacos_mixte_xl: "", tacos_crispy_l: "", tacos_crispy_xl: "", bg_chez: "", bg_chicken: "", bg_smash: "", bg_american: "", bg_mexican: "", pz_margherita: "", pz_poulet: "", pz_vh: "", pz_pepperoni: "", pz_carbonara: "", pz_4fromages: "", pz_moitie: "", pz_4saisons: "", pz_royale: "", wr_avocat: "", wr_poulet: "", wr_crispy: "", wr_vh: "", wr_tandoori: "", wr_curry: "", wr_mixte: "", pn_poulet: "", pn_vh: "", pn_mixte: "", pn_fdm: "", sh_plate: "", sh_normal: "", sh_frites: "", sh_frites_fromage: "", qs_poulet: "", qs_vh: "", qs_fdm: "", qs_curry: "", qs_tandoori: "", qs_crispy: "", qs_royale: "", pt_arrabbiata: "", pt_poulet_champ: "", pt_bolognaise: "", pt_carbonara: "", pt_saumon: "", las_bolognaise: "", las_fdm: "", gratin_poulet: "", gratin_fdm: "", pasticho_poulet: "", pasticho_fdm: "", pasticho_mixte: "", pasticho_kapsalo: "", kampiro_vh: "", kampiro_mixte: "", bowl_seafood: "", bowl_crispy_h: "", bowl_spadon: "", bowl_tempura: "", bowl_escalope: "", bowl_nuggets: "", bowl_dinde: "", bowl_cordon: "", bowl_poulet: "", bowl_crispy: "", bowl_vh: "", paella_fdm: "", paella_valenciana: "", plat_brochettes: "", plat_cordon: "", filet_poulet: "", filet_viande: "", poulet_alfredo: "", parmigiana: "", sbadone: "", taj_vh: "", taj_regamonte: "", taj_pilpil: "", des_fruits: "", des_flan: "", des_tiramisu: "", des_flan_royal: "", des_citron: "", des_cheesecake: "", des_sansebastian: "" };
-  var DISHIMG2 = { pizza: "demo-bacha/p-pizza2.webp" };
-  var DISHIMG = { lahssa: "demo-bacha/p-lahssa.webp", burger: "demo-bacha/p-burger.webp", pizza: "demo-bacha/p-pizza.webp", veggie: "demo-bacha/p-veggie.webp", spaghetti: "demo-bacha/stage.webp", formule: "demo-bacha/p-formule.webp", kampiro: "demo-bacha/p-kampiro.webp", crispy: "demo-bacha/p-crispy.webp", emince: "demo-bacha/p-emince.webp", emincev: "demo-bacha/p-emincev.webp", pasticho: "demo-bacha/p-pasticho.webp", platter: "demo-bacha/p-platter.webp", couscous: "demo-bacha/p-couscous.webp", nuggets: "demo-bacha/m-nuggets.webp", tenders: "demo-bacha/m-tenders.webp", bravas: "demo-bacha/m-bravas.webp", tortilla_esp: "demo-bacha/m-tortilla_esp.webp", tortilla_gambas: "demo-bacha/m-tortilla_gambas.webp", calamars: "demo-bacha/m-calamars.webp", cheese_fries: "demo-bacha/m-cheese_fries.webp", mozza: "demo-bacha/m-mozza.webp", sal_marocaine: "demo-bacha/m-sal_marocaine.webp", sal_russe: "demo-bacha/m-sal_russe.webp", sal_cesar: "demo-bacha/m-sal_cesar.webp", sal_avocat: "demo-bacha/m-sal_avocat.webp", sal_fdm: "demo-bacha/m-sal_fdm.webp", sal_nicoise: "demo-bacha/m-sal_nicoise.webp", sal_cesar_gambas: "demo-bacha/m-sal_cesar_gambas.webp", sal_royale: "demo-bacha/m-sal_royale.webp", sw_curry: "demo-bacha/m-sw_curry.webp", sw_tandoori: "demo-bacha/m-sw_tandoori.webp", sw_fajitas: "demo-bacha/m-sw_fajitas.webp", sw_grille: "demo-bacha/m-sw_grille.webp", sw_povalo: "demo-bacha/m-sw_povalo.webp", sw_escalope: "demo-bacha/m-sw_escalope.webp", sw_fdm: "demo-bacha/m-sw_fdm.webp", sw_american: "demo-bacha/m-sw_american.webp", tacos_poulet_l: "demo-bacha/m-tacos_poulet_l.webp", tacos_poulet_xl: "demo-bacha/m-tacos_poulet_xl.webp", tacos_nuggets_l: "demo-bacha/m-tacos_nuggets_l.webp", tacos_nuggets_xl: "demo-bacha/m-tacos_nuggets_xl.webp", tacos_cordon_l: "demo-bacha/m-tacos_cordon_l.webp", tacos_cordon_xl: "demo-bacha/m-tacos_cordon_xl.webp", tacos_vh_l: "demo-bacha/m-tacos_vh_l.webp", tacos_vh_xl: "demo-bacha/m-tacos_vh_xl.webp", tacos_fdm_l: "demo-bacha/m-tacos_fdm_l.webp", tacos_fdm_xl: "demo-bacha/m-tacos_fdm_xl.webp", tacos_curry_l: "demo-bacha/m-tacos_curry_l.webp", tacos_curry_xl: "demo-bacha/m-tacos_curry_xl.webp", tacos_tandoori_l: "demo-bacha/m-tacos_tandoori_l.webp", tacos_tandoori_xl: "demo-bacha/m-tacos_tandoori_xl.webp", tacos_mixte_l: "demo-bacha/m-tacos_mixte_l.webp", tacos_mixte_xl: "demo-bacha/m-tacos_mixte_xl.webp", tacos_crispy_l: "demo-bacha/m-tacos_crispy_l.webp", tacos_crispy_xl: "demo-bacha/m-tacos_crispy_xl.webp", bg_chez: "demo-bacha/m-bg_chez.webp", bg_chicken: "demo-bacha/m-bg_chicken.webp", bg_smash: "demo-bacha/m-bg_smash.webp", bg_american: "demo-bacha/m-bg_american.webp", bg_mexican: "demo-bacha/m-bg_mexican.webp", pz_margherita: "demo-bacha/m-pz_margherita.webp", pz_poulet: "demo-bacha/m-pz_poulet.webp", pz_vh: "demo-bacha/m-pz_vh.webp", pz_pepperoni: "demo-bacha/m-pz_pepperoni.webp", pz_carbonara: "demo-bacha/m-pz_carbonara.webp", pz_4fromages: "demo-bacha/m-pz_4fromages.webp", pz_moitie: "demo-bacha/m-pz_moitie.webp", pz_4saisons: "demo-bacha/m-pz_4saisons.webp", pz_royale: "demo-bacha/m-pz_royale.webp", wr_avocat: "demo-bacha/m-wr_avocat.webp", wr_poulet: "demo-bacha/m-wr_poulet.webp", wr_crispy: "demo-bacha/m-wr_crispy.webp", wr_vh: "demo-bacha/m-wr_vh.webp", wr_tandoori: "demo-bacha/m-wr_tandoori.webp", wr_curry: "demo-bacha/m-wr_curry.webp", wr_mixte: "demo-bacha/m-wr_mixte.webp", pn_poulet: "demo-bacha/m-pn_poulet.webp", pn_vh: "demo-bacha/m-pn_vh.webp", pn_mixte: "demo-bacha/m-pn_mixte.webp", pn_fdm: "demo-bacha/m-pn_fdm.webp", sh_plate: "demo-bacha/m-sh_plate.webp", sh_normal: "demo-bacha/m-sh_normal.webp", sh_frites: "demo-bacha/m-sh_frites.webp", sh_frites_fromage: "demo-bacha/m-sh_frites_fromage.webp", qs_poulet: "demo-bacha/m-qs_poulet.webp", qs_vh: "demo-bacha/m-qs_vh.webp", qs_fdm: "demo-bacha/m-qs_fdm.webp", qs_curry: "demo-bacha/m-qs_curry.webp", qs_tandoori: "demo-bacha/m-qs_tandoori.webp", qs_crispy: "demo-bacha/m-qs_crispy.webp", qs_royale: "demo-bacha/m-qs_royale.webp", pt_arrabbiata: "demo-bacha/m-pt_arrabbiata.webp", pt_poulet_champ: "demo-bacha/m-pt_poulet_champ.webp", pt_bolognaise: "demo-bacha/m-pt_bolognaise.webp", pt_carbonara: "demo-bacha/m-pt_carbonara.webp", pt_saumon: "demo-bacha/m-pt_saumon.webp", las_bolognaise: "demo-bacha/m-las_bolognaise.webp", las_fdm: "demo-bacha/m-las_fdm.webp", gratin_poulet: "demo-bacha/m-gratin_poulet.webp", gratin_fdm: "demo-bacha/m-gratin_fdm.webp", pasticho_poulet: "demo-bacha/m-pasticho_poulet.webp", pasticho_fdm: "demo-bacha/m-pasticho_fdm.webp", pasticho_mixte: "demo-bacha/m-pasticho_mixte.webp", pasticho_kapsalo: "demo-bacha/m-pasticho_kapsalo.webp", kampiro_vh: "demo-bacha/m-kampiro_vh.webp", kampiro_mixte: "demo-bacha/m-kampiro_mixte.webp", bowl_seafood: "demo-bacha/m-bowl_seafood.webp", bowl_crispy_h: "demo-bacha/m-bowl_crispy_h.webp", bowl_spadon: "demo-bacha/m-bowl_spadon.webp", bowl_tempura: "demo-bacha/m-bowl_tempura.webp", bowl_escalope: "demo-bacha/m-bowl_escalope.webp", bowl_nuggets: "demo-bacha/m-bowl_nuggets.webp", bowl_dinde: "demo-bacha/m-bowl_dinde.webp", bowl_cordon: "demo-bacha/m-bowl_cordon.webp", bowl_poulet: "demo-bacha/m-bowl_poulet.webp", bowl_crispy: "demo-bacha/m-bowl_crispy.webp", bowl_vh: "demo-bacha/m-bowl_vh.webp", paella_fdm: "demo-bacha/m-paella_fdm.webp", paella_valenciana: "demo-bacha/m-paella_valenciana.webp", plat_brochettes: "demo-bacha/m-plat_brochettes.webp", plat_cordon: "demo-bacha/m-plat_cordon.webp", filet_poulet: "demo-bacha/m-filet_poulet.webp", filet_viande: "demo-bacha/m-filet_viande.webp", poulet_alfredo: "demo-bacha/m-poulet_alfredo.webp", parmigiana: "demo-bacha/m-parmigiana.webp", sbadone: "demo-bacha/m-sbadone.webp", taj_vh: "demo-bacha/m-taj_vh.webp", taj_regamonte: "demo-bacha/m-taj_regamonte.webp", taj_pilpil: "demo-bacha/m-taj_pilpil.webp", des_fruits: "demo-bacha/m-des_fruits.webp", des_flan: "demo-bacha/m-des_flan.webp", des_tiramisu: "demo-bacha/m-des_tiramisu.webp", des_flan_royal: "demo-bacha/m-des_flan_royal.webp", des_citron: "demo-bacha/m-des_citron.webp", des_cheesecake: "demo-bacha/m-des_cheesecake.webp", des_sansebastian: "demo-bacha/m-des_sansebastian.webp" };
   var DISHES = {
     lahssa:    { ar: { name: "لحسة الباشا", desc: "توقيع الدار والطبق اللي شهّرها — كتغلي وكتوصل سخونة.", note: "توقيع الدار — الأكثر طلباً" },
                  fr: { name: "Lahssa El Bacha", desc: "La signature de la maison — le plat qui a fait sa réputation, servi bouillant.", note: "Signature de la maison — le plus commandé" } },
@@ -1659,7 +1665,7 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
       mDelB: "التوصيل لباب الدار", mDelS: "كيوصلك الطلب سخون حتى لعندك", mPickB: "الاستلام من المطعم", mPickS: "البرانص 2 · قريب من مركز الحليب",
       geoBtn: "◎ استعمل موقعي الحالي", addrNote: "ثمن ومدة التوصيل كيتأكدو معاك في واتساب قبل ما يتحضّر الطلب. موقعك كيتزاد غير في رسالة الطلب، ما كيتخزّن حتى في بلاصة.",
       oneTap: "🟢 اطلب دابا في واتساب — بلا ما تعمّر والو", oneTapHint: "المعلومات أعلاها اختيارية مع هاد الزر — زيدها غير إلا بغيتي تدقّق الطلب.",
-      barEmpty: "أطباق الشيف — بصور حقيقية", barOrder: "اطلب دابا", barInCart: "{n} في السلة", barCheckout: "كمّل الطلب",
+      barEmpty: "مطعم الباشا — كل طبق له حكاية", barOrder: "اطلب دابا", barInCart: "{n} في السلة", barCheckout: "كمّل الطلب",
       friT: "كسكس الجمعة 🍲", friP: "طبق الدار ديال نهار الجمعة — كيتحضّر غير في هاد النهار، على الطريقة التقليدية. زيدو لطلبك واختار نهار الجمعة كموعد.", friAdd: "+ زيدها للطلب",
       friToday: "اليوم الجمعة — الكسكس متوفر اليوم!", friIn: "باقي {n} على نهار الجمعة", friD: "يوم", friH: "ساعة", friM: "دقيقة",
       trust1: "💵 الدفع عند الاستلام أو بالتحويل", trust2: "💬 تأكيد فوري في واتساب", trust3: "🛵 توصيل أو استلام من المحل",
@@ -1680,7 +1686,7 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
       mDelB: "Livraison à domicile", mDelS: "Votre commande arrive chaude chez vous", mPickB: "À emporter au restaurant", mPickS: "Branes 2 · près du Centre Laitier",
       geoBtn: "◎ Utiliser ma position actuelle", addrNote: "Les frais et le délai de livraison sont confirmés sur WhatsApp avant la préparation. Votre position n'est ajoutée qu'au message de commande, elle n'est jamais enregistrée.",
       oneTap: "🟢 Commander sur WhatsApp — sans rien remplir", oneTapHint: "Avec ce bouton, les infos ci-dessus sont facultatives — ajoutez-les seulement pour préciser la commande.",
-      barEmpty: "Les plats du chef, en photos réelles", barOrder: "Commander", barInCart: "{n} au panier", barCheckout: "Finaliser",
+      barEmpty: "Restaurant El Bacha — chaque plat a son histoire", barOrder: "Commander", barInCart: "{n} au panier", barCheckout: "Finaliser",
       friT: "Couscous du vendredi 🍲", friP: "Le plat maison du vendredi — préparé uniquement ce jour-là, à la traditionnelle. Ajoutez-le à votre commande et choisissez vendredi comme rendez-vous.", friAdd: "+ Ajouter",
       friToday: "C'est vendredi — le couscous est disponible aujourd'hui !", friIn: "Plus que {n} avant vendredi", friD: "j", friH: "h", friM: "min",
       trust1: "💵 Paiement à la livraison ou par virement", trust2: "💬 Confirmation immédiate sur WhatsApp", trust3: "🛵 Livraison ou retrait au restaurant",
@@ -1975,31 +1981,13 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
     document.getElementById("sheetDesc").textContent = d[LANG].desc;
     document.getElementById("sheetPrice").textContent = fmt(MENU[sheetKey].price);
     document.getElementById("sheetQty").textContent = sheetQty;
-    document.getElementById("sheet3dBadge").textContent = T("sheet3d");
-    document.getElementById("sheetTiltHint").textContent = T("sheetTilt");
     sheetTotal();
   }
   function openSheet(key, origin){
     if (!MENU[key]) return;
     sheetKey = key; sheetQty = 1; sheetOrigin = origin || "catalog";
     document.getElementById("sheetNote").value = "";
-    const img = document.getElementById("sheetImg"), viewer = document.getElementById("sheetViewer"), badge = document.getElementById("sheet3dBadge");
-    img.src = DISHIMG[key]; img.alt = DISHES[key][LANG].name;
-    img.style.transform = "";
-    viewer.innerHTML = ""; viewer.style.display = "none"; img.style.display = ""; badge.style.display = "";
-    const hint = document.getElementById("sheetTiltHint"); hint.style.display = "";
-    const angles = document.getElementById("sheetAngles");
-    const shots = DISHIMG2[key] ? [DISHIMG[key], DISHIMG2[key]] : [DISHIMG[key]];
-    angles.innerHTML = ""; angles.classList.toggle("on", shots.length > 1);
-    shots.forEach((s, i) => { const b = document.createElement("button"); b.type = "button"; b.style.backgroundImage = "url('" + s + "')"; b.setAttribute("aria-label", DISHES[key][LANG].name); if (i === 0) b.classList.add("on"); b.addEventListener("click", ()=>{ img.src = s; img.style.transform = ""; angles.querySelectorAll("button").forEach(x => x.classList.remove("on")); b.classList.add("on"); }); angles.appendChild(b); });
     fillSheet();
-    if (MODELS[key]) {
-      ensureModelViewer(()=>{
-        if (sheetKey !== key) return;
-        img.style.display = "none"; badge.style.display = "none"; hint.style.display = "none"; angles.classList.remove("on"); viewer.style.display = "block";
-        viewer.innerHTML = '<model-viewer src="' + MODELS[key] + '" poster="' + DISHIMG[key] + '" camera-controls auto-rotate shadow-intensity="0.5" style="width:100%;height:100%" alt="' + DISHES[key][LANG].name + '"></model-viewer>';
-      });
-    }
     sheet.hidden = false; sheetBd.hidden = false;
     requestAnimationFrame(()=>{ sheet.classList.add("open"); sheetBd.classList.add("open"); });
     if (window.__lenis) window.__lenis.stop();
@@ -2086,7 +2074,7 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
     document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.dataset.i18n; if (STR[l][k]) el.textContent = STR[l][k]; });
     document.querySelectorAll("[data-i18n-ph]").forEach(el => { const k = el.dataset.i18nPh; if (STR[l][k]) el.placeholder = STR[l][k]; });
     const mh = document.querySelector("#menu .layers-head h2");
-    if (mh) mh.innerHTML = l === "fr" ? 'Les spécialités de la maison<br><span class="grad-gold">en vraies photos de notre cuisine</span>' : 'تخصصات الدار<br><span class="grad-gold">بصور حقيقية من مطبخنا</span>';
+    if (mh) mh.innerHTML = l === "fr" ? 'Les spécialités de la maison<br><span class="grad-gold">de la cuisine El Bacha</span>' : 'تخصصات الدار<br><span class="grad-gold">من مطبخ الباشا نفسه</span>';
     const oh = document.querySelector("#order > h2.big");
     if (oh) oh.innerHTML = l === "fr" ? 'Composez <span class="grad-gold">votre commande</span>' : 'بنِ <span class="grad-gold">طلبك</span>';
     const al = document.querySelector('label[for="addrInput"]');
@@ -2370,9 +2358,9 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
 <script id="persuasion-js">
 (function(){
   var DICT = {
-    ar: { barEmpty: "أطباق الشيف — بصور حقيقية", barOrder: "اطلب دابا", barInCart: "{n} في السلة", barCheckout: "كمّل الطلب",
+    ar: { barEmpty: "مطعم الباشا — كل طبق له حكاية", barOrder: "اطلب دابا", barInCart: "{n} في السلة", barCheckout: "كمّل الطلب",
       friToday: "اليوم الجمعة — الكسكس متوفر اليوم!", friIn: "باقي {n} على نهار الجمعة", friD: "يوم", friH: "ساعة", friM: "دقيقة", oneTapEmpty: "زيد أطباق أولاً 👆" },
-    fr: { barEmpty: "Les plats du chef, en photos réelles", barOrder: "Commander", barInCart: "{n} au panier", barCheckout: "Finaliser",
+    fr: { barEmpty: "Restaurant El Bacha — chaque plat a son histoire", barOrder: "Commander", barInCart: "{n} au panier", barCheckout: "Finaliser",
       friToday: "C'est vendredi — le couscous est disponible aujourd'hui !", friIn: "Plus que {n} avant vendredi", friD: "j", friH: "h", friM: "min", oneTapEmpty: "Ajoutez d'abord des plats 👆" }
   };
   function curLang(){ var el = document.querySelector('[data-i18n="sumTotalL"]'); return (el && el.textContent.trim() === 'Total') ? 'fr' : 'ar'; }
