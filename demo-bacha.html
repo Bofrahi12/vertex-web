@@ -654,6 +654,13 @@ footer .f-mid{font-family:var(--font-g);font-weight:600;font-size:.7rem;color:va
 .cat-card .cimg .cprice,.cat-card .cimg .cbadge{z-index:2}
 .sheet-ig{display:inline-flex;align-items:center;gap:8px;margin-top:6px;color:var(--gold2);font-size:.84rem;font-weight:700;text-decoration:none;border:1px solid rgba(227,160,8,.45);padding:7px 15px;border-radius:99px;background:rgba(227,160,8,.08)}
 .sheet-ig svg{width:17px;height:17px;flex:none}
+.chef3d{position:relative;width:118px;height:118px;border-radius:50%;transform-style:preserve-3d;will-change:transform;animation:chefSway 7s ease-in-out infinite alternate}
+.sheet-brand .chef3d img{width:100%;height:100%;display:block;border-radius:50%;border:2px solid rgba(227,160,8,.8);box-shadow:0 16px 36px rgba(0,0,0,.55),0 0 0 7px rgba(227,160,8,.13),inset 0 0 0 1px rgba(0,0,0,.35)}
+.chef3d-glare{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at var(--gx,32%) var(--gy,26%),rgba(255,242,205,.42),transparent 56%);opacity:0;transition:opacity .25s;pointer-events:none}
+.sheet-brand.tilting .chef3d-glare{opacity:1}
+@keyframes chefSway{from{transform:rotateX(2.5deg) rotateY(-3.5deg)}to{transform:rotateX(-2deg) rotateY(3.5deg)}}
+.sheet-brand{perspective:900px}
+@media (prefers-reduced-motion: reduce){.chef3d{animation:none}}
 </style>
 
 <style id="persuasion-css">
@@ -1176,7 +1183,7 @@ body{padding-bottom:84px}
 <aside class="dish-sheet" id="dishSheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheetName">
   <button class="sheet-x" id="sheetClose" type="button" aria-label="إغلاق">✕</button>
   <div class="sheet-brand">
-    <img src="demo-bacha/favicon.svg" alt="مطعم الباشا">
+    <div class="chef3d" id="chef3d"><img src="demo-bacha/chef-medallion.webp" alt="الشيف أيوب بنعمر — مطعم الباشا" decoding="async"><div class="chef3d-glare"></div></div>
     <div class="sheet-brand-name">مطعم الباشا</div>
     <div class="sheet-brand-slogan">كل طبق له حكاية</div>
     <a class="sheet-ig" href="https://www.instagram.com/chef_ayoub_lbacha" target="_blank" rel="noopener" aria-label="Instagram — chef_ayoub_lbacha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.6" cy="6.4" r="0.6" fill="currentColor" stroke="none"></circle></svg><span dir="ltr">@chef_ayoub_lbacha</span></a>
@@ -2576,6 +2583,27 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
     if (jb) jb.textContent = fr ? jb.dataset.fr : jb.dataset.ar;
   }
   document.getElementById("langToggle").addEventListener("click", function(){ setTimeout(swapLang, 60); });
+})();
+</script>
+<script>
+/* v32 — صورة الشيف ثلاثية الأبعاد: إمالة باللمس/الفأرة مع انعكاس ضوئي */
+(function(){
+  var brand = document.querySelector(".sheet-brand"), med = document.getElementById("chef3d");
+  if (!brand || !med || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var dragging = false;
+  function tilt(e){
+    var r = brand.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    med.style.animation = "none";
+    med.style.transform = "rotateX(" + ((.5 - y) * 13).toFixed(1) + "deg) rotateY(" + ((x - .5) * 17).toFixed(1) + "deg) scale(1.05)";
+    med.style.setProperty("--gx", (x * 100) + "%"); med.style.setProperty("--gy", (y * 100) + "%");
+    var gl = med.querySelector(".chef3d-glare"); if (gl) { gl.style.setProperty("--gx", (x * 100) + "%"); gl.style.setProperty("--gy", (y * 100) + "%"); }
+  }
+  function reset(){ med.style.transform = ""; med.style.animation = ""; brand.classList.remove("tilting"); }
+  brand.addEventListener("pointerdown", function(e){ dragging = true; brand.classList.add("tilting"); tilt(e); });
+  brand.addEventListener("pointermove", function(e){ if (e.pointerType === "touch" && !dragging) return; tilt(e); brand.classList.add("tilting"); });
+  window.addEventListener("pointerup", function(){ if (dragging) { dragging = false; setTimeout(reset, 350); } });
+  brand.addEventListener("pointerleave", function(){ if (!dragging) reset(); });
 })();
 </script>
 </body>
