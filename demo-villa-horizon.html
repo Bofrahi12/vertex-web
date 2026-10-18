@@ -386,10 +386,10 @@ if (f1) {
   f1.onprogress = function(r){
     var v = Math.round(r*100);
     pct.textContent = v+'%'; fill.style.width = v+'%';
-    if (r >= 1) openLoader();
+    if (r >= 0.7) openLoader();
   };
   f1.start();
-  setTimeout(openLoader, 9000); /* never trap the visitor */
+  setTimeout(openLoader, 14000); /* never trap the visitor */
 }
 var opened = false;
 function openLoader(){
