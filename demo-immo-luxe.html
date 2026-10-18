@@ -196,6 +196,18 @@ footer{background:#080706;padding:64px 5vw 0;overflow:hidden}
   </div>
 </section>
 
+<section id="facade" class="filmsec" data-chap="03" style="height:330vh">
+  <div class="film-sticky">
+    <canvas class="filmcanvas" data-seq="demo-immo-luxe/vid/seq-facade/f" data-frames="233" data-poster="demo-immo-luxe/vid/posters/facade.jpg" data-pname="filmp3"></canvas>
+    <div class="veil"></div><div class="chap-num" style="position:absolute;right:34px;top:84px;font-family:var(--mono);font-size:11px;letter-spacing:.34em;color:#ffffffc9;z-index:3">CHAPITRE — LA FAÇADE</div>
+    <h2 class="vtitle">Faç<em>ade</em></h2>
+    <div class="fcap"><div class="label">Acte I — Niveau rue</div><h3>Lever les yeux.</h3></div>
+    <div class="fcap"><div class="label">Acte II — La façade</div><h3>Le verre monte vers le ciel.</h3></div>
+    <div class="fcap"><div class="label">Acte III — Le ciel</div><h3>Et Tanger, à vos pieds.</h3></div>
+    <div class="fline"><i class="ffill"></i></div>
+  </div>
+</section>
+
 <section class="chapter" id="residences" data-chap="03">
   <video src="demo-immo-luxe/vid/mansion.mp4" poster="demo-immo-luxe/vid/posters/mansion.jpg" autoplay muted loop playsinline preload="metadata"></video>
   <div class="veil"></div><div class="chap-num">CHAPITRE 01</div>
@@ -347,6 +359,7 @@ function initFilm(sec){
 }
 initFilm(document.getElementById('film'));
 initFilm(document.getElementById('chantier'));
+initFilm(document.getElementById('facade'));
 })();
 </script>
 </body>
