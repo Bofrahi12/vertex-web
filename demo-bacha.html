@@ -27,6 +27,7 @@
 <meta name="twitter:image" content="https://vertex-web-tanger.onrender.com/demo-bacha/og-bacha.jpg">
 <meta name="twitter:image:alt" content="مطعم الباشا — الشيف أيوب بنعمر · البرانص 2، طنجة · كل طبق له حكاية">
 <meta name="theme-color" content="#0C0A06">
+  <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/svg+xml" href="demo-bacha/favicon.svg">
 <link rel="apple-touch-icon" href="demo-bacha/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -677,6 +678,35 @@ footer .f-mid{font-family:var(--font-g);font-weight:600;font-size:.7rem;color:va
 @keyframes caretBlink{50%{opacity:0}}
 .chef3d.celebrate{animation:chefSpin .95s cubic-bezier(.3,.7,.3,1) !important}
 @keyframes chefSpin{0%{transform:rotateY(0deg) scale(1)}35%{transform:rotateY(205deg) scale(1.12)}100%{transform:rotateY(360deg) scale(1)}}
+.sheet-pairs{margin:14px 0 2px}
+.pairs-t{font-size:.82rem;font-weight:800;color:var(--gold2);margin:0 0 8px}
+.pairs-row{display:flex;gap:8px;flex-wrap:wrap}
+.pair-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(227,160,8,.09);border:1px solid rgba(227,160,8,.4);color:var(--cream);border-radius:99px;padding:8px 13px;font-size:.83rem;cursor:pointer}
+.pair-chip b{color:var(--gold2)}
+.pair-chip:active{transform:scale(.96)}
+.sheet-share{display:block;margin:12px auto 0;background:none;border:none;color:var(--gold2);font-size:.86rem;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.fav-btn{background:none;border:1px solid rgba(247,241,227,.18);color:#B9AC8E;width:38px;height:38px;border-radius:50%;font-size:1.02rem;line-height:1;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center}
+.fav-btn.on{color:#F5C04B;border-color:rgba(227,160,8,.75);background:rgba(227,160,8,.12)}
+.chip.fav-chip.on{background:var(--gold);color:#191204;border-color:var(--gold)}
+#builder.fav-on .pick-row{display:none!important}
+#builder.fav-on .pick-row.fav-row{display:flex!important}
+.reorder-btn{display:flex;align-items:center;gap:10px;width:100%;margin:0 0 12px;background:linear-gradient(135deg,rgba(227,160,8,.16),rgba(227,160,8,.05));border:1px solid rgba(227,160,8,.5);color:var(--cream);border-radius:14px;padding:12px 15px;font-size:.92rem;font-weight:800;cursor:pointer;text-align:start}
+.reorder-btn small{display:block;font-weight:600;color:var(--mut);font-size:.76rem;margin-top:2px}
+.reorder-btn .ric{font-size:1.25rem;color:var(--gold2)}
+.res-card{margin-top:20px;background:var(--panel);border:1px solid rgba(227,160,8,.3);border-radius:18px;padding:20px}
+.res-t{font-family:var(--serif);font-size:1.3rem;color:var(--gold2);margin:0 0 4px}
+.res-sub{color:var(--mut);font-size:.86rem;margin:0 0 14px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.res-grid label{font-size:.78rem;font-weight:700;color:var(--cream);display:flex;flex-direction:column;gap:5px}
+.res-grid input,.res-grid select{background:#0d0b08;border:1px solid rgba(247,241,227,.16);border-radius:10px;color:var(--cream);padding:11px 12px;font-size:.92rem;width:100%}
+.res-grid .full{grid-column:1/-1}
+.res-err{color:#ff9c9c;font-size:.78rem;min-height:1em;margin:8px 0 0}
+.res-btn{width:100%;margin-top:12px;text-align:center}
+#installChip{position:fixed;bottom:92px;inset-inline-end:14px;z-index:95;display:none;align-items:center;gap:9px;background:#1B150A;border:1px solid rgba(227,160,8,.65);color:var(--cream);border-radius:99px;padding:10px 15px;font-size:.85rem;font-weight:800;box-shadow:0 14px 34px rgba(0,0,0,.5);cursor:pointer}
+#installChip.show{display:inline-flex}
+#installChip .ix{opacity:.65;font-weight:400;margin-inline-start:2px}
+#v34Toast{position:fixed;left:50%;bottom:150px;transform:translate(-50%,20px);background:#1B150A;border:1px solid rgba(227,160,8,.6);color:var(--cream);padding:11px 18px;border-radius:12px;font-size:.88rem;font-weight:700;z-index:400;opacity:0;pointer-events:none;transition:all .3s;max-width:88vw;text-align:center}
+#v34Toast.on{opacity:1;transform:translate(-50%,0)}
 </style>
 
 <style id="persuasion-css">
@@ -701,6 +731,35 @@ body{padding-bottom:84px}
 .sheet-brand img{width:66px;height:66px}
 .sheet-brand-name{font-family:var(--serif);font-size:1.4rem;font-weight:800;color:var(--gold2);line-height:1.1}
 .sheet-brand-slogan{font-size:.8rem;color:var(--mut)}
+.sheet-pairs{margin:14px 0 2px}
+.pairs-t{font-size:.82rem;font-weight:800;color:var(--gold2);margin:0 0 8px}
+.pairs-row{display:flex;gap:8px;flex-wrap:wrap}
+.pair-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(227,160,8,.09);border:1px solid rgba(227,160,8,.4);color:var(--cream);border-radius:99px;padding:8px 13px;font-size:.83rem;cursor:pointer}
+.pair-chip b{color:var(--gold2)}
+.pair-chip:active{transform:scale(.96)}
+.sheet-share{display:block;margin:12px auto 0;background:none;border:none;color:var(--gold2);font-size:.86rem;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.fav-btn{background:none;border:1px solid rgba(247,241,227,.18);color:#B9AC8E;width:38px;height:38px;border-radius:50%;font-size:1.02rem;line-height:1;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center}
+.fav-btn.on{color:#F5C04B;border-color:rgba(227,160,8,.75);background:rgba(227,160,8,.12)}
+.chip.fav-chip.on{background:var(--gold);color:#191204;border-color:var(--gold)}
+#builder.fav-on .pick-row{display:none!important}
+#builder.fav-on .pick-row.fav-row{display:flex!important}
+.reorder-btn{display:flex;align-items:center;gap:10px;width:100%;margin:0 0 12px;background:linear-gradient(135deg,rgba(227,160,8,.16),rgba(227,160,8,.05));border:1px solid rgba(227,160,8,.5);color:var(--cream);border-radius:14px;padding:12px 15px;font-size:.92rem;font-weight:800;cursor:pointer;text-align:start}
+.reorder-btn small{display:block;font-weight:600;color:var(--mut);font-size:.76rem;margin-top:2px}
+.reorder-btn .ric{font-size:1.25rem;color:var(--gold2)}
+.res-card{margin-top:20px;background:var(--panel);border:1px solid rgba(227,160,8,.3);border-radius:18px;padding:20px}
+.res-t{font-family:var(--serif);font-size:1.3rem;color:var(--gold2);margin:0 0 4px}
+.res-sub{color:var(--mut);font-size:.86rem;margin:0 0 14px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.res-grid label{font-size:.78rem;font-weight:700;color:var(--cream);display:flex;flex-direction:column;gap:5px}
+.res-grid input,.res-grid select{background:#0d0b08;border:1px solid rgba(247,241,227,.16);border-radius:10px;color:var(--cream);padding:11px 12px;font-size:.92rem;width:100%}
+.res-grid .full{grid-column:1/-1}
+.res-err{color:#ff9c9c;font-size:.78rem;min-height:1em;margin:8px 0 0}
+.res-btn{width:100%;margin-top:12px;text-align:center}
+#installChip{position:fixed;bottom:92px;inset-inline-end:14px;z-index:95;display:none;align-items:center;gap:9px;background:#1B150A;border:1px solid rgba(227,160,8,.65);color:var(--cream);border-radius:99px;padding:10px 15px;font-size:.85rem;font-weight:800;box-shadow:0 14px 34px rgba(0,0,0,.5);cursor:pointer}
+#installChip.show{display:inline-flex}
+#installChip .ix{opacity:.65;font-weight:400;margin-inline-start:2px}
+#v34Toast{position:fixed;left:50%;bottom:150px;transform:translate(-50%,20px);background:#1B150A;border:1px solid rgba(227,160,8,.6);color:var(--cream);padding:11px 18px;border-radius:12px;font-size:.88rem;font-weight:700;z-index:400;opacity:0;pointer-events:none;transition:all .3s;max-width:88vw;text-align:center}
+#v34Toast.on{opacity:1;transform:translate(-50%,0)}
 </style>
 <link rel="preload" as="image" href="demo-bacha/hero-poster.webp" fetchpriority="high">
 </head>
@@ -936,8 +995,21 @@ body{padding-bottom:84px}
         <li><b>التوصيل</b><span class="green-dot">متوفر — الثمن والمدة كيتأكدو في واتساب</span></li>
       </ul>
       <div class="findus-btns">
-        <a class="dir-btn magnetic" id="dirBtn" href="https://www.google.com/maps/search/?api=1&query=Restaurant%20El%20Bacha%2C%20Branes%202%2C%20Tanger" target="_blank" rel="noopener">حلّ الاتجاهات في Google Maps ←</a>
+        <a class="dir-btn magnetic" id="dirBtn" href="https://maps.app.goo.gl/3XCsc3gewdtiQ7Ts9" target="_blank" rel="noopener">حلّ الاتجاهات في Google Maps ←</a>
         <a class="wa-ask magnetic" id="waAsk" href="https://wa.me/212719161654?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B9%D8%B1%D9%81%20%D9%81%D9%8A%D9%86%20%D8%AC%D8%A7%D9%8A%20%D9%85%D8%B7%D8%B9%D9%85%20%D8%A7%D9%84%D8%A8%D8%A7%D8%B4%D8%A7%20%D8%A8%D8%A7%D9%84%D8%B6%D8%A8%D8%B7%D8%9F" target="_blank" rel="noopener">سولنا على المكان في واتساب</a>
+      </div>
+      <div class="res-card" id="resCard">
+        <h3 class="res-t">حجز طاولة</h3>
+        <p class="res-sub">احجز في ثواني — صيفط طلب الحجز، والشيف غادي يأكد ليك في واتساب</p>
+        <div class="res-grid">
+          <label>الاسم<input id="rName" type="text" autocomplete="name" placeholder="اسمك الكريم"></label>
+          <label>رقم التيليفون<input id="rPhone" type="tel" autocomplete="tel" placeholder="06 XX XX XX XX"></label>
+          <label>التاريخ<input id="rDate" type="date"></label>
+          <label>الوقت<select id="rTime"><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>19:00</option><option selected>20:00</option><option>21:00</option><option>22:00</option></select></label>
+          <label class="full">عدد الأشخاص<select id="rPeople"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9+</option></select></label>
+        </div>
+        <p class="res-err" id="rErr"></p>
+        <button class="dir-btn res-btn" id="resSend" type="button">أكد الحجز في واتساب</button>
       </div>
     </div>
   </div>
@@ -1214,9 +1286,11 @@ body{padding-bottom:84px}
         <button type="button" id="sheetMinus" aria-label="نقص الكمية">−</button><b id="sheetQty">1</b><button type="button" id="sheetPlus" aria-label="زيد الكمية">+</button>
       </div>
     </div>
+    <div class="sheet-pairs" id="sheetPairs" hidden><p class="pairs-t" id="pairsTitle">كيتناسب معاه</p><div class="pairs-row" id="pairsRow"></div></div>
     <label class="sheet-note-l" for="sheetNote" data-i18n="noteLabel">ملاحظة على هاد الطبق (اختيارية)</label>
     <input id="sheetNote" type="text" data-i18n-ph="notePh" placeholder="مثال: بلا حار، الصلصة على جنب…">
     <button class="order-btn sheet-add" id="sheetAdd" type="button">زيدها للسلة</button>
+    <button class="sheet-share" id="sheetShare" type="button">↗ شارك هاد الطبق</button>
   </div>
 </aside>
 <div class="sheet-backdrop" id="quickBackdrop" hidden></div>
@@ -1701,7 +1775,7 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
       confirmBtn: "أكّد الطلب في واتساب ←", custNameL: "الاسم الكامل", custNamePh: "مثال: يوسف العلوي", custPhoneL: "رقم الهاتف", custPhonePh: "06 XX XX XX XX",
       payCashB: "نقداً عند الاستلام", payCashS: "خلّص ملي يوصلك الطلب ولا ملي تجي تاخدو", payTrB: "تحويل", payTrS: "نتفاهمو على التفاصيل في واتساب",
       addBtn: "+ زيدها", addBtnLong: "+ زيدها للطلب", noteLabel: "ملاحظة على هاد الطبق (اختيارية)", notePh: "مثال: بلا حار، الصلصة على جنب…",
-      sheetAdd: "زيدها للسلة", sheet3d: "عرض ثلاثي الأبعاد — صورة الطبق الحقيقية", sheetTilt: "اسحب الصورة ودوّرها — عرض ثلاثي الأبعاد", fridayOnly: "هاد الطبق متوفر غير نهار الجمعة",
+      sheetAdd: "زيدها للسلة", pairsTitle: "كيتناسب معاه", sheet3d: "عرض ثلاثي الأبعاد — صورة الطبق الحقيقية", sheetTilt: "اسحب الصورة ودوّرها — عرض ثلاثي الأبعاد", fridayOnly: "هاد الطبق متوفر غير نهار الجمعة",
       couscousRemoved: "تزال الكسكس من السلة — متوفر غير نهار الجمعة", added: "تزاد «{n}» للسلة — {t}. كمّل طلبك لتحت ↓",
       cartEmptyToast: "السلة خاوية — زيد طبق بعدا من اللائحة", needAddress: "كتب الحومة والعنوان باش يوصلك الطلب",
       needName: "كتب الاسم ديالك باش نعرفو الطلب ديال من", needPhone: "كتب رقم هاتف مغربي صحيح (06/07…)" },
@@ -1722,7 +1796,7 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
       confirmBtn: "Confirmer sur WhatsApp ←", custNameL: "Nom complet", custNamePh: "Ex. : Youssef El Alaoui", custPhoneL: "Numéro de téléphone", custPhonePh: "06 XX XX XX XX",
       payCashB: "Espèces à la réception", payCashS: "Payez à la livraison ou au retrait", payTrB: "Virement", payTrS: "Les détails se règlent sur WhatsApp",
       addBtn: "+ Ajouter", addBtnLong: "+ Ajouter à la commande", noteLabel: "Une note pour ce plat (optionnel)", notePh: "Ex. : sans piment, sauce à part…",
-      sheetAdd: "Ajouter au panier", sheet3d: "Vue 3D — la vraie photo du plat", sheetTilt: "Glissez pour pivoter la photo — vue 3D", fridayOnly: "Ce plat n'est disponible que le vendredi",
+      sheetAdd: "Ajouter au panier", pairsTitle: "À déguster avec", sheet3d: "Vue 3D — la vraie photo du plat", sheetTilt: "Glissez pour pivoter la photo — vue 3D", fridayOnly: "Ce plat n'est disponible que le vendredi",
       couscousRemoved: "Le couscous a été retiré — disponible le vendredi uniquement", added: "« {n} » ajouté au panier — {t}. Finalisez ci-dessous ↓",
       cartEmptyToast: "Le panier est vide — ajoutez d'abord un plat", needAddress: "Écrivez votre quartier et votre adresse pour la livraison",
       needName: "Écrivez votre nom pour identifier la commande", needPhone: "Écrivez un numéro marocain valide (06/07…)" }
@@ -1808,6 +1882,8 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
   }
   document.querySelectorAll("#extraOpts .extra").forEach(b => b.addEventListener("click", ()=>toggleExtra(b)));
   document.addEventListener("click", e => {
+    const pair = e.target.closest("[data-pair]");
+    if (pair) { if (addToCart(pair.dataset.pair)) toast(T("added", dname(pair.dataset.pair), fmt(cartTotal()))); return; }
     const add = e.target.closest("[data-add]");
     if (add) {
       const key = add.dataset.add;
@@ -2007,6 +2083,15 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
     document.getElementById("sheetDesc").textContent = d[LANG].desc;
     document.getElementById("sheetPrice").textContent = fmt(MENU[sheetKey].price);
     document.getElementById("sheetQty").textContent = sheetQty;
+    var pr = document.getElementById("sheetPairs"), prRow = document.getElementById("pairsRow");
+    document.getElementById("pairsTitle").textContent = T("pairsTitle");
+    var CATPAIR = { burgers: ["cheese_fries", "mozza"], pizzas: ["sal_cesar", "bravas"], tacos: ["cheese_fries", "mozza"], sandwichs: ["cheese_fries", "sal_marocaine"], pates: ["sal_marocaine", "bravas"], plats: ["sal_cesar", "des_tiramisu"], tajine: ["sal_marocaine"], paella: ["sal_marocaine", "bravas"], bowls_hot: ["sal_avocat"], bowls_h: ["sal_avocat"], kampiro: ["cheese_fries", "mozza"], wraps: ["cheese_fries"], panini: ["cheese_fries"], shawarma: ["cheese_fries", "sal_marocaine"], quesadilla: ["bravas", "mozza"], special: ["des_tiramisu", "sal_cesar"], tapas: ["sal_marocaine"], salades: ["bravas"], desserts: [] };
+    var rowEl = document.querySelector('.pick-row [data-add="' + sheetKey + '"]');
+    var cat = rowEl ? rowEl.closest(".pick-row").dataset.cat : "";
+    var cand = (CATPAIR[cat] || ["cheese_fries", "mozza", "bravas", "sal_cesar"]).filter(function(k){ return k !== sheetKey && MENU[k] && !(MENU[k].friday && !isFriday()); }).slice(0, 3);
+    prRow.innerHTML = "";
+    cand.forEach(function(k){ var b = document.createElement("button"); b.type = "button"; b.className = "pair-chip"; b.dataset.pair = k; b.innerHTML = "<span>" + dname(k) + "</span><b>" + fmt(MENU[k].price) + "</b>"; prRow.appendChild(b); });
+    pr.hidden = !cand.length;
     sheetTotal();
   }
   function openSheet(key, origin){
@@ -2718,6 +2803,201 @@ const CONFIG = { whatsapp: "212719161654", brand: "مطعم الباشا", mapsU
       if (med) { med.classList.remove("celebrate"); void med.offsetWidth; med.classList.add("celebrate"); setTimeout(function(){ med.classList.remove("celebrate"); }, 1000); }
     }, { capture: true });
   });
+})();
+</script>
+<script>
+/* v34 — المفضلة + إعادة الطلب + المشاركة + الحجز + PWA + الفرنسية الكاملة */
+(function(){
+  "use strict";
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+  var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  function lang(){ var m = document.getElementById("menu"); return (m && (m.classList.contains("fr-mode") || m.dir === "ltr")) ? "fr" : "ar"; }
+  function toast(msg){ var t = document.getElementById("v34Toast"); if (!t) { t = document.createElement("div"); t.id = "v34Toast"; document.body.appendChild(t); } t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(function(){ t.classList.remove("on"); }, 2700); }
+  var T = {
+    ar: { favChip: "♥ المفضلة", reorder: "كرر آخر طلب", reorderSub: "نفس أطباق المرة اللي فاتت", install: "ثبّت تطبيق الباشا", favEmpty: "ما عندك حتى طبق في المفضلة — قلب على الأطباق اللي عجباتك", reorderFail: "آخر طلب فيه أطباق ما متوفراش اليوم", resErrName: "كتب الاسم ديالك", resErrPhone: "رقم التيليفون ما صحيحش", resErrDate: "اختار التاريخ", iosHint: "من المتصفح: زر المشاركة، ثم «أضف إلى الشاشة الرئيسية»" },
+    fr: { favChip: "♥ Favoris", reorder: "Recommander", reorderSub: "Les mêmes plats que la dernière fois", install: "Installer l'app El Bacha", favEmpty: "Aucun favori pour le moment — touchez le cœur des plats que vous aimez", reorderFail: "La dernière commande contient des plats indisponibles aujourd'hui", resErrName: "Entrez votre nom", resErrPhone: "Numéro de téléphone invalide", resErrDate: "Choisissez une date", iosHint: "Depuis le navigateur : Partager, puis « Sur l'écran d'accueil »" }
+  };
+  /* ---------- الفرنسية الكاملة: قاموس العقد النصية ---------- */
+  var DICT = {"المطعم": "Le restaurant est", "حداك": "à deux pas", "أرقامنا": "Nos chiffres", "برغر": "Burger", "الباشا": "El Bacha", "كنشعّلو الفحم": "On allume le charbon", "حرفة الشيف": "Le métier du chef", "الكتالوغ": "Le catalogue", "فين تلقانا": "Nous trouver", "اطلب دابا": "Commander", "البرانص 2 — طنجة //": "Branes 2 — Tanger //", "قرب مركز الحليب": "Près du Centre Laitier", "التوصيل متوفر — حتى لباب الدار": "Livraison disponible — jusqu'à votre porte", "حرارة الفرن والفحم": "La chaleur du four et du charbon", "مطعم الباشا — كل طبق له حكاية": "Restaurant El Bacha — chaque plat a son histoire", "الشيف أيوب بنعمر": "Chef Ayoub Benamar", "مطبخ مفتوح": "Cuisine ouverte", "فحم حيّ": "Charbon vif", "ضيافة طنجاوية": "Hospitalité tangéroise", "متابع على إنستغرام": "abonnés sur Instagram", "+51 ألف": "+51 mille", "البرانص 2": "Branes 2", "شوف المنيو": "Voir le menu", "فين تلقانا ←": "Nous trouver ←", "— صاحب الدار": "— Le patron de la maison", "نزل لتحت": "Faites défiler", "الحرفة // 02. من المقلاة للطاولة": "Le métier // 02. De la poêle à la table", "المقلاة كتسخّن — الزيت بدا كيلمع": "La poêle chauffe — l'huile commence à briller", "· قمرون طازج — كيتحمّر في المقلاة": "· Gambas fraîches — saisies à la poêle", "· صوص كريمية — كتوجد في الحين": "· Sauce crémeuse — prête à la minute", "· سكبة الزيت الذهبية — توقيع الشيف": "· Le filet d'huile dorée — la signature du chef", "· من المقلاة للطاولة — كتوصل سخونة": "· De la poêle à la table — servie brûlante", "عند الباشا، السباغيتي ماشي طبق كيتسنّى — كتوجد في الحين قدّام عينيك: القمرون كيتحمّر، الصوص كتتخلّط، والزيت الذهبي كيتسكّب في آخر ثانية. نزّل لتحت وقرّب من الصحن.": "Chez El Bacha, les spaghetti ne sont pas un plat qui attend — ils se préparent à la minute, sous vos yeux : les gambas saisissent, la sauce se mélange, et l'huile dorée se verse à la dernière seconde. Faites défiler et approchez-vous de l'assiette.", "03. توقيع الدار": "03. La signature de la maison", "200 غرام لحم بقري، جبن ذائب، خبز طري وصلصة الباشا السرية. البرغر اللي كيتصوّر قبل ما يتكال.": "200 g de bœuf, fromage fondant, pain moelleux et la sauce secrète El Bacha. Le burger qu'on photographie avant de le manger.", "مع بطاطس وصلصة الباشا": "Avec frites et sauce El Bacha", "زيدو للطلب ←": "Ajoutez-le à la commande ←", "النشأة // 04. من اللهب للطاولة": "La genèse // 04. De la flamme à la table", "النار كتولّد النكهة": "Le feu fait naître la saveur", "البرغر كيتركّب — طبقة فوق طبقة": "Le burger se monte — couche après couche", "واجد — وهادا هو التوقيع": "C'est prêt — et voilà la signature", "كمّل النزول — السكرول هو الريموت": "Continuez à défiler — le scroll est la télécommande", "الطبق النجم // تجربة 3D": "Le plat star // Expérience 3D", "سباغيتي": "Spaghetti", "ثمار البحر": "Fruits de mer", "حرّك صبعك ولا الفأرة فوق الصحن، وتبّع سكبة الزيت الذهبية وهي نازلة.": "Faites glisser votre doigt ou la souris sur l'assiette, et suivez le filet d'huile dorée qui descend.", "قمرون وكلامار في صوص كريمية": "Gambas et calamars en sauce crémeuse", "+ زيدها للطلب": "+ Ajouter à la commande", "06. الحرفة": "06. Le métier", "بلا تزويق": "Sans fioritures", "مجتمع كيكبر كل نهار حول أطباق الباشا وحكاياتها.": "Une communauté qui grandit chaque jour autour des plats d'El Bacha et de leurs histoires.", "تخصصاً بتوقيع الشيف": "spécialités signées par le chef", "كل وحدة من مطبخ الباشا نفسه، بلمسة الشيف أيوب — والبرغر والسباغيتي عندهم فصولهم الخاصة.": "Chacune vient de la cuisine même d'El Bacha, avec la touche du chef Ayoub — et le burger et les spaghetti ont leurs propres chapitres.", "ثمن أشهر طبق": "Le prix du plat le plus célèbre", "اللحسة ولّات حديث المدينة — وبثمن في متناول الجميع.": "La Lahssa est devenue le sujet de la ville — à un prix accessible à tous.", "أيام في الأسبوع": "Jours par semaine", "الدار خدامة كل نهار، ونهار الجمعة عندو طقسو الخاص: الكسكس.": "La maison travaille chaque jour, et le vendredi a son propre rituel : le couscous.", "الدار — البرانص 2": "La maison — Branes 2", "الضيف يدخل جائعاً،": "L'invité entre affamé,", "ويخرج من العائلة": "et repart comme un membre de la famille", "في قلب البرانص 2، حدا مركز الحليب: مطعم صغير بروح كبيرة. الشيف بنفسو في المطبخ، والأطباق كتوصل سخونة — في الدار ولا بالتوصيل حتى لباب دارك.": "Au cœur de Branes 2, près du Centre Laitier : un petit restaurant à la grande âme. Le chef lui-même est en cuisine, et les plats arrivent brûlants — sur place ou livrés jusqu'à votre porte.", "القصة — 01 / 03 · الحلم": "L'histoire — 01 / 03 · Le rêve", "بدات الحكاية بحلم": "L'histoire a commencé par un rêve", "شيف شاب من طنجة، كبر بين أطباق الواليدة ووصفات الدار، وحلم يكون عندو مطعم باسمو — وطبق باسمو.": "Un jeune chef de Tanger, grandi entre les plats de sa mère et les recettes de la maison, qui rêvait d'un restaurant à son nom — et d'un plat à son nom.", "القصة — 02 / 03 · الدار": "L'histoire — 02 / 03 · La maison", "مطعم الباشا — البرانص 2": "Restaurant El Bacha — Branes 2", "تحقق الحلم في البرانص 2: مطعم بروح كبيرة، أطباق بثمن في المتناول، وطعم ما كيتنساش — واللحسة ولّات العنوان.": "Le rêve s'est réalisé à Branes 2 : un restaurant à la grande âme, des plats à prix doux, un goût inoubliable — et la Lahssa en est devenue l'emblème.", "القصة — 03 / 03 · اليوم": "L'histoire — 03 / 03 · Aujourd'hui", "كل طبق له حكاية": "Chaque plat a son histoire", "اليوم، أكثر من 51 ألف متابع كيتابعو الحكاية كل نهار على إنستغرام — والحكاية ما زالت كتتكتب، طبق بعد طبق.": "Aujourd'hui, plus de 51 000 abonnés suivent l'histoire chaque jour sur Instagram — et elle continue de s'écrire, plat après plat.", "الحلم كبير 🤲🏻": "Le rêve est grand 🤲🏻", "من كوزينة صغيرة وخدمة ما كتوقفش، حتى لنهار الافتتاح وسط الحشود — هادي قصة الشيف أيوب كما عاشها بنفسو، وكما كتتحكى في هاد الفيديو.": "D'une petite cuisine et d'un travail sans relâche, jusqu'au jour de l'ouverture au milieu de la foule — voici l'histoire du chef Ayoub, telle qu'il l'a vécue, et telle qu'elle se raconte dans cette vidéo.", "08. فين تلقانا": "08. Nous trouver", "جولة في المحل": "Visite du restaurant", "شوف الدار بعينيك": "Voyez la maison de vos yeux", "— الواجهة والداخلية، البرانص 2 · طنجة": "— la façade et l'intérieur, Branes 2 · Tanger", "البرانص 2 — طنجة": "Branes 2 — Tanger", "قريب من مركز الحليب · Centre Laitier": "Près du Centre Laitier", "متوفر — الثمن والمدة كيتأكدو في واتساب": "Disponible — prix et délai confirmés sur WhatsApp", "حلّ الاتجاهات في Google Maps ←": "Ouvrir l'itinéraire dans Google Maps ←", "سولنا على المكان في واتساب": "Demandez-nous l'adresse sur WhatsApp", "مطعم الباشا": "Restaurant El Bacha", "العنوان": "Adresse", "العلامة": "Repère", "التوصيل": "Livraison", "حجز طاولة": "Réserver une table", "احجز في ثواني — صيفط طلب الحجز، والشيف غادي يأكد ليك في واتساب": "Réservez en quelques secondes — envoyez la demande, le chef vous confirmera sur WhatsApp", "الاسم": "Nom", "رقم التيليفون": "Numéro de téléphone", "التاريخ": "Date", "الوقت": "Heure", "عدد الأشخاص": "Nombre de personnes", "أكد الحجز في واتساب": "Confirmer la réservation sur WhatsApp"};
+  var REV = {}; Object.keys(DICT).forEach(function(k){ REV[DICT[k]] = k; });
+  var ROOTS = [];
+  function collectRoots(){ ROOTS = $$("header, footer, section.scene").filter(function(el){ return el.id !== "menu" && el.id !== "order"; }); }
+  function swapNodes(toFr){
+    var map = toFr ? DICT : REV;
+    ROOTS.forEach(function(root){
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: function(n){
+        if (!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement;
+        if (!p || p.closest("[data-i18n], script, style")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }});
+      var nodes = [], n;
+      while ((n = walker.nextNode())) nodes.push(n);
+      nodes.forEach(function(node){
+        var full = node.nodeValue, key = full.trim();
+        if (map[key]) node.nodeValue = full.replace(key, map[key]);
+      });
+    });
+    var rn = document.getElementById("rName");
+    if (rn) rn.placeholder = toFr ? "Votre nom" : "اسمك الكريم";
+  }
+  function renderDyn(){
+    var fr = lang() === "fr", t = T[fr ? "fr" : "ar"];
+    var fc = document.getElementById("favChip"); if (fc) fc.textContent = t.favChip;
+    var rb = document.getElementById("reorderBtn");
+    if (rb) { rb.querySelector(".rt").textContent = t.reorder; rb.querySelector("small").textContent = rb._sub || t.reorderSub; }
+    var ic = document.getElementById("installChip"); if (ic) ic.querySelector(".it").textContent = t.install;
+    var sh = document.getElementById("sheetShare"); if (sh) sh.textContent = fr ? "↗ Partager ce plat" : "↗ شارك هاد الطبق";
+  }
+  function applyLang(){ swapNodes(lang() === "fr"); renderDyn(); setTimeout(renderDyn, 400); }
+  /* ---------- المفضلة ---------- */
+  var favs = [];
+  try { favs = JSON.parse(localStorage.getItem("bachaFavs") || "[]"); } catch (e) {}
+  function saveFavs(){ try { localStorage.setItem("bachaFavs", JSON.stringify(favs)); } catch (e) {} }
+  $$(".pick-row").forEach(function(row){
+    var add = row.querySelector("[data-add]"); if (!add) return;
+    var key = add.getAttribute("data-add"), on = favs.indexOf(key) >= 0;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "fav-btn" + (on ? " on" : ""); b.setAttribute("aria-label", "Favori");
+    b.textContent = on ? "♥" : "♡"; b.dataset.favkey = key;
+    row.classList.toggle("fav-row", on);
+    row.appendChild(b);
+  });
+  var chips = document.getElementById("catChips"), favChip = null;
+  if (chips) { favChip = document.createElement("button"); favChip.type = "button"; favChip.className = "chip fav-chip"; favChip.id = "favChip"; favChip.dataset.ar = "♥ المفضلة"; favChip.dataset.fr = "♥ Favoris"; chips.appendChild(favChip); }
+  var builder = document.getElementById("builder");
+  function favMode(on){ if (!builder) return; builder.classList.toggle("fav-on", on); if (favChip) favChip.classList.toggle("on", on); }
+  document.addEventListener("click", function(e){
+    var fb = e.target.closest(".fav-btn");
+    if (fb) {
+      e.stopPropagation();
+      var key = fb.dataset.favkey, i = favs.indexOf(key);
+      if (i >= 0) { favs.splice(i, 1); fb.classList.remove("on"); fb.textContent = "♡"; } else { favs.push(key); fb.classList.add("on"); fb.textContent = "♥"; }
+      saveFavs();
+      var row = fb.closest(".pick-row"); if (row) row.classList.toggle("fav-row", favs.indexOf(key) >= 0);
+      return;
+    }
+    if (e.target.closest("#favChip")) {
+      e.stopPropagation();
+      if (!favs.length) { toast(T[lang()].favEmpty); return; }
+      favMode(!builder.classList.contains("fav-on"));
+      return;
+    }
+    if (e.target.closest("[data-chip]")) favMode(false);
+  }, true);
+  var ms = document.getElementById("menuSearch");
+  if (ms) ms.addEventListener("input", function(){ favMode(false); });
+  /* ---------- إعادة آخر طلب ---------- */
+  var last = null;
+  try { last = JSON.parse(localStorage.getItem("bachaLast") || "null"); } catch (e) {}
+  function cartSnapshot(){
+    var items = [];
+    $$("#cartLines .cart-line").forEach(function(line){
+      var rm = line.querySelector("[data-rm]"), q = line.querySelector(".qty b");
+      if (rm && q) items.push([rm.getAttribute("data-rm"), parseInt(q.textContent, 10) || 1]);
+    });
+    var qn = document.getElementById("qName"), cn = document.getElementById("custName");
+    var qp = document.getElementById("qPhone"), cp = document.getElementById("custPhone");
+    return { items: items, name: (qn && qn.value) || (cn && cn.value) || "", phone: (qp && qp.value) || (cp && cp.value) || "" };
+  }
+  ["quickConfirm", "oneTapBtn", "orderBtn"].forEach(function(id){
+    var btn = document.getElementById(id);
+    if (btn) btn.addEventListener("click", function(){
+      var s = cartSnapshot();
+      if (s.items.length) { try { localStorage.setItem("bachaLast", JSON.stringify(s)); } catch (e) {} last = s; showReorder(); }
+    }, { capture: true });
+  });
+  var reorderBtn = null;
+  function showReorder(){
+    if (!last || !last.items || !last.items.length) return;
+    if (!reorderBtn) {
+      var tools = $(".menu-tools");
+      if (!tools || !tools.parentNode) return;
+      reorderBtn = document.createElement("button");
+      reorderBtn.type = "button"; reorderBtn.className = "reorder-btn"; reorderBtn.id = "reorderBtn";
+      reorderBtn.innerHTML = '<span class="ric">↺</span><span><span class="rt"></span><small></small></span>';
+      tools.parentNode.insertBefore(reorderBtn, tools);
+      reorderBtn.addEventListener("click", doReorder);
+    }
+    reorderBtn._sub = last.items.slice(0, 3).map(function(it){
+      var r = document.querySelector('.pick-row [data-add="' + it[0] + '"]');
+      var nm = it[0];
+      if (r) { var info = r.closest(".pick-row").querySelector(".pick-info b"); if (info) nm = info.textContent; }
+      return nm + " ×" + it[1];
+    }).join(" · ");
+    reorderBtn.style.display = "";
+    renderDyn();
+  }
+  function doReorder(){
+    if (!last) return;
+    last.items.forEach(function(it){
+      var btn = document.querySelector('.pick-row [data-add="' + it[0] + '"]') || document.querySelector('[data-add="' + it[0] + '"]');
+      if (btn) for (var i = 0; i < it[1]; i++) btn.click();
+    });
+    setTimeout(function(){
+      if (!$$("#cartLines .cart-line").length) { toast(T[lang()].reorderFail); return; }
+      var sb = document.getElementById("sbBtn"); if (sb) sb.click();
+      setTimeout(function(){
+        var qn = document.getElementById("qName"), qp = document.getElementById("qPhone");
+        if (qn && last.name) { qn.value = last.name; qn.dispatchEvent(new Event("input", { bubbles: true })); }
+        if (qp && last.phone) { qp.value = last.phone; qp.dispatchEvent(new Event("input", { bubbles: true })); }
+      }, 450);
+    }, 120);
+  }
+  showReorder();
+  /* ---------- مشاركة طبق ---------- */
+  var shareBtn = document.getElementById("sheetShare");
+  if (shareBtn) shareBtn.addEventListener("click", function(){
+    var nm = document.getElementById("sheetName"), pr = document.getElementById("sheetPrice");
+    var name = nm ? nm.textContent : "", price = pr ? pr.textContent : "";
+    var url = location.href.split("#")[0];
+    var text = (lang() === "fr" ? "Regarde ce plat chez Restaurant El Bacha : " : "شوف هاد الطبق في مطعم الباشا: ") + name + (price ? " — " + price : "");
+    if (navigator.share) { navigator.share({ title: "Restaurant El Bacha", text: text, url: url }).catch(function(){}); }
+    else window.open("https://wa.me/?text=" + encodeURIComponent(text + "\n" + url), "_blank");
+  });
+  /* ---------- حجز طاولة ---------- */
+  function normPhone(v){
+    var d = (v || "").replace(/\D/g, "");
+    if (d.length === 10 && d.charAt(0) === "0") d = "212" + d.slice(1);
+    if (d.length === 9) d = "212" + d;
+    return d;
+  }
+  var resSend = document.getElementById("resSend");
+  if (resSend) resSend.addEventListener("click", function(){
+    var name = $("#rName").value.trim(), phone = normPhone($("#rPhone").value), date = $("#rDate").value, time = $("#rTime").value, ppl = $("#rPeople").value;
+    var err = document.getElementById("rErr"), t = T[lang()];
+    if (name.length < 2) { err.textContent = t.resErrName; return; }
+    if (!/^212[5-7]\d{8}$/.test(phone)) { err.textContent = t.resErrPhone; return; }
+    if (!date) { err.textContent = t.resErrDate; return; }
+    err.textContent = "";
+    var msg = "حجز طاولة — مطعم الباشا\nالاسم: " + name + "\nالتيليفون: " + phone + "\nالتاريخ: " + date + "\nالوقت: " + time + "\nعدد الأشخاص: " + ppl;
+    window.open("https://wa.me/212719161654?text=" + encodeURIComponent(msg), "_blank");
+  });
+  var rDate = document.getElementById("rDate");
+  if (rDate) rDate.min = new Date().toISOString().slice(0, 10);
+  /* ---------- PWA ---------- */
+  if ("serviceWorker" in navigator) { navigator.serviceWorker.register("demo-bacha-sw.js").catch(function(){}); }
+  var chip = document.createElement("button");
+  chip.type = "button"; chip.id = "installChip";
+  chip.innerHTML = '<span class="it"></span><span class="ix">✕</span>';
+  document.body.appendChild(chip);
+  var bip = null, chipDismissed = false;
+  try { chipDismissed = !!sessionStorage.getItem("bachaInstX"); } catch (e) {}
+  function showChip(){ if (!chipDismissed) chip.classList.add("show"); }
+  window.addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); bip = e; showChip(); });
+  window.addEventListener("appinstalled", function(){ chip.classList.remove("show"); });
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  if (isIOS && !navigator.standalone) showChip();
+  chip.addEventListener("click", function(e){
+    if (e.target.classList.contains("ix")) { chip.classList.remove("show"); chipDismissed = true; try { sessionStorage.setItem("bachaInstX", "1"); } catch (err) {} return; }
+    if (bip) { bip.prompt(); bip.userChoice.then(function(){ bip = null; chip.classList.remove("show"); }); }
+    else if (isIOS) toast(T[lang()].iosHint);
+  });
+  /* ---------- ربط اللغة ---------- */
+  collectRoots();
+  var menuEl = document.getElementById("menu");
+  if (menuEl) new MutationObserver(function(){ applyLang(); }).observe(menuEl, { attributes: true, attributeFilter: ["class", "dir"] });
+  applyLang();
 })();
 </script>
 </body>
