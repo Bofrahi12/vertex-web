@@ -1,4 +1,33 @@
 User-agent: *
 Allow: /
 
+# AI search and answer engines are welcome to crawl and cite this site.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://vertex-web-tanger.onrender.com/sitemap.xml
+# AI-readable summary: https://vertex-web-tanger.onrender.com/llms.txt

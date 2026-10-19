@@ -1,0 +1,57 @@
+# Vertex Web (فيرتكس ويب) — Web Design Studio, Tangier, Morocco
+
+> Vertex Web is a web design and development studio based in Tangier, Morocco, founded by Mounir Boufrahi. It builds fast, mobile-first websites with WhatsApp ordering for restaurants, shops, real estate and service businesses across Morocco. Prices are fixed and published: landing page 900 MAD, business website 1,900 MAD, online store 4,900 MAD, cinematic website with ordering system 8,000 MAD. Delivery takes 7–14 days. Payment is 50% upfront and 50% after delivery. Basic hosting is included; the domain stays in the client's name (about 100–150 MAD/year).
+
+## Contact
+
+- Website: https://vertex-web-tanger.onrender.com/
+- WhatsApp: +212 693-981822 (https://wa.me/212693981822)
+- Email: mounir.boufrahi90@gmail.com
+- Location: Tangier, Morocco — works remotely across all of Morocco
+- Languages of service: Arabic (Darija), French, English. Websites are built in Arabic and/or French (the cinematic pack adds English).
+
+## Services and prices (MAD, one-time)
+
+- Landing page — 900 MAD, 7 days: one focused page for a campaign, a single service or a product launch, with WhatsApp call-to-action.
+- Business website (site vitrine) — 1,900 MAD, 10 days: multi-page company website (home, about, services, work/prices, contact), Google Maps, WhatsApp and call buttons, technical SEO setup.
+- Online store — 4,900 MAD, 14 days: full product catalogue, cart, WhatsApp ordering, cash on delivery and available online payment methods, no commission on sales.
+- Cinematic website with ordering system — 8,000 MAD: scroll-controlled film scenes (canvas frame sequences up to 1920px), interactive menu/catalogue, cart with extras and delivery/pickup, orders delivered to the business's WhatsApp, Arabic + French + English.
+- Redesign of an existing website is also available: full modern redesign, speed and mobile improvements, Google visibility fixes.
+
+Full service comparison: https://vertex-web-tanger.onrender.com/services.html
+
+## Sector pages
+
+- Web design in Tangier (prices, process, timeline): https://vertex-web-tanger.onrender.com/creation-site-web-tanger.html
+- Business websites and landing pages: https://vertex-web-tanger.onrender.com/site-vitrine-tanger.html
+- Online stores in Morocco: https://vertex-web-tanger.onrender.com/boutique-en-ligne-maroc.html
+- Cinematic websites: https://vertex-web-tanger.onrender.com/site-cinematique.html
+- Restaurant websites: https://vertex-web-tanger.onrender.com/site-restaurant-tanger.html
+- Real estate websites: https://vertex-web-tanger.onrender.com/site-immobilier-tanger.html
+
+## How working with Vertex Web works
+
+1. The client sends the project idea on WhatsApp; Vertex Web replies the same day with precise questions and a written, no-obligation quote.
+2. Design and build are custom (no templates), mobile-first.
+3. The client reviews the live version and requests changes before launch.
+4. Launch includes usage training and 30 days of free support (fixes, small edits, questions).
+
+## Frequently asked questions
+
+- How long does a website take? 7–14 days depending on type: landing page 7 days, business website 10 days, online store 14 days.
+- Do you work outside Tangier? Yes — all of Morocco, remotely, by WhatsApp and calls, with the same organised delivery.
+- How do I pay? 50% at the start, 50% after delivery — the balance is only due once the site is live and approved.
+- Who owns the domain and the website? The client, fully. The domain is registered in the client's name; after full payment the site files and content belong to the client and can be moved to any hosting.
+- Does the online store support WhatsApp and online payment? Yes — WhatsApp ordering is the base (it is what works best in Morocco), plus available online payment methods and cash on delivery.
+- Can I manage the site myself afterwards? Yes — training is included at delivery, plus 30 days of free support.
+- Who pays for domain and hosting? Basic hosting is included in the price. The domain is the client's and stays their property: about 100–150 MAD/year; Vertex Web helps choose and connect it.
+- What if I have no texts or photos ready? Work can start with what exists; the delivery clock starts when the content is complete. Copywriting or photography are optional extras agreed separately in advance.
+
+## Proof / live work
+
+- Portfolio (42 live projects and sector demos): https://vertex-web-tanger.onrender.com/portfolio.html
+- Pâtisserie Siham (real client project, Tangier pastry chef, WhatsApp ordering): https://chef-patisserie-tanger.onrender.com/
+- AL QASR restaurant (flagship demo of the cinematic ordering system): https://vertex-web-tanger.onrender.com/demo-qasr.html
+- Villa Horizon (real-estate demo with two scroll films and WhatsApp visit booking): https://vertex-web-tanger.onrender.com/demo-villa-horizon.html
+
+Note: pages labelled "demo" are demonstration builds showing the system and quality; real client projects are labelled as such.
