@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>مدرسة الأطلس لتعليم السياقة — سلا | Autoécole Atlass</title>
+<meta name="description" content="مدرسة الأطلس لتعليم السياقة في قرية أولاد موسى، سلا: دروس قانون السير، دروس سياقة عملية وامتحان تجريبي لجميع المترشحين — بأحسن ثمن في الحي. التسجيل عبر واتساب.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏋️</text></svg>">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --bg:#0B0C0E; --bg2:#101215; --panel:#15171B; --card:#15171B; --card2:#1B1E24;
+  --line:#262A31; --hair:rgba(245,247,242,.14);
+  --acc:#C8F542; --acc2:#e6ff8a; --lime:#C8F542; --lime-d:#9CCB1E;
+  --txt:#F5F7F2; --mut:#A3AB9F; --wa:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--bg);color:var(--txt);font-family:'Tajawal',system-ui,sans-serif;line-height:1.75;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+::selection{background:var(--acc);color:#0B0C0E}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.disp{font-family:'Changa',sans-serif;line-height:1.25}
+/* banner */
+.demo-bar{background:linear-gradient(90deg,#1a1400,#241c00);border-bottom:1px solid #4a3d00;color:#FFD94D;text-align:center;font-size:.86rem;font-weight:700;padding:9px 14px;position:relative;z-index:200}
+#progress{position:fixed;top:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--acc2));width:0;z-index:150}
+header{position:fixed;top:36px;left:0;right:0;z-index:140;transition:background .3s,border-color .3s}
+header .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1180px;margin:0 auto}
+header.scrolled{background:rgba(11,12,14,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Changa',sans-serif;font-size:1.5rem;font-weight:800;line-height:1.1}
+.logo b{color:var(--acc)}
+.logo small{display:block;font-family:'Tajawal';font-size:.6rem;color:var(--mut);font-weight:500;letter-spacing:2px}
+nav.chaps{display:flex;gap:22px;font-size:12.5px;color:var(--mut);letter-spacing:1px;font-weight:500}
+nav.chaps a:hover{color:var(--acc)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--acc);color:#0B0C0E;font-weight:800;font-family:'Changa',sans-serif;font-size:1.05rem;padding:14px 30px;border-radius:6px;transition:.25s;border:2px solid var(--acc);will-change:transform}
+.btn:hover{background:transparent;color:var(--acc)}
+.btn.ghost{background:transparent;color:var(--txt);border-color:#3A3F47}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn.wa:hover{background:transparent;color:var(--wa)}
+.bar .btn{padding:9px 20px;font-size:.95rem}
+.eyebrow{font-family:'Arial Narrow',Arial,sans-serif;color:var(--acc2);font-weight:700;letter-spacing:4px;font-size:13px;text-transform:uppercase}
+.micro{font-family:'Courier New',monospace;font-size:11px;letter-spacing:1.5px;color:var(--mut);text-transform:uppercase}
+#rail{position:fixed;inset-inline-end:20px;top:50%;transform:translateY(-50%);z-index:130;display:flex;flex-direction:column;gap:16px;align-items:center}
+#rail .rdot{display:flex;flex-direction:column;align-items:center;gap:5px;color:#55584f;font-family:'Courier New',monospace;font-size:10.5px;transition:color .3s}
+#rail .rdot i{width:7px;height:7px;border-radius:50%;border:1px solid #55584f;display:block;transition:.3s}
+#rail .rdot.on{color:var(--acc2)}
+#rail .rdot.on i{background:var(--acc);border-color:var(--acc);box-shadow:0 0 12px rgba(200,245,66,.55)}
+#rail .rline{width:1px;height:44px;background:var(--hair);position:relative;overflow:hidden}
+#rail .rline b{position:absolute;top:0;left:0;width:100%;background:var(--acc);height:0}
+#grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:120;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr 7s steps(8) infinite}
+@keyframes gr{0%,100%{transform:translate(0,0)}25%{transform:translate(-2%,1%)}50%{transform:translate(1%,-2%)}75%{transform:translate(-1%,2%)}}
+#cur,#curR{position:fixed;top:0;left:0;pointer-events:none;z-index:300;border-radius:50%;display:none}
+@media(pointer:fine){#cur,#curR{display:block}}
+#cur{width:6px;height:6px;background:var(--acc);transform:translate(-50%,-50%)}
+#curR{width:34px;height:34px;border:1px solid rgba(245,247,242,.4);transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s}
+#curR.big{width:58px;height:58px;border-color:var(--acc)}
+/* ---------- STAGE ---------- */
+.stage{position:relative}
+.pin{position:relative;height:100svh;overflow:hidden;background:radial-gradient(1000px 520px at 66% 44%,rgba(200,245,66,.08),transparent 65%),var(--bg)}
+.pin .grid-bg{position:absolute;inset:0;z-index:0;background:
+  linear-gradient(rgba(245,247,242,.04) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(245,247,242,.04) 1px,transparent 1px);
+  background-size:72px 72px;mask-image:radial-gradient(80% 70% at 50% 45%,#000 30%,transparent 78%)}
+.pin .vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 52%,rgba(0,0,0,.6));z-index:3}
+.pin .frame{position:absolute;inset:14px;border:1px solid var(--hair);pointer-events:none;z-index:3}
+.pin .corner{position:absolute;width:18px;height:18px;z-index:4;pointer-events:none;border-color:var(--acc2);border-style:solid;border-width:0}
+.corner.tl{top:22px;inset-inline-start:22px;border-top-width:1.5px;border-inline-start-width:1.5px}
+.corner.tr{top:22px;inset-inline-end:22px;border-top-width:1.5px;border-inline-end-width:1.5px}
+.corner.bl{bottom:22px;inset-inline-start:22px;border-bottom-width:1.5px;border-inline-start-width:1.5px}
+.corner.br{bottom:22px;inset-inline-end:22px;border-bottom-width:1.5px;border-inline-end-width:1.5px}
+#glwrap{position:absolute;inset:0;z-index:2}
+#gl{position:absolute;inset:0;width:100%;height:100%}
+#glwrap.trans{filter:blur(1px) drop-shadow(2px 0 rgba(255,0,70,.28)) drop-shadow(-2px 0 rgba(0,210,255,.28))}
+#fallback3d{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:2}
+#fallback3d img{height:84svh;object-fit:contain}
+#loader{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mut);letter-spacing:3px;font-size:13px;z-index:5;font-family:'Courier New',monospace}
+.ovl{position:absolute;z-index:6;pointer-events:none}
+.ovl a{pointer-events:auto}
+#ov1{inset-inline-start:0;top:15svh;padding:0 38px;max-width:700px}
+#ov1 h1{font-size:clamp(40px,6.6vw,84px);font-weight:800;line-height:1.08;margin:14px 0 12px;text-shadow:0 4px 44px rgba(0,0,0,.6)}
+#ov1 h1 .stroke{color:transparent;-webkit-text-stroke:2px var(--acc)}
+#ov1 p{color:#e3e8dd;max-width:430px;font-size:17px;text-shadow:0 2px 16px rgba(0,0,0,.85)}
+#ov1 .meta{display:flex;gap:18px;margin-top:20px;flex-wrap:wrap}
+#ov2{inset-inline-end:0;top:16svh;padding:0 38px;text-align:end;max-width:480px}
+#ov2 h2{font-size:clamp(26px,3.6vw,42px);font-weight:800;line-height:1.2;margin:10px 0 10px}
+#ov2 p{color:var(--mut);font-size:16px}
+#ov2 .ticks{margin-top:18px;display:grid;gap:7px;justify-items:end}
+#ov3{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:10svh;text-align:center}
+#ov3 .statement{font-size:clamp(38px,7vw,84px);font-weight:800;line-height:1.15;position:relative}
+#ov3 .statement .sh{position:absolute;inset:0;color:transparent;-webkit-text-stroke:1.5px rgba(200,245,66,.5);transform:translate(7px,7px);z-index:-1}
+#ov3 p{color:#ddd6c9;margin-top:12px;font-size:16.5px;text-shadow:0 2px 18px rgba(0,0,0,.8)}
+#ov4{inset-inline-start:0;top:13svh;padding:0 38px}
+#ov4 h2{font-size:clamp(28px,4vw,46px);font-weight:800;line-height:1.15;margin:10px 0 8px}
+#ov4 p{color:var(--mut);font-size:16px;max-width:380px}
+#ov5{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:8.5svh;text-align:center}
+#ov5 h2{font-size:clamp(28px,4.4vw,46px);font-weight:800;margin:10px 0 12px;text-shadow:0 3px 34px rgba(0,0,0,.9)}
+#ov5 p{color:#d6dcd0;max-width:520px;font-size:16.5px;margin-bottom:24px}
+#ov5 .mini-nav{display:flex;gap:22px;margin-top:28px;font-size:12.5px;letter-spacing:1px;color:var(--mut)}
+#ov5 .mini-nav a:hover{color:#fff}
+#ov5 .techfoot{margin-top:16px}
+#scrollcue{position:absolute;bottom:26px;inset-inline-start:50%;transform:translateX(50%);z-index:6;color:var(--mut);font-size:11px;letter-spacing:4px;text-align:center}
+#scrollcue i{display:block;width:1px;height:42px;background:linear-gradient(var(--acc),transparent);margin:8px auto 0;animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+#debug{position:fixed;bottom:14px;left:14px;z-index:400;background:#000;border:1px solid var(--acc);color:#ffd977;font-family:'Courier New',monospace;font-size:12px;padding:8px 12px;display:none}
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid var(--line);background:#0a0b0d;overflow:hidden;padding:14px 0}
+.marquee .track{display:flex;gap:44px;width:max-content;animation:mq 22s linear infinite;font-family:'Changa',sans-serif;font-weight:700;font-size:19px;white-space:nowrap}
+.marquee .track span i{color:var(--acc);font-style:normal}
+@keyframes mq{to{transform:translateX(50%)}}
+/* ---------- gym sections (transplanted) ---------- */
+.kick{color:var(--acc);font-family:'Changa',sans-serif;font-weight:700;letter-spacing:.5px;font-size:.95rem;text-transform:uppercase}
+.sec{padding:84px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:800;margin:8px 0 10px}
+.sec-head p{color:var(--mut)}
+.stats{background:var(--bg2);border-block:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding-block:34px}
+.stat{text-align:center}
+.stat b{font-family:'Changa';font-size:2.1rem;color:var(--acc);display:block;line-height:1.1}
+.stat span{color:var(--mut);font-size:.92rem}
+@media(max-width:700px){.stats .wrap{grid-template-columns:repeat(2,1fr);gap:22px}}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.grid3{grid-template-columns:1fr}}
+.prog{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.3s}
+.prog:hover{transform:translateY(-5px);border-color:var(--lime-d)}
+.prog img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.prog div{padding:20px 22px 24px}
+.prog h3{font-size:1.3rem;font-weight:700;margin-bottom:6px}
+.prog p{color:var(--mut);font-size:.95rem}
+.prog .tag{display:inline-block;margin-top:12px;color:var(--acc);font-size:.83rem;font-weight:700;border:1px solid #39402a;padding:3px 12px;border-radius:50px}
+.sched{background:var(--bg2);border-block:1px solid var(--line)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:640px;background:var(--card)}
+th,td{padding:15px 18px;text-align:right;border-bottom:1px solid var(--line);font-size:.97rem}
+th{background:#0e1005;color:var(--acc);font-family:'Changa';font-size:1.02rem}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--card2)}
+td b{color:var(--txt)}
+td{color:var(--mut)}
+.pill{display:inline-block;background:#232a12;color:var(--acc);border:1px solid #3d4718;font-size:.78rem;font-weight:700;padding:2px 10px;border-radius:50px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+@media(max-width:900px){.plans{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px 28px;display:flex;flex-direction:column;position:relative}
+.plan.hot{background:linear-gradient(180deg,#1d2203,#141503);border:2px solid var(--acc);transform:scale(1.03)}
+@media(max-width:900px){.plan.hot{transform:none}}
+.plan .badge{position:absolute;top:-14px;right:50%;transform:translateX(50%);background:var(--acc);color:#0B0C0E;font-weight:800;font-size:.8rem;padding:4px 16px;border-radius:50px;font-family:'Changa'}
+.plan h3{font-size:1.25rem;color:var(--mut);font-weight:700}
+.price{font-family:'Changa';font-size:2.9rem;font-weight:800;line-height:1.15;margin:10px 0 2px}
+.price small{font-size:1rem;color:var(--mut);font-family:'Tajawal';font-weight:500}
+.total{color:var(--mut);font-size:.88rem;margin-bottom:18px}
+.plan ul{list-style:none;margin-bottom:26px;flex:1}
+.plan li{padding:7px 0;color:#D9DED4;font-size:.96rem}
+.plan li::before{content:"✓";color:var(--acc);font-weight:800;margin-left:9px}
+.plan li.off{color:#5d6359}
+.plan li.off::before{content:"—";color:#5d6359}
+.plan .btn{justify-content:center}
+.coach{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:center}
+.coach img{aspect-ratio:4/4.4;object-fit:cover;width:100%}
+.coach div{padding:16px 14px 20px}
+.coach h3{font-size:1.15rem}
+.coach span{color:var(--acc);font-size:.87rem;font-weight:700}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:900px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.grid4{grid-template-columns:1fr}}
+.bmi{background:linear-gradient(135deg,#151803,#0e1005);border:1px solid #39402a;border-radius:18px;padding:38px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+@media(max-width:820px){.bmi{grid-template-columns:1fr;padding:28px 22px}}
+.bmi h2{font-size:1.9rem;margin-bottom:8px}
+.bmi p{color:var(--mut)}
+.bmi-form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.bmi-form label{font-size:.88rem;font-weight:700;display:block;margin-bottom:5px}
+.bmi-form input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:11px 13px;font-family:inherit;font-size:1rem;margin-bottom:14px}
+.bmi-form button{width:100%;cursor:pointer}
+#bmiRes{margin-top:14px;font-weight:700;text-align:center;min-height:28px;color:var(--acc)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:800;font-family:'Changa';font-size:1.08rem;list-style:none}
+summary::-webkit-details-marker{display:none}
+details p{color:var(--mut);margin-top:8px;font-size:.96rem}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:800px){.gal{grid-template-columns:repeat(2,1fr)}}
+.gal img{aspect-ratio:1/1;object-fit:cover;border-radius:12px;width:100%}
+.cta-band{background:var(--acc);color:#0B0C0E;text-align:center;padding:70px 20px}
+.cta-band h2{font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:800}
+.cta-band p{max-width:520px;margin:10px auto 26px;font-weight:500}
+.cta-band .btn{background:#0B0C0E;color:#fff;border-color:#0B0C0E}
+.cta-band .btn:hover{background:transparent;color:#0B0C0E}
+footer{background:#08090B;border-top:1px solid var(--line);padding:44px 0 30px;color:var(--mut);font-size:.92rem}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.foot b{color:var(--txt);font-family:'Changa';font-size:1.15rem}
+.demo-note{border-top:1px solid var(--line);padding-top:18px;text-align:center;font-size:.84rem}
+.wa-float{position:fixed;bottom:20px;inset-inline-start:20px;z-index:70;background:var(--wa);color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+/* reveals */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.1s}.js .rv.d2{transition-delay:.2s}.js .rv.d3{transition-delay:.3s}
+@media(max-width:820px){
+  nav.chaps,#rail{display:none}
+  #ov1{top:auto;bottom:12svh}
+  #ov2{top:auto;bottom:10svh;text-align:start}
+  #ov2 .ticks{justify-items:start}
+  #ov4{top:auto;bottom:11svh}
+}
+@media(prefers-reduced-motion:reduce){.marquee .track{animation:none}#grain{animation:none}#scrollcue i{animation:none}}
+</style>
+<script type="importmap">{"imports":{"three":"./demo-burger/gl/three.module.js"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "مدرسة الأطلس لتعليم السياقة — سلا | Autoécole Atlass", "creator": {"@type": "Organization", "name": "VERTEX WEB — فيرتكس ويب", "url": "https://vertex-web-tanger.onrender.com/"}}</script>
+</head>
+<body>
+<div class="demo-bar">نموذج أولي صُمّم خصيصاً لـ Autoécole Atlass · من VERTEX WEB</div>
+<div id="progress"></div>
+<div id="grain"></div>
+<div id="cur"></div><div id="curR"></div>
+<div id="debug"></div>
+
+<header id="hdr"><div class="bar">
+  <a class="logo" href="#stage">مدرسة <b>الأطلس</b><small>AUTOÉCOLE ATLASS · SALÉ</small></a>
+  <nav class="chaps"><a href="#stage">01 · البداية</a><a href="#programmes">02 · التكوين</a><a href="#tarifs">03 · الصيغ</a></nav>
+  <a class="btn" data-mag href="https://wa.me/212623470164" data-wa="مرحباً مدرسة الأطلس، أريد معلومات عن تعليم السياقة ورخصة السياقة.">سجّل الآن</a>
+</div></header>
+
+<div id="rail" aria-hidden="true">
+  <div class="rdot" data-s="0"><i></i>01</div><div class="rline"><b id="rfill"></b></div>
+  <div class="rdot" data-s="1"><i></i>02</div><div class="rline"></div>
+  <div class="rdot" data-s="2"><i></i>03</div><div class="rline"></div>
+  <div class="rdot" data-s="3"><i></i>04</div><div class="rline"></div>
+  <div class="rdot" data-s="4"><i></i>05</div>
+</div>
+
+<!-- ================= PINNED EDITORIAL 3D STAGE ================= -->
+<section class="stage" id="stage">
+ <div class="pin" id="pin">
+  <div class="grid-bg"></div>
+  <div id="glwrap"><canvas id="gl"></canvas></div>
+  <div id="fallback3d"><img src="demo-gym/img/hero3d.webp" alt="مدرسة الأطلس لتعليم السياقة"></div>
+  <div class="vig"></div><div class="frame"></div>
+  <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  <div id="loader">LOADING COMPOSITION…</div>
+
+  <div class="ovl" id="ov1">
+    <div class="eyebrow">// Scene 01 — Autoécole Atlass · Salé</div>
+    <h1>رخصة السياقة تبدأ<br><span class="stroke">من هنا</span>.</h1>
+    <p>مدرسة الأطلس لتعليم السياقة في قرية أولاد موسى، سلا — دروس نظرية وتطبيقية وامتحان تجريبي يجهّزك للنجاح. مرّر واكتشف التكوين.</p>
+    <div class="meta"><span class="micro">SALÉ — قرية أولاد موسى</span><span class="micro">نظري + تطبيقي</span><span class="micro">امتحان تجريبي</span></div>
+  </div>
+
+  <div class="ovl" id="ov2" style="opacity:0">
+    <div class="eyebrow">// Scene 02 — Layers</div>
+    <h2>التكوين على<br>مراحل واضحة.</h2>
+    <p>الشاشة الرئيسية، بطاقات التكوين، وعناصر المشهد — كيتحركو بسرعات مختلفة حيت العمق حقيقي، ماشي وهمي.</p>
+    <div class="ticks">
+      <span class="micro">LAYER A · SCREEN — Z 0.0</span>
+      <span class="micro">LAYER B · THE CARDS — Z +0.8</span>
+      <span class="micro">LAYER C · THE DEPTH — Z +1.6</span>
+    </div>
+  </div>
+
+  <div class="ovl" id="ov3" style="opacity:0">
+    <div class="statement"><span class="sh" aria-hidden="true">تعلّم. تدرّب. انجح.</span>تعلّم. تدرّب. انجح.</div>
+    <p>تكوين كامل: قانون السير، سياقة عملية، وامتحان تجريبي قبل الموعد الحقيقي.</p>
+  </div>
+
+  <div class="ovl" id="ov4" style="opacity:0">
+    <div class="eyebrow">// Scene 04 — The Programmes</div>
+    <h2>مراحل التكوين،<br>قدام عينيك.</h2>
+    <p>بطاقات كتطفو في العمق — كل وحدة مرحلة من مراحل تكوينك: النظري، التطبيقي، والامتحان التجريبي.</p>
+  </div>
+
+  <div class="ovl" id="ov5" style="opacity:0">
+    <div class="eyebrow">// Scene 05 — Your Move</div>
+    <h2>شفتي المدرسة… دابا بدا بنفسك.</h2>
+    <p>سجّل عبر واتساب واسأل عن التكوين والثمن — أحسن ثمن في قرية أولاد موسى سلا.</p>
+    <a class="btn wa" data-mag href="https://wa.me/212623470164" data-wa="مرحباً مدرسة الأطلس، أريد التسجيل لتعليم السياقة.">🚗 سجّل عبر واتساب</a>
+    <div class="mini-nav"><a href="#programmes">التكوين</a><a href="#tarifs">الصيغ</a><a href="#stage">من الأول ↑</a></div>
+    <div class="micro techfoot">AUTOÉCOLE ATLASS © 2026 · VERTEX WEB — WEBGL / GSAP / LENIS</div>
+  </div>
+
+  <div id="scrollcue">SCROLL<i></i></div>
+ </div>
+</section>
+
+<div class="marquee"><div class="track">
+  <span>قانون السير <i>//</i> سياقة عملية <i>//</i> امتحان تجريبي <i>//</i> رخصة السياقة <i>//</i> سلا <i>//</i></span>
+  <span>قانون السير <i>//</i> سياقة عملية <i>//</i> امتحان تجريبي <i>//</i> رخصة السياقة <i>//</i> سلا <i>//</i></span>
+</div></div>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><b>نظري</b><span>دروس قانون السير</span></div>
+    <div class="stat"><b>تطبيقي</b><span>دروس سياقة عملية</span></div>
+    <div class="stat"><b>تجريبي</b><span>امتحان أبيض للمترشحين</span></div>
+    <div class="stat"><b>سلا</b><span>قرية أولاد موسى</span></div>
+  </div>
+</section>
+
+<section class="sec" id="programmes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">تكويننا</span>
+      <h2>تكوين كامل حتى النجاح</h2>
+      <p>من أول درس نظري حتى يوم الامتحان: مراحل واضحة ومرافقة في كل خطوة.</p>
+    </div>
+    <div class="grid3">
+      <article class="prog"><img src="demo-gym/img/muscu.jpg" alt="دروس قانون السير"><div><h3>دروس قانون السير</h3><p>دروس نظرية في قانون السير وإشارات المرور، تحضيراً للامتحان النظري.</p><span class="tag">الجانب النظري</span></div></article>
+      <article class="prog"><img src="demo-gym/img/crossfit.jpg" alt="دروس السياقة العملية"><div><h3>دروس السياقة العملية</h3><p>حصص سياقة تطبيقية مع مؤطر، من الأساسيات حتى التحكم الكامل في السيارة.</p><span class="tag">الجانب التطبيقي</span></div></article>
+      <article class="prog"><img src="demo-gym/img/cardio.jpg" alt="الامتحان التجريبي"><div><h3>الامتحان التجريبي</h3><p>امتحان أبيض لجميع المترشحين في أجواء مشابهة للامتحان الحقيقي، باش تدخل واثق.</p><span class="tag">استعداد للامتحان</span></div></article>
+      <article class="prog"><img src="demo-gym/img/hiit.jpg" alt="أحسن ثمن في قرية أولاد موسى"><div><h3>أحسن ثمن في الحي</h3><p>شعارنا واضح: أحسن ثمن كاين في قرية أولاد موسى سلا — اسألنا عن الثمن عبر واتساب.</p><span class="tag">الثمن</span></div></article>
+      <article class="prog"><img src="demo-gym/img/yoga.jpg" alt="قرية أولاد موسى، سلا"><div><h3>في قرية أولاد موسى</h3><p>مدرسة قريبة منك في سلا — قرية أولاد موسى (Karia)، بلا ما تحتاج تسافر بعيد.</p><span class="tag">الموقع</span></div></article>
+      <article class="prog"><img src="demo-gym/img/coaching.jpg" alt="التسجيل عبر واتساب"><div><h3>التسجيل عبر واتساب</h3><p>أرسل رسالة واتساب وابدأ إجراءات التسجيل والاستفسار في دقائق.</p><span class="tag">سجّل الآن</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sched" id="planning">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">مراحل التكوين</span>
+      <h2>طريقك لرخصة السياقة</h2>
+      <p>خمس مراحل واضحة، من أول رسالة حتى يوم النجاح.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>المرحلة</th><th>شنو فيها</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 · التسجيل</b></td><td>تواصل معنا عبر واتساب وقدّم الوثائق اللازمة لفتح ملفك.</td></tr>
+          <tr><td><b>2 · التكوين النظري</b></td><td>دروس قانون السير وإشارات المرور حتى تتمكن من أسئلة الامتحان النظري.</td></tr>
+          <tr><td><b>3 · التكوين التطبيقي</b></td><td>دروس سياقة عملية مع مؤطر، من الأساسيات حتى المناورات.</td></tr>
+          <tr><td><b>4 · الامتحان التجريبي</b></td><td>امتحان أبيض لجميع المترشحين في أجواء مشابهة للامتحان الرسمي.</td></tr>
+          <tr><td><b>5 · الامتحان الرسمي</b></td><td>الامتحان النظري ثم التطبيقي — وبالتوفيق يوم النجاح.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tarifs">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">صيغ التكوين</span>
+      <h2>صيغ تناسب كل مترشح</h2>
+      <p>الثمن؟ أحسن ثمن في قرية أولاد موسى سلا — صيفط لينا واتساب وخد التفاصيل كاملة.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>التكوين النظري</h3>
+        <p class="total">الثمن عبر واتساب — أحسن ثمن في الحي</p>
+        <ul>
+          <li>دروس قانون السير وإشارات المرور</li>
+          <li>تحضير لأسئلة الامتحان النظري</li>
+          <li>مراجعة مركزة قبل الامتحان</li>
+          <li class="off">دروس السياقة العملية</li>
+          <li class="off">الامتحان التجريبي</li>
+        </ul>
+        <a class="btn ghost" href="https://wa.me/212623470164" data-wa="مرحباً مدرسة الأطلس، أريد معلومات عن التكوين النظري.">اختر النظري</a>
+      </article>
+      <article class="plan hot">
+        <span class="badge">نظري + تطبيقي</span>
+        <h3>التكوين الكامل</h3>
+        <p class="total">الثمن عبر واتساب — أحسن ثمن في الحي</p>
+        <ul>
+          <li>دروس قانون السير</li>
+          <li>دروس سياقة عملية</li>
+          <li>امتحان تجريبي لجميع المترشحين</li>
+          <li>مرافقة حتى يوم الامتحان</li>
+        </ul>
+        <a class="btn" href="https://wa.me/212623470164" data-wa="مرحباً مدرسة الأطلس، أريد معلومات عن التكوين الكامل.">اختر الكاملة</a>
+      </article>
+      <article class="plan">
+        <h3>التكوين التطبيقي</h3>
+        <p class="total">الثمن عبر واتساب — أحسن ثمن في الحي</p>
+        <ul>
+          <li>دروس سياقة عملية مع مؤطر</li>
+          <li>التحكم في السيارة والمناورات</li>
+          <li>امتحان تجريبي قبل الموعد الرسمي</li>
+          <li class="off">دروس قانون السير</li>
+        </ul>
+        <a class="btn ghost" href="https://wa.me/212623470164" data-wa="مرحباً مدرسة الأطلس، أريد معلومات عن التكوين التطبيقي.">اختر التطبيقي</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="sec" style="padding-top:0" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kick">أسئلة شائعة</span>
+      <h2>كل ما تريد معرفته</h2>
+    </div>
+    <details><summary>كيفاش نسجل في المدرسة؟</summary><p>صيفط لينا رسالة واتساب على 0623 470 164، وغادي نجاوبوك على الوثائق اللازمة، الثمن، وموعد بداية التكوين.</p></details>
+    <details><summary>واش كاين امتحان تجريبي قبل الامتحان الرسمي؟</summary><p>نعم، مدرسة الأطلس كتنظم امتحان تجريبي لجميع المترشحين، باش يستعدو للامتحان الحقيقي ويدخلوه بثقة.</p></details>
+    <details><summary>فين كاينة المدرسة بالضبط؟</summary><p>في قرية أولاد موسى، سلا (Karia) — قريبة من سكان الحي والمناطق المجاورة.</p></details>
+    <details><summary>شحال الثمن؟</summary><p>كنفتاخرو بأن عندنا أحسن ثمن في قرية أولاد موسى سلا — صيفط لينا واتساب وخد ثمن الصيغة اللي تناسبك.</p></details>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>أول خطوة؟ رسالة واتساب.</h2>
+  <p>سجّل أو استفسر على التكوين والثمن — كنردو عليك بسرعة عبر واتساب.</p>
+  <a class="btn" href="https://wa.me/212623470164" data-wa="مرحباً مدرسة الأطلس، أريد التسجيل لتعليم السياقة.">سجّل عبر واتساب ←</a>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><b>مدرسة الأطلس لتعليم السياقة</b><br>قرية أولاد موسى، سلا<br>أحسن ثمن في الحي</div>
+      <div><b>تواصل معنا</b><br>واتساب: 0623 470 164<br>انستغرام: @auto_ecole_atlass_</div>
+      <div><b>روابط سريعة</b><br><a href="#tarifs">الصيغ</a> · <a href="#planning">المراحل</a> · <a href="#programmes">التكوين</a></div>
+    </div>
+    <p class="demo-note">نموذج تجريبي من مكتبة فيرتكس ويب — VERTEX WEB</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/212623470164" data-wa="مرحباً مدرسة الأطلس، عندي سؤال عن تعليم السياقة." aria-label="واتساب">💬</a>
+
+<script src="demo-burger/gl/lib/gsap.min.js"></script>
+<script src="demo-burger/gl/lib/ScrollTrigger.min.js"></script>
+<script src="demo-burger/gl/lib/lenis.min.js"></script>
+<script>
+/* ================================================================
+   SCENES — نظام طبقات قابل للتبديل: بدّل src / المواضع / التوقيت
+   من هنا فقط. كل طبقة عندها keyframe في كل مشهد:
+   x, y, z (العمق), s (المقياس), rz/ry (الدوران), o (الشفافية), dk (التعتيم)
+   ================================================================ */
+const KF = (x,y,z,s,rz,ry,o,dk) => ({x,y,z,s,rz,ry,o,dk:dk||0});
+const SCENES = [
+  { id:'opening', cam:{x:0, y:0, z:10.6}, layers:{
+    glow:      KF(0, .2, -3.5, 1,    0, 0, .9),
+    screen:    KF(.95, -.05, 0,  1,    0, -.06, 1),
+    box:       KF(3.6, -2.2, -1.2, .34, .06, -.2, 0),
+    cardDouble:KF(-3.4, -2.4, -1.6, .5, -.05, .2, 0),
+    cardClassic:KF(3.9, 2.3, -2, .5, .04, -.15, 0),
+    cardExp:   KF(-3.8, 2.2, -2.2, .5, -.03, .18, 0),
+    patty:     KF(-2.6, 1.9, -1.4, .5, 0, .1, 0)
+  }},
+  { id:'layers', cam:{x:0, y:0, z:9.6}, layers:{
+    glow:      KF(-.5, .3, -3.5, 1.05, 0, 0, .8),
+    screen:    KF(-2.3, .7, -.4, .74, .03, .22, 1),
+    box:       KF(2.5, -.5, .3, .78, -.03, -.18, 1),
+    cardDouble:KF(-3.6, -2.3, -1.6, .5, -.05, .2, 0),
+    cardClassic:KF(3.9, 2.4, -2, .5, .04, -.15, 0),
+    cardExp:   KF(-3.9, 2.4, -2.2, .5, -.03, .18, 0),
+    patty:     KF(.4, -.9, 1.6, .62, .05, -.1, 1)
+  }},
+  { id:'reveal', cam:{x:0, y:0, z:8.2}, layers:{
+    glow:      KF(0, 0, -3.5, 1.1, 0, 0, .55),
+    screen:    KF(-3.4, 1.8, -1.8, .5, .05, .3, .28, .5),
+    box:       KF(0, .1, .4, 1.85, 0, 0, 1),
+    cardDouble:KF(-3.8, -2.2, -2, .5, -.06, .25, .2, .55),
+    cardClassic:KF(3.9, 2.2, -2.2, .5, .05, -.2, .2, .55),
+    cardExp:   KF(-3.9, -2.4, -2.4, .5, -.04, .2, .15, .6),
+    patty:     KF(2.9, -2, .8, .5, .04, -.15, .3, .4)
+  }},
+  { id:'works', cam:{x:-.7, y:.35, z:9.8}, layers:{
+    glow:      KF(.4, 0, -3.5, 1.05, 0, 0, .7),
+    screen:    KF(-2.9, 1.5, -.8, .62, .04, .2, .85, .25),
+    box:       KF(3, 1.7, -1.2, .66, -.03, -.16, .85, .25),
+    cardDouble:KF(.2, -.2, .9, 1.06, -.02, -.05, 1),
+    cardClassic:KF(-3.1, -1.7, -.4, .72, .05, .14, .8, .3),
+    cardExp:   KF(3.2, -1.6, -.6, .74, -.05, -.12, .8, .3),
+    patty:     KF(-.4, 2.3, -1.8, .45, 0, .1, 0)
+  }},
+  { id:'closing', cam:{x:0, y:0, z:10.4}, layers:{
+    glow:      KF(0, .4, -3.5, 1, 0, 0, .8),
+    screen:    KF(0, .85, 0, .82, 0, 0, 1),
+    box:       KF(3.6, -2.2, -1.4, .4, .05, -.2, 0),
+    cardDouble:KF(-3.5, -2.3, -1.8, .5, -.05, .2, 0),
+    cardClassic:KF(3.9, 2.3, -2.2, .5, .04, -.15, 0),
+    cardExp:   KF(-3.8, 2.2, -2.4, .5, -.03, .18, 0),
+    patty:     KF(-2.7, 2, -1.6, .5, 0, .1, 0)
+  }}
+];
+const LAYER_SRC = {
+  screen:     { make:'screen', src:'demo-gym/img/hero3d.webp',  url:'autoecole-atlass',  w:6.6 },
+  box:        { make:'photo',  src:'demo-gym/img/wide3d.webp',  w:5.4 },
+  cardDouble: { make:'card',   src:'demo-gym/img/muscu.jpg',    label:'CODE DE LA ROUTE',      w:3.5 },
+  cardClassic:{ make:'card',   src:'demo-gym/img/g2.jpg',       label:'CONDUITE PRATIQUE', w:3.5 },
+  cardExp:    { make:'card',   src:'demo-gym/img/yoga.jpg',     label:'EXAMEN BLANC',   w:3.5 },
+  patty:      { make:'alpha',  src:'demo-gym/gl/dumbbell-alpha.webp', w:3.0 }
+};
+window.STAGE = { layers:{}, cam:{...SCENES[0].cam}, ready:false };
+Object.keys(SCENES[0].layers).forEach(k => { window.STAGE.layers[k] = {...SCENES[0].layers[k]}; });
+
+const qs = new URLSearchParams(location.search);
+const DEBUG = qs.get('debug') === '1';
+const FORCED_P = parseFloat(qs.get('p'));
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================== reveals ================== */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ================== smooth scroll + master timeline ================== */
+gsap.registerPlugin(ScrollTrigger);
+let lenis = null;
+if (!REDUCED && window.Lenis && isNaN(FORCED_P)){
+  lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); lenis ? lenis.scrollTo(t) : t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+const ST = window.STAGE;
+const railDots = document.querySelectorAll('#rail .rdot');
+const dbg = document.getElementById('debug');
+if (DEBUG) dbg.style.display='block';
+const tl = gsap.timeline({
+  defaults:{ease:'power1.inOut'},
+  scrollTrigger:{
+    id:'stage', trigger:'#stage', start:'top top', end:'+=460%',
+    pin:'#pin', scrub: isNaN(FORCED_P) ? .6 : true, anticipatePin:1,
+    onUpdate(self){
+      const p = self.progress;
+      document.getElementById('progress').style.width = (p*100)+'%';
+      const rf = document.getElementById('rfill'); if (rf) rf.style.height = (p*100)+'%';
+      const scene = Math.min(Math.floor(p * 5), 4);
+      railDots.forEach((d,i)=>d.classList.toggle('on', i===scene));
+      const near = [.2,.4,.6,.8].some(b => Math.abs(p-b) < .007);
+      document.getElementById('glwrap').classList.toggle('trans', near && ST.ready);
+      if (DEBUG) dbg.textContent = 'scene: '+(scene+1)+'/5 · progress: '+(p*100).toFixed(1)+'%';
+    }
+  }
+});
+/* keyframe segments: scene i → i+1 over units [i*20, (i+1)*20] */
+for (let i = 0; i < SCENES.length - 1; i++){
+  const at = i * 20, dur = 20;
+  tl.to(ST.cam, {...SCENES[i+1].cam, duration:dur}, at);
+  Object.keys(SCENES[i].layers).forEach(k => {
+    tl.to(ST.layers[k], {...SCENES[i+1].layers[k], duration:dur}, at);
+  });
+}
+/* overlays */
+gsap.fromTo('#ov1', {opacity:0, x:-46}, {opacity:1, x:0, duration:1.15, delay:.25, ease:'power3.out'});
+tl.to('#scrollcue', {opacity:0, duration:3}, 15)
+  .to('#ov1', {opacity:0, x:-30, duration:4}, 16.5)
+  .fromTo('#ov2', {opacity:0, x:40}, {opacity:1, x:0, duration:4}, 19.5)
+  .to('#ov2', {opacity:0, duration:4}, 36.5)
+  .fromTo('#ov3', {opacity:0}, {opacity:1, duration:4}, 41.5)
+  .fromTo('#ov3 .statement', {y:56}, {y:0, duration:7, ease:'power2.out'}, 41.5)
+  .to('#ov3', {opacity:0, duration:4}, 56.5)
+  .fromTo('#ov4', {opacity:0, y:30}, {opacity:1, y:0, duration:4}, 60.5)
+  .to('#ov4', {opacity:0, duration:4}, 76.5)
+  .fromTo('#ov5', {opacity:0, y:30}, {opacity:1, y:0, duration:5}, 82.5)
+  .to({}, {duration:3}, 97);
+if (!isNaN(FORCED_P)){
+  setTimeout(()=>{ const st = ScrollTrigger.getById('stage'); st.scroll(st.start + Math.min(Math.max(FORCED_P,0),1)*(st.end - st.start)); ScrollTrigger.update(); }, 80);
+}
+addEventListener('scroll', ()=>{ document.getElementById('hdr').classList.toggle('scrolled', scrollY>40); }, {passive:true});
+
+/* ================== custom cursor + magnetic ================== */
+if (matchMedia('(pointer:fine)').matches && !REDUCED){
+  const cur=document.getElementById('cur'), ring=document.getElementById('curR');
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';},{passive:true});
+  (function loop(){ rx+=(mx-rx)*.14; ry+=(my-ry)*.14; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+  document.querySelectorAll('a,.prog,.plan,.coach').forEach(el=>{
+    el.addEventListener('pointerenter',()=>ring.classList.add('big'));
+    el.addEventListener('pointerleave',()=>ring.classList.remove('big'));
+  });
+  document.querySelectorAll('[data-mag]').forEach(el=>{
+    el.addEventListener('pointermove',e=>{ const r=el.getBoundingClientRect();
+      const dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height/2);
+      el.style.transform='translate('+dx*.22+'px,'+dy*.28+'px)'; });
+    el.addEventListener('pointerleave',()=>{ el.style.transform=''; });
+  });
+}
+</script>
+
+<script>
+/* ================== WhatsApp links ================== */
+document.querySelectorAll('[data-wa]').forEach(function(a){
+  a.href = 'https://wa.me/212623470164?text=' + encodeURIComponent(a.getAttribute('data-wa'));
+});
+</script>
+
+<script type="module">
+/* ================== WebGL: layered editorial composition ================== */
+try {
+  const THREE = await import('three');
+  const ST = window.STAGE;
+  const canvas = document.getElementById('gl');
+  const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 820 ? 1.6 : 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, .1, 100);
+
+  const loadImg = src => new Promise((res, rej)=>{
+    const img = new Image(); if (location.protocol.indexOf('http')===0) img.crossOrigin='anonymous';
+    img.onload = ()=>res(img); img.onerror = rej; img.src = src;
+  });
+  function cover(ctx, img, x, y, w, h){
+    const ir = img.naturalWidth/img.naturalHeight, r = w/h;
+    let sw, sh, sx, sy;
+    if (ir > r){ sh = img.naturalHeight; sw = sh*r; sx = (img.naturalWidth-sw)/2; sy = 0; }
+    else { sw = img.naturalWidth; sh = sw/r; sx = 0; sy = (img.naturalHeight-sh)/2; }
+    ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+  }
+  function rr(ctx, x, y, w, h, r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  async function screenTexture(src, url){
+    const img = await loadImg(src);
+    const c = document.createElement('canvas'); c.width = 1100; c.height = 730;
+    const x = c.getContext('2d');
+    x.fillStyle = '#101013'; rr(x, 4, 4, 1092, 722, 26); x.fill();
+    x.fillStyle = '#17171b'; rr(x, 4, 4, 1092, 74, 26); x.fill(); x.fillRect(4, 52, 1092, 26);
+    ['#e8362a','#f5bf42','#39d353'].forEach((col, i)=>{ x.fillStyle = col; x.beginPath(); x.arc(44+i*34, 41, 10, 0, 7); x.fill(); });
+    x.fillStyle = '#232329'; rr(x, 200, 22, 560, 38, 19); x.fill();
+    x.fillStyle = '#9a958a'; x.font = '24px Courier New'; x.fillText('https://' + url, 224, 49);
+    x.fillStyle = '#9a958a'; x.font = '22px Courier New'; x.fillText('≡', 1030, 50);
+    x.save(); rr(x, 22, 96, 1056, 612, 14); x.clip(); cover(x, img, 22, 96, 1056, 612); x.restore();
+    x.strokeStyle = 'rgba(245,247,242,.16)'; x.lineWidth = 2; rr(x, 4, 4, 1092, 722, 26); x.stroke();
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+    return {tex: t, aspect: 730/1100};
+  }
+  async function cardTexture(src, label){
+    const img = await loadImg(src);
+    const c = document.createElement('canvas'); c.width = 800; c.height = 600;
+    const x = c.getContext('2d');
+    x.fillStyle = '#0c0c0e'; x.fillRect(0, 0, 800, 600);
+    cover(x, img, 0, 0, 800, 492);
+    x.fillStyle = '#101013'; x.fillRect(0, 492, 800, 108);
+    x.fillStyle = '#C8F542'; x.fillRect(28, 522, 34, 4);
+    x.fillStyle = '#f5f7f2'; x.font = '700 30px Courier New'; x.fillText(label, 28, 570);
+    x.strokeStyle = 'rgba(245,247,242,.22)'; x.lineWidth = 2; x.strokeRect(1, 1, 798, 598);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+    return {tex: t, aspect: 600/800};
+  }
+  async function photoTexture(src){
+    const img = await loadImg(src);
+    const c = document.createElement('canvas'); c.width = 1200; c.height = 750;
+    const x = c.getContext('2d'); cover(x, img, 0, 0, 1200, 750);
+    x.strokeStyle = 'rgba(245,247,242,.18)'; x.lineWidth = 3; x.strokeRect(2, 2, 1196, 746);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+    return {tex: t, aspect: 750/1200};
+  }
+  async function alphaTexture(src){
+    const img = await loadImg(src);
+    const c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight;
+    const x = c.getContext('2d'); x.drawImage(img, 0, 0);
+    const d = x.getImageData(0, 0, c.width, c.height), px = d.data;
+    let minX=c.width,minY=c.height,maxX=0,maxY=0;
+    for (let i=3;i<px.length;i+=16){ if (px[i]>12){ const n=(i-3)/4, X=n%c.width, Y=(n/c.width)|0;
+      if(X<minX)minX=X; if(X>maxX)maxX=X; if(Y<minY)minY=Y; if(Y>maxY)maxY=Y; } }
+    const pad=10; minX=Math.max(0,minX-pad); minY=Math.max(0,minY-pad);
+    maxX=Math.min(c.width-1,maxX+pad); maxY=Math.min(c.height-1,maxY+pad);
+    const cw=maxX-minX+1, ch=maxY-minY+1;
+    const cc=document.createElement('canvas'); cc.width=cw; cc.height=ch;
+    cc.getContext('2d').drawImage(c,minX,minY,cw,ch,0,0,cw,ch);
+    const t = new THREE.CanvasTexture(cc); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+    return {tex: t, aspect: ch/cw};
+  }
+  function glowTexture(){
+    const c = document.createElement('canvas'); c.width = 512; c.height = 512;
+    const x = c.getContext('2d');
+    const g = x.createRadialGradient(256, 256, 20, 256, 256, 256);
+    g.addColorStop(0, 'rgba(200,245,66,.30)'); g.addColorStop(.55, 'rgba(200,245,66,.09)'); g.addColorStop(1, 'rgba(200,245,66,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 512, 512);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+    return {tex: t, aspect: 1};
+  }
+
+  const defs = {
+    glow:   { make:'glow' },
+    screen: LAYER_SRC.screen, box: LAYER_SRC.box,
+    cardDouble: LAYER_SRC.cardDouble, cardClassic: LAYER_SRC.cardClassic,
+    cardExp: LAYER_SRC.cardExp, patty: LAYER_SRC.patty
+  };
+  const meshes = {};
+  for (const [key, d] of Object.entries(defs)){
+    let r;
+    if (d.make === 'screen') r = await screenTexture(d.src, d.url);
+    else if (d.make === 'card') r = await cardTexture(d.src, d.label);
+    else if (d.make === 'photo') r = await photoTexture(d.src);
+    else if (d.make === 'alpha') r = await alphaTexture(d.src);
+    else r = glowTexture();
+    const w = key === 'glow' ? 15 : d.w;
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, w * r.aspect),
+      new THREE.MeshBasicMaterial({ map: r.tex, transparent: true, depthWrite: false }));
+    m.renderOrder = key === 'glow' ? 0 : 5;
+    scene.add(m); meshes[key] = m;
+  }
+  document.getElementById('loader').style.display = 'none';
+  ST.ready = true;
+  (window.__meshes = window.__meshes || []).push(meshes);
+
+  let mx = 0, my = 0, visible = true;
+  if (matchMedia('(pointer:fine)').matches)
+    addEventListener('pointermove', e=>{ mx = e.clientX/innerWidth - .5; my = e.clientY/innerHeight - .5; }, {passive:true});
+  new IntersectionObserver(es=>{ visible = es[0].isIntersecting; }).observe(document.getElementById('stage'));
+  function resize(){
+    const w = canvas.clientWidth || innerWidth, h = canvas.clientHeight || innerHeight;
+    renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix();
+  }
+  resize(); addEventListener('resize', resize);
+
+  function tick(t){
+    requestAnimationFrame(tick);
+    if (!visible) return;
+    const ms = innerWidth < 820 ? .62 : 1;
+    for (const [key, m] of Object.entries(meshes)){
+      const L = ST.layers[key]; if (!L) continue;
+      m.position.set(L.x * (innerWidth < 820 ? .45 : 1), L.y, L.z);
+      m.rotation.set(0, L.ry + mx * .12, L.rz);
+      const sc = L.s * ms; m.scale.set(sc, sc, 1);
+      m.material.opacity = L.o;
+      m.renderOrder = 5 + L.z * 2;
+      const dk = 1 - (L.dk || 0) * .75;
+      m.material.color.setScalar(dk);
+    }
+    camera.position.set(ST.cam.x + mx * .35, ST.cam.y - my * .25 + Math.sin(t*.0004)*.04, ST.cam.z);
+    camera.lookAt(ST.cam.x * .6, ST.cam.y * .6, 0);
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(tick);
+} catch(e) {
+  document.getElementById('loader').style.display = 'none';
+  document.getElementById('fallback3d').style.display = 'flex';
+  const g = document.getElementById('gl'); if (g) g.style.display = 'none';
+}
+</script>
+  <script src="vx-content.js" defer></script>
+</body>
+</html>

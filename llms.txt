@@ -20,6 +20,8 @@
 
 Full service comparison: https://vertex-web-tanger.onrender.com/services.html
 
+- Post-launch follow-up & growth — monthly service after the free 30 days of support, in three scopes: (1) Follow-up: uptime watch, content snapshots/backups, technical updates, small edits. (2) Growth: everything in Follow-up plus monthly content updates, SEO/GEO visibility follow-up and a short monthly performance report. (3) Growth + Ads: everything in Growth plus advertising campaign management (setup, copy, campaign landing pages, results tracking) run on the client's own ad account — ad spend is paid by the client directly and stays under their control. Monthly pricing is quoted per project on WhatsApp and is not published: https://vertex-web-tanger.onrender.com/suivi-croissance.html
+
 ## Sector pages
 
 - Web design in Tangier (prices, process, timeline): https://vertex-web-tanger.onrender.com/creation-site-web-tanger.html
@@ -51,6 +53,7 @@ Full service comparison: https://vertex-web-tanger.onrender.com/services.html
 
 - Portfolio (42 live projects and sector demos): https://vertex-web-tanger.onrender.com/portfolio.html
 - Pâtisserie Siham (real client project, Tangier pastry chef, WhatsApp ordering): https://chef-patisserie-tanger.onrender.com/
+- Real-client proof wall (named clients, each with a live link, plus their testimonials): https://vertex-web-tanger.onrender.com/portfolio.html#proof — Cap Immo Tanger (real-estate platform), TradePro Academy (course platform), Pâtisserie Siham (sweets store), AWAB CLIM (air-conditioning company), LocalBoost AI, Tanger Safe Buy.
 - AL QASR restaurant (flagship demo of the cinematic ordering system): https://vertex-web-tanger.onrender.com/demo-qasr.html
 - Villa Horizon (real-estate demo with two scroll films and WhatsApp visit booking): https://vertex-web-tanger.onrender.com/demo-villa-horizon.html
 

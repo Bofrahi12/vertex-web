@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Lavage Auto Pro — Lavage &amp; detailing à domicile à Marrakech</title>
+<meta name="description" content="Lavage Auto Pro — lavage, detailing, lustrage et polissage 100 % à domicile à Marrakech. Réservation simple par WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#08080a; --noir2:#101013; --noir3:#17171c;
+    --accent:#FF3B1F; --accent2:#ff6a4d;
+    --txt:#f4f4f6; --mut:#a7a7b3; --line:rgba(255,255,255,.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--noir);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.disp{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.08}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  .hexbg{
+    background-color:var(--noir);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 2 L54 17 L54 47 L28 62 L2 47 L2 17 Z M28 62 L28 98 M54 47 L54 82 L28 98 M2 47 L2 82 L28 98' fill='none' stroke='%23ffffff' stroke-opacity='0.045' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-size:56px 100px;
+  }
+  /* badge */
+  .demo-badge{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:200;background:var(--accent);color:#fff;font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:7px 18px;border-radius:50px;box-shadow:0 8px 30px rgba(255,59,31,.45);white-space:nowrap}
+  /* header */
+  header{position:sticky;top:0;z-index:100;background:rgba(8,8,10,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .hrow{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 0}
+  .logo{font-family:'Oswald',sans-serif;font-size:1.45rem;font-weight:700;letter-spacing:.06em}
+  .logo span{color:var(--accent)}
+  .logo small{display:block;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.34em;color:var(--mut);font-weight:600}
+  nav.main{display:flex;gap:28px;font-size:.92rem;font-weight:500;color:var(--mut)}
+  nav.main a:hover{color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;font-weight:700;padding:13px 26px;border-radius:6px;font-size:.95rem;transition:.25s;border:1px solid var(--accent);cursor:pointer}
+  .btn:hover{background:transparent;color:var(--accent2);border-color:var(--accent2)}
+  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent2)}
+  .btn.sm{padding:10px 20px;font-size:.88rem}
+  /* hero */
+  .hero{position:relative;padding:96px 0 84px;overflow:hidden}
+  .hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center;position:relative;z-index:2}
+  .kicker{color:var(--accent);font-weight:700;letter-spacing:.3em;font-size:.78rem;text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.4rem);font-weight:700}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p{color:var(--mut);font-size:1.08rem;margin:22px 0 30px;max-width:520px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-img{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.6)}
+  .hero-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .stats{display:flex;gap:0;margin-top:54px;border:1px solid var(--line);border-radius:12px;overflow:hidden;max-width:640px;background:rgba(255,255,255,.02)}
+  .stat{flex:1;padding:18px 10px;text-align:center;border-inline-end:1px solid var(--line)}
+  .stat:last-child{border-inline-end:none}
+  .stat strong{display:block;font-family:'Oswald',sans-serif;font-size:1.7rem;color:#fff}
+  .stat span{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{border:1px solid var(--line);border-radius:50px;padding:7px 16px;font-size:.82rem;color:var(--mut);background:rgba(255,255,255,.02)}
+  /* marquee */
+  .marquee{background:var(--accent);color:#fff;overflow:hidden;padding:13px 0;transform:rotate(-.6deg) scale(1.02)}
+  .marquee .track{display:flex;gap:0;white-space:nowrap;font-family:'Oswald',sans-serif;font-size:1.25rem;font-weight:600;letter-spacing:.14em;animation:scroll 26s linear infinite;width:max-content}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  /* sections */
+  section{padding:88px 0}
+  .sec-head{max-width:720px;margin-bottom:46px}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin:10px 0 12px}
+  .sec-head h2 em{font-style:normal;color:var(--accent)}
+  .sec-head p{color:var(--mut)}
+  /* inventory */
+  .inv{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .car{background:var(--noir2);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+  .car:hover{transform:translateY(-6px);border-color:rgba(255,59,31,.55)}
+  .car .ph{overflow:hidden}
+  .car .ph img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:.5s}
+  .car:hover .ph img{transform:scale(1.06)}
+  .car .bd{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+  .car .tag{align-self:flex-start;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(255,59,31,.5);padding:4px 10px;border-radius:50px;margin-bottom:12px}
+  .car h3{font-size:1.28rem;margin-bottom:8px}
+  .specs{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:.86rem;margin-bottom:16px}
+  .price{font-family:'Oswald',sans-serif;font-size:1.55rem;color:#fff;margin-top:auto}
+  .price small{font-size:.8rem;color:var(--mut);font-family:'Inter',sans-serif}
+  .car .btn{margin-top:14px;justify-content:center}
+  /* services */
+  .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .sv{background:var(--noir2);border:1px solid var(--line);border-radius:14px;padding:30px 24px;transition:.3s}
+  .sv:hover{border-color:rgba(255,59,31,.55);transform:translateY(-4px)}
+  .sv .ic{font-size:1.9rem;margin-bottom:14px}
+  .sv h3{font-size:1.12rem;margin-bottom:9px}
+  .sv p{color:var(--mut);font-size:.92rem}
+  .sv .num{float:right;font-family:'Oswald',sans-serif;color:rgba(255,255,255,.16);font-size:1.3rem}
+  /* why */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+  .why-img{border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .why-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .feat{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .feat:last-child{border-bottom:none}
+  .feat .n{font-family:'Oswald',sans-serif;font-size:1.5rem;color:var(--accent);min-width:52px}
+  .feat h3{font-size:1.08rem;margin-bottom:4px}
+  .feat p{color:var(--mut);font-size:.93rem}
+  /* form */
+  .formbox{background:linear-gradient(160deg,var(--noir3),var(--noir2));border:1px solid var(--line);border-radius:18px;padding:44px;display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center}
+  form{display:grid;gap:14px}
+  label{font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+  input,select{width:100%;background:#0b0b0e;border:1px solid var(--line);border-radius:8px;color:#fff;padding:13px 14px;font:inherit;font-size:.95rem;margin-top:6px}
+  input:focus,select:focus{outline:none;border-color:var(--accent)}
+  /* footer */
+  footer{border-top:1px solid var(--line);background:#050506;padding:56px 0 30px}
+  .frow{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
+  footer p,footer a{color:var(--mut);font-size:.93rem}
+  footer h4{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;font-size:1rem}
+  .fnav{display:grid;gap:9px}
+  .fnav a:hover{color:#fff}
+  .legal{border-top:1px solid var(--line);padding-top:22px;text-align:center;color:var(--mut);font-size:.86rem}
+  /* whatsapp float */
+  .wa-float{position:fixed;bottom:22px;inset-inline-end:22px;z-index:150;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 12px 32px rgba(0,0,0,.5)}
+  @media(max-width:1020px){
+    .inv{grid-template-columns:repeat(2,1fr)} .svc{grid-template-columns:repeat(2,1fr)}
+    .hero .grid,.why,.formbox{grid-template-columns:1fr}
+    nav.main{display:none}
+  }
+  @media(max-width:620px){
+    .inv,.svc,.frow{grid-template-columns:1fr}
+    .stats{flex-direction:column} .stat{border-inline-end:none;border-bottom:1px solid var(--line)}
+    .formbox{padding:28px 20px} section{padding:60px 0}
+  }
+</style>
+</head>
+<body class="hexbg">
+<div class="demobar" style="position:static;background:#1D1808;color:#FFD94D;text-align:center;font-size:13.5px;padding:9px 14px;border-bottom:1px solid #4a3d00;font-weight:700">Aperçu conçu spécialement pour Lavage Auto Pro · par VERTEX WEB</div>
+
+<header>
+  <div class="wrap hrow">
+    <a class="logo" href="#">LAVAGE AUTO <span>PRO</span><small>MARRAKECH · À DOMICILE</small></a>
+    <nav class="main">
+      <a href="#inventaire">Prestations</a>
+      <a href="#services">Services</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#essai">Réserver</a>
+    </nav>
+    <a class="btn sm" href="https://wa.me/212672597011?text=Bonjour%20Lavage%20Auto%20Pro%2C%20je%20souhaite%20des%20informations%20sur%20vos%20prestations%20%C3%A0%20domicile%20%C3%A0%20Marrakech." target="_blank" rel="noopener">Réserver</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap grid">
+    <div>
+      <div class="kicker">Lavage &amp; detailing à domicile — Marrakech</div>
+      <h1>Le detailing premium,<br><em>sans bouger de chez vous</em></h1>
+      <p>Lavage Auto Pro se déplace chez vous à Marrakech : lavage complet, detailing, lustrage et polissage, réalisés sur place, chez le client.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#inventaire">Voir les prestations</a>
+        <a class="btn ghost" href="#essai">Réserver un créneau</a>
+      </div>
+      <div class="chips">
+        <span class="chip">Lavage complet</span><span class="chip">Detailing</span><span class="chip">Lustrage</span><span class="chip">Polissage</span><span class="chip">100 % à domicile</span><span class="chip">Marrakech</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>100 %</strong><span>Service à domicile</span></div>
+        <div class="stat"><strong>4</strong><span>Prestations expertes</span></div>
+        <div class="stat"><strong>WhatsApp</strong><span>Réservation directe</span></div>
+      </div>
+    </div>
+    <div class="hero-img"><img src="imperial/hero.jpg" alt="Detailing automobile à domicile à Marrakech"></div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>&nbsp;LAVAGE À DOMICILE ✦ DETAILING ✦ LUSTRAGE ✦ POLISSAGE ✦ MARRAKECH ✦ RÉSERVATION WHATSAPP ✦</span>
+    <span>&nbsp;LAVAGE À DOMICILE ✦ DETAILING ✦ LUSTRAGE ✦ POLISSAGE ✦ MARRAKECH ✦ RÉSERVATION WHATSAPP ✦</span>
+  </div>
+</div>
+
+<!-- INVENTAIRE -->
+<section id="inventaire">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Nos prestations</div>
+      <h2>Des prestations <em>chez vous</em></h2>
+      <p>Toutes nos prestations sont réalisées à domicile, à Marrakech : vous réservez sur WhatsApp, nous venons chez vous, vous retrouvez votre voiture.</p>
+    </div>
+    <div class="inv">
+
+      <article class="car">
+        <div class="ph"><img src="imperial/v1.jpg" alt="Lavage complet de voiture à domicile"></div>
+        <div class="bd">
+          <span class="tag">Essentiel</span>
+          <h3>Lavage complet</h3>
+          <div class="specs"><span>🧼 Extérieur + intérieur</span><span>🏠 100 % à domicile</span></div>
+          <a class="btn sm" href="https://wa.me/212672597011?text=Bonjour%20Lavage%20Auto%20Pro%2C%20je%20souhaite%20r%C3%A9server%20un%20Lavage%20complet%20%C3%A0%20domicile%20%C3%A0%20Marrakech." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="ph"><img src="imperial/v2.jpg" alt="Detailing complet de voiture à domicile"></div>
+        <div class="bd">
+          <span class="tag">Signature</span>
+          <h3>Detailing</h3>
+          <div class="specs"><span>✨ Nettoyage en profondeur</span><span>🔍 Finition soignée</span></div>
+          <a class="btn sm" href="https://wa.me/212672597011?text=Bonjour%20Lavage%20Auto%20Pro%2C%20je%20souhaite%20r%C3%A9server%20un%20Detailing%20%C3%A0%20domicile%20%C3%A0%20Marrakech." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="ph"><img src="imperial/v3.jpg" alt="Lustrage de carrosserie à domicile"></div>
+        <div class="bd">
+          <span class="tag">Éclat</span>
+          <h3>Lustrage</h3>
+          <div class="specs"><span>💎 Brillance retrouvée</span><span>🎨 Profondeur de la teinte</span></div>
+          <a class="btn sm" href="https://wa.me/212672597011?text=Bonjour%20Lavage%20Auto%20Pro%2C%20je%20souhaite%20r%C3%A9server%20un%20Lustrage%20%C3%A0%20domicile%20%C3%A0%20Marrakech." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="ph"><img src="imperial/v4.jpg" alt="Polissage de carrosserie à domicile"></div>
+        <div class="bd">
+          <span class="tag">Correction</span>
+          <h3>Polissage</h3>
+          <div class="specs"><span>🛠️ Micro-rayures atténuées</span><span>✨ Surface lissée</span></div>
+          <a class="btn sm" href="https://wa.me/212672597011?text=Bonjour%20Lavage%20Auto%20Pro%2C%20je%20souhaite%20r%C3%A9server%20un%20Polissage%20%C3%A0%20domicile%20%C3%A0%20Marrakech." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="ph"><img src="imperial/v5.jpg" alt="Detailing intérieur de voiture à domicile"></div>
+        <div class="bd">
+          <span class="tag">Intérieur</span>
+          <h3>Detailing intérieur</h3>
+          <div class="specs"><span>🪑 Habitacle en profondeur</span><span>🌿 Intérieur rafraîchi</span></div>
+          <a class="btn sm" href="https://wa.me/212672597011?text=Bonjour%20Lavage%20Auto%20Pro%2C%20je%20souhaite%20r%C3%A9server%20un%20Detailing%20int%C3%A9rieur%20%C3%A0%20domicile%20%C3%A0%20Marrakech." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="ph"><img src="imperial/v6.jpg" alt="Pack rénovation complet à domicile"></div>
+        <div class="bd">
+          <span class="tag">Complet</span>
+          <h3>Pack rénovation</h3>
+          <div class="specs"><span>🧽 Lavage + detailing + lustrage</span><span>⏱️ En une seule visite</span></div>
+          <a class="btn sm" href="https://wa.me/212672597011?text=Bonjour%20Lavage%20Auto%20Pro%2C%20je%20souhaite%20r%C3%A9server%20un%20Pack%20r%C3%A9novation%20%C3%A0%20domicile%20%C3%A0%20Marrakech." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Nos services</div>
+      <h2>Simple, de la réservation <em>au résultat</em></h2>
+      <p>Vous réservez sur WhatsApp, nous nous déplaçons chez vous à Marrakech, et votre voiture ressort impeccable — sans que vous quittiez votre domicile.</p>
+    </div>
+    <div class="svc">
+      <div class="sv"><span class="num">01</span><div class="ic">🏎️</div><h3>Réservation WhatsApp</h3><p>Envoyez un simple message : la prestation souhaitée, votre adresse et le créneau qui vous convient.</p></div>
+      <div class="sv"><span class="num">02</span><div class="ic">✅</div><h3>Nous venons à vous</h3><p>Service 100 % à domicile : dans le quartier Chrifia et partout à Marrakech, nous nous déplaçons chez le client.</p></div>
+      <div class="sv"><span class="num">03</span><div class="ic">💳</div><h3>Travail sur place</h3><p>Lavage, detailing, lustrage ou polissage réalisés chez vous, le jour et à l'heure convenus.</p></div>
+      <div class="sv"><span class="num">04</span><div class="ic">🔄</div><h3>Résultat immédiat</h3><p>Vous retrouvez votre voiture propre et éclatante, sans file d'attente ni passage à l'atelier.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI NOUS -->
+<section id="pourquoi" style="padding-top:20px">
+  <div class="wrap why">
+    <div class="why-img"><img src="imperial/v3.jpg" alt="Polissage et lustrage à domicile à Marrakech"></div>
+    <div>
+      <div class="kicker">Pourquoi nous</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:14px">Le detailing, <span style="color:var(--accent)">sans contraintes</span></h2>
+      <div class="feat"><div class="n">100 %</div><div><h3>À domicile</h3><p>Aucun déplacement de votre part : toute la prestation se fait chez vous, à Marrakech.</p></div></div>
+      <div class="feat"><div class="n">4</div><div><h3>Prestations expertes</h3><p>Lavage complet, detailing, lustrage et polissage : le soin complet de votre carrosserie et de votre habitacle.</p></div></div>
+      <div class="feat"><div class="n">0</div><div><h3>Attente en atelier</h3><p>Pas de file d'attente ni de voiture immobilisée au garage : le service vient à vous.</p></div></div>
+      <div class="feat"><div class="n">1</div><div><h3>Seul canal : WhatsApp</h3><p>Réservation, confirmation et suivi : tout passe par un simple message WhatsApp.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESSAI -->
+<section id="essai" style="padding-top:20px">
+  <div class="wrap">
+    <div class="formbox">
+      <div>
+        <div class="kicker">Réservation</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:14px">Réservez votre <span style="color:var(--accent)">créneau</span></h2>
+        <p style="color:var(--mut)">Choisissez votre prestation et la date qui vous convient : votre demande part directement sur notre WhatsApp. Service 100 % à domicile à Marrakech — quartier Chrifia et environs.</p>
+      </div>
+      <form id="essaiForm">
+        <div>
+          <label for="f-veh">Prestation souhaitée</label>
+          <select id="f-veh" required>
+            <option>Lavage complet</option>
+            <option>Detailing</option>
+            <option>Lustrage</option>
+            <option>Polissage</option>
+            <option>Detailing intérieur</option>
+            <option>Pack rénovation</option>
+            <option>Autre demande</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-date">Date souhaitée</label>
+          <input type="date" id="f-date" required>
+        </div>
+        <div>
+          <label for="f-nom">Votre nom</label>
+          <input type="text" id="f-nom" placeholder="Nom complet" required>
+        </div>
+        <div>
+          <label for="f-tel">Téléphone</label>
+          <input type="tel" id="f-tel" placeholder="06 XX XX XX XX" required>
+        </div>
+        <button class="btn" type="submit" style="justify-content:center">Envoyer ma demande sur WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>
+        <a class="logo" href="#">LAVAGE AUTO <span>PRO</span><small>MARRAKECH · À DOMICILE</small></a>
+        <p style="margin-top:16px">Lavage et detailing 100 % à domicile à Marrakech : lavage complet, detailing, lustrage et polissage, sur réservation WhatsApp.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <div class="fnav">
+          <a href="#inventaire">Prestations</a>
+          <a href="#services">Services</a>
+          <a href="#pourquoi">Pourquoi nous</a>
+          <a href="#essai">Réserver</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="fnav">
+          <span>📍 Chrifia, Marrakech — service à domicile</span>
+          <a href="https://www.instagram.com/lavage_auto_pro2" target="_blank" rel="noopener">📸 Instagram : @lavage_auto_pro2</a>
+          <a href="https://wa.me/212672597011" target="_blank" rel="noopener">💬 WhatsApp : +212 672 597 011</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal">© 2026 Lavage Auto Pro — Marrakech. Aperçu réalisé par VERTEX WEB. Photos illustratives, présentées à titre d'exemple.</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/212672597011?text=Bonjour%20Lavage%20Auto%20Pro%2C%20je%20souhaite%20des%20informations%20sur%20vos%20prestations%20%C3%A0%20domicile%20%C3%A0%20Marrakech." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<script>
+document.getElementById('essaiForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var veh = document.getElementById('f-veh').value;
+  var date = document.getElementById('f-date').value;
+  var nom = document.getElementById('f-nom').value.trim();
+  var tel = document.getElementById('f-tel').value.trim();
+  var msg = "Bonjour Lavage Auto Pro, je souhaite réserver une prestation à domicile à Marrakech.\n" +
+            "• Prestation : " + veh + "\n" +
+            "• Date souhaitée : " + date + "\n" +
+            "• Nom : " + nom + "\n" +
+            "• Téléphone : " + tel;
+  window.open("https://wa.me/212672597011?text=" + encodeURIComponent(msg), "_blank");
+});
+</script>
+
+<style id="tw-motion-css">
+.tw-rv{opacity:0;transform:translateY(30px) perspective(900px) rotateX(5deg);transition:opacity .9s cubic-bezier(.16,.7,.24,1),transform .9s cubic-bezier(.16,.7,.24,1)}
+.tw-rv.tw-in{opacity:1;transform:translateY(0) perspective(900px) rotateX(0deg)}
+.tw-tilt{transform-style:preserve-3d;will-change:transform;transition:transform .35s ease-out}
+.tw-tilt img{transition:transform .8s cubic-bezier(.16,.7,.24,1)}
+.tw-tilt:hover img{transform:scale(1.07)}
+@keyframes twkb{from{transform:scale(1)}to{transform:scale(1.09)}}
+.tw-kb{animation:twkb 16s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.tw-rv{opacity:1!important;transform:none!important;transition:none!important}.tw-kb{animation:none!important}}
+</style>
+<script id="tw-motion-js">
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cardSel='[class*="card"],[class*="produit"],[class*="product"],[class*="room"],[class*="chambre"],[class*="plat"],[class*="dish"],[class*="item"],[class*="box"],[class*="tile"],article,figure';
+  function bad(el){return el.closest('[class*="slider"],[class*="rev"],[class*="swiper"],[class*="carousel"],[class*="marquee"]');}
+  // --- hero: gentle Ken Burns on first big image (if it has no own animation)
+  try{
+    var hero=document.querySelector('section,header,div');
+    var him=document.querySelector('section img, header img');
+    if(him && !bad(him) && getComputedStyle(him).animationName==='none' && him.getBoundingClientRect().width>500){ him.classList.add('tw-kb'); }
+  }catch(e){}
+  // --- collect reveal targets
+  var set=new Set();
+  document.querySelectorAll('section').forEach(function(el,i){ if(i>0) set.add(el); });
+  document.querySelectorAll('h2').forEach(function(el){ set.add(el); });
+  document.querySelectorAll(cardSel).forEach(function(el){ set.add(el); });
+  var list=[];
+  set.forEach(function(el){ if(!bad(el)) list.push(el); });
+  list=list.filter(function(el){ return !list.some(function(o){ return o!==el && el.contains(o) && el.tagName!=='SECTION'; }); });
+  function attachTilt(el){
+    if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    if(el.querySelector('form,input,select,textarea')) return;
+    var r=el.getBoundingClientRect(); if(r.width>640||r.width<110) return;
+    el.classList.add('tw-tilt');
+    el.addEventListener('pointermove',function(ev){
+      var b=el.getBoundingClientRect();
+      var x=(ev.clientX-b.left)/b.width-.5, y=(ev.clientY-b.top)/b.height-.5;
+      el.style.transform='perspective(850px) rotateX('+(-y*7).toFixed(2)+'deg) rotateY('+(x*9).toFixed(2)+'deg) translateY(-3px)';
+    });
+    el.addEventListener('pointerleave',function(){ el.style.transform=''; });
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('tw-in'); attachTilt(e.target); io.unobserve(e.target); } });
+  },{threshold:.08,rootMargin:'0px 0px -3% 0px'});
+  list.forEach(function(el){
+    el.classList.add('tw-rv');
+    var sib=el.parentNode?Array.prototype.indexOf.call(el.parentNode.children,el):0;
+    el.style.transitionDelay=Math.min((Math.max(sib,0)%4)*90,270)+'ms';
+    io.observe(el);
+  });
+})();
+</script>
+  <script src="vx-content.js" defer></script>
+</body>
+</html>
