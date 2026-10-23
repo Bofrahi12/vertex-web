@@ -1164,6 +1164,13 @@ document.querySelectorAll('.faq-item').forEach(item => {
     const lines = [UI.waHead, '', UI.waName + name, UI.waPhone + phone, UI.waType + type];
     if (budget) lines.push(UI.waBudget + budget);
     if (msg) lines.push(UI.waMsg + msg);
+    /* n8n Lead Receiver: copie du lead -> alerte email instantanee (en plus de WhatsApp) */
+    try {
+      fetch('https://mounir-boufrahi.app.n8n.cloud/webhook/vertex-lead', {
+        method: 'POST', headers: {'Content-Type': 'application/json'}, keepalive: true,
+        body: JSON.stringify({name: name, phone: phone, service: type, message: (msg || '') + (budget ? '\nBudget: ' + budget : ''), page: 'index.html — formulaire principal'})
+      }).catch(function(){});
+    } catch(_){}
     if (form.dataset.busy) return;
     form.dataset.busy = '1'; setTimeout(() => delete form.dataset.busy, 1500);
     const waUrl = 'https://wa.me/' + siteConfig.brand.whatsapp + '?text=' + encodeURIComponent(lines.join('\n'));
