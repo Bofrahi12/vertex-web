@@ -52,7 +52,7 @@ Full service comparison: https://vertex-web-tanger.onrender.com/services.html
 
 ## Proof / live work
 
-- Portfolio (42 live projects and sector demos): https://vertex-web-tanger.onrender.com/portfolio.html
+- Portfolio (44 live projects and sector demos): https://vertex-web-tanger.onrender.com/portfolio.html
 - Pâtisserie Siham (real client project, Tangier pastry chef, WhatsApp ordering): https://chef-patisserie-tanger.onrender.com/
 - Real-client proof wall (named clients, each with a live link, plus their testimonials): https://vertex-web-tanger.onrender.com/portfolio.html#proof — Cap Immo Tanger (real-estate platform), TradePro Academy (course platform), Pâtisserie Siham (sweets store), AWAB CLIM (air-conditioning company), LocalBoost AI, Tanger Safe Buy.
 - AL QASR restaurant (flagship demo of the cinematic ordering system): https://vertex-web-tanger.onrender.com/demo-qasr.html
