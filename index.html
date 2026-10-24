@@ -350,6 +350,18 @@ html,body{overflow-x:clip}
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "z1xhv3xkh1");
 </script>
+<!-- Google Analytics 4 - VERTEX WEB (added 2026-10-24) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H0KHMTQZJ0"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-H0KHMTQZJ0');
+document.addEventListener('click', function(e){
+  var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]') : null;
+  if (a) gtag('event', 'whatsapp_click', {link_url: a.href, page_path: location.pathname});
+});
+</script>
 </head>
 <body>
 <div id="vxPre"><div class="b">VERTEX WEB</div><div class="n">0%</div><div class="bar"><i></i></div></div>
@@ -395,7 +407,7 @@ html,body{overflow-x:clip}
         <source src="media/hero-film-hd.mp4" media="(min-width: 821px)" type="video/mp4">
         <source src="media/hero-film-sd.mp4" type="video/mp4">
       </video>
-      <canvas id="facCanvas" width="720" height="1280" aria-label="فيلم تعريفي ديال فيرتكس ويب"></canvas>
+      <canvas id="facCanvas" width="900" height="1600" aria-label="فيلم تعريفي ديال فيرتكس ويب"></canvas>
       <div class="fac-shade"></div>
       <div class="fac-content" id="facContent">
         <div class="fac-micro">VERTEX WEB · TANGIER — DIGITAL STUDIO</div>
@@ -1226,7 +1238,7 @@ if (matchMedia('(pointer:fine)').matches && !REDUCED){
     if (!sec.classList.contains('scrollmode')) { if (x.isIntersecting) { vid.play().catch(function(){}); } else { vid.pause(); } }
   }); }, {threshold: .08});
   io.observe(vid);
-  var N = 124, frames = [], loaded = 0, ready = false, cur = -1, ticking = false;
+  var N = 158, frames = [], loaded = 0, ready = false, cur = -1, ticking = false;
   function pad(n){ return ('00' + n).slice(-3); }
   function start(){
     if (ready) return;
@@ -1265,16 +1277,44 @@ if (matchMedia('(pointer:fine)').matches && !REDUCED){
       wrap3d.style.translate = ((e.clientX / innerWidth - 0.5) * 12).toFixed(1) + 'px ' + ((e.clientY / innerHeight - 0.5) * 9).toFixed(1) + 'px';
     });
   }
-  for (var i = 1; i <= N; i++) {
+  /* Progressive frame loading (perf fix 2026-10-24): only the first batch is
+     loaded eagerly so the page is interactive fast; the rest streams in small
+     low-priority batches, and any frame the scroll reaches early is force-loaded. */
+  var FIRST = 56, started = {}, restTimer = null;
+  function loadFrame(i){
+    if (i < 1 || i > N || started[i]) return;
+    started[i] = 1;
     var im = new Image();
+    try { im.fetchPriority = i <= FIRST ? 'high' : 'low'; } catch (e) {}
     im.onload = im.onerror = function(){
       loaded++;
-      if (loadEl && !ready) loadEl.textContent = Math.round(loaded / N * 100) + '%';
-      if (loaded >= Math.floor(N * 0.45) && !ready) start();
+      if (loadEl && !ready) loadEl.textContent = Math.round(Math.min(loaded, FIRST) / FIRST * 100) + '%';
+      if (loaded >= FIRST && !ready) start();
+      if (i - 1 === cur) { var c = cur; cur = -1; draw(c); }
       if (loaded === N && loadEl) loadEl.style.display = 'none';
     };
     im.src = 'film/f' + pad(i) + '.webp';
-    frames.push(im);
+    frames[i - 1] = im;
+  }
+  function ensureRange(idx){
+    for (var j = idx + 1; j <= Math.min(N, idx + 10); j++) loadFrame(j);
+  }
+  var _draw = draw;
+  draw = function(idx){ ensureRange(idx); _draw(idx); };
+  function loadRest(){
+    if (restTimer) return;
+    var nxt = FIRST + 1;
+    restTimer = setInterval(function(){
+      for (var k = 0; k < 10 && nxt <= N; k++, nxt++) loadFrame(nxt);
+      if (nxt > N) { clearInterval(restTimer); restTimer = null; }
+    }, 140);
+  }
+  for (var i = 1; i <= FIRST; i++) loadFrame(i);
+  addEventListener('load', function(){ setTimeout(loadRest, 600); });
+  setTimeout(loadRest, 3500);
+  var conn = navigator.connection || {};
+  if (conn.saveData || /2g/.test(conn.effectiveType || '')) {
+    if (vid) { vid.removeAttribute('autoplay'); vid.setAttribute('preload', 'none'); }
   }
 })();
 </script>
