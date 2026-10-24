@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المنتخب المغربي — أسود الأطلس | MONTAKHAB MAROC — V3</title>
+<meta name="description" content="نموذج تجريبي من VERTEX WEB — مفهوم إبداعي غير رسمي لموقع المنتخب المغربي: أسود الأطلس، الطريق إلى كأس العالم 2030 في المغرب.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23C1272D'/%3E%3Ctext x='16' y='22' font-size='15' text-anchor='middle' fill='%23f0d060'%3E%E2%98%85%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Archivo:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C1272D; --red2:#8f1a1f; --green:#006233; --green2:#0a8a4c;
+  --gold:#C9A227; --gold2:#f0d060; --ink:#07090c; --ink2:#0d1117;
+  --card:#12161d; --line:rgba(201,162,39,.28); --txt:#f4f1ea; --mut:#a8adb8;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --stateGlow:rgba(193,39,45,.34);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--ink);color:var(--txt);font-family:'Cairo',Tahoma,'Segoe UI',sans-serif;overflow-x:clip;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.num{font-family:'Archivo','Cairo',sans-serif;font-variant-numeric:tabular-nums}
+button{font-family:inherit}
+
+/* ---------- preloader (R5: honest % tied to film preload) ---------- */
+#preloader{position:fixed;inset:0;z-index:200;background:#05070a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+  transition:opacity .7s var(--ease),visibility .7s}
+#preloader.done{opacity:0;visibility:hidden}
+#preloader .pstar{width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--red2),var(--red) 60%,#5f1013);
+  display:grid;place-items:center;color:var(--gold2);font-size:1.7rem;border:1px solid var(--line);animation:pstarPulse 1.6s var(--ease) infinite}
+@keyframes pstarPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+#preCount{font-family:'Archivo',sans-serif;font-size:clamp(3rem,10vw,4.6rem);font-weight:900;line-height:1;color:#fff}
+#preCount small{font-size:.35em;color:var(--gold2)}
+#preBarWrap{width:min(320px,70vw);height:4px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}
+#preBar{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:99px;transition:width .3s var(--ease)}
+#preLabel{color:var(--mut);font-size:.8rem;font-weight:700;letter-spacing:2px}
+
+/* ---------- custom cursor glow (desktop only, native cursor kept) ---------- */
+#cursorGlow{position:fixed;top:0;left:0;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;pointer-events:none;z-index:55;
+  background:radial-gradient(circle,rgba(240,208,96,.14),rgba(193,39,45,.07) 45%,transparent 68%);mix-blend-mode:screen;opacity:0;transition:opacity .5s}
+@media (hover:hover) and (pointer:fine){body.cursor-on #cursorGlow{opacity:1}}
+
+/* ---------- top bar ---------- */
+.topbar{position:fixed;inset-inline:0;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+  padding:.65rem 1.1rem;background:linear-gradient(180deg,rgba(5,6,8,.88),rgba(5,6,8,.55) 70%,transparent);backdrop-filter:blur(6px)}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:900;font-size:1.02rem;letter-spacing:.2px}
+.brand .star{width:26px;height:26px;flex:none;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--red2),var(--red) 60%,#5f1013);
+  display:grid;place-items:center;color:var(--gold2);font-size:.85rem;border:1px solid var(--line)}
+.brand small{display:block;font-size:.62rem;color:var(--gold2);font-weight:700;letter-spacing:2px}
+.top-actions{display:flex;gap:.5rem;align-items:center}
+.chip{font-size:.68rem;font-weight:800;color:#0b0d10;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:99px;padding:.3rem .7rem}
+.langbtn{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--txt);
+  font-weight:800;font-size:.8rem;border-radius:99px;padding:.34rem .85rem;transition:.25s}
+.langbtn:hover{background:var(--red);border-color:var(--red)}
+
+/* ---------- hero film + chapter state system (R6 + R10) ---------- */
+.hero-wrap{height:460vh;position:relative}
+.hero{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+#filmCanvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-state{position:absolute;inset:0;pointer-events:none;transition:opacity 1s var(--ease);opacity:0}
+.hero-state.s1{background:radial-gradient(85% 55% at 50% 88%,rgba(193,39,45,.38),transparent 65%)}
+.hero-state.s2{background:radial-gradient(85% 55% at 50% 88%,rgba(201,162,39,.32),transparent 65%)}
+.hero-state.s3{background:radial-gradient(85% 55% at 50% 88%,rgba(0,98,51,.4),transparent 65%)}
+.hero-shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(4,5,7,.55),transparent 30%,transparent 55%,rgba(4,5,7,.92)),
+  radial-gradient(90% 60% at 50% 45%,transparent 40%,rgba(4,5,7,.55));pointer-events:none}
+.wm2030{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;overflow:hidden}
+.wm2030 span{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(9rem,34vw,30rem);line-height:1;letter-spacing:-.02em;
+  color:transparent;-webkit-text-stroke:2px rgba(240,208,96,.55);opacity:0;transform:scale(.94);white-space:nowrap}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem}
+.kicker{display:flex;align-items:center;gap:.7rem;color:var(--gold2);font-weight:800;letter-spacing:3px;font-size:.8rem}
+.kicker::before,.kicker::after{content:"";width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));display:block}
+.kicker::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.hero h1{font-size:clamp(3.2rem,13vw,9.5rem);font-weight:900;line-height:1.04;margin:.4rem 0 .1rem;
+  text-shadow:0 10px 60px rgba(0,0,0,.85)}
+.hero h1 .gold{background:linear-gradient(180deg,#ffe98a,var(--gold) 55%,#8a6d14);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lions{font-size:clamp(1.5rem,5.4vw,3.2rem);font-weight:800;color:#fff;letter-spacing:1px}
+.hero .lions b{color:var(--red);-webkit-text-stroke:.5px rgba(255,255,255,.25)}
+.hero-cap{margin-top:1.1rem;min-height:2.2em;font-size:clamp(1rem,2.6vw,1.35rem);color:#e8e4da;font-weight:700;transition:opacity .3s;text-shadow:0 2px 18px #000}
+.hero-cta{margin-top:1.4rem;display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+.btn{cursor:pointer;font-weight:900;font-size:1rem;border-radius:99px;padding:.8rem 1.9rem;border:1px solid transparent;transition:.25s;display:inline-block}
+.btn-red{background:linear-gradient(180deg,#e0383f,var(--red) 55%,var(--red2));color:#fff;box-shadow:0 12px 34px rgba(193,39,45,.4)}
+.btn-red:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.4);color:#fff;backdrop-filter:blur(4px)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+/* chapter tracker: current → next, live */
+.chapter-box{position:absolute;bottom:4.6rem;inset-inline:0;display:flex;justify-content:center;pointer-events:none}
+.chapter-inner{display:flex;align-items:center;gap:.7rem;background:rgba(4,6,9,.55);border:1px solid rgba(255,255,255,.14);
+  border-radius:99px;padding:.42rem 1rem;backdrop-filter:blur(6px);font-size:.8rem;font-weight:800}
+.chapter-inner .cnum{font-family:'Archivo',sans-serif;color:var(--gold2);font-size:.95rem}
+.chapter-inner .carrow{color:var(--mut)}
+.chapter-inner .cnext{color:var(--mut);font-weight:700}
+.chapter-inner .cdot{width:8px;height:8px;border-radius:50%;background:var(--stateGlow);box-shadow:0 0 12px var(--stateGlow);flex:none;transition:background .6s}
+.scroll-hint{position:absolute;bottom:1.4rem;inset-inline:0;text-align:center;color:#cfd3da;font-size:.78rem;font-weight:700;letter-spacing:2px}
+.scroll-hint .bar{width:120px;height:3px;background:rgba(255,255,255,.18);border-radius:99px;margin:.45rem auto 0;overflow:hidden}
+.scroll-hint .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:99px}
+.film-fallback{position:absolute;inset:0;background:url('../assets/media-generation-fans-flares-0-1ad57832-6898-45e9-bea2-d9a7fe561d12.webp') center/cover;z-index:-1}
+
+/* ---------- sections ---------- */
+section{padding:5.2rem 1.2rem;position:relative}
+.wrap{max-width:1180px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:2.6rem}
+.sec-head .tag{display:inline-block;color:var(--gold2);border:1px solid var(--line);border-radius:99px;padding:.25rem 1rem;font-size:.75rem;font-weight:800;letter-spacing:2px;background:rgba(201,162,39,.07)}
+.sec-head h2{font-size:clamp(2rem,6vw,3.4rem);font-weight:900;margin-top:.7rem;line-height:1.15}
+.sec-head h2 em{font-style:normal;color:var(--red)}
+.sec-head p{color:var(--mut);max-width:640px;margin:.6rem auto 0;font-size:1.02rem}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* road */
+.road{background:linear-gradient(180deg,var(--ink) 0%,#0a0e14 50%,var(--ink) 100%)}
+.fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.6rem}
+.fact{background:linear-gradient(160deg,var(--card),#0b0e13);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:1.6rem 1.3rem;position:relative;overflow:hidden}
+.fact::before{content:"";position:absolute;top:0;inset-inline:0;height:4px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green))}
+.fact .ic{font-size:2rem}
+.fact h3{font-size:1.25rem;font-weight:900;margin:.5rem 0 .3rem}
+.fact p{color:var(--mut);font-size:.95rem}
+/* living countdown module (R13) */
+.count-box{background:radial-gradient(120% 160% at 50% 0%,rgba(193,39,45,.22),rgba(0,98,51,.12) 55%,rgba(0,0,0,.2)),var(--ink2);
+  border:1px solid var(--line);border-radius:26px;padding:2.2rem 1.2rem 1.8rem;text-align:center;overflow:hidden;position:relative}
+.count-box h3{font-size:clamp(1.3rem,4vw,2rem);font-weight:900}
+.count-box h3 .gold{color:var(--gold2)}
+.host-chips{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.host-chips .hc{font-size:.8rem;font-weight:800;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);
+  border-radius:99px;padding:.32rem .9rem}
+.host-chips .hc b{color:var(--gold2)}
+.count{display:flex;justify-content:center;gap:.7rem;margin-top:1.5rem;direction:ltr}
+.count .cell{background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.1);border-radius:16px;min-width:86px;padding:.9rem .4rem .7rem;perspective:340px;overflow:hidden}
+.count .v{font-family:'Archivo',sans-serif;font-size:clamp(1.9rem,6vw,3rem);font-weight:900;color:#fff;line-height:1;transform-origin:50% 50%}
+.count .v.flip{animation:cdFlip .55s var(--ease)}
+@keyframes cdFlip{0%{transform:rotateX(0)}45%{transform:rotateX(-88deg);color:var(--gold2)}100%{transform:rotateX(0)}}
+.count .l{font-size:.75rem;color:var(--gold2);font-weight:800;letter-spacing:1px;margin-top:.3rem;font-family:'Cairo',sans-serif}
+.season{max-width:640px;margin:1.8rem auto 0;text-align:start}
+.season .slabels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--mut);font-weight:700;margin-bottom:.45rem}
+.season .slabels b{color:var(--txt)}
+.season .strack{height:10px;border-radius:99px;background:rgba(255,255,255,.09);position:relative;overflow:visible}
+.season .sfill{position:absolute;inset-block:0;inset-inline-start:0;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--green2),var(--gold),var(--red));transition:width 1.6s var(--ease)}
+.season .sfill::after{content:"";position:absolute;inset:0;border-radius:99px;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);
+  background-size:200% 100%;animation:sShimmer 2.8s linear infinite}
+@keyframes sShimmer{from{background-position:180% 0}to{background-position:-80% 0}}
+.season .smarker{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--gold);
+  transform:translate(50%,-50%);box-shadow:0 0 14px rgba(240,208,96,.65)}
+[dir="ltr"] .season .smarker{transform:translate(-50%,-50%)}
+.season .spct{text-align:center;margin-top:.7rem;font-size:.85rem;color:var(--gold2);font-weight:800}
+.count-date{color:var(--mut);margin-top:1rem;font-size:.9rem}
+
+/* squad — R1 identical-frame JOUR/NUIT pairs */
+.squad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.player{background:linear-gradient(165deg,#151a22,#0a0d12 70%);border:1px solid rgba(255,255,255,.07);border-radius:20px;
+  padding:0 0 1.1rem;position:relative;overflow:hidden;transition:transform .3s var(--ease),border-color .3s}
+.player:hover{transform:translateY(-5px);border-color:var(--line)}
+.player::after{content:"";position:absolute;inset-inline:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.stage{position:relative;height:158px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
+.stage .layer{position:absolute;inset:0;transition:opacity .65s var(--ease)}
+.stage .day{background:
+  radial-gradient(120% 90% at 50% -20%,#ffe9a8 0%,transparent 55%),
+  linear-gradient(180deg,#79b7e8 0%,#3f7ab5 42%,#1d5c33 42.2%,#2e8b47 78%,#14532d 100%)}
+.stage .night{opacity:0;background:
+  radial-gradient(60% 34% at 22% 0%,rgba(255,255,230,.85),transparent 60%),
+  radial-gradient(60% 34% at 78% 0%,rgba(255,255,230,.85),transparent 60%),
+  linear-gradient(180deg,#05070f 0%,#0a1230 42%,#06280f 42.2%,#0b3d1e 78%,#04150a 100%)}
+.stage .night::after{content:"✦ ✦ ✦";position:absolute;top:8px;inset-inline:0;text-align:center;color:rgba(255,255,255,.5);font-size:.55rem;letter-spacing:14px}
+.player.nuit .stage .night{opacity:1}
+.player.nuit .stage .day{opacity:0}
+@media (hover:hover){.player:hover .stage .night{opacity:1}.player:hover .stage .day{opacity:0}}
+.stage .mono{position:absolute;inset:0;display:grid;place-items:center}
+.stage .mono .no{font-family:'Archivo',sans-serif;font-size:4.6rem;font-weight:900;line-height:1;color:rgba(255,255,255,.94);
+  text-shadow:0 6px 26px rgba(0,0,0,.55)}
+.stage .mono .init{position:absolute;bottom:.55rem;inset-inline:0;text-align:center;font-family:'Archivo',sans-serif;
+  font-weight:900;letter-spacing:6px;font-size:.8rem;color:rgba(255,255,255,.85);text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.daynight{position:absolute;top:.6rem;inset-inline-end:.6rem;z-index:3;font-family:'Archivo',sans-serif;font-size:.62rem;font-weight:900;
+  letter-spacing:1.5px;border-radius:99px;padding:.22rem .6rem;border:1px solid rgba(255,255,255,.35);
+  background:rgba(0,0,0,.45);color:#ffe9a8;backdrop-filter:blur(3px);transition:.4s}
+.player.nuit .daynight{background:rgba(240,208,96,.9);color:#141414;border-color:transparent}
+@media (hover:hover){.player:hover .daynight{background:rgba(240,208,96,.9);color:#141414;border-color:transparent}}
+.player .body{padding:1rem 1.1rem 0}
+.player .pos{display:inline-block;background:rgba(0,98,51,.25);border:1px solid rgba(10,138,76,.5);color:#7fe0ae;
+  font-size:.72rem;font-weight:800;border-radius:99px;padding:.15rem .65rem}
+.player h3{font-size:1.22rem;font-weight:900;margin-top:.55rem}
+.stat-strip{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem}
+.stat-strip .st{font-size:.72rem;font-weight:700;color:var(--mut);border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;padding:.18rem .55rem;background:rgba(255,255,255,.03)}
+.stat-strip .st b{color:var(--gold2);font-family:'Archivo',sans-serif}
+
+/* fan wall — live pulse (local, honest) */
+.fans{background:linear-gradient(180deg,var(--ink),#0c0a08 55%,var(--ink))}
+.fan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.chant{border-radius:20px;padding:1.8rem 1.3rem 1.4rem;text-align:center;border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+.chant:nth-child(3n+1){background:linear-gradient(150deg,rgba(193,39,45,.3),rgba(193,39,45,.06))}
+.chant:nth-child(3n+2){background:linear-gradient(150deg,rgba(0,98,51,.32),rgba(0,98,51,.06))}
+.chant:nth-child(3n){background:linear-gradient(150deg,rgba(201,162,39,.26),rgba(201,162,39,.05))}
+.chant .big{font-size:clamp(1.5rem,3.6vw,2.2rem);font-weight:900;line-height:1.25}
+.chant p{color:#d8d5cc;font-size:.9rem;margin-top:.4rem}
+.chant .who{margin-top:.8rem;font-size:.75rem;color:var(--gold2);font-weight:800;letter-spacing:1px}
+.pulse-row{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-top:1.1rem}
+.pulse-btn{cursor:pointer;border:1px solid var(--line);background:rgba(0,0,0,.4);color:#fff;font-weight:900;font-size:.85rem;
+  border-radius:99px;padding:.45rem 1.1rem;transition:.25s;display:inline-flex;align-items:center;gap:.45rem}
+.pulse-btn:hover{border-color:var(--gold2);transform:translateY(-1px)}
+.pulse-btn:active{transform:scale(.94)}
+.pulse-btn.pulsed{background:linear-gradient(90deg,var(--red),var(--red2));border-color:transparent}
+.pulse-btn .heart{display:inline-block}
+.pulse-btn.beat .heart{animation:heartBeat .5s var(--ease)}
+@keyframes heartBeat{0%{transform:scale(1)}35%{transform:scale(1.55)}100%{transform:scale(1)}}
+.pulse-count{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.05rem;color:var(--gold2);min-width:2ch}
+.pulse-note{text-align:center;color:var(--mut);font-size:.75rem;margin-top:1.4rem}
+.fan-cta{text-align:center;margin-top:1.6rem}
+.fan-cta p{color:var(--mut);margin-bottom:1rem}
+
+/* memory journey — ذاكرة الأسود */
+.memory-sec{background:linear-gradient(180deg,var(--ink),#0a0c10 50%,var(--ink))}
+.mem-list{position:relative;max-width:860px;margin:0 auto;padding-inline-start:2.2rem}
+.mem-list::before{content:"";position:absolute;inset-inline-start:.6rem;top:10px;bottom:10px;width:2px;
+  background:linear-gradient(180deg,var(--red),var(--gold),var(--green))}
+.mem-item{position:relative;padding:0 0 1.4rem}
+.mem-item::before{content:"";position:absolute;inset-inline-start:-2.2rem;top:26px;width:13px;height:13px;border-radius:50%;
+  background:var(--ink);border:3px solid var(--gold);z-index:2}
+[dir="rtl"] .mem-item::before{transform:translateX(50%)}
+[dir="ltr"] .mem-item::before{transform:translateX(-50%)}
+.mem-card{background:linear-gradient(160deg,#131822,#0a0d12 75%);border:1px solid rgba(255,255,255,.07);border-radius:20px;
+  padding:1.3rem 1.4rem;display:flex;gap:1.2rem;align-items:flex-start;overflow:hidden;position:relative}
+.mem-card::before{content:"";position:absolute;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));opacity:.65}
+.mem-year{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(2.2rem,6vw,3.4rem);line-height:1;flex:none;
+  background:linear-gradient(180deg,#fff,#9aa1ab);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mem-body h3{font-size:1.18rem;font-weight:900;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.mem-body p{color:var(--mut);font-size:.94rem;margin-top:.25rem}
+.mem-badge{font-size:.68rem;font-weight:900;border-radius:99px;padding:.14rem .6rem;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#141414;letter-spacing:.5px}
+.mem-item.star .mem-card{border-color:var(--line);background:radial-gradient(130% 170% at 100% 0%,rgba(201,162,39,.2),transparent 55%),linear-gradient(160deg,#181d28,#0a0d12 75%);
+  box-shadow:0 18px 44px rgba(201,162,39,.12)}
+.mem-item.star .mem-year{background:linear-gradient(180deg,#ffe98a,var(--gold) 60%,#8a6d14);-webkit-background-clip:text;background-clip:text}
+.mem-item.future .mem-card{border:1px dashed rgba(240,208,96,.5);background:linear-gradient(160deg,rgba(193,39,45,.14),rgba(0,98,51,.1))}
+@media (max-width:640px){.mem-card{flex-direction:column;gap:.4rem}}
+
+
+/* ================= V3 ENRICHMENT ================= */
+/* --- hero parallax depth layers --- */
+.plx{position:absolute;pointer-events:none;will-change:transform,opacity}
+.plx-fans{inset:-7% -2%;background:url('../assets/media-generation-fans-flares-0-1ad57832-6898-45e9-bea2-d9a7fe561d12.webp') center/cover;opacity:.26;mix-blend-mode:screen}
+.plx-beams{inset:-4% 0;background:linear-gradient(103deg,transparent 40%,rgba(224,56,63,.13) 50%,transparent 60%),linear-gradient(77deg,transparent 56%,rgba(10,138,76,.12) 64%,transparent 74%)}
+.plx-lion{bottom:-5%;inset-inline-end:-7%;width:min(600px,66vw);aspect-ratio:4/3;opacity:0;
+  background:url('../assets/media-generation-atlas-lion-0-8285ce0b-c527-4742-94b3-86e60d4603eb.webp') center/cover;
+  -webkit-mask-image:radial-gradient(72% 72% at 58% 55%,#000 25%,transparent 72%);mask-image:radial-gradient(72% 72% at 58% 55%,#000 25%,transparent 72%)}
+/* --- squad stage action art --- */
+.stage .art{background-size:cover;background-position:center 30%;opacity:.94;filter:saturate(1.06)}
+.stage .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(4,6,9,.5))}
+.player.nuit .stage .art{filter:brightness(.48) saturate(1.18)}
+@media (hover:hover){.player:hover .stage .art{filter:brightness(.48) saturate(1.18)}}
+/* --- 3D tilt + glare (desktop pointers only, JS-gated) --- */
+.tilt{transform-style:preserve-3d}
+.tilt.tilting{transition:none!important}
+.glare{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:0;transition:opacity .35s;
+  background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,240,200,.17),transparent 46%)}
+.tilting .glare{opacity:1}
+.mem-card{will-change:transform}
+/* --- CSS-3D rotating 2030 emblem (Road) --- */
+.emblem3d{perspective:720px;display:flex;justify-content:center;margin-bottom:1.4rem}
+.cube3d{position:relative;width:92px;height:92px;transform-style:preserve-3d;animation:spin3d 16s linear infinite}
+@keyframes spin3d{from{transform:rotateX(-16deg) rotateY(0deg)}to{transform:rotateX(-16deg) rotateY(360deg)}}
+.face3d{position:absolute;inset:0;display:grid;place-items:center;border-radius:16px;border:1px solid rgba(240,208,96,.55);
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:1.02rem;letter-spacing:1px;color:#fff;text-align:center;
+  background:radial-gradient(120% 120% at 30% 20%,rgba(224,56,63,.92),rgba(90,12,16,.95));backface-visibility:hidden;box-shadow:inset 0 0 26px rgba(0,0,0,.45)}
+.face3d.alt{background:radial-gradient(120% 120% at 30% 20%,rgba(10,138,76,.92),rgba(3,50,26,.95))}
+.face3d.gold{background:radial-gradient(120% 120% at 30% 20%,rgba(201,162,39,.94),rgba(90,68,10,.95));color:#181205}
+.face3d.sm{font-size:.78rem}
+.f-front{transform:translateZ(46px)}.f-back{transform:rotateY(180deg) translateZ(46px)}
+.f-right{transform:rotateY(90deg) translateZ(46px)}.f-left{transform:rotateY(-90deg) translateZ(46px)}
+.f-top{transform:rotateX(90deg) translateZ(46px)}.f-bottom{transform:rotateX(-90deg) translateZ(46px)}
+@media (prefers-reduced-motion:reduce){.cube3d{animation:none;transform:rotateX(-16deg) rotateY(-24deg)}}
+/* --- full-bleed art bands --- */
+.art-band{position:relative;height:52vh;min-height:320px;overflow:hidden;background:#000}
+.art-band img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover;object-position:center 38%;will-change:transform}
+.art-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink),transparent 26%,transparent 60%,var(--ink))}
+.art-band-cap{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:1rem;z-index:2}
+.art-band-cap span{font-size:clamp(1.6rem,5.4vw,3rem);font-weight:900;text-shadow:0 8px 40px #000,0 2px 12px #000}
+.art-band-cap b{color:var(--gold2)}
+/* --- legendary goals: animated SVG pitch --- */
+.goals-sec{background:linear-gradient(180deg,var(--ink),#0a0d12 50%,var(--ink))}
+.goals-grid{display:flex;flex-direction:column;gap:1.6rem;max-width:900px;margin:0 auto}
+.goal-card{background:linear-gradient(165deg,#141a24,#090c11 75%);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden}
+.pitch-wrap{background:radial-gradient(120% 130% at 50% 0%,#175c31,#0a3520 72%);padding:.9rem}
+.pitch{width:100%;height:auto;display:block;direction:ltr}
+.pitch .ln{stroke:rgba(255,255,255,.42);stroke-width:2;fill:none}
+.pitch .lnf{fill:rgba(255,255,255,.05)}
+.pitch .trail{stroke:var(--gold2);stroke-width:3.2;fill:none;stroke-linecap:round;opacity:0}
+.pitch .dot-red{fill:#e0383f;stroke:#fff;stroke-width:1.6}
+.pitch .dot-grey{fill:#9aa3ad;stroke:rgba(0,0,0,.4);stroke-width:1.2}
+.pitch .dot-gk{fill:#f0d060;stroke:#141414;stroke-width:1.4}
+.pitch .ball{fill:#fff;stroke:var(--gold);stroke-width:2.4}
+.pitch .goal-word{font-family:'Archivo',sans-serif;font-weight:900;font-size:62px;fill:var(--gold2);text-anchor:middle;letter-spacing:2px}
+.pitch .goal-sub{font-family:'Cairo',sans-serif;font-weight:800;font-size:21px;fill:#fff;text-anchor:middle}
+.goal-flash{opacity:0;transform-box:fill-box;transform-origin:center}
+.goal-flash.show{animation:flashIn .5s var(--ease) forwards}
+@keyframes flashIn{from{opacity:0;transform:scale(.65)}to{opacity:1;transform:scale(1)}}
+.goal-flash .ripple{fill:none;stroke:var(--gold2);stroke-width:3}
+.goal-flash.show .ripple{animation:rippleA 1s var(--ease) infinite}
+@keyframes rippleA{from{opacity:1}to{opacity:0}}
+.goal-body{padding:1.3rem 1.5rem 1.5rem;display:flex;gap:1.2rem;align-items:flex-start}
+.goal-year{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,2.9rem);line-height:1;flex:none;
+  background:linear-gradient(180deg,#ffe98a,var(--gold) 60%,#8a6d14);-webkit-background-clip:text;background-clip:text;color:transparent}
+.goal-txt h3{font-size:1.2rem;font-weight:900}
+.goal-txt p{color:var(--mut);font-size:.95rem;margin-top:.25rem}
+.replay-btn{cursor:pointer;margin-top:.9rem;border:1px solid var(--line);background:rgba(201,162,39,.1);color:var(--gold2);
+  font-weight:900;font-size:.88rem;border-radius:99px;padding:.5rem 1.2rem;transition:.25s;font-family:inherit}
+.replay-btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+@media (max-width:640px){.goal-body{flex-direction:column;gap:.5rem}.art-band{height:44vh}}
+@media (prefers-reduced-motion:reduce){.goal-flash.show{animation:none;opacity:1}.goal-flash .ripple{animation:none}}
+
+/* cta + footer */
+.cta-band{background:radial-gradient(90% 130% at 50% 0%,rgba(193,39,45,.3),transparent 60%),linear-gradient(180deg,var(--ink2),#05070a);
+  border-top:1px solid var(--line);text-align:center;padding:4.5rem 1.2rem 3rem}
+.cta-band h2{font-size:clamp(1.9rem,6vw,3.2rem);font-weight:900;line-height:1.2}
+.cta-band h2 .gold{color:var(--gold2)}
+.cta-band p{color:var(--mut);margin:.8rem auto 1.6rem;max-width:560px}
+footer{border-top:1px solid rgba(255,255,255,.07);padding:1.6rem 1.2rem 2.2rem;text-align:center;color:var(--mut);font-size:.85rem}
+footer .demo{color:var(--gold2);font-weight:800}
+footer .fine{margin-top:.4rem;font-size:.75rem;color:#6d727c}
+
+@media (max-width:900px){.squad-grid{grid-template-columns:repeat(2,1fr)}.fact-grid{grid-template-columns:1fr}.fan-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.fan-grid{grid-template-columns:1fr}.count .cell{min-width:70px}.hero-wrap{height:420vh}.chapter-box{bottom:5.2rem}.chapter-inner{font-size:.72rem;padding:.38rem .8rem}}
+@media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}.count .v.flip{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- ======= PRELOADER ======= -->
+<div id="preloader" aria-hidden="true">
+  <div class="pstar">★</div>
+  <div id="preCount">0<small>%</small></div>
+  <div id="preBarWrap"><span id="preBar"></span></div>
+  <div id="preLabel" data-i18n="preLabel">كنحمّلو الفيلم…</div>
+</div>
+
+<div id="cursorGlow"></div>
+
+<!-- ======= TOP BAR ======= -->
+<header class="topbar">
+  <div class="brand">
+    <span class="star">★</span>
+    <span><span data-i18n="brand">المنتخب المغربي</span><small>ATLAS LIONS • MAROC</small></span>
+  </div>
+  <div class="top-actions">
+    <span class="chip" data-i18n="demoChip">نموذج VERTEX التجريبي</span>
+    <button class="langbtn" id="langBtn" type="button">FR</button>
+  </div>
+</header>
+
+<!-- ======= 1. HERO / SCROLL FILM — chapters (R6) + state gradient (R10) + 2030 moment (R11) ======= -->
+<div class="hero-wrap" id="heroWrap">
+  <div class="hero">
+    <div class="film-fallback"></div>
+    <canvas id="filmCanvas" width="1080" height="1440"></canvas>
+    <div class="plx plx-fans"></div>
+    <div class="plx plx-beams"></div>
+    <div class="hero-state s1" id="stateGlow"></div>
+    <div class="hero-shade"></div>
+    <div class="plx plx-lion"></div>
+    <div class="wm2030"><span id="wm2030">2030</span></div>
+    <div class="hero-content">
+      <div class="kicker" data-i18n="kicker">المملكة المغربية • كرة القدم</div>
+      <h1><span data-i18n="heroTitle1">المنتخب</span> <span class="gold" data-i18n="heroTitle2">المغربي</span></h1>
+      <div class="lions"><span data-i18n="lions1">أسود</span> <b data-i18n="lions2">الأطلس</b></div>
+      <p class="hero-cap" id="heroCap">حيث يشتعل الملعب…</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="#road" data-i18n="ctaRoad">الطريق إلى 2030</a>
+        <a class="btn btn-ghost" href="#squad" data-i18n="ctaSquad">تشكيلة النجوم</a>
+      </div>
+    </div>
+    <div class="chapter-box">
+      <div class="chapter-inner">
+        <span class="cdot"></span>
+        <span class="cnum" id="chNum">01</span>
+        <span id="chName">حيث يشتعل الملعب</span>
+        <span class="carrow">←</span>
+        <span class="cnext"><span data-i18n="chNext">الفصل الجاي:</span> <span id="chNextName">الجمهور لا ينام</span></span>
+      </div>
+    </div>
+    <div class="scroll-hint"><span data-i18n="scrollHint">مرّر للأسفل</span><div class="bar"><i id="scrollBarFill"></i></div></div>
+  </div>
+</div>
+
+<!-- ======= 2. ROAD TO 2030 — living countdown (R13) ======= -->
+<section class="road" id="road">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">ROAD TO 2030</span>
+      <h2><span data-i18n="roadT1">الطريق إلى</span> <em>2030</em></h2>
+      <p data-i18n="roadSub">حقائق موثّقة من مسيرة الأسود: إنجاز تاريخي في قطر، مشاركة في مونديال 2026، واستضافة كأس إفريقيا على أرض الوطن — والأنظار الآن نحو مونديال 2030 في الدار.</p>
+    </div>
+    <div class="fact-grid">
+      <article class="fact reveal">
+        <div class="ic">🎟️</div>
+        <h3 data-i18n="f1t">مشاركة في كأس العالم 2026</h3>
+        <p data-i18n="f1p">الأسود كانوا في موعد مونديال أمريكا وكندا والمكسيك — مشاركة جديدة في سجلّ جيل ذهبي لا يعرف المستحيل.</p>
+      </article>
+      <article class="fact reveal">
+        <div class="ic">🏆</div>
+        <h3 data-i18n="f2t">رابع العالم — قطر 2022</h3>
+        <p data-i18n="f2p">المركز الرابع في كأس العالم 2022: أول منتخب إفريقي وعربي في التاريخ يبلغ نصف نهائي المونديال.</p>
+      </article>
+      <article class="fact reveal">
+        <div class="ic">🏠</div>
+        <h3 data-i18n="f3t">المغرب استضاف كأس إفريقيا 2025</h3>
+        <p data-i18n="f3p">من ديسمبر 2025 إلى يناير 2026، استضاف المغرب القارة السمراء على أرض الأسود — بطولة قارية بملاعب عالمية وتنظيم يليق بالمملكة.</p>
+      </article>
+    </div>
+    <div class="count-box reveal">
+      <div class="emblem3d" aria-hidden="true"><div class="cube3d"><div class="face3d f-front">2030</div><div class="face3d gold f-back">★</div><div class="face3d alt sm f-right">DIMA</div><div class="face3d gold sm f-left">MAGHREB</div><div class="face3d sm f-top">MAROC</div><div class="face3d alt f-bottom">★</div></div></div>
+      <h3><span data-i18n="countT1">العدّ التنازلي لانطلاق كأس العالم</span> <span class="gold">2030</span></h3>
+      <div class="host-chips">
+        <span class="hc"><b>◆</b> <span data-i18n="host1">المغرب</span></span>
+        <span class="hc"><b>◆</b> <span data-i18n="host2">إسبانيا</span></span>
+        <span class="hc"><b>◆</b> <span data-i18n="host3">البرتغال</span></span>
+      </div>
+      <div class="count" role="timer">
+        <div class="cell"><div class="v num" id="cd">000</div><div class="l" data-i18n="dL">يوم</div></div>
+        <div class="cell"><div class="v num" id="ch">00</div><div class="l" data-i18n="hL">ساعة</div></div>
+        <div class="cell"><div class="v num" id="cm">00</div><div class="l" data-i18n="mL">دقيقة</div></div>
+        <div class="cell"><div class="v num" id="cs">00</div><div class="l" data-i18n="sL">ثانية</div></div>
+      </div>
+      <div class="season">
+        <div class="slabels"><span><b data-i18n="seasonFrom">اليوم</b> — <span class="num">24 · 10 · 2026</span></span><span><b>2030</b> — <span class="num">08 · 06 · 2030</span></span></div>
+        <div class="strack"><div class="sfill" id="seasonFill"></div><div class="smarker" id="seasonMarker"></div></div>
+        <div class="spct"><span data-i18n="seasonPct">من الطريق نحو الدار سالينا</span> <span class="num" id="seasonPct">0%</span></div>
+      </div>
+      <p class="count-date" data-i18n="countDate">كأس العالم 2030 — المغرب • إسبانيا • البرتغال</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 3. SQUAD — R1 JOUR/NUIT ======= -->
+<section id="squad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">ATLAS LIONS</span>
+      <h2><span data-i18n="squadT1">تشكيلة</span> <em data-i18n="squadT2">النجوم</em></h2>
+      <p data-i18n="squadSub">جيل كتب التاريخ في قطر ويحلم بمجد 2030 على أرض الوطن — مرّر أو اضغط على أي بطاقة وشوفها بالليل، تحت أضواء الملعب.</p>
+    </div>
+    <div class="squad-grid" id="squadGrid"></div>
+  </div>
+</section>
+
+<!-- ======= V3 ART BAND — celebration ======= -->
+<div class="art-band reveal" data-plxband>
+  <img src="assets2/celebration.webp" alt="" loading="lazy">
+  <div class="art-band-cap"><span data-i18n-html="bandCap">حيث يصنع <b>الجمهور</b> الأسطورة</span></div>
+</div>
+
+<!-- ======= 4. FAN WALL — live local pulse ======= -->
+<section class="fans" id="fans">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">FAN WALL</span>
+      <h2><span data-i18n="fanT1">جدار</span> <em data-i18n="fanT2">الجمهور</em></h2>
+      <p data-i18n="fanSub">اللاعب رقم 12… صوت المدرجات المغربية الذي لا يهدأ من طنجة إلى الكويرة. صرّح بأعلى صوتك على هتافك المفضل.</p>
+    </div>
+    <div class="fan-grid" id="fanGrid"></div>
+    <p class="pulse-note" data-i18n="pulseNote">عدّاد «صرّح» تفاعلي كيحفظ الأصوات في جهازك فقط (local) — حتى رقم عالمي ما كيتدّعاش هنا.</p>
+    <div class="fan-cta reveal">
+      <p data-i18n="fanCtaP">عندك هتاف يهز الملعب؟ شاركو معانا وخليه يوصل للمدرجات.</p>
+      <a class="btn btn-red" href="https://wa.me/212693981822?text=%D8%AF%D9%8A%D9%85%D8%A7%20%D9%85%D8%BA%D8%B1%D8%A8%20%F0%9F%87%B2%F0%9F%87%A6" target="_blank" rel="noopener" data-i18n="fanCtaB">شارك هتافك</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= V3 ART BAND — volley ======= -->
+<div class="art-band reveal" data-plxband>
+  <img src="assets2/volley.webp" alt="" loading="lazy">
+</div>
+
+<!-- ======= V3. LEGENDARY GOALS — أهداف خالدة (animated redraws) ======= -->
+<section class="goals-sec" id="goals">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">LEGENDARY GOALS</span>
+      <h2><span data-i18n="goalsT1">أهداف</span> <em data-i18n="goalsT2">خالدة</em></h2>
+      <p data-i18n="goalsSub">رسوم متحركة تعيد رسم ثلاثة من أشهر أهداف الأسود — ليست لقطات حقيقية، بل ذاكرة مرسومة كما عشناها.</p>
+    </div>
+    <div class="goals-grid" id="goalsGrid"></div>
+  </div>
+</section>
+
+<!-- ======= 5. MEMORY OF THE LIONS — ذاكرة الأسود ======= -->
+<section class="memory-sec" id="memory">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">MEMORY OF THE LIONS</span>
+      <h2><span data-i18n="memT1">ذاكرة</span> <em data-i18n="memT2">الأسود</em></h2>
+      <p data-i18n="memSub">من أول نقطة أفريقية في المونديال إلى استضافة كأس العالم في الدار — ذاكرة لا يمحوها الزمن.</p>
+    </div>
+    <div class="mem-list" id="memList"></div>
+  </div>
+</section>
+
+<!-- ======= 6. CTA + FOOTER ======= -->
+<div class="cta-band">
+  <div class="kicker" style="justify-content:center" data-i18n="ctaKicker">VERTEX WEB</div>
+  <h2><span data-i18n="ctaT1">بغيتي موقع</span> <span class="gold" data-i18n="ctaT2">بهاد المستوى؟</span></h2>
+  <p data-i18n="ctaP">مواقع سينمائية بمستوى عالمي، تصميم يليق بطموحك وأثمنة واضحة بدون مفاجآت — من طنجة إلى العالم.</p>
+  <a class="btn btn-red" href="https://wa.me/212693981822?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A8%D9%85%D8%B3%D8%AA%D9%88%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AE%D8%A8%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A" target="_blank" rel="noopener"><span data-i18n="ctaB">واتساب</span> <span class="num">0693 981 822</span></a>
+</div>
+<footer>
+  <div class="demo" data-i18n="demoLabel">نموذج تجريبي من VERTEX WEB — مفهوم إبداعي غير رسمي</div>
+  <div data-i18n="footLine">هذا الموقع مفهوم تصميمي استعراضي من VERTEX WEB، وليس الموقع الرسمي للجامعة الملكية المغربية لكرة القدم.</div>
+  <div class="fine">© 2026 VERTEX WEB — Tanger, Maroc • DIMA MAGHREB</div>
+</footer>
+
+<script>
+/* ================= DATA ================= */
+const ART = ['assets2/keeper.webp','assets2/sprint.webp','assets2/header.webp','assets2/volley.webp','assets2/sprint.webp','assets2/volley.webp','assets2/celebration.webp','assets2/header.webp'];
+const SQUAD = [
+  {no:1,  ar:'ياسين بونو',      fr:'Yassine Bounou',   posAr:'حارس مرمى',      posFr:'Gardien',        club:'Al-Hilal',        clubAr:'الهلال السعودي'},
+  {no:2,  ar:'أشرف حكيمي',      fr:'Achraf Hakimi',    posAr:'ظهير أيمن',      posFr:'Latéral droit',  club:'Paris Saint-Germain', clubAr:'باريس سان جيرمان'},
+  {no:5,  ar:'نايف أكرد',       fr:'Nayef Aguerd',     posAr:'قلب دفاع',       posFr:'Défenseur central', club:'',             clubAr:''},
+  {no:4,  ar:'سفيان أمرابط',    fr:'Sofyan Amrabat',   posAr:'وسط ميدان',      posFr:'Milieu défensif', club:'',               clubAr:''},
+  {no:8,  ar:'عز الدين أوناحي', fr:'Azzedine Ounahi',  posAr:'صانع ألعاب',    posFr:'Milieu offensif', club:'',               clubAr:''},
+  {no:7,  ar:'حكيم زياش',       fr:'Hakim Ziyech',     posAr:'جناح أيمن',      posFr:'Ailier droit',   club:'',                clubAr:''},
+  {no:10, ar:'إبراهيم دياز',    fr:'Brahim Díaz',      posAr:'جناح / صانع لعب', posFr:'Ailier / Meneur', club:'Real Madrid',   clubAr:'ريال مدريد'},
+  {no:19, ar:'يوسف النصيري',    fr:'Youssef En-Nesyri', posAr:'مهاجم صريح',   posFr:'Avant-centre',   club:'',                clubAr:''}
+];
+const CHANTS = [
+  {big:'ديما مغرب',        bigFr:'DIMA MAGHREB',     p:'c1p', who:'ULTRAS • CURVA'},
+  {big:'سير… سير… سير',    bigFr:'SIR… SIR… SIR',    p:'c2p', who:'DOHA 2022'},
+  {big:'الأسود لا تُقهر',   bigFr:'LES LIONS INVINCIBLES', p:'c3p', who:'ATLAS SPIRIT'},
+  {big:'مغرب… مغرب',       bigFr:'MAGHREB… MAGHREB', p:'c4p', who:'FAN CHANT'},
+  {big:'ولّاد البلاد',      bigFr:'WLAD LBLAD',       p:'c5p', who:'STREET TO STADIUM'},
+  {big:'القلب مع الأسود',   bigFr:'LE CŒUR AVEC LES LIONS', p:'c6p', who:'ALWAYS RED'}
+];
+const CHANT_TEXT = {
+  c1p:{ar:'الهتاف الذي يوحد 40 مليون قلب خلف راية واحدة.', fr:'Le chant qui unit 40 millions de cœurs derrière un seul drapeau.'},
+  c2p:{ar:'نداء المدرجات الذي دفع الأسود نحو نصف نهائي العالم.', fr:'L\u2019appel des tribunes qui a porté les Lions jusqu\u2019en demi-finale du Mondial.'},
+  c3p:{ar:'لأن أسد الأطلس قد يتعثر… لكنه لا ينكسر أبداً.', fr:'Parce qu\u2019un Lion de l\u2019Atlas peut trébucher… mais ne se brise jamais.'},
+  c4p:{ar:'ثلاثة أحرف تهتز لها الملاعب من الدار البيضاء إلى الرباط.', fr:'Trois syllabes qui font trembler les stades, de Casablanca à Rabat.'},
+  c5p:{ar:'من الحومة إلى المونديال… حكاية كل مغربي يحلم بالقميص الأحمر.', fr:'Du quartier au Mondial… le rêve de chaque Marocain qui vise le maillot rouge.'},
+  c6p:{ar:'في الفوز وفي الخسارة… الوفاء عند الجمهور المغربي عقيدة.', fr:'Dans la victoire comme dans la défaite… la fidélité marocaine est une religion.'}
+};
+const MEMORY = [
+  {y:'1970', badge:'', cls:'',
+   tAr:'أول خطوة في المونديال', pAr:'المكسيك 1970: أول مشاركة مغربية في كأس العالم، وأول نقطة أفريقية في تاريخ المونديال بتعادل مع بلغاريا.',
+   tFr:'Premier pas au Mondial', pFr:'Mexique 1970 : première participation marocaine à la Coupe du Monde et premier point africain de l\u2019histoire du tournoi, grâce à un nul face à la Bulgarie.'},
+  {y:'1976', badge:'🏆', cls:'',
+   tAr:'أبطال إفريقيا', pAr:'إثيوبيا 1976: المغرب يتوَّج بكأس أمم إفريقيا — لقبنا القاري الذي ما زال يلمع على القميص الأحمر.',
+   tFr:'Champions d\u2019Afrique', pFr:'Éthiopie 1976 : le Maroc remporte la CAN — notre titre continental, toujours éclatant sur le maillot rouge.'},
+  {y:'1986', badge:'', cls:'',
+   tAr:'أول إفريقي يتصدر مجموعته', pAr:'مونديال المكسيك: أول منتخب أفريقي يتصدر مجموعته ويبلغ ثمن نهائي كأس العالم — بالفوز الشهير على البرتغال 3-1.',
+   tFr:'Premier Africain en tête de groupe', pFr:'Mondial du Mexique : première équipe africaine première de son groupe et en huitièmes de finale — avec le succès fameux 3-1 face au Portugal.'},
+  {y:'1998', badge:'', cls:'',
+   tAr:'الخروج الذي بكى له المغاربة', pAr:'ملحمة فرنسا: فوز كبير على اسكتلندا 3-0… وخروج مؤلم بفارق سيناريو المباراة الأخرى بين البرازيل والنرويج.',
+   tFr:'La sortie qui a fait pleurer le Maroc', pFr:'L\u2019épopée de France 98 : large victoire 3-0 face à l\u2019Écosse… et élimination cruelle au scénario de l\u2019autre match, Brésil–Norvège.'},
+  {y:'2004', badge:'', cls:'',
+   tAr:'نهائي كأس إفريقيا في تونس', pAr:'الأسود يبلغون نهائي كأس أمم إفريقيا 2004 في تونس، ويخسرون 2-1 أمام البلد المنظم — جيل أعاد المغرب إلى الواجهة القارية.',
+   tFr:'Finale de la CAN en Tunisie', pFr:'Les Lions atteignent la finale de la CAN 2004 en Tunisie et s\u2019inclinent 2-1 face au pays hôte — une génération qui a replacé le Maroc sur la scène continentale.'},
+  {y:'2018', badge:'', cls:'',
+   tAr:'العودة للمونديال بعد 20 سنة', pAr:'روسيا 2018: تعادل تاريخي مع إسبانيا 2-2 وأداء أبهر العالم، رغم الخروج من الدور الأول — عودة الأسود إلى المسرح العالمي بعد غياب عقدين.',
+   tFr:'Le retour au Mondial, 20 ans après', pFr:'Russie 2018 : nul historique 2-2 face à l\u2019Espagne et des prestations qui ont ébloui le monde, malgré la sortie au premier tour — le retour des Lions sur la scène mondiale après deux décennies.'},
+  {y:'2022', badge:'⭐', cls:'star',
+   tAr:'الإعجاز — نصف نهائي كأس العالم', pAr:'قطر 2022: أول منتخب أفريقي وعربي في المربع الذهبي. فوز على بلجيكا 2-0، إقصاء إسبانيا بركلات الترجيح، وفوز على البرتغال 1-0… والمركز الرابع عالمياً.',
+   tFr:'Le miracle — demi-finale mondiale', pFr:'Qatar 2022 : première équipe africaine et arabe dans le dernier carré. Victoire 2-0 face à la Belgique, Espagne éliminée aux tirs au but, Portugal battu 1-0… et une 4e place mondiale.'},
+  {y:'2023', badge:'', cls:'',
+   tAr:'لبؤات الأطلس يدخلن التاريخ', pAr:'أول مشاركة للمنتخب المغربي النسوي في كأس العالم للسيدات — وبلوغ ثمن النهائي في أول ظهور.',
+   tFr:'Les Lionnes entrent dans l\u2019histoire', pFr:'Première participation du Maroc à la Coupe du Monde féminine — et des huitièmes de finale dès la première apparition.'},
+  {y:'2024', badge:'', cls:'',
+   tAr:'برونزية أولمبية', pAr:'أشبال الأطلس يحرزون برونزية أولمبياد باريس 2024 بفوز عريض 6-0 على مصر.',
+   tFr:'Bronze olympique', pFr:'Les Lionceaux décrochent le bronze aux JO de Paris 2024 avec un large 6-0 face à l\u2019Égypte.'},
+  {y:'2025', badge:'🏆', cls:'',
+   tAr:'سنة الدار — وكأس عالم للشباب', pAr:'المغرب يستضيف كأس أمم إفريقيا على أرض الوطن… ومنتخب الشباب يتوَّج بطلاً لكأس العالم لأقل من 20 سنة، بفوز على الأرجنتين 2-0 في النهائي.',
+   tFr:'L\u2019année de la maison — et un Mondial U20', pFr:'Le Maroc accueille la CAN sur sa terre… et les Lionceaux sont champions du Monde U20 après une victoire 2-0 face à l\u2019Argentine en finale.'},
+  {y:'2026', badge:'', cls:'',
+   tAr:'مونديال أمريكا الشمالية', pAr:'الأسود شاركوا في كأس العالم 2026 بأمريكا وكندا والمكسيك — محطة جديدة في المسيرة قبل مونديال الدار.',
+   tFr:'Le Mondial nord-américain', pFr:'Les Lions ont disputé la Coupe du Monde 2026 en Amérique du Nord — une étape de plus avant le Mondial à domicile.'},
+  {y:'2030', badge:'🏠', cls:'future',
+   tAr:'مونديال 2030 في المغرب', pAr:'المملكة شريك في استضافة كأس العالم 2030 مع إسبانيا والبرتغال — مئوية المونديال تمر من الرباط.',
+   tFr:'Le Mondial 2030 au Maroc', pFr:'Le Royaume co-organise la Coupe du Monde 2030 avec l\u2019Espagne et le Portugal — le centenaire passe par Rabat.'}
+];
+let LANG = 'ar';
+const $ = id => document.getElementById(id);
+
+/* ================= SQUAD RENDER (R1) ================= */
+function initials(fr){ return fr.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase(); }
+function renderSquad(){
+  $('squadGrid').innerHTML = SQUAD.map((p, i) => {
+    const club = (LANG==='ar' ? p.clubAr : p.club);
+    const stNum = LANG==='ar' ? 'الرقم' : 'N°';
+    const stPos = LANG==='ar' ? 'المركز' : 'Poste';
+    const stClub = LANG==='ar' ? 'النادي' : 'Club';
+    return `
+    <article class="player reveal in" tabindex="0" role="button" aria-label="${LANG==='ar' ? p.ar : p.fr}">
+      <div class="stage">
+        <div class="layer day"></div><div class="layer art" style="background-image:url('${ART[i]}')"></div><div class="layer night"></div>
+        <div class="mono"><div class="no">${p.no}</div><div class="init">${initials(p.fr)}</div></div>
+        <span class="daynight">${LANG==='ar' ? 'نهار ← ليل' : 'JOUR → NUIT'}</span>
+      </div>
+      <div class="body">
+        <span class="pos">${LANG==='ar' ? p.posAr : p.posFr}</span>
+        <h3>${LANG==='ar' ? p.ar : p.fr}</h3>
+        <div class="stat-strip">
+          <span class="st">${stNum} <b>${p.no}</b></span>
+          <span class="st">${stPos} <b>${LANG==='ar' ? p.posAr : p.posFr}</b></span>
+          ${club ? `<span class="st">${stClub} <b>${club}</b></span>` : `<span class="st"><b>${LANG==='ar' ? 'أسود الأطلس' : 'Atlas Lions'}</b></span>`}
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+  bindPlayerTaps();
+}
+function bindPlayerTaps(){
+  document.querySelectorAll('.player').forEach(card => {
+    const toggle = () => card.classList.toggle('nuit');
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); } });
+  });
+}
+
+/* ================= FAN WALL (local pulse) ================= */
+function loadPulses(){ try { return JSON.parse(localStorage.getItem('mk_pulses') || '{}'); } catch(e){ return {}; } }
+function savePulses(o){ try { localStorage.setItem('mk_pulses', JSON.stringify(o)); } catch(e){} }
+function loadMine(){ try { return JSON.parse(localStorage.getItem('mk_mine') || '[]'); } catch(e){ return []; } }
+function saveMine(a){ try { localStorage.setItem('mk_mine', JSON.stringify(a)); } catch(e){} }
+function renderFans(){
+  const pulses = loadPulses(), mine = loadMine();
+  $('fanGrid').innerHTML = CHANTS.map((c, i) => `
+    <article class="chant reveal in">
+      <div class="big">${LANG==='ar' ? c.big : c.bigFr}</div>
+      <p>${CHANT_TEXT[c.p][LANG]}</p>
+      <div class="who">— ${c.who}</div>
+      <div class="pulse-row">
+        <button class="pulse-btn ${mine.includes(i) ? 'pulsed' : ''}" data-pulse="${i}" type="button"><span class="heart">❤</span> <span data-i18n-skip>${LANG==='ar' ? 'صرّح' : 'CRIER'}</span></button>
+        <span class="pulse-count num" data-count="${i}">${pulses[i] || 0}</span>
+      </div>
+    </article>`).join('');
+  document.querySelectorAll('[data-pulse]').forEach(btn => btn.addEventListener('click', () => {
+    const i = +btn.dataset.pulse, pulses = loadPulses(), mine = loadMine();
+    if(mine.includes(i)){ pulses[i] = Math.max(0, (pulses[i] || 0) - 1); saveMine(mine.filter(x => x !== i)); btn.classList.remove('pulsed'); }
+    else { pulses[i] = (pulses[i] || 0) + 1; mine.push(i); saveMine(mine); btn.classList.add('pulsed'); }
+    savePulses(pulses);
+    document.querySelector(`[data-count="${i}"]`).textContent = pulses[i] || 0;
+    btn.classList.remove('beat'); void btn.offsetWidth; btn.classList.add('beat');
+  }));
+}
+
+/* ================= MEMORY RENDER ================= */
+function renderMemory(){
+  $('memList').innerHTML = MEMORY.map((m, i) => `
+    <div class="mem-item reveal ${m.cls}" style="transition-delay:${(i % 4) * 90}ms">
+      <article class="mem-card">
+        <div class="mem-year num">${m.y}</div>
+        <div class="mem-body">
+          <h3>${LANG==='ar' ? m.tAr : m.tFr} ${m.badge ? `<span class="mem-badge">${m.badge}</span>` : ''}</h3>
+          <p>${LANG==='ar' ? m.pAr : m.pFr}</p>
+        </div>
+      </article>
+    </div>`).join('');
+}
+
+/* ================= I18N ================= */
+const FR = {
+  brand:'Équipe du Maroc', demoChip:'Concept VERTEX', kicker:'Royaume du Maroc • Football',
+  heroTitle1:'Équipe du', heroTitle2:'Maroc', lions1:'Lions de', lions2:"l'Atlas",
+  ctaRoad:'Route vers 2030', ctaSquad:'Les stars', scrollHint:'Faites défiler',
+  preLabel:'Chargement du film…', chNext:'Chapitre suivant :',
+  roadT1:'La route vers', roadSub:'Des faits vérifiés : exploit historique au Qatar, Mondial 2026 en Amérique du Nord et CAN à domicile — et maintenant, cap sur le Mondial 2030 à la maison.',
+  f1t:'Le Maroc à la Coupe du Monde 2026', f1p:'Les Lions étaient au rendez-vous du Mondial aux États-Unis, au Canada et au Mexique — un nouveau chapitre pour une génération dorée qui ne connaît pas l\u2019impossible.',
+  f2t:'4e du Monde — Qatar 2022', f2p:'Quatrième place à la Coupe du Monde 2022 : première équipe africaine et arabe de l\u2019histoire en demi-finale du Mondial.',
+  f3t:'Le Maroc a accueilli la CAN 2025', f3p:'De décembre 2025 à janvier 2026, le Maroc a accueilli l\u2019Afrique sur la terre des Lions — une CAN dans des stades de classe mondiale.',
+  countT1:'Compte à rebours — Coupe du Monde', dL:'Jours', hL:'Heures', mL:'Minutes', sL:'Secondes',
+  host1:'Maroc', host2:'Espagne', host3:'Portugal',
+  seasonFrom:'Aujourd\u2019hui', seasonPct:'du chemin vers la maison déjà parcouru :',
+  countDate:'Coupe du Monde 2030 — Maroc • Espagne • Portugal',
+  squadT1:'Les', squadT2:'stars', squadSub:'La génération qui a écrit l\u2019histoire au Qatar et rêve de gloire en 2030, à domicile — survolez ou touchez une carte pour la voir de nuit, sous les projecteurs.',
+  fanT1:'Mur des', fanT2:'supporters', fanSub:'Le 12e homme… la voix des tribunes marocaines, de Tanger à Dakhla. Criez votre chant préféré.',
+  pulseNote:'Compteur « CRIER » interactif : les voix sont gardées sur votre appareil uniquement (local) — aucun total mondial n\u2019est revendiqué ici.',
+  fanCtaP:'Un chant qui fait vibrer le stade ? Partage-le avec nous.', fanCtaB:'Partager ton chant',
+  memT1:'Mémoire', memT2:'des Lions', memSub:'Du premier point africain au Mondial à l\u2019organisation de la Coupe du Monde à la maison — une mémoire que le temps n\u2019efface pas.',
+  ctaKicker:'VERTEX WEB', ctaT1:'Vous voulez un site', ctaT2:'de ce niveau ?',
+  ctaP:'Des sites cinématographiques de niveau mondial, un design à la hauteur de vos ambitions et des prix clairs, sans surprises — de Tanger au monde entier.',
+  ctaB:'WhatsApp',
+  bandCap:'Là où les <b>supporters</b> créent la légende',
+  goalsT1:'Des buts', goalsT2:'éternels', goalsSub:'Des animations qui redessinent trois des buts les plus célèbres des Lions — pas des images réelles, mais une mémoire dessinée telle que nous l\u2019avons vécue.',
+  demoLabel:'Concept démo par VERTEX WEB — création non officielle',
+  footLine:'Ce site est un concept design de démonstration par VERTEX WEB, et non le site officiel de la Fédération Royale Marocaine de Football.'
+};
+const CHAPTERS = {
+  ar:['حيث يشتعل الملعب','الجمهور لا ينام','الأسد يستعد'],
+  fr:['Là où le stade s\u2019embrase','Les supporters ne dorment jamais','Le Lion se prépare']
+};
+const CAPS = {
+  ar:['حيث يشتعل الملعب…','…حيث لا ينام الجمهور','…وحيث يستعد الأسد'],
+  fr:['Là où le stade s\u2019embrase…','…là où les supporters ne dorment jamais','…et où le Lion se prépare']
+};
+const store = new Map();
+document.querySelectorAll('[data-i18n]').forEach(el => store.set(el, el.textContent));
+const langBtn = $('langBtn');
+function setLang(l){
+  LANG = l;
+  const root = $('htmlRoot');
+  if(l === 'fr'){
+    root.lang = 'fr'; root.dir = 'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if(FR[k]) el.textContent = FR[k]; });
+    langBtn.textContent = 'عربي';
+  } else {
+    root.lang = 'ar'; root.dir = 'rtl';
+    document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = store.get(el); });
+    langBtn.textContent = 'FR';
+  }
+  renderSquad(); renderFans(); renderMemory(); bindReveals(); updateChapter(true);
+}
+langBtn.addEventListener('click', () => setLang(LANG === 'ar' ? 'fr' : 'ar'));
+
+/* ================= COUNTDOWN — living module (R13) ================= */
+const TARGET = new Date('2030-06-08T20:00:00Z').getTime();
+const SEASON_START = new Date('2026-10-24T00:00:00Z').getTime();
+function pad(n, l){ return String(n).padStart(l, '0'); }
+function setCell(id, val){
+  const el = $(id);
+  if(el.textContent !== val){ el.textContent = val; el.classList.remove('flip'); void el.offsetWidth; el.classList.add('flip'); }
+}
+function tick(){
+  const now = Date.now();
+  const d = Math.max(0, TARGET - now);
+  setCell('cd', pad(Math.floor(d / 864e5), 3));
+  setCell('ch', pad(Math.floor(d / 36e5) % 24, 2));
+  setCell('cm', pad(Math.floor(d / 6e4) % 60, 2));
+  setCell('cs', pad(Math.floor(d / 1e3) % 60, 2));
+  const pct = Math.min(100, Math.max(0, (now - SEASON_START) / (TARGET - SEASON_START) * 100));
+  $('seasonFill').style.width = pct.toFixed(2) + '%';
+  $('seasonMarker').style.insetInlineStart = pct.toFixed(2) + '%';
+  $('seasonPct').textContent = pct.toFixed(1) + '%';
+}
+tick(); setInterval(tick, 1000);
+
+/* ================= SCROLL FILM — batched streaming + chapters ================= */
+const FRAMES = 90, FIRST_BATCH = 24, canvas = $('filmCanvas'), ctx = canvas.getContext('2d');
+const imgs = []; let loadedCount = 0, firstReady = false;
+function frameURL(i){ return '../film/f' + String(i).padStart(3, '0') + '.webp'; }
+function loadFrame(i){
+  return new Promise(res => {
+    const im = new Image();
+    im.onload = () => { loadedCount++; onFrameProgress(); if(i === 0) draw(0); res(); };
+    im.onerror = () => { loadedCount++; onFrameProgress(); res(); };
+    im.src = frameURL(i); imgs[i] = im;
+  });
+}
+function onFrameProgress(){
+  const pct = Math.round(loadedCount / FRAMES * 100);
+  $('preCount').innerHTML = pct + '<small>%</small>';
+  $('preBar').style.width = pct + '%';
+  if(loadedCount >= FIRST_BATCH && !firstReady){
+    firstReady = true;
+    setTimeout(() => $('preloader').classList.add('done'), 350);
+  }
+  if(loadedCount >= FRAMES){ $('preloader').classList.add('done'); }
+}
+(async function streamFrames(){
+  const first = [];
+  for(let i = 0; i < FIRST_BATCH; i++) first.push(loadFrame(i));
+  await Promise.all(first);
+  let i = FIRST_BATCH;
+  const step = () => {
+    const batch = [];
+    for(let k = 0; k < 22 && i < FRAMES; k++, i++) batch.push(loadFrame(i));
+    Promise.all(batch).then(() => { if(i < FRAMES){ if('requestIdleCallback' in window) requestIdleCallback(step, {timeout:600}); else setTimeout(step, 120); } });
+  };
+  step();
+  setTimeout(() => $('preloader').classList.add('done'), 6000); /* never trap the visitor */
+})();
+function nearestLoaded(idx){
+  if(imgs[idx] && imgs[idx].complete && imgs[idx].naturalWidth) return idx;
+  for(let d = 1; d < FRAMES; d++){
+    const a = idx - d, b = idx + d;
+    if(a >= 0 && imgs[a] && imgs[a].complete && imgs[a].naturalWidth) return a;
+    if(b < FRAMES && imgs[b] && imgs[b].complete && imgs[b].naturalWidth) return b;
+  }
+  return -1;
+}
+function draw(idx){
+  const li = nearestLoaded(idx); if(li < 0) return;
+  const im = imgs[li];
+  const cw = canvas.width, ch = canvas.height;
+  const s = Math.max(cw / im.naturalWidth, ch / im.naturalHeight);
+  const w = im.naturalWidth * s, h = im.naturalHeight * s;
+  ctx.drawImage(im, (cw - w) / 2, (ch - h) / 2, w, h);
+}
+function fitCanvas(){
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+  canvas.width = Math.round(innerWidth * dpr); canvas.height = Math.round(innerHeight * dpr);
+}
+fitCanvas();
+const wrap = $('heroWrap'), capEl = $('heroCap'), barEl = $('scrollBarFill');
+const glowEl = $('stateGlow'), wmEl = $('wm2030');
+let curFrame = -1, capIdx = -1, scrollP = 0;
+function updateChapter(force){
+  const ci = scrollP < .34 ? 0 : (scrollP < .67 ? 1 : 2);
+  glowEl.className = 'hero-state s' + (ci + 1);
+  glowEl.style.opacity = 1;
+  document.documentElement.style.setProperty('--stateGlow', ['rgba(224,56,63,.9)','rgba(240,208,96,.9)','rgba(46,204,113,.9)'][ci]);
+  $('chNum').textContent = '0' + (ci + 1);
+  $('chName').textContent = CHAPTERS[LANG][ci];
+  $('chNextName').textContent = ci < 2 ? CHAPTERS[LANG][ci + 1] : (LANG === 'ar' ? 'الطريق إلى 2030 ↓' : 'Route vers 2030 ↓');
+  if(ci !== capIdx || force){
+    capIdx = ci; capEl.style.opacity = 0;
+    setTimeout(() => { capEl.textContent = CAPS[LANG][ci]; capEl.style.opacity = 1; }, 160);
+  }
+}
+function onScroll(){
+  const r = wrap.getBoundingClientRect();
+  const total = wrap.offsetHeight - innerHeight;
+  scrollP = Math.min(1, Math.max(0, -r.top / total));
+  const f = Math.min(FRAMES - 1, Math.floor(scrollP * FRAMES));
+  if(f !== curFrame){ curFrame = f; draw(f); }
+  barEl.style.width = (scrollP * 100).toFixed(1) + '%';
+  wmEl.style.opacity = Math.max(0, (scrollP - .18) / .5 * .17).toFixed(3);
+  wmEl.style.transform = 'scale(' + (0.94 + scrollP * .1).toFixed(3) + ')';
+  updateChapter(false);
+}
+let ticking = false;
+addEventListener('scroll', () => { if(!ticking){ ticking = true; requestAnimationFrame(() => { onScroll(); ticking = false; }); } }, {passive:true});
+addEventListener('resize', () => { fitCanvas(); curFrame = -1; onScroll(); });
+onScroll();
+
+/* ================= REVEALS (CASCADE) ================= */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+function bindReveals(){ document.querySelectorAll('.reveal').forEach(el => io.observe(el)); }
+
+/* ================= CURSOR GLOW (desktop) ================= */
+if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  const glow = $('cursorGlow'); let gx = -400, gy = -400, tx = -400, ty = -400;
+  addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; document.body.classList.add('cursor-on'); }, {passive:true});
+  (function loop(){ gx += (tx - gx) * .12; gy += (ty - gy) * .12; glow.style.transform = `translate(${gx}px,${gy}px)`; requestAnimationFrame(loop); })();
+}
+
+/* ================= INIT ================= */
+renderSquad(); renderFans(); renderMemory(); bindReveals();
+</script>
+
+<script>
+/* ================= V3: TILT + GLARE (fine pointers only) ================= */
+const FINE_POINTER = matchMedia('(hover:hover) and (pointer:fine)').matches;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function bindTilt(){
+  if(!FINE_POINTER || REDUCED) return;
+  document.querySelectorAll('.player,.mem-card').forEach(card => {
+    if(card._tilt) return; card._tilt = 1;
+    card.classList.add('tilt');
+    const glare = document.createElement('span'); glare.className = 'glare'; card.appendChild(glare);
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect(); if(!r.width) return;
+      const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      card.style.transform = `perspective(900px) rotateX(${((0.5 - py) * 9).toFixed(2)}deg) rotateY(${((px - 0.5) * 11).toFixed(2)}deg)`;
+      card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+      card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+      card.classList.add('tilting');
+    });
+    card.addEventListener('pointerleave', () => { card.style.transform = ''; card.classList.remove('tilting'); });
+  });
+}
+
+/* ================= V3: LEGENDARY GOALS — animated SVG redraws ================= */
+const GOALS = [
+  {y:'1986',
+   tAr:'عبد الرزاق خيري × البرتغال', pAr:'هجمة مرتدة خاطفة من العمق نحو الجهة اليسرى… خيري ينطلق ويسدد كرة أرضية في الزاوية البعيدة — هدف من ثلاثية الفوز التاريخي 3-1 في مونديال المكسيك 1986.',
+   tFr:'Abderrazak Khairi × Portugal', pFr:'Contre-attaque éclair par la gauche… Khairi s\u2019élance et place un tir rasant au second poteau — un but du succès historique 3-1 au Mondial du Mexique 1986.'},
+  {y:'1998',
+   tAr:'مصطفى حاجي × النرويج', pAr:'انطلاقة فردية ساحرة: حاجي يعبر بالكرة، يراوغ بين المدافعين واحداً تلو الآخر… ثم يودعها الشباك — هدف ما زال يسكن ذاكرة فرنسا 98.',
+   tFr:'Mustapha Hadji × Norvège', pFr:'Un raid solitaire magique : Hadji traverse le terrain, slalome entre les défenseurs les uns après les autres… et conclut — un but à jamais gravé dans la mémoire de France 98.'},
+  {y:'2022',
+   tAr:'يوسف النصيري × البرتغال', pAr:'عرضية من الجهة اليسرى… النصيري يرتقي فوق الجميع — أعلى ارتقاء في البطولة — ورأسية تصنع التاريخ: المغرب أول منتخب أفريقي وعربي في نصف نهائي كأس العالم.',
+   tFr:'Youssef En-Nesyri × Portugal', pFr:'Centre venu de la gauche… En-Nesyri s\u2019élève au-dessus de tout le monde — le saut le plus haut du tournoi — et sa tête entre dans l\u2019Histoire : le Maroc en demi-finale du Mondial.'}
+];
+/* plays: phases of ball path; movers follow their own path during a phase */
+const PLAYS = [
+  { goal:[668,246], reds:[[180,168],[360,332]], greys:[[300,238],[428,262],[548,168],[600,300]],
+    phases:[
+      {ball:'M96,318 C150,300 198,282 244,266', dur:750, ease:'io', movers:[]},
+      {ball:'M244,266 C330,238 428,208 516,196', dur:1150, ease:'io', movers:[{path:'M244,266 C330,238 428,208 516,196', cls:'dot-red', r:9.5}]},
+      {ball:'M516,196 C576,214 628,232 668,246', dur:480, ease:'in', movers:[{path:'M652,214 C646,228 642,238 640,248', cls:'dot-gk', r:8.5}]}
+    ]},
+  { goal:[668,240], reds:[[210,300],[420,320]], greys:[[286,168],[352,204],[452,182],[520,252],[596,196]],
+    phases:[
+      {ball:'M150,128 C186,138 214,146 240,150', dur:550, ease:'io', movers:[]},
+      {ball:'M240,150 C292,196 322,138 386,176 C438,208 492,196 548,214', dur:1700, ease:'io', movers:[{path:'M240,150 C292,196 322,138 386,176 C438,208 492,196 548,214', cls:'dot-red', r:9.5}]},
+      {ball:'M548,214 C596,224 630,232 668,240', dur:420, ease:'in', movers:[{path:'M652,208 C647,220 644,230 643,240', cls:'dot-gk', r:8.5}]}
+    ]},
+  { goal:[668,224], reds:[[180,300],[452,66]], greys:[[380,140],[520,150],[588,250],[612,300]],
+    phases:[
+      {ball:'M286,232 C350,170 404,108 452,66', dur:800, ease:'io', movers:[]},
+      {ball:'M452,66 C540,74 610,128 636,196', dur:950, ease:'io', movers:[{path:'M508,306 C556,262 600,226 628,206', cls:'dot-red', r:9.5, leap:true}]},
+      {ball:'M636,196 C646,206 656,216 668,224', dur:300, ease:'in', movers:[{path:'M650,238 C645,226 642,216 641,206', cls:'dot-gk', r:8.5}]}
+    ]}
+];
+const SVGNS = 'http://www.w3.org/2000/svg';
+function pitchMarks(){
+  return `<rect x="20" y="20" width="640" height="400" class="lnf ln"/>
+  <line x1="340" y1="20" x2="340" y2="420" class="ln"/>
+  <circle cx="340" cy="220" r="56" class="ln"/><circle cx="340" cy="220" r="3.5" fill="rgba(255,255,255,.5)"/>
+  <rect x="540" y="130" width="120" height="180" class="ln"/><rect x="606" y="176" width="54" height="88" class="ln"/>
+  <rect x="20" y="130" width="120" height="180" class="ln"/><rect x="20" y="176" width="54" height="88" class="ln"/>
+  <circle cx="574" cy="220" r="3" fill="rgba(255,255,255,.5)"/><circle cx="106" cy="220" r="3" fill="rgba(255,255,255,.5)"/>
+  <rect x="660" y="182" width="14" height="76" fill="rgba(240,208,96,.14)" stroke="#f0d060" stroke-width="2"/>`;
+}
+function mkEl(tag, attrs){ const el = document.createElementNS(SVGNS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); return el; }
+function easeFn(name, p){ if(name === 'in') return p * p; if(name === 'out') return 1 - (1 - p) * (1 - p); return p * p * (3 - 2 * p); }
+function buildPlay(i){
+  const P = PLAYS[i], g = document.querySelector(`[data-play="${i}"]`); if(!g) return;
+  const S = { phases: [], raf: 0, played: false };
+  P.reds.forEach(([x, y]) => g.appendChild(mkEl('circle', {cx: x, cy: y, r: 8, class: 'dot-red'})));
+  P.greys.forEach(([x, y]) => g.appendChild(mkEl('circle', {cx: x, cy: y, r: 8, class: 'dot-grey'})));
+  P.phases.forEach(ph => {
+    const trail = mkEl('path', {d: ph.ball, class: 'trail'}); g.appendChild(trail);
+    const bp = mkEl('path', {d: ph.ball, fill: 'none', stroke: 'none'});
+    const movers = ph.movers.map(mv => {
+      const mp = mkEl('path', {d: mv.path, fill: 'none', stroke: 'none'});
+      const dot = mkEl('circle', {r: mv.r, class: mv.cls});
+      g.appendChild(mp); g.appendChild(dot);
+      return { el: dot, path: mp, len: mp.getTotalLength(), leap: !!mv.leap, r: mv.r };
+    });
+    g.appendChild(bp);
+    S.phases.push({ trail, path: bp, len: bp.getTotalLength(), dur: ph.dur, ease: ph.ease, movers });
+  });
+  S.ball = mkEl('circle', {r: 7, class: 'ball'}); g.appendChild(S.ball);
+  const card = g.closest('.goal-card');
+  S.flash = card.querySelector('.goal-flash');
+  const rip = S.flash.querySelector('.ripple');
+  rip.setAttribute('cx', P.goal[0]); rip.setAttribute('cy', P.goal[1]);
+  P._ = S;
+  resetPlay(i);
+}
+function setMovers(ph, e){
+  ph.movers.forEach(m => {
+    const pt = m.path.getPointAtLength(m.len * e);
+    m.el.setAttribute('cx', pt.x); m.el.setAttribute('cy', pt.y);
+    if(m.leap) m.el.setAttribute('r', (m.r + 4.5 * Math.sin(Math.PI * Math.min(1, e))).toFixed(1));
+  });
+}
+function resetPlay(i){
+  const S = PLAYS[i]._; if(!S) return;
+  cancelAnimationFrame(S.raf);
+  S.phases.forEach(ph => {
+    ph.trail.style.strokeDasharray = ph.len; ph.trail.style.strokeDashoffset = ph.len; ph.trail.style.opacity = .95;
+    setMovers(ph, 0);
+  });
+  const s0 = S.phases[0].path.getPointAtLength(0);
+  S.ball.setAttribute('cx', s0.x); S.ball.setAttribute('cy', s0.y);
+  S.flash.classList.remove('show');
+}
+function finishPlay(i){
+  const S = PLAYS[i]._; if(!S) return;
+  S.phases.forEach(ph => { ph.trail.style.strokeDashoffset = 0; setMovers(ph, 1); });
+  const last = S.phases[S.phases.length - 1], end = last.path.getPointAtLength(last.len);
+  S.ball.setAttribute('cx', end.x); S.ball.setAttribute('cy', end.y);
+  S.flash.classList.add('show');
+}
+function staticPlay(i){ resetPlay(i); finishPlay(i); }
+function playGoal(i){
+  const S = PLAYS[i]._; if(!S) return;
+  resetPlay(i);
+  const total = S.phases.reduce((a, p) => a + p.dur, 0), t0 = performance.now();
+  const frame = now => {
+    const t = now - t0;
+    if(t >= total){ finishPlay(i); return; }
+    let acc = 0, idx = 0;
+    while(idx < S.phases.length - 1 && t > acc + S.phases[idx].dur){ acc += S.phases[idx].dur; idx++; }
+    const ph = S.phases[idx], e = easeFn(ph.ease, Math.min(1, (t - acc) / ph.dur));
+    for(let k = 0; k < idx; k++){ S.phases[k].trail.style.strokeDashoffset = 0; setMovers(S.phases[k], 1); }
+    ph.trail.style.strokeDashoffset = ph.len * (1 - e);
+    const pt = ph.path.getPointAtLength(ph.len * e);
+    S.ball.setAttribute('cx', pt.x); S.ball.setAttribute('cy', pt.y);
+    setMovers(ph, e);
+    S.raf = requestAnimationFrame(frame);
+  };
+  S.raf = requestAnimationFrame(frame);
+}
+let goalIO = null;
+function observeGoals(){
+  if(goalIO) goalIO.disconnect();
+  goalIO = new IntersectionObserver(es => es.forEach(en => {
+    const i = +en.target.dataset.goal;
+    if(en.isIntersecting){
+      if(!PLAYS[i].played){ PLAYS[i].played = true; if(REDUCED) staticPlay(i); else playGoal(i); }
+    } else if(PLAYS[i]._){ cancelAnimationFrame(PLAYS[i]._.raf); }
+  }), {threshold: .4});
+  document.querySelectorAll('.goal-card').forEach(c => goalIO.observe(c));
+}
+function renderGoals(){
+  $('goalsGrid').innerHTML = GOALS.map((g, i) => `
+    <article class="goal-card reveal in" data-goal="${i}">
+      <div class="pitch-wrap">
+        <svg class="pitch" viewBox="0 0 680 440" role="img" aria-label="${LANG === 'ar' ? g.tAr : g.tFr}">
+          ${pitchMarks()}
+          <g class="play" data-play="${i}"></g>
+          <g class="goal-flash"><circle class="ripple" r="12"/><text class="goal-word" x="340" y="212">${LANG === 'ar' ? 'هدف!' : 'GOAL!'}</text><text class="goal-sub" x="340" y="250">${LANG === 'ar' ? 'هدف خالد في ذاكرة الأسود' : 'Un but éternel des Lions'}</text></g>
+        </svg>
+      </div>
+      <div class="goal-body">
+        <div class="goal-year num">${g.y}</div>
+        <div class="goal-txt">
+          <h3>${LANG === 'ar' ? g.tAr : g.tFr}</h3>
+          <p>${LANG === 'ar' ? g.pAr : g.pFr}</p>
+          <button class="replay-btn" type="button" data-replay="${i}">↻ ${LANG === 'ar' ? 'شغّل الهدف' : 'Rejouer le but'}</button>
+        </div>
+      </div>
+    </article>`).join('');
+  GOALS.forEach((g, i) => buildPlay(i));
+  document.querySelectorAll('[data-replay]').forEach(b => b.addEventListener('click', () => { PLAYS[+b.dataset.replay].played = true; if(REDUCED) staticPlay(+b.dataset.replay); else playGoal(+b.dataset.replay); }));
+  observeGoals();
+}
+
+/* language-aware band caption (HTML) + re-render hooks */
+const BANDCAP = { ar:'حيث يصنع <b>الجمهور</b> الأسطورة', fr:'Là où les <b>supporters</b> créent la légende' };
+function applyBandCap(){ const el = document.querySelector('[data-i18n-html="bandCap"]'); if(el) el.innerHTML = BANDCAP[LANG]; }
+const _setLangV2 = setLang;
+setLang = function(l){ _setLangV2(l); applyBandCap(); renderGoals(); bindTilt(); };
+
+/* ================= V3: PARALLAX SCROLL (hero layers + art bands) ================= */
+const plxFans = document.querySelector('.plx-fans'), plxBeams = document.querySelector('.plx-beams'), plxLion = document.querySelector('.plx-lion');
+const bandImgs = document.querySelectorAll('[data-plxband] img');
+let v3Tick = false;
+function v3Scroll(){
+  const r = wrap.getBoundingClientRect(), total = wrap.offsetHeight - innerHeight;
+  const p = Math.min(1, Math.max(0, -r.top / total));
+  if(plxFans) plxFans.style.transform = `translateY(${(p * 72).toFixed(1)}px)`;
+  if(plxBeams) plxBeams.style.transform = `translateY(${(p * 34).toFixed(1)}px)`;
+  if(plxLion){ plxLion.style.transform = `translateY(${(-p * 50).toFixed(1)}px)`; plxLion.style.opacity = Math.max(0, (p - .5) / .5 * .55).toFixed(3); }
+  bandImgs.forEach(img => {
+    const b = img.parentElement.getBoundingClientRect();
+    if(b.bottom > 0 && b.top < innerHeight){
+      const q = (b.top + b.height / 2 - innerHeight / 2) / innerHeight;
+      img.style.transform = `translateY(${(q * -30).toFixed(1)}px)`;
+    }
+  });
+}
+if(!REDUCED){
+  addEventListener('scroll', () => { if(!v3Tick){ v3Tick = true; requestAnimationFrame(() => { v3Scroll(); v3Tick = false; }); } }, {passive: true});
+  v3Scroll();
+} else if(plxLion){ plxLion.style.opacity = .4; }
+
+/* ================= V3 INIT ================= */
+applyBandCap();
+renderGoals();
+bindTilt();
+</script>
+</body>
+</html>
