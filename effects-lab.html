@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VERTEX Effects Lab — ديمو التأثيرات العشرة</title>
+<meta name="description" content="عشرة تأثيرات من أحسن مواقع العالم، معاودة البناء عند VERTEX WEB بأصول أصلية — ديمو تفاعلي.">
+<style>
+:root{--bg:#0b0d10;--ink:#ededed;--gold:#c9a227;--mut:#9aa3ad;--card:#12151a;--line:#262b33}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,"Segoe UI",Tahoma,sans-serif}
+#prog{position:fixed;top:0;right:0;height:3px;background:var(--gold);width:0;z-index:50}
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 18px;background:radial-gradient(60% 50% at 50% 30%,#1c2230,#0b0d10)}
+.hero .tag{border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:6px 16px;font-size:13px;letter-spacing:1px}
+.hero h1{font-size:clamp(34px,7vw,64px);margin:18px 0 6px;line-height:1.25}.hero h1 b{color:var(--gold)}
+.hero p{color:var(--mut);max-width:680px;line-height:2;font-size:17px}
+.stats{display:flex;gap:26px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.stats div{text-align:center}.stats b{display:block;font-size:28px;color:var(--gold)}
+.stats span{color:var(--mut);font-size:13px}
+nav.idx{position:sticky;top:0;background:#0b0d10ee;backdrop-filter:blur(8px);z-index:40;padding:10px 8px;display:flex;gap:8px;overflow-x:auto;border-bottom:1px solid var(--line);scrollbar-width:none}
+nav.idx a{white-space:nowrap;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13px}
+nav.idx a:hover{border-color:var(--gold);color:var(--gold)}
+main{max-width:1060px;margin:0 auto;padding:26px 16px 70px}
+section.fx{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;margin:0 0 26px;opacity:0;transform:translateY(24px);transition:.6s}
+section.fx.on{opacity:1;transform:none}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.head h2{margin:0;font-size:clamp(21px,3.4vw,30px)}.head h2 .n{color:var(--gold)}
+.src{color:var(--mut);font-size:13px}.src a{color:var(--gold)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.why div{background:#0e1116;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.why b{color:var(--gold);display:block;margin-bottom:4px;font-size:14px}
+.why p{margin:0;color:var(--mut);font-size:14px;line-height:1.9}
+.demo{border:1px dashed #3a414c;border-radius:14px;position:relative;overflow:hidden;background:#0e1116}
+button{background:var(--gold);color:#111;border:0;border-radius:999px;padding:11px 20px;font-weight:800;cursor:pointer;font-size:15px}
+button:active{transform:scale(.97)}
+.ctr{text-align:center;margin-top:12px}
+.hold-stage{height:230px;position:relative}
+.hold-after{position:absolute;inset:0;background:linear-gradient(135deg,#ffb347,#ff5e7a 55%,#7a5cff);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800}
+.hold-before{position:absolute;inset:0;background:linear-gradient(135deg,#3a414c,#171a1f);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#aab;clip-path:inset(0 0 0 var(--p,0%))}
+.hold-state{text-align:center;font-size:14px;color:var(--gold);min-height:22px;margin-top:10px}
+.swap{height:210px;display:flex;align-items:center;justify-content:center;font-size:64px;background:radial-gradient(circle at 50% 40%,#2a2f38,#101216)}
+.swap .alt{display:none}.swap:hover .alt{display:block}.swap:hover .base{display:none}
+.roll{display:inline-block;overflow:hidden;height:1.3em;vertical-align:bottom}.roll i{display:block;font-style:normal;transition:transform .35s}
+a.rollink{color:var(--ink);text-decoration:none;font-weight:800;font-size:18px}a.rollink:hover .roll i{transform:translateY(-1.3em)}
+.bubbles{height:230px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#fff}
+.bub{max-width:75%;padding:9px 13px;border-radius:18px;color:#fff;font-size:14px;background:linear-gradient(180deg,#a033ff,#0099ff);background-attachment:fixed}
+.bub.me{align-self:flex-start}.bub.them{align-self:flex-end;background:#e5e5ea;color:#111}
+.viewf{height:230px;background:linear-gradient(180deg,#87b5d6,#e8d9ae);position:relative}
+.cloud{position:absolute;font-size:38px;opacity:.9;animation:drift linear infinite}
+@keyframes drift{from{transform:translateX(320px)}to{transform:translateX(-90px)}}
+.frames{position:absolute;bottom:12px;right:10px;left:10px;display:flex;gap:8px}
+.frames div{flex:1;background:#101216cc;border:1px solid var(--gold);border-radius:8px;color:#fff;font-size:13px;padding:16px 4px;text-align:center}
+.world{height:230px;background:#1d2b1a;position:relative}
+.car{position:absolute;width:38px;height:22px;background:#ffcf3f;border-radius:6px;left:20px;top:100px}
+.world small{position:absolute;bottom:10px;right:12px;color:#cfe3c0;font-size:13px}
+.drag{display:flex;gap:10px;overflow-x:auto;padding:16px;cursor:grab;scrollbar-width:none}
+.drag div{min-width:130px;height:160px;border-radius:10px;background:linear-gradient(160deg,#31435f,#141a24);display:flex;align-items:flex-end;padding:10px;font-weight:700;font-size:16px}
+.gate{height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.gate .num{font-size:64px;font-weight:800;color:var(--gold)}
+.chapter{display:none;text-align:center;line-height:2;font-size:17px}
+.gfm{padding:22px;text-align:center}.gfm .big{font-size:36px;font-weight:800;color:#2f9e44}
+.steps{display:flex;gap:8px;margin-top:14px}.steps div{flex:1;background:#0e1116;border:1px solid var(--line);border-radius:10px;padding:12px 4px;font-size:13px}
+.canvas2{height:230px;background:#f6f6f4;color:#111;position:relative}
+.cur{position:absolute;font-size:13px;font-weight:700;padding:3px 9px;border-radius:0 10px 10px 10px;color:#fff;animation:path 7s ease-in-out infinite alternate;background:#e03131}
+@keyframes path{0%{transform:translate(0,0)}50%{transform:translate(-130px,70px)}100%{transform:translate(-50px,130px)}}
+.cur2{animation-delay:-3.5s;background:#7a5cff}
+.orbw{height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.orb{width:84px;height:84px;border-radius:50%;background:conic-gradient(#4285f4,#ea4335,#fbbc05,#34a853,#4285f4)}
+.orb.think{animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18);filter:saturate(1.7)}}
+.pill{border:1px solid var(--line);border-radius:999px;padding:9px 18px;color:var(--mut);font-size:14px}
+footer{text-align:center;color:var(--mut);padding:0 16px 46px;line-height:2.1;font-size:14px}
+footer b{color:var(--gold)}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<div class="hero">
+<div class="tag">VERTEX WEB · DEMO</div>
+<h1>مختبر <b>التأثيرات العشرة</b></h1>
+<p>أحسن ما تصنع فالويب العالمي، معاود البناء عندنا من الصفر وبأصولنا الخاصة. كل تأثير تحت: جرّبو بإيدك، واقرا شنو كيدير، كيفاش خدام، وفين غينفع فالـ demos ديالنا — القدام والجداد.</p>
+<div class="stats"><div><b>10</b><span>تأثيرات</span></div><div><b>10</b><span>حاجات نادرة R1–R10</span></div><div><b>0</b><span>محتوى منسوخ</span></div></div>
+</div>
+
+<nav class="idx">
+<a href="#r7">R7 Beeble</a><a href="#r1">R1 Lando</a><a href="#r2">R2 Messenger</a><a href="#r3">R3 Scout</a><a href="#r4">R4 Bruno</a><a href="#r5">R5 By-Kin</a><a href="#r6">R6 Pendragon</a><a href="#r8">R8 GoFundMe</a><a href="#r9">R9 Figma</a><a href="#r10">R10 Gemini</a>
+</nav>
+
+<main>
+
+<section class="fx" id="r7">
+<div class="head"><h2><span class="n">R7</span> · شدّ باش يتحوّل — Beeble</h2><div class="src">المصدر: <a href="https://beeble.ai" target="_blank" rel="noopener">beeble.ai</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>كتضغط وتشدّ، وقبل/بعد كيتحوّل قدام عينيك بنسبة الضغط. الإفلات كيرجع.</p></div><div><b>كيفاش خدام</b><p>طبقتان متطابقتان + clip-path كيتوسع مع مدة الضغط بـ requestAnimationFrame.</p></div><div><b>فين غينفع</b><p>أي قبل/بعد: أسنان، ديكور، صالون، ترميم. الأولوية 1 عندنا.</p></div></div>
+<div class="demo"><div class="hold-stage"><div class="hold-after">العالم تبدّل ✨</div><div class="hold-before" id="holdBefore">قبـل</div></div></div>
+<div class="hold-state" id="holdState">شدّ الزر مضغوط…</div>
+<div class="ctr"><button id="holdBtn">HOLD TO CHANGE WORLD</button></div>
+</section>
+
+<section class="fx" id="r1">
+<div class="head"><h2><span class="n">R1</span> · تبديل متطابق الكادر — Lando Norris</h2><div class="src">المصدر: <a href="https://landonorris.com" target="_blank" rel="noopener">landonorris.com</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>Hover كيبدّل النسخة كاملة فنفس الكادر — مقارنة فورية بلا سلايدر. والروابط نصّها الداخلي كيدور.</p></div><div><b>كيفاش خدام</b><p>زوج صور من نفس الزاوية + تبديل display/opacity، ونص مقصوص بـ overflow hidden.</p></div><div><b>فين غينفع</b><p>معارض منتجات: سيارات، ألوان، موديلات — أي حاجة عندها جوج حالات.</p></div></div>
+<div class="demo"><div class="swap"><span class="base">🪖</span><span class="alt">🏆</span></div></div>
+<div class="ctr"><a class="rollink" href="#" onclick="return false">مرّر هنا: المتجر <span class="roll"><i>←<br>←</i></span></a></div>
+</section>
+
+<section class="fx" id="r2">
+<div class="head"><h2><span class="n">R2</span> · Gradient ثابت على الشاشة — Messenger</h2><div class="src">المصدر: <a href="https://www.messenger.com/" target="_blank" rel="noopener">messenger.com</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>الفقاعات الزرقا كتبدّل اللون ونتا كتسكرولي، حيت الـ gradient واحد ومثبّت.</p></div><div><b>كيفاش خدام</b><p>خاصية وحدة: background-attachment: fixed — الخلفية واقفة والعناصر كتتحرك فوقها.</p></div><div><b>فين غينفع</b><p>واجهات شات وطلبات، وبطاقات مترابطة بصرياً فأي ديمو.</p></div></div>
+<div class="demo"><div class="bubbles">
+<div class="bub me">السلام! لاحظ لون هاد الفقاعة</div><div class="bub them">أهلا، كنشوف</div>
+<div class="bub me">سكرولي لتحت وشوف اللون كيتحرك فيّا</div><div class="bub them">فعلاً كيتبدل!</div>
+<div class="bub me">حيت الخلفية واقفة والفقاعات كتتحرك فوقها</div><div class="bub them">مادة وحدة 👌</div>
+<div class="bub me">خاصية وحدة قديمة وعبقرية</div><div class="bub them">رخيصة وبأثر كبير</div>
+</div></div>
+</section>
+
+<section class="fx" id="r3">
+<div class="head"><h2><span class="n">R3</span> · منظار مرقّم وسحاب Parallax — Scout Motors</h2><div class="src">المصدر: <a href="https://scoutmotors.com" target="_blank" rel="noopener">scoutmotors.com</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>المعرض داخل إطار-عدسة مرقّم، والسحاب كيتحرك بطبقات وسرعات مختلفة = عمق رخيص.</p></div><div><b>كيفاش خدام</b><p>طبقات صور شفافة منفصلة + parallax بلا WebGL.</p></div><div><b>فين غينفع</b><p>سيارات، عقار، سياحة — أي قصة عندها خط زمني.</p></div></div>
+<div class="demo"><div class="viewf">
+<div class="cloud" style="top:14px;animation-duration:26s">☁️</div>
+<div class="cloud" style="top:52px;font-size:24px;animation-duration:17s">☁️</div>
+<div class="frames"><div>01 · 1961</div><div>02 · التراث</div><div>03 · اليوم</div><div>04 · 2027</div></div>
+</div></div>
+</section>
+
+<section class="fx" id="r4">
+<div class="head"><h2><span class="n">R4</span> · العالم هو الواجهة — Bruno Simon</h2><div class="src">المصدر: <a href="https://bruno-simon.com" target="_blank" rel="noopener">bruno-simon.com</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>بورتفوليو كامل كتسوق فيه بسيارة فـ عالم 3D. هنا نسخة مصغرة: حرّك بالأسهم ولا WASD.</p></div><div><b>كيفاش خدام</b><p>Three.js + فيزياء Rapier + Matcaps: إضاءة مرسومة، صفر حساب إضاءة = أداء طاير. الكود مفتوح MIT.</p></div><div><b>فين غينفع</b><p>سقف طموح وديمو استعراضي بوحدو — ماشي مواقع زبناء.</p></div></div>
+<div class="demo"><div class="world" id="world"><div class="car" id="car"></div><small>⭐ المشروع 1 &nbsp; 🏁 المشروع 2 — سُق ليهم</small></div></div>
+</section>
+
+<section class="fx" id="r5">
+<div class="head"><h2><span class="n">R5</span> · جرّ المعرض بعطالة — By-Kin</h2><div class="src">المصدر: <a href="https://by-kin.com" target="_blank" rel="noopener">by-kin.com</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>المعرض كيتجرّ بالماوس/الإصبع وكيكمل بوحدو بالعطالة بحال مادة حقيقية.</p></div><div><b>كيفاش خدام</b><p>Pointer events + تتبع السرعة + تخفيف تدريجي (decay) بعد الإفلات.</p></div><div><b>فين غينفع</b><p>بورتفوليو مصوّر، مهندس، ديكور — أي معرض صور.</p></div></div>
+<div class="demo"><div class="drag" id="drag">
+<div>01<br>مشروع</div><div>02<br>مشروع</div><div>03<br>مشروع</div><div>04<br>مشروع</div><div>05<br>مشروع</div><div>06<br>مشروع</div>
+</div></div>
+</section>
+
+<section class="fx" id="r6">
+<div class="head"><h2><span class="n">R6</span> · العدّاد هو الباب — The Pendragon Cycle</h2><div class="src">المصدر: <a href="https://pendragoncycle.com/" target="_blank" rel="noopener">pendragoncycle.com</a> · Webby Award</div></div>
+<div class="why"><div><b>شنو كيدير</b><p>الدخول طقس: العدّاد كيكمل عاد كيتفتح الفصل. التفاعل هو السرد، ماشي الزخرفة.</p></div><div><b>كيفاش خدام</b><p>Preloader عدّاد + فصول مرقمة كتتكشف بالتفاعل، إيقاع حركة واحد.</p></div><div><b>فين غينفع</b><p>قالب إطلاق: فيلم، منتج، حدث كبير.</p></div></div>
+<div class="demo"><div class="gate">
+<div class="num" id="gateNum">00</div>
+<div class="chapter" id="chapter">📖 الفصل الأول: القصة بدات حيتّي كمّلتي الدخول.<br><small style="color:var(--mut)">ماشي قسم معلومات — فصل.</small></div>
+<button id="gateBtn">ابدأ الدخول</button>
+</div></div>
+</section>
+
+<section class="fx" id="r8">
+<div class="head"><h2><span class="n">R8</span> · الثقة بالحذف — GoFundMe</h2><div class="src">المصدر: <a href="https://www.gofundme.com/" target="_blank" rel="noopener">gofundme.com</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>بلا effects: رقم واحد كيعدّ، 3 خطوات، زر واحد. الدرس المعاكس للباقيين كاملين.</p></div><div><b>كيفاش خدام</b><p>عدّاد كيبدا ملي كيوصل للشاشة (IntersectionObserver) + حذف كل ما هو زائد.</p></div><div><b>فين غينفع</b><p>أي صفحة تحويل: حجز، طلب، تبرع — الحركة الزائدة كتنقص النتيجة.</p></div></div>
+<div class="demo"><div class="gfm">
+<div class="big"><span id="gfmNum">0</span> درهم</div>
+<div style="color:var(--mut);font-size:14px">تجمّعات هاد الأسبوع (رقم تعليمي للديمو)</div>
+<div class="steps"><div>1<br>عبّي الطلب</div><div>2<br>شاركو</div><div>3<br>استلم بأمان</div></div>
+</div></div>
+</section>
+
+<section class="fx" id="r9">
+<div class="head"><h2><span class="n">R9</span> · مؤشرات تعاون وهمية — Figma</h2><div class="src">المصدر: <a href="https://www.figma.com/" target="_blank" rel="noopener">figma.com</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>مؤشرات بأسماء كتتحرك فمسارات مرسومة — المنتج كيبان حيّ والناس خدامة فيه.</p></div><div><b>كيفاش خدام</b><p>عناصر مطلقة + keyframes على مسارات، بلا أي backend.</p></div><div><b>فين غينفع</b><p>منتجات SaaS، منصات حجز، أي أداة تعاونية.</p></div></div>
+<div class="demo"><div class="canvas2">
+<div style="position:absolute;inset:36px;border:1.5px dashed #bbb;border-radius:10px"></div>
+<div class="cur" style="top:26px;right:36px">➤ سارة — كتصمم</div>
+<div class="cur cur2" style="top:20px;right:170px">➤ يوسف — كيراجع</div>
+</div></div>
+</section>
+
+<section class="fx" id="r10">
+<div class="head"><h2><span class="n">R10</span> · Gradient يعني «كنفكّر» — Google Gemini</h2><div class="src">المصدر: <a href="https://gemini.google.com/" target="_blank" rel="noopener">gemini.google.com</a></div></div>
+<div class="why"><div><b>شنو كيدير</b><p>اللون مؤشر حالة: واقف = واجد، نابض = خدام، هادئ = سالا. اللون كيهضر قبل النص.</p></div><div><b>كيفاش خدام</b><p>Gradient دائري + نبض scale/saturate ملي الحالة «processing».</p></div><div><b>فين غينفع</b><p>أي انتظار عند زبون: بحث، حجز، توليد، تحميل ذكي.</p></div></div>
+<div class="demo"><div class="orbw">
+<div class="orb" id="orb"></div>
+<div class="pill" id="pill">✦ شنو فبالك اليوم؟</div>
+<button id="askBtn">صيفط</button>
+</div></div>
+</section>
+
+</main>
+<footer><b>VERTEX WEB</b> — Effects Lab Demo<br>كل الميكانيزمات معاودة البناء بأصولنا الخاصة، للتعلم والتطبيق على الـ demos القدام والجداد.<br>الدراسة الكاملة: etude-10-sites-effets-2026-10-24.md</footer>
+
+<script>
+addEventListener('scroll',()=>{let h=document.documentElement;document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.08}).observe(document.body);
+document.querySelectorAll('section.fx').forEach(s=>new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');o.disconnect()}}),{threshold:.08}).observe(s));
+/* R7 */
+let hp=0,ht=null;const hb=document.getElementById('holdBefore'),hs=document.getElementById('holdState'),hbtn=document.getElementById('holdBtn');
+function holdStep(){hp=Math.min(100,hp+2);hb.style.setProperty('--p',hp+'%');hs.textContent=hp>=100?'WORLD CHANGED ✨':('كيتحوّل… '+hp+'%');if(hp<100)ht=requestAnimationFrame(holdStep)}
+hbtn.addEventListener('pointerdown',e=>{e.preventDefault();ht=requestAnimationFrame(holdStep)});
+addEventListener('pointerup',()=>{cancelAnimationFrame(ht);let back=()=>{hp=Math.max(0,hp-3);hb.style.setProperty('--p',hp+'%');if(hp>0)requestAnimationFrame(back);else hs.textContent='شدّ الزر مضغوط…'};back()});
+/* R4 */
+const car=document.getElementById('car'),world=document.getElementById('world');let cx=20,cy=100,keys={};
+addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true});addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false});
+setInterval(()=>{let s=3;if(keys['arrowup']||keys['w'])cy-=s;if(keys['arrowdown']||keys['s'])cy+=s;if(keys['arrowleft']||keys['a'])cx-=s;if(keys['arrowright']||keys['d'])cx+=s;cx=Math.max(0,Math.min(world.clientWidth-40,cx));cy=Math.max(0,Math.min(200,cy));car.style.left=cx+'px';car.style.top=cy+'px'},30);
+/* R5 */
+const d=document.getElementById('drag');let down=false,sx=0,sl=0,vel=0,last=0;
+d.addEventListener('pointerdown',e=>{down=true;sx=e.clientX;sl=d.scrollLeft;last=e.clientX});
+addEventListener('pointermove',e=>{if(!down)return;vel=last-e.clientX;last=e.clientX;d.scrollLeft=sl-(e.clientX-sx)});
+addEventListener('pointerup',()=>{if(!down)return;down=false;let iv=setInterval(()=>{d.scrollLeft+=vel;vel*=.94;if(Math.abs(vel)<.5)clearInterval(iv)},16)});
+/* R6 */
+document.getElementById('gateBtn').onclick=function(){this.style.display='none';let n=0,g=document.getElementById('gateNum');let t=setInterval(()=>{n+=2;g.textContent=String(Math.min(100,n)).padStart(2,'0');if(n>=100){clearInterval(t);document.getElementById('chapter').style.display='block'}},30)};
+/* R8 */
+let done=false;new IntersectionObserver(en=>{if(en[0].isIntersecting&&!done){done=true;let v=0,t=setInterval(()=>{v+=1250;if(v>=50000){v=50000;clearInterval(t)}document.getElementById('gfmNum').textContent=v.toLocaleString('fr')},30)}}).observe(document.getElementById('gfmNum'));
+/* R10 */
+document.getElementById('askBtn').onclick=function(){let o=document.getElementById('orb'),p=document.getElementById('pill');o.classList.add('think');p.textContent='✦ كنفكّر…';setTimeout(()=>{o.classList.remove('think');p.textContent='✦ هادا الجواب — الهدوء يعني ساليت.'},2600)};
+</script>
+</body>
+</html>
