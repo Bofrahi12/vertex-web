@@ -43,6 +43,20 @@ nav a:hover{color:var(--gold2)}
 .stats{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
 .stat b{font-size:clamp(22px,3.4vw,32px);color:var(--gold2);display:block;line-height:1.2}
 .stat span{color:var(--mut);font-size:13px}
+/* ===== 3D showcase ring (hero signature) ===== */
+.stage3d{--pw:190px;--ph:250px;--tz:305px;margin-top:56px;height:400px;perspective:1300px;position:relative;overflow:visible;cursor:grab;touch-action:pan-y}
+.stage3d:active{cursor:grabbing}
+.ring3d{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
+.panel3d{position:absolute;left:calc(var(--pw)/-2);top:calc(var(--ph)/-2);width:var(--pw);height:var(--ph);
+  transform:rotateY(calc(var(--i)*45deg)) translateZ(var(--tz));backface-visibility:hidden;
+  border-radius:14px;overflow:hidden;border:1px solid rgba(201,162,75,.55);box-shadow:0 18px 44px rgba(0,0,0,.55);display:block}
+.panel3d img{width:100%;height:100%;object-fit:cover;object-position:top center;pointer-events:none}
+.panel3d::after{content:attr(data-t);position:absolute;inset:auto 0 0 0;padding:16px 10px 8px;font-size:12px;font-weight:700;color:#fff;text-align:center;
+  background:linear-gradient(transparent,rgba(0,0,0,.82))}
+.stage-floor{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);width:min(680px,88%);height:56px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(201,162,75,.20),transparent);filter:blur(6px);pointer-events:none}
+.stage-hint{text-align:center;color:var(--mut);font-size:12.5px;margin-top:2px}
+@media(max-width:640px){.stage3d{--pw:128px;--ph:172px;--tz:208px;height:280px;margin-top:38px}}
 .marquee{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:10px 0;direction:ltr}
 .mtrack{display:flex;gap:38px;white-space:nowrap;width:max-content;animation:mq 26s linear infinite;color:var(--mut);font-size:14px;letter-spacing:3px}
 @keyframes mq{to{transform:translateX(-50%)}}
@@ -90,9 +104,71 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mut);font-siz
 footer a{color:var(--gold2)}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
+/* R6 loader — honest counter of loaded images */
+#loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:opacity .5s var(--ease)}
+#loader.done{opacity:0;pointer-events:none}
+#loader .big{font-size:52px;font-weight:900;color:var(--gold2)}
+#loader .bar{width:180px;height:3px;background:var(--line);border-radius:99px;overflow:hidden}
+#loader .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .25s}
+#loader small{color:var(--mut);letter-spacing:3px}
+/* R14 filter chips */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--mut);border-radius:99px;padding:7px 16px;cursor:pointer;font-size:13.5px;font-family:inherit;transition:all .25s}
+.chip b{color:var(--gold2);font-weight:700}
+.chip.on{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#191104;border-color:transparent}
+.chip.on b{color:#191104}
+.proj.hide{display:none}
+/* R1 pairs: same frame, NUIT state on hover */
+.proj .cover{position:relative}
+.proj .cover::after{content:"NUIT 🌙 النسخة الليلية";position:absolute;top:10px;inset-inline-start:10px;background:rgba(10,8,5,.78);color:var(--gold2);
+  font-size:11.5px;font-weight:700;border:1px solid var(--gold);border-radius:99px;padding:3px 11px;opacity:0;transition:opacity .35s;pointer-events:none}
+.proj:hover .cover::after{opacity:1}
+.proj:hover .cover img{filter:brightness(.7) contrast(1.1) saturate(.82) hue-rotate(-10deg)}
+.proj .cover img{transition:transform .5s var(--ease),filter .45s var(--ease)}
+/* R10 state badge */
+.badge.hot{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#191104;border-color:transparent;font-weight:800}
+/* R12 Netflix-style ranked row */
+.rank-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px}
+@media(max-width:760px){.rank-row{grid-template-columns:1fr}}
+.rank{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--gold);border-radius:16px;padding:12px 16px;transition:transform .3s var(--ease)}
+.rank:hover{transform:translateY(-3px)}
+.rank .no{font-size:44px;font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--gold);line-height:1}
+.rank img{width:58px;height:58px;border-radius:10px;object-fit:cover;object-position:top center}
+.rank h4{font-size:15px}
+.rank span{color:var(--gold2);font-size:13px}
+/* R2+R3 fixed band + viewfinder */
+.band{position:relative;padding:90px 0;background:url('assets/proj-concert.jpg') center 30%/cover fixed no-repeat}
+@media(max-width:820px){.band{background-attachment:scroll}}
+.band::before{content:"";position:absolute;inset:0;background:rgba(8,6,4,.72)}
+.band .wrap{position:relative}
+.vf{max-width:760px;margin:0 auto;aspect-ratio:16/9;border-radius:8px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
+.vf img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.vf .c{position:absolute;width:34px;height:34px;border:3px solid var(--gold2)}
+.vf .c.tl{top:12px;left:12px;border-right:0;border-bottom:0}
+.vf .c.tr{top:12px;right:12px;border-left:0;border-bottom:0}
+.vf .c.bl{bottom:12px;left:12px;border-right:0;border-top:0}
+.vf .c.br{bottom:12px;right:12px;border-left:0;border-top:0}
+.vf .rec{position:absolute;top:16px;inset-inline-end:58px;color:#ff5a4d;font-weight:800;font-size:14px;letter-spacing:1px;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.vf .meta{position:absolute;bottom:14px;inset-inline:18px;display:flex;justify-content:space-between;color:#fff;font-size:12.5px;letter-spacing:2px;text-shadow:0 1px 6px #000}
+.band h3{text-align:center;font-size:clamp(22px,4vw,34px);font-weight:900;margin-bottom:8px}
+.band p.sub{text-align:center;color:#ddd6c6;margin-bottom:28px}
+/* R7 hold-to-transform */
+.hold-box{max-width:520px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--line);position:relative;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.hold-box img{width:100%;height:520px;object-fit:cover;object-position:top center;filter:grayscale(.75) contrast(.86) brightness(.9);transition:filter .9s var(--ease)}
+.hold-box.on img{filter:none}
+.hold-box .cap{position:absolute;inset:auto 0 0 0;padding:26px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;justify-content:space-between;align-items:flex-end}
+.hold-box .cap b{font-size:16px}
+.hold-box .state{font-size:12.5px;border-radius:99px;padding:4px 13px;border:1px solid var(--gold);color:var(--gold2);background:rgba(10,8,5,.7)}
+.hold-box.on .state{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#191104;font-weight:800}
+.hold-bar{height:4px;background:var(--line)}
+.hold-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .9s var(--ease)}
+.hold-box.on + .hold-bar i{width:100%}
 </style>
 </head>
 <body>
+
+<div id="loader"><div class="big" id="loadPct">0%</div><div class="bar"><i id="loadBar"></i></div><small>MOHSIN DRADRA</small></div>
 
 <header>
   <div class="wrap hbar">
@@ -115,7 +191,6 @@ footer a{color:var(--gold2)}
     <p class="lead" data-i="lead">أفلام قصيرة، جلسات تصوير، كليبات وكاميرا خفية — مشاريعي كاملة مرتّبة هنا، بلا ما تبقى تدوّر في إنستغرام.</p>
     <div class="cta-row">
       <a class="btn btn-gold" href="https://www.instagram.com/mohssin_dradra" target="_blank" rel="noopener" data-i="ctaIg">📷 @mohssin_dradra</a>
-      <a class="btn btn-ghost" href="https://www.youtube.com/channel/UCBaPgX0qLENFBfPRzcnDIOw" target="_blank" rel="noopener" data-i="ctaYt">▶ قناتو على يوتيوب</a>
       <a class="btn btn-ghost" href="#projects" data-i="ctaProj">شوف المشاريع ↓</a>
     </div>
     <div class="stats">
@@ -124,6 +199,20 @@ footer a{color:var(--gold2)}
       <div class="stat"><b data-i="st3v">طنجة</b><span data-i="st3">المدينة — المغرب</span></div>
       <div class="stat"><b>🎬 📷</b><span data-i="st4">أفلام · تصوير · مونتاج</span></div>
     </div>
+    <div class="stage3d" id="stage3d" aria-label="معرض ثلاثي الأبعاد لأعمال محسن">
+      <div class="ring3d" id="ring3d">
+        <a class="panel3d" style="--i:0" data-t="قفطان مغربي" href="https://www.instagram.com/p/CrO2BWQNL5s/" target="_blank" rel="noopener"><img src="assets/proj-fashion.jpg" alt="جلسة تصوير قفطان مغربي"></a>
+        <a class="panel3d" style="--i:1" data-t="بورتريه ملكي ❤1004" href="https://www.instagram.com/p/COV-d36nE_C/" target="_blank" rel="noopener"><img src="assets/proj-throne.jpg" alt="بورتريه فاخر"></a>
+        <a class="panel3d" style="--i:2" data-t="DL Production" href="https://www.instagram.com/p/CYXC-cLNy3x/" target="_blank" rel="noopener"><img src="assets/proj-loco.jpg" alt="عمل مع DL Production"></a>
+        <a class="panel3d" style="--i:3" data-t="تصوير حفلات" href="https://www.instagram.com/p/CxlZ6W2NaY8/" target="_blank" rel="noopener"><img src="assets/proj-concert.jpg" alt="تصوير حفلات وفنانين"></a>
+        <a class="panel3d" style="--i:4" data-t="كاميرا خفية 2M" href="https://www.instagram.com/p/CcD9uR3li0l/" target="_blank" rel="noopener"><img src="assets/proj-hidden.jpg" alt="كاميرا خفية 2M"></a>
+        <a class="panel3d" style="--i:5" data-t="حبك خسارة 🎬" href="https://youtu.be/h3iiNNnjhjg" target="_blank" rel="noopener"><img src="assets/proj-film.jpg" alt="فيلم قصير حبك خسارة"></a>
+        <a class="panel3d" style="--i:6" data-t="تصوير ستوديو" href="https://www.instagram.com/p/Cbx8o3et5y3/" target="_blank" rel="noopener"><img src="assets/proj-studio.jpg" alt="تصوير ستوديو"></a>
+        <a class="panel3d" style="--i:7" data-t="قفطان — Before/After" href="https://www.instagram.com/p/C_ZKHStNx7D/" target="_blank" rel="noopener"><img src="assets/proj-beforeafter.jpg" alt="تصوير وتعديل قفطان"></a>
+      </div>
+      <div class="stage-floor"></div>
+    </div>
+    <div class="stage-hint" data-i="hint3d">↔ جرّ باش تدوّر المعرض — ودوس على أي صورة باش تشوف المشروع</div>
   </div>
 </div>
 
@@ -164,6 +253,19 @@ footer a{color:var(--gold2)}
   </div>
 </section>
 
+<section class="band">
+  <div class="wrap">
+    <h3 class="reveal" data-i="bandT">كل مشروع كيبدا بلقطة وحدة مظبوطة</h3>
+    <p class="sub reveal" data-i="bandP">من عدسة محسن — تصوير ستوديو بإضاءة احترافية، من قلب طنجة</p>
+    <div class="vf reveal">
+      <img src="assets/proj-studio.jpg" alt="محسن الدرادرة خدام في الستوديو">
+      <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
+      <span class="rec">● REC</span>
+      <div class="meta"><span>MOHSSIN DRADRA</span><span>TANGER — MAROC</span></div>
+    </div>
+  </div>
+</section>
+
 <section id="projects">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -171,14 +273,32 @@ footer a{color:var(--gold2)}
       <h2 data-i="projT">المشاريع</h2>
       <p data-i="projP">مختارات من خدمتو الحقيقية على إنستغرام — دوس على أي مشروع باش تشوفو في الحساب الأصلي.</p>
     </div>
+    <div class="rank-row" id="rankRow"></div>
+    <div class="chips" id="chips"></div>
     <div class="proj-grid" id="projGrid"></div>
+  </div>
+</section>
+
+<section id="retouch" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center">
+      <div class="n">04</div>
+      <h2 data-i="holdT">شدّ وشوف الفرق 🎞️</h2>
+      <p style="margin-inline:auto" data-i="holdP">هادي هي خدمة التعديل ديالو: شدّ صابعك على الصورة (ولا دوس وابقى شاد) باش تشوف النتيجة بعد التعديل — وسيّب باش ترجع لنسخة «قبل» (محاكاة بلا تعديل).</p>
+    </div>
+    <div class="hold-box reveal" id="holdBox">
+      <img src="assets/proj-beforeafter.jpg" alt="جلسة قفطان قبل وبعد التعديل">
+      <div class="cap"><b data-i="holdCap">قفطان — جلسة تصوير وتعديل</b><span class="state" id="holdState">قبل — بلا تعديل</span></div>
+    </div>
+    <div class="hold-bar"><i></i></div>
+    <p style="text-align:center;margin-top:14px"><a href="https://www.instagram.com/p/C_ZKHStNx7D/" target="_blank" rel="noopener" style="color:var(--gold2);font-size:14px" data-i="holdLink">شوف المنشور الأصلي على إنستغرام ←</a></p>
   </div>
 </section>
 
 <section id="contact" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="n">04</div>
+      <div class="n">05</div>
       <h2 data-i="contactT">بغيتي تخدم مع محسن؟</h2>
       <p data-i="contactP">ثلاثة ديال الخطوات وزر واحد — هادي هي الطريقة.</p>
     </div>
@@ -215,13 +335,31 @@ const PROJECTS = [
   {title:"جلسة تصوير ستايل شارع", desc:"بورتريه خارجي بأسلوب عصري — ألوان وتركيب من عند درادرة.", img:"assets/proj-street.jpg", link:"https://www.instagram.com/p/CN5FfpHHaes/", tag:"📷 بورتريه خارجي", likes:"764"},
   {title:"بورتريه بعدسة DRADRA", desc:"لقطة موقعة بلوغو درادرة — الهوية البصرية ديال خدمتو.", img:"assets/proj-welcome.jpg", link:"https://www.instagram.com/p/CdGcchftuFR/", tag:"📷 بورتريه", likes:"265"}
 ];
+/* R14 categories */
+const CATMAP={"proj-fashion.jpg":"photo","proj-loco.jpg":"film","proj-hidden.jpg":"film","proj-barber.jpg":"photo","proj-design.jpg":"design","proj-beforeafter.jpg":"edit","proj-throne.jpg":"photo","proj-concert.jpg":"photo","proj-film.jpg":"film","proj-studio.jpg":"photo","proj-street.jpg":"photo","proj-welcome.jpg":"photo"};
+PROJECTS.forEach(p=>p.cat=CATMAP[p.img.split('/').pop()]||"photo");
 const grid = document.getElementById('projGrid');
 PROJECTS.forEach(p=>{
-  const el=document.createElement('a'); el.className='proj reveal'; el.href=p.link; el.target='_blank'; el.rel='noopener';
+  const el=document.createElement('a'); el.className='proj reveal'; el.href=p.link; el.target='_blank'; el.rel='noopener'; el.dataset.cat=p.cat;
+  const hot = p.likes && +p.likes>=900;
   el.innerHTML=`<div class="cover"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
   <div class="body"><h3>${p.title}</h3><p>${p.desc}</p>
-  <span class="badge gold">${p.tag}</span>${p.likes?`<span class="likes">❤ ${p.likes}</span>`:''}</div>`;
+  <span class="badge gold">${p.tag}</span>${hot?`<span class="badge hot">⭐ الأكثر تفاعلاً</span>`:''}${p.likes?`<span class="likes">❤ ${p.likes}</span>`:''}</div>`;
   grid.appendChild(el);
+});
+/* R12 ranked row — real likes only */
+const RANKED=[...PROJECTS].filter(p=>p.likes).sort((a,b)=>b.likes-a.likes).slice(0,3);
+document.getElementById('rankRow').innerHTML = RANKED.map((p,i)=>
+  `<a class="rank reveal" href="${p.link}" target="_blank" rel="noopener"><span class="no">${i+1}</span><img src="${p.img}" alt=""><span><h4>${p.title}</h4><span>❤ ${p.likes} — الأكثر تفاعلاً</span></span></a>`).join('');
+/* R14 chips + filter */
+const CHIPS=[["all","الكل"],["photo","📷 تصوير"],["film","🎬 أفلام وكليبات"],["edit","🎞️ تعديل"],["design","🎨 تصميم"]];
+const chipsEl=document.getElementById('chips');
+chipsEl.innerHTML = CHIPS.map(([k,t])=>{const n=k==='all'?PROJECTS.length:PROJECTS.filter(p=>p.cat===k).length;
+  return `<button class="chip${k==='all'?' on':''}" data-f="${k}">${t} <b>${n}</b></button>`;}).join('');
+chipsEl.addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  chipsEl.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));
+  document.querySelectorAll('.proj').forEach(c=>c.classList.toggle('hide', b.dataset.f!=='all' && c.dataset.cat!==b.dataset.f));
 });
 const words="MOHSIN DRADRA ✦ FILMMAKER ✦ PHOTOGRAPHE ✦ TANGER ✦ ";
 document.getElementById('mtrack').innerHTML=`<span>${words.repeat(3)}</span><span>${words.repeat(3)}</span>`;
@@ -229,6 +367,48 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const h1=document.querySelector('.hero h1');
 addEventListener('scroll',()=>{const y=Math.min(scrollY,420);h1.style.transform=`translateY(${y*.12}px)`;h1.style.opacity=1-(y/900);},{passive:true});
+/* 3D ring: auto-rotate + drag with R5 inertia */
+(function(){
+  const ring=document.getElementById('ring3d'), stage=document.getElementById('stage3d');
+  if(!ring||!stage) return;
+  let rot=0, spin=0.055, dragging=false, lastX=0, vel=0, idleAt=0;
+  function frame(){
+    if(!dragging){
+      if(Math.abs(vel)>0.02){ rot+=vel; vel*=0.95; }
+      else if(performance.now()-idleAt>1200) rot+=spin;
+    }
+    ring.style.transform=`rotateX(-7deg) rotateY(${rot}deg)`;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  stage.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;vel=0;stage.setPointerCapture(e.pointerId);});
+  stage.addEventListener('pointermove',e=>{if(!dragging)return; const dx=e.clientX-lastX; rot+=dx*0.35; vel=dx*0.35; lastX=e.clientX;});
+  const end=()=>{dragging=false;idleAt=performance.now();};
+  stage.addEventListener('pointerup',end); stage.addEventListener('pointercancel',end);
+  stage.addEventListener('mouseenter',()=>{idleAt=performance.now()+999999;});
+  stage.addEventListener('mouseleave',()=>{idleAt=performance.now();});
+})();
+/* R6 loader — counts real loaded images */
+(function(){
+  const L=document.getElementById('loader'), pct=document.getElementById('loadPct'), bar=document.getElementById('loadBar');
+  if(!L) return;
+  const imgs=[...document.images].filter(im=>im.loading!=='lazy'); let done=0;
+  const upd=()=>{const p=imgs.length?Math.round(done/imgs.length*100):100; pct.textContent=p+'%'; bar.style.width=p+'%';
+    if(p>=100) setTimeout(()=>L.classList.add('done'),250);};
+  if(!imgs.length){upd(); return;}
+  imgs.forEach(im=>{ if(im.complete) {done++;} else { im.addEventListener('load',()=>{done++;upd();}); im.addEventListener('error',()=>{done++;upd();}); } });
+  upd();
+  setTimeout(()=>L.classList.add('done'),1800); /* safety: never trap the visitor */
+})();
+/* R7 hold-to-transform */
+(function(){
+  const box=document.getElementById('holdBox'), st=document.getElementById('holdState');
+  if(!box) return;
+  const on=e=>{e.preventDefault(); box.classList.add('on'); st.textContent='بعد — بالتعديل ✔';};
+  const off=()=>{box.classList.remove('on'); st.textContent='قبل — بلا تعديل';};
+  box.addEventListener('pointerdown',on);
+  addEventListener('pointerup',off); box.addEventListener('pointerleave',off);
+})();
 const FR={navSvc:"Services",navAbout:"Qui est-il",navProj:"Projets",navContact:"Contact",kicker:"Filmmaker & photographe — Tanger, Maroc 📍",
 nameAr:"MOHSIN",nameAr2:"DRADRA",lead:"Courts-métrages, shootings, clips et caméra cachée — tous mes projets classés ici, sans fouiller Instagram.",
 ctaIg:"📷 @mohssin_dradra",ctaYt:"▶ Sa chaîne YouTube",ctaProj:"Voir les projets ↓",st1:"abonnés sur Instagram",st2:"publications et plus",st3v:"Tanger",st3:"la ville — Maroc",st4:"Films · Photo · Montage",
@@ -242,7 +422,10 @@ a2p:"Sa page Facebook : Mohssin Dradra Tv — et sa chaîne YouTube diffuse les 
 projT:"Les projets",projP:"Une sélection de son vrai travail sur Instagram — cliquez sur un projet pour le voir sur le compte d'origine.",
 contactT:"Travailler avec Mohsin ?",contactP:"Trois étapes et un seul bouton — c'est la méthode.",
 s1t:"Voir les projets",s1p:"Choisissez le type : shooting, clip, film ou design.",s2t:"Un seul message",s2p:"Sur Instagram : votre projet, la ville et le délai — sans long préamble.",s3t:"Réponse & accord",s3p:"Mohsin vous répond et vous convenez des détails directement.",
-ctaIg2:"📷 Contacter via Instagram",ctaYt2:"▶ YouTube",foot:"© Mohsin Dradra — MOHSIN DRADRA · Tanger, Maroc · Tous droits réservés"};
+ctaIg2:"📷 Contacter via Instagram",ctaYt2:"▶ YouTube",hint3d:"↔ Faites glisser pour tourner la galerie — cliquez une photo pour voir le projet",
+bandT:"Chaque projet commence par un seul bon plan",bandP:"À travers l'objectif de Mohsin — photographie studio, éclairage pro, au cœur de Tanger",
+holdT:"Maintenez pour voir la différence 🎞️",holdP:"Voici son travail de retouche : maintenez le doigt sur la photo (ou cliquez et restez appuyé) pour voir le résultat après retouche — relâchez pour revenir à la version « avant » (simulation sans retouche).",
+holdCap:"Caftan — shooting & retouche",holdLink:"Voir le post d'origine sur Instagram ←",foot:"© Mohsin Dradra — MOHSIN DRADRA · Tanger, Maroc · Tous droits réservés"};
 let fr=false;
 document.getElementById('langBtn').addEventListener('click',e=>{
   fr=!fr; e.target.textContent=fr?'عربي':'FR';
