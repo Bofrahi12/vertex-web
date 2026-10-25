@@ -344,6 +344,62 @@ footer .fine{margin-top:.4rem;font-size:.75rem;color:#6d727c}
 @media (max-width:900px){.squad-grid{grid-template-columns:repeat(2,1fr)}.fact-grid{grid-template-columns:1fr}.fan-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.fan-grid{grid-template-columns:1fr}.count .cell{min-width:70px}.hero-wrap{height:420vh}.chapter-box{bottom:5.2rem}.chapter-inner{font-size:.72rem;padding:.38rem .8rem}}
 @media (prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}.count .v.flip{animation:none}}
+
+/* ================= V5 RARITIES (R1-R15 completion) ================= */
+.vf{position:absolute;inset:16px 16px 96px;pointer-events:none;z-index:7}
+.vf i{position:absolute;width:36px;height:36px;border:3px solid rgba(240,208,96,.65)}
+.vf i.a{top:0;left:0;border-right:0;border-bottom:0;border-radius:10px 0 0 0}
+.vf i.b{top:0;right:0;border-left:0;border-bottom:0;border-radius:0 10px 0 0}
+.vf i.c{bottom:0;left:0;border-right:0;border-top:0;border-radius:0 0 0 10px}
+.vf i.d{bottom:0;right:0;border-left:0;border-top:0;border-radius:0 0 10px 0}
+.vf-rec{position:absolute;top:72px;left:52px;color:#ff5b5b;font:700 .8rem Archivo,sans-serif;letter-spacing:.14em;display:flex;gap:.45em;align-items:center}
+.vf-rec::before{content:"";width:11px;height:11px;border-radius:50%;background:#ff3b30;animation:rxpulse 1.6s ease-in-out infinite}
+.vf-cam{position:absolute;bottom:12px;right:52px;color:rgba(255,255,255,.75);font:600 .72rem Archivo,sans-serif;letter-spacing:.18em}
+@keyframes rxpulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.vf-rec::before{animation:none}}
+#filmCanvas{transition:filter .45s ease}
+.hero.night #filmCanvas{filter:brightness(.62) saturate(1.25) hue-rotate(-8deg)}
+.hero.night .hero-shade{background:radial-gradient(80% 60% at 50% 38%,rgba(20,40,120,.18),transparent 60%)}
+.hold-wrap{margin-top:1rem;display:flex;justify-content:center}
+.holdbtn{position:relative;overflow:hidden;border:1px solid rgba(240,208,96,.55);background:rgba(8,10,16,.55);color:#fff;border-radius:999px;padding:.62rem 1.3rem;font:700 .95rem Cairo,sans-serif;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none;backdrop-filter:blur(4px)}
+.holdbtn .hf{position:absolute;inset:0;width:0%;background:linear-gradient(90deg,rgba(193,39,45,.75),rgba(201,162,39,.75),rgba(0,98,51,.75));z-index:0}
+.holdbtn .ht{position:relative;z-index:1}
+.sq-tools{margin:0 auto 1.4rem;max-width:860px;display:flex;flex-direction:column;gap:.8rem;align-items:center}
+.sq-search{width:min(520px,92%);background:#0d1117;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:#fff;padding:.7rem 1.2rem;font:600 1rem Cairo,sans-serif;text-align:center;outline:none}
+.sq-search:focus{border-color:var(--gold2)}
+.sq-chips{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.sq-chip{border:1px solid rgba(255,255,255,.2);background:transparent;color:#cbd5e1;border-radius:999px;padding:.42rem 1rem;font:700 .9rem Cairo,sans-serif;cursor:pointer}
+.sq-chip.on{background:var(--gold2);color:#111;border-color:var(--gold2)}
+.sq-count{color:var(--mut);font-size:.92rem}
+.sq-count b{color:var(--gold2)}
+.fixed-band{height:44vh;min-height:300px;background:url('assets2/celebration.webp') center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;padding:1.4rem;position:relative}
+@media(min-width:900px){.fixed-band{background-attachment:fixed}}
+.fixed-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,10,.55),transparent 40%,rgba(5,7,10,.72))}
+.fixed-band span{position:relative;z-index:1;font:900 clamp(1.5rem,5vw,2.6rem) Cairo,sans-serif;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.7)}
+.top3{padding:5.2rem 1.2rem 4.2rem;max-width:1200px;margin:0 auto}
+.t3-note{color:var(--mut);text-align:center;margin-top:.4rem}
+.t3-rail{display:flex;gap:1rem;overflow-x:auto;padding:1.6rem .2rem .8rem;scroll-snap-type:x mandatory;cursor:grab;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.t3-rail::-webkit-scrollbar{display:none}
+.t3-rail.dragging{cursor:grabbing;scroll-snap-type:none}
+.t3-card{flex:0 0 min(78vw,340px);scroll-snap-align:start;border-radius:20px;overflow:hidden;background:#0d1117;border:1px solid rgba(255,255,255,.09);position:relative}
+.t3-card img{width:100%;height:190px;object-fit:cover;display:block;pointer-events:none}
+.t3-card .tx{padding:1rem 1.1rem 1.2rem}
+.t3-num{position:absolute;top:.4rem;inset-inline-start:.7rem;font:900 4.6rem Archivo,sans-serif;color:transparent;-webkit-text-stroke:2px var(--gold2);text-shadow:0 6px 30px rgba(0,0,0,.5);z-index:2}
+.t3-card h3{font-size:1.25rem;font-weight:800;margin-bottom:.35rem}
+.t3-card p{color:var(--mut);font-size:.95rem;line-height:1.7}
+.t3-year{display:inline-block;margin-top:.6rem;background:rgba(201,162,39,.16);color:var(--gold2);border-radius:999px;padding:.15rem .7rem;font:700 .82rem Archivo,sans-serif;letter-spacing:.06em}
+#fans{position:relative;overflow:hidden}
+.chant-bub{position:absolute;z-index:3;background:rgba(8,10,16,.72);border:1px solid rgba(240,208,96,.4);color:#fff;border-radius:999px;padding:.3rem .9rem;font:700 .85rem Cairo,sans-serif;pointer-events:none;animation:rxfloat 7s ease-in-out infinite}
+.chant-bub.b1{top:12%;inset-inline-start:4%}
+.chant-bub.b2{top:26%;inset-inline-end:5%;animation-delay:-3.5s}
+@keyframes rxfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@media (prefers-reduced-motion:reduce){.chant-bub{animation:none}}
+.cta-steps{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin:0 auto 1.3rem;max-width:720px}
+.cta-steps div{flex:1 1 180px;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:.8rem .9rem;color:#e2e8f0;font-size:.95rem}
+.cta-steps b{display:block;color:var(--gold2);font:900 1.3rem Archivo,sans-serif;margin-bottom:.2rem}
+.cta-price{color:var(--mut);max-width:640px;margin:1.1rem auto 0;font-size:.95rem;line-height:1.8}
+.cta-price b{color:#fff}
+
 </style>
 </head>
 <body>
@@ -374,6 +430,7 @@ footer .fine{margin-top:.4rem;font-size:.75rem;color:#6d727c}
 <div class="hero-wrap" id="heroWrap">
   <div class="hero">
     <div class="film-fallback"></div>
+    <div class="vf" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><span class="vf-rec">REC</span><span class="vf-cam">CAM 01 • MONTAKHAB</span></div>
     <canvas id="filmCanvas" width="1080" height="1440"></canvas>
     <div class="plx plx-fans"></div>
     <div class="plx plx-beams"></div>
@@ -390,6 +447,7 @@ footer .fine{margin-top:.4rem;font-size:.75rem;color:#6d727c}
         <a class="btn btn-red" href="#road" data-i18n="ctaRoad">الطريق إلى 2030</a>
         <a class="btn btn-ghost" href="#squad" data-i18n="ctaSquad">تشكيلة النجوم</a>
       </div>
+      <div class="hold-wrap"><button class="holdbtn" id="holdBtn" type="button" aria-pressed="false"><span class="hf" id="holdFill"></span><span class="ht" id="holdTxt" data-ar="شدّ هنا 1.2 ثانية: الملعب بالليل — JOUR" data-fr="MAINTIENS 1,2 s : LE STADE LA NUIT — JOUR">شدّ هنا 1.2 ثانية: الملعب بالليل — JOUR</span></button></div>
     </div>
     <div class="chapter-box">
       <div class="chapter-inner">
@@ -461,6 +519,17 @@ footer .fine{margin-top:.4rem;font-size:.75rem;color:#6d727c}
       <h2><span data-i18n="squadT1">تشكيلة</span> <em data-i18n="squadT2">النجوم</em></h2>
       <p data-i18n="squadSub">جيل كتب التاريخ في قطر ويحلم بمجد 2030 على أرض الوطن — مرّر أو اضغط على أي بطاقة وشوفها بالليل، تحت أضواء الملعب.</p>
     </div>
+    <div class="sq-tools">
+      <input class="sq-search" id="sqSearch" type="search" data-ar-ph="قلّب على نجم… (بونو، حكيمي…)" data-fr-ph="Cherche une star… (Bounou, Hakimi…)" placeholder="قلّب على نجم… (بونو، حكيمي…)">
+      <div class="sq-chips" id="sqChips">
+        <button class="sq-chip on" data-cat="all" type="button" data-ar="الكل" data-fr="Tous">الكل</button>
+        <button class="sq-chip" data-cat="gk" type="button" data-ar="حراسة" data-fr="Gardien">حراسة</button>
+        <button class="sq-chip" data-cat="def" type="button" data-ar="دفاع" data-fr="Défense">دفاع</button>
+        <button class="sq-chip" data-cat="mid" type="button" data-ar="وسط" data-fr="Milieu">وسط</button>
+        <button class="sq-chip" data-cat="att" type="button" data-ar="هجوم" data-fr="Attaque">هجوم</button>
+      </div>
+      <div class="sq-count" id="sqCount"></div>
+    </div>
     <div class="squad-grid" id="squadGrid"></div>
   </div>
 </section>
@@ -472,7 +541,19 @@ footer .fine{margin-top:.4rem;font-size:.75rem;color:#6d727c}
 </div>
 
 <!-- ======= 4. FAN WALL — live local pulse ======= -->
+<div class="fixed-band" aria-hidden="true"><span data-ar="الجمهور لا ينام" data-fr="LES SUPPORTERS NE DORMENT JAMAIS">الجمهور لا ينام</span></div>
+<section class="top3" id="top3">
+  <div class="kicker" style="justify-content:center" data-ar="TOP 3 — لحظات خالدة" data-fr="TOP 3 — MOMENTS ÉTERNELS">TOP 3 — لحظات خالدة</div>
+  <h2 style="text-align:center;font-size:clamp(1.8rem,5.5vw,2.8rem);font-weight:900" data-ar="أعظم 3 لحظات عند الأسود" data-fr="Les 3 plus grands moments des Lions">أعظم 3 لحظات عند الأسود</h2>
+  <p class="t3-note" data-ar="ترتيب تحريري — وكل لحظة موثقة. اسحب بيدك وتفرّج." data-fr="Classement éditorial — chaque moment est documenté. Fais glisser pour explorer.">ترتيب تحريري — وكل لحظة موثقة. اسحب بيدك وتفرّج.</p>
+  <div class="t3-rail" id="t3Rail">
+    <article class="t3-card"><span class="t3-num">1</span><img src="assets2/celebration.webp" alt="" loading="lazy"><div class="tx"><h3 data-ar="نصف نهائي العالم" data-fr="Demi-finale du Mondial">نصف نهائي العالم</h3><p data-ar="أول منتخب إفريقي وعربي كيوصل لنصف نهائي المونديال — المركز الرابع في قطر." data-fr="Premier pays africain et arabe en demi-finale de Coupe du monde — 4e au Qatar.">أول منتخب إفريقي وعربي كيوصل لنصف نهائي المونديال — المركز الرابع في قطر.</p><span class="t3-year">QATAR 2022</span></div></article>
+    <article class="t3-card"><span class="t3-num">2</span><img src="assets2/header.webp" alt="" loading="lazy"><div class="tx"><h3 data-ar="ليلة الترجيح ضد إسبانيا" data-fr="La nuit des tirs au but contre l'Espagne">ليلة الترجيح ضد إسبانيا</h3><p data-ar="بونو كيصد جوج ضربات، وحكيمي كيحسمها ببرودة في ثمن النهائي." data-fr="Bounou arrête deux tirs, Hakimi conclut avec sang-froid en 8es.">بونو كيصد جوج ضربات، وحكيمي كيحسمها ببرودة في ثمن النهائي.</p><span class="t3-year">QATAR 2022</span></div></article>
+    <article class="t3-card"><span class="t3-num">3</span><img src="assets2/volley.webp" alt="" loading="lazy"><div class="tx"><h3 data-ar="قفزة النصيري ضد البرتغال" data-fr="Le saut d'En-Nesyri contre le Portugal">قفزة النصيري ضد البرتغال</h3><p data-ar="رأسية تاريخية في ربع النهائي — الهدف اللي عبّر بينا لنصف النهائي." data-fr="Le coup de tête historique en quarts — le but qui nous a envoyés en demies.">رأسية تاريخية في ربع النهائي — الهدف اللي عبّر بينا لنصف النهائي.</p><span class="t3-year">QATAR 2022</span></div></article>
+  </div>
+</section>
 <section class="fans" id="fans">
+  <span class="chant-bub b1" aria-hidden="true">ديما مغرب ❤</span><span class="chant-bub b2" aria-hidden="true">سير… سير… سير</span>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="tag">FAN WALL</span>
@@ -537,6 +618,12 @@ footer .fine{margin-top:.4rem;font-size:.75rem;color:#6d727c}
   <h2><span data-i18n="ctaT1">بغيتي موقع</span> <span class="gold" data-i18n="ctaT2">بهاد المستوى؟</span></h2>
   <p data-i18n="ctaP">مواقع سينمائية بمستوى عالمي، تصميم يليق بطموحك وأثمنة واضحة بدون مفاجآت — من طنجة إلى العالم.</p>
   <a class="btn btn-red" href="https://wa.me/212693981822?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A8%D9%85%D8%B3%D8%AA%D9%88%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AE%D8%A8%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A" target="_blank" rel="noopener"><span data-i18n="ctaB">واتساب</span> <span class="num">0693 981 822</span></a>
+  <div class="cta-steps">
+    <div><b>01</b><span data-ar="رسالة واتساب وحدة" data-fr="Un seul message WhatsApp">رسالة واتساب وحدة</span></div>
+    <div><b>02</b><span data-ar="كنفهمو المشروع ديالك" data-fr="On comprend ton projet">كنفهمو المشروع ديالك</span></div>
+    <div><b>03</b><span data-ar="الموقع ديالك جاهز" data-fr="Ton site est prêt">الموقع ديالك جاهز</span></div>
+  </div>
+  <p class="cta-price" data-ar="الثمن كامل من الأول — بلا مصاريف مخبية: الباقات 900 / 1.900 / 4.900 / 8.000 درهم. هاد الصفحة ديمو استعراضي؛ الأثمنة ديال خدمة VERTEX WEB الحقيقية." data-fr="Prix complet dès le départ — aucun frais caché : packs 900 / 1 900 / 4 900 / 8 000 DH. Cette page est une démo ; les prix sont ceux du service réel VERTEX WEB.">الثمن كامل من الأول — بلا مصاريف مخبية: الباقات <b>900 / 1.900 / 4.900 / 8.000 درهم</b>. هاد الصفحة ديمو استعراضي؛ الأثمنة ديال خدمة VERTEX WEB الحقيقية.</p>
 </div>
 <footer>
   <div class="demo" data-i18n="demoLabel">نموذج تجريبي من VERTEX WEB — مفهوم إبداعي غير رسمي</div>
@@ -1128,6 +1215,125 @@ function renderVids(){
 const _setLangV4 = setLang;
 setLang = function(l){ _setLangV4(l); renderVids(); };
 renderVids();
+</script>
+
+<script>
+/* ================= V5 RARITIES JS ================= */
+(function(){
+  "use strict";
+  var lang = function(){ try { return (typeof LANG !== "undefined") ? LANG : "ar"; } catch(e){ return "ar"; } };
+  /* --- mini i18n for V5 elements (data-ar / data-fr) --- */
+  function applyLang(){
+    var L = lang();
+    document.querySelectorAll("[data-ar]").forEach(function(el){
+      el.textContent = (L === "fr" ? el.getAttribute("data-fr") : el.getAttribute("data-ar")) || el.textContent;
+    });
+    var s = document.getElementById("sqSearch");
+    if (s) s.placeholder = (L === "fr" ? s.getAttribute("data-fr-ph") : s.getAttribute("data-ar-ph")) || s.placeholder;
+    var hb = document.getElementById("holdTxt");
+    if (hb && !hb.dataset.done) { /* hold label handled in hold logic via data attrs */ }
+    filterSquad();
+  }
+  var lb = document.getElementById("langBtn");
+  if (lb) lb.addEventListener("click", function(){ setTimeout(applyLang, 80); });
+
+  /* --- R7: hold-to-transform (hero JOUR -> NUIT) --- */
+  var btn = document.getElementById("holdBtn"), fill = document.getElementById("holdFill"),
+      txt = document.getElementById("holdTxt"), hero = document.querySelector(".hero"),
+      raf = null, t0 = 0, DUR = 1200, night = false;
+  function holdLabel(){
+    if (!txt) return;
+    var L = lang();
+    txt.textContent = night
+      ? (L === "fr" ? "NUIT — maintiens pour revenir au JOUR" : "NUIT — شدّ باش ترجع لـ JOUR")
+      : (L === "fr" ? "MAINTIENS 1,2 s : LE STADE LA NUIT — JOUR" : "شدّ هنا 1.2 ثانية: الملعب بالليل — JOUR");
+  }
+  function step(ts){
+    if (!t0) t0 = ts;
+    var p = Math.min(1, (ts - t0) / DUR);
+    if (fill) fill.style.width = (p * 100).toFixed(1) + "%";
+    if (p >= 1) {
+      night = !night;
+      if (hero) hero.classList.toggle("night", night);
+      if (btn) btn.setAttribute("aria-pressed", night ? "true" : "false");
+      if (fill) fill.style.width = "0%";
+      holdLabel(); raf = null; t0 = 0; return;
+    }
+    raf = requestAnimationFrame(step);
+  }
+  if (btn) {
+    btn.addEventListener("pointerdown", function(e){ e.preventDefault(); t0 = 0; raf = requestAnimationFrame(step); });
+    ["pointerup","pointerleave","pointercancel"].forEach(function(ev){
+      btn.addEventListener(ev, function(){
+        if (raf && !night) { cancelAnimationFrame(raf); raf = null; if (fill) fill.style.width = "0%"; }
+        else if (raf) { cancelAnimationFrame(raf); raf = null; if (fill) fill.style.width = "0%"; }
+      });
+    });
+  }
+
+  /* --- R14: squad search + position filter, count synced --- */
+  var cat = "all";
+  function cardCat(pos){
+    var p = pos || "";
+    if (/حارس|Gardien/.test(p)) return "gk";
+    if (/جناح|Ailier|مهاجم|Avant/.test(p)) return "att";
+    if (/وسط|صانع|Milieu|Meneur/.test(p)) return "mid";
+    if (/ظهير|دفاع|Latéral|Défenseur/.test(p)) return "def";
+    return "mid";
+  }
+  function filterSquad(){
+    var q = ((document.getElementById("sqSearch") || {}).value || "").trim().toLowerCase();
+    var cards = document.querySelectorAll("#squadGrid .player"), shown = 0;
+    cards.forEach(function(c){
+      var name = ((c.querySelector("h3") || {}).textContent || "").toLowerCase();
+      var pos = ((c.querySelector(".pos") || {}).textContent || "");
+      var ok = (cat === "all" || cardCat(pos) === cat) && (!q || name.indexOf(q) > -1 || pos.toLowerCase().indexOf(q) > -1);
+      c.style.display = ok ? "" : "none";
+      if (ok) shown++;
+    });
+    var cnt = document.getElementById("sqCount");
+    if (cnt) cnt.innerHTML = (lang() === "fr")
+      ? "<b>" + shown + "</b> star(s) affichée(s) sur " + cards.length
+      : "كيبانو <b>" + shown + "</b> من " + cards.length + " نجوم";
+  }
+  var si = document.getElementById("sqSearch");
+  if (si) si.addEventListener("input", filterSquad);
+  var chips = document.getElementById("sqChips");
+  if (chips) chips.addEventListener("click", function(e){
+    var b = e.target.closest(".sq-chip"); if (!b) return;
+    chips.querySelectorAll(".sq-chip").forEach(function(x){ x.classList.remove("on"); });
+    b.classList.add("on"); cat = b.getAttribute("data-cat"); filterSquad();
+  });
+
+  /* --- R5: drag with inertia on the Top-3 rail --- */
+  var rail = document.getElementById("t3Rail");
+  if (rail) {
+    var down = false, sx = 0, sl = 0, vel = 0, lastX = 0, lastT = 0, mom = null;
+    function stopMom(){ if (mom) cancelAnimationFrame(mom); mom = null; }
+    rail.addEventListener("pointerdown", function(e){
+      down = true; stopMom(); sx = e.clientX; sl = rail.scrollLeft; vel = 0;
+      lastX = e.clientX; lastT = performance.now(); rail.classList.add("dragging");
+    });
+    var RTL = false;
+    try { RTL = getComputedStyle(document.documentElement).direction === "rtl"; } catch(e){}
+    rail.addEventListener("pointermove", function(e){
+      if (!down) return;
+      rail.scrollLeft = RTL ? sl + (e.clientX - sx) : sl - (e.clientX - sx);
+      var now = performance.now(), dt = now - lastT;
+      if (dt > 0) { vel = (e.clientX - lastX) / dt * 16; lastX = e.clientX; lastT = now; }
+    });
+    function endDrag(){
+      if (!down) return; down = false; rail.classList.remove("dragging");
+      var v = RTL ? vel : -vel;
+      (function glide(){
+        if (Math.abs(v) < 0.25) { mom = null; return; }
+        rail.scrollLeft += v; v *= 0.94; mom = requestAnimationFrame(glide);
+      })();
+    }
+    ["pointerup","pointerleave","pointercancel"].forEach(function(ev){ rail.addEventListener(ev, endDrag); });
+  }
+  applyLang();
+})();
 </script>
 </body>
 </html>
