@@ -104,6 +104,20 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mut);font-siz
 footer a{color:var(--gold2)}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
+
+/* 3D tilt on project cards */
+(function(){
+  if(!matchMedia('(pointer:fine)').matches) return;
+  document.querySelectorAll('.proj').forEach(card=>{
+    card.style.transformStyle='preserve-3d';
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*8}deg) translateY(-4px)`;
+    });
+    card.addEventListener('pointerleave',()=>{card.style.transform='';});
+  });
+})();
 /* R6 loader — honest counter of loaded images */
 #loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:opacity .5s var(--ease)}
 #loader.done{opacity:0;pointer-events:none}
@@ -197,7 +211,7 @@ footer a{color:var(--gold2)}
       <div class="stat"><b>+50K</b><span data-i="st1">متابع على إنستغرام</span></div>
       <div class="stat"><b>124</b><span data-i="st2">منشور وأكثر</span></div>
       <div class="stat"><b data-i="st3v">طنجة</b><span data-i="st3">المدينة — المغرب</span></div>
-      <div class="stat"><b>🎬 📷</b><span data-i="st4">أفلام · تصوير · مونتاج</span></div>
+      <div class="stat"><b>+109K</b><span data-i="st4">❤ على أكثر حلقة عندو</span></div>
     </div>
     <div class="stage3d" id="stage3d" aria-label="معرض ثلاثي الأبعاد لأعمال محسن">
       <div class="ring3d" id="ring3d">
@@ -271,7 +285,7 @@ footer a{color:var(--gold2)}
     <div class="sec-head reveal">
       <div class="n">03</div>
       <h2 data-i="projT">المشاريع</h2>
-      <p data-i="projP">مختارات من خدمتو الحقيقية على إنستغرام — دوس على أي مشروع باش تشوفو في الحساب الأصلي.</p>
+      <p data-i="projP">خدمتو الحقيقية كاملة: من الحلقات الفيرال حتى جلسات التصوير والإشهارات — دوس على أي مشروع باش تشوفو في الحساب الأصلي.</p>
     </div>
     <div class="rank-row" id="rankRow"></div>
     <div class="chips" id="chips"></div>
@@ -322,35 +336,61 @@ footer a{color:var(--gold2)}
 <script>
 /* المشاريع الحقيقية — من إنستغرام @mohssin_dradra (تحقق 2026-10-25) */
 const PROJECTS = [
-  {title:"جلسة تصوير قفطان مغربي", desc:"تصوير أزياء تقليدية مع الموديل أميمة الغزاوي — إضاءة وتركيب برو.", img:"assets/proj-fashion.jpg", link:"https://www.instagram.com/p/CrO2BWQNL5s/", tag:"📷 تصوير فوتوغرافي", likes:"909"},
-  {title:"عمل مع DL Production", desc:"تصوير وإنتاج مع الفنان Loco Lghadab — من أكثر منشوراتو تفاعلاً.", img:"assets/proj-loco.jpg", link:"https://www.instagram.com/p/CYXC-cLNy3x/", tag:"🎬 تصوير وإنتاج", likes:"982"},
-  {title:"كاميرا خفية — 2M", desc:"مشاركة في الكاميرا الخفية ديال قناة 2M — تجربة تلفزية من 2022.", img:"assets/proj-hidden.jpg", link:"https://www.instagram.com/p/CcD9uR3li0l/", tag:"🎥 كاميرا خفية", likes:"441"},
-  {title:"جلسة تصوير Barber Style", desc:"تصوير داخل صالون حلاقة — محتوى براندات ومحلات محلية.", img:"assets/proj-barber.jpg", link:"https://www.instagram.com/p/C9SRL_mNvFL/", tag:"📷 تصوير براندات", likes:"438"},
-  {title:"تصميم إعلاني — Sandwich Yassine", desc:"ملصق إعلاني لمحل سندويشات — تصميم جاهز للنشر والطباعة.", img:"assets/proj-design.jpg", link:"https://www.instagram.com/p/C3gF2mKtPrg/", tag:"🎨 تصميم إعلاني", likes:""},
-  {title:"تصوير وتعديل — Before / After", desc:"جلسة قفطان بالتعديل الاحترافي — قبل وبعد من عند محسن.", img:"assets/proj-beforeafter.jpg", link:"https://www.instagram.com/p/C_ZKHStNx7D/", tag:"🎞️ تعديل صور", likes:""},
-  {title:"بورتريه فاخر — كرسي ملكي", desc:"أكثر صورة عندو تفاعلاً: بورتريه مدروس بإضاءة وديكور ملكي.", img:"assets/proj-throne.jpg", link:"https://www.instagram.com/p/COV-d36nE_C/", tag:"📷 بورتريه", likes:"1004"},
-  {title:"تصوير حفلات وفنانين", desc:"تغطية مسرحية لفنانين — منهم L7or وباد فلو وحمزة ولد عيشة.", img:"assets/proj-concert.jpg", link:"https://www.instagram.com/p/CxlZ6W2NaY8/", tag:"🎤 تصوير حفلات", likes:""},
-  {title:"فيلم قصير «حبك خسارة»", desc:"من أوائل أفلامو القصيرة المنشورة كاملة على قناتو في يوتيوب.", img:"assets/proj-film.jpg", link:"https://youtu.be/h3iiNNnjhjg", tag:"🎬 فيلم قصير", likes:""},
-  {title:"تصوير ستوديو", desc:"جلسات داخلية بإضاءة احترافية ومعدات ستوديو كاملة.", img:"assets/proj-studio.jpg", link:"https://www.instagram.com/p/Cbx8o3et5y3/", tag:"💡 تصوير ستوديو", likes:"384"},
-  {title:"جلسة تصوير ستايل شارع", desc:"بورتريه خارجي بأسلوب عصري — ألوان وتركيب من عند درادرة.", img:"assets/proj-street.jpg", link:"https://www.instagram.com/p/CN5FfpHHaes/", tag:"📷 بورتريه خارجي", likes:"764"},
-  {title:"بورتريه بعدسة DRADRA", desc:"لقطة موقعة بلوغو درادرة — الهوية البصرية ديال خدمتو.", img:"assets/proj-welcome.jpg", link:"https://www.instagram.com/p/CdGcchftuFR/", tag:"📷 بورتريه", likes:"265"}
+  {title:"العشرة عندها موليها — POV", desc:"أكبر حلقة عندو: قصة قصيرة على الصحبة والمصلحة — أصعب إحساس.", img:"assets/p-DUOPLoYDPkt.jpg", link:"https://www.instagram.com/reel/DUOPLoYDPkt/", tag:"🎬 حلقة قصصية", likes:109343, cat:"film"},
+  {title:"إشهار وكالة Nour Coches", desc:"فيديو إشهاري لوكالة كراء السيارات نور كوشيس بطنجة.", img:"assets/p-DSsR_KIDIZk.jpg", link:"https://www.instagram.com/reel/DSsR_KIDIZk/", tag:"📣 إشهار", likes:108313, cat:"film"},
+  {title:"الصديق الغريب — الجزء الأول", desc:"سلسلة حلقات قصصية كتحقق أرقام كبيرة عند الجمهور.", img:"assets/p-DXCZpREDO3q.jpg", link:"https://www.instagram.com/reel/DXCZpREDO3q/", tag:"🎬 حلقة قصصية", likes:105518, cat:"film"},
+  {title:"POV: صحاب المصلحة", desc:"حلقة على الصحاب اللي كيبانو غير وقت المصلحة.", img:"assets/p-DZdfqbps032.jpg", link:"https://www.instagram.com/reel/DZdfqbps032/", tag:"🎬 حلقة قصصية", likes:82046, cat:"film"},
+  {title:"لا تستهزئ بالصلاة", desc:"حلقة للعبرة على قيمة الصلاة — مع صحابو.", img:"assets/p-DZxz39PMpvC.jpg", link:"https://www.instagram.com/reel/DZxz39PMpvC/", tag:"🎬 حلقة للعبرة", likes:78630, cat:"film"},
+  {title:"حلقة درامية — POV", desc:"مشهد درامي قصير من سلسلة حلقاتو القصصية.", img:"assets/p-DZnhn31s36A.jpg", link:"https://www.instagram.com/reel/DZnhn31s36A/", tag:"🎬 حلقة قصصية", likes:57762, cat:"film"},
+  {title:"الصاحب وقت الشدة", desc:"حلقة على الصحبة الحقيقية اللي كتبان وقت الشدة.", img:"assets/p-DUWqgckDACX.jpg", link:"https://www.instagram.com/reel/DUWqgckDACX/", tag:"🎬 حلقة للعبرة", likes:57338, cat:"film"},
+  {title:"لا تحرق قلب أمك", desc:"حلقة مؤثرة على بر الوالدين ووجع الهجرة.", img:"assets/p-DbeQcp4MJ8J.jpg", link:"https://www.instagram.com/reel/DbeQcp4MJ8J/", tag:"🎬 حلقة للعبرة", likes:50055, cat:"film"},
+  {title:"حكاية مدمن — الجزء الأول", desc:"سلسلة «حكاية مدمن»: قصة للعبرة على مخاطر الإدمان.", img:"assets/p-DYSaX61MXq0.jpg", link:"https://www.instagram.com/reel/DYSaX61MXq0/", tag:"🎬 سلسلة حلقات", likes:45741, cat:"film"},
+  {title:"قصة حقيقية", desc:"حلقة مؤثرة من قصة حقيقية.", img:"assets/p-DYIDr3SM_ih.jpg", link:"https://www.instagram.com/reel/DYIDr3SM_ih/", tag:"🎬 حلقة للعبرة", likes:43609, cat:"film"},
+  {title:"الوالدة وFree Fire 😂", desc:"حلقة كوميدية: «أنا والوالدة في 2030».", img:"assets/p-DVwhdOKjEKr.jpg", link:"https://www.instagram.com/reel/DVwhdOKjEKr/", tag:"😂 كوميديا", likes:42567, cat:"film"},
+  {title:"تهلا في صاحبك", desc:"حلقة على قيمة الصحبة والوفاء بين الصحاب.", img:"assets/p-DRcevDEjBDQ.jpg", link:"https://www.instagram.com/reel/DRcevDEjBDQ/", tag:"🎬 حلقة للعبرة", likes:39081, cat:"film"},
+  {title:"لا تغضب — الجزء الأول", desc:"سلسلة حلقات «لا تغضب» — قصص قصيرة للعبرة.", img:"assets/p-DXzdXCLspn1.jpg", link:"https://www.instagram.com/reel/DXzdXCLspn1/", tag:"🎬 سلسلة حلقات", likes:38588, cat:"film"},
+  {title:"من ستر مسلماً ستره الله", desc:"حلقة للعبرة على فضل الستر.", img:"assets/p-DTDcgQLDASL.jpg", link:"https://www.instagram.com/reel/DTDcgQLDASL/", tag:"🎬 حلقة للعبرة", likes:34542, cat:"film"},
+  {title:"إشهار رائع 😂", desc:"سكيتش إشهاري بطابع كوميدي.", img:"assets/p-DS-kT73jGXY.jpg", link:"https://www.instagram.com/reel/DS-kT73jGXY/", tag:"📣 إشهار", likes:31838, cat:"film"},
+  {title:"حكاية مدمن — الجزء 3", desc:"تكملة سلسلة «حكاية مدمن».", img:"assets/p-DYdDKz-M4Rz.jpg", link:"https://www.instagram.com/reel/DYdDKz-M4Rz/", tag:"🎬 سلسلة حلقات", likes:27077, cat:"film"},
+  {title:"لا تفضّلوا شيئاً على الله", desc:"حلقة روحانية: من ترك شيئاً لله عوّضه الله خيراً منه.", img:"assets/p-DcjRAVfsz12.jpg", link:"https://www.instagram.com/reel/DcjRAVfsz12/", tag:"🎬 حلقة للعبرة", likes:14855, cat:"film"},
+  {title:"الهجرة", desc:"حلقة على الهجرة السرية وتبعاتها على العائلات.", img:"assets/p-DQwsBcNjO10.jpg", link:"https://www.instagram.com/reel/DQwsBcNjO10/", tag:"🎬 حلقة للعبرة", likes:12854, cat:"film"},
+  {title:"فيديو شركة النظافة — كزناية", desc:"تصوير ومونتاج فيديو لشركة النظافة بجماعة كزناية — خدمة للشركات والجماعات.", img:"assets/p-DXFn16OsGmB.jpg", link:"https://www.instagram.com/reel/DXFn16OsGmB/", tag:"🏢 فيديو شركات", likes:0, cat:"film"},
+  {title:"جلسة تصوير قفطان مغربي", desc:"تصوير أزياء تقليدية مع الموديل أميمة الغزاوي — إضاءة وتركيب برو.", img:"assets/proj-fashion.jpg", link:"https://www.instagram.com/p/CrO2BWQNL5s/", tag:"📷 تصوير فوتوغرافي", likes:909, cat:"photo"},
+  {title:"عمل مع DL Production", desc:"تصوير وإنتاج مع الفنان Loco Lghadab.", img:"assets/proj-loco.jpg", link:"https://www.instagram.com/p/CYXC-cLNy3x/", tag:"🎬 تصوير وإنتاج", likes:982, cat:"film"},
+  {title:"بورتريه فاخر — كرسي ملكي", desc:"بورتريه مدروس بإضاءة وديكور ملكي.", img:"assets/proj-throne.jpg", link:"https://www.instagram.com/p/COV-d36nE_C/", tag:"📷 بورتريه", likes:1004, cat:"photo"},
+  {title:"جلسة قفطان — أميمة الغزاوي (2)", desc:"صور أخرى من جلسة تصوير القفطان مع الموديل أميمة الغزاوي.", img:"assets/proj-fashion2.jpg", link:"https://www.instagram.com/p/CrHB0yZtEiR/", tag:"📷 تصوير فوتوغرافي", likes:724, cat:"photo"},
+  {title:"جلسة تصوير ستايل شارع", desc:"بورتريه خارجي بأسلوب عصري — ألوان وتركيب من عند درادرة.", img:"assets/proj-street.jpg", link:"https://www.instagram.com/p/CN5FfpHHaes/", tag:"📷 بورتريه خارجي", likes:764, cat:"photo"},
+  {title:"كاميرا خفية — 2M", desc:"مشاركة في الكاميرا الخفية ديال قناة 2M — تجربة تلفزية من 2022.", img:"assets/proj-hidden.jpg", link:"https://www.instagram.com/p/CcD9uR3li0l/", tag:"🎥 كاميرا خفية", likes:441, cat:"film"},
+  {title:"جلسة تصوير Barber Style", desc:"تصوير داخل صالون حلاقة — محتوى براندات ومحلات محلية.", img:"assets/proj-barber.jpg", link:"https://www.instagram.com/p/C9SRL_mNvFL/", tag:"📷 تصوير براندات", likes:438, cat:"photo"},
+  {title:"تصوير ستوديو", desc:"جلسات داخلية بإضاءة احترافية ومعدات ستوديو كاملة.", img:"assets/proj-studio.jpg", link:"https://www.instagram.com/p/Cbx8o3et5y3/", tag:"💡 تصوير ستوديو", likes:384, cat:"photo"},
+  {title:"بورتريه بعدسة DRADRA", desc:"لقطة موقعة بلوغو درادرة — الهوية البصرية ديال خدمتو.", img:"assets/proj-welcome.jpg", link:"https://www.instagram.com/p/CdGcchftuFR/", tag:"📷 بورتريه", likes:265, cat:"photo"},
+  {title:"كليب L'JAM — الفيديو", desc:"نسخة الفيديو من عملو مع Loco Lghadab وDL Production.", img:"assets/p-CYPhHEJl2gO.jpg", link:"https://www.instagram.com/reel/CYPhHEJl2gO/", tag:"🎬 كليب", likes:210, cat:"film"},
+  {title:"تصوير رياضي — جلسة جيم", desc:"جلسة تصوير رياضية (Shooting برعاية).", img:"assets/p-DemxfDhMqVW.jpg", link:"https://www.instagram.com/reel/DemxfDhMqVW/", tag:"📷 تصوير رياضي", likes:210, cat:"photo"},
+  {title:"بورتريه ليلي — Street Style", desc:"بورتريه ليلي في شوارع طنجة بعدسة درادرة.", img:"assets/p-CrYPSestMIM.jpg", link:"https://www.instagram.com/p/CrYPSestMIM/", tag:"📷 بورتريه", likes:178, cat:"photo"},
+  {title:"فيلم قصير «حبك خسارة»", desc:"من أوائل أفلامو القصيرة المنشورة كاملة على قناتو في يوتيوب.", img:"assets/proj-film.jpg", link:"https://youtu.be/h3iiNNnjhjg", tag:"🎬 فيلم قصير", likes:0, cat:"film"},
+  {title:"فيلم قصير من قصة واقعية", desc:"فيلم قصير مؤثر من قصة واقعية — عبرة كبيرة (على يوتيوب).", img:"assets/p-B42y5BFDIwu.jpg", link:"https://www.instagram.com/p/B42y5BFDIwu/", tag:"🎬 فيلم قصير", likes:0, cat:"film"},
+  {title:"تصوير حفلات وفنانين", desc:"تغطية مسرحية لفنانين — منهم L7or وباد فلو وحمزة ولد عيشة.", img:"assets/proj-concert.jpg", link:"https://www.instagram.com/p/CxlZ6W2NaY8/", tag:"🎤 تصوير حفلات", likes:0, cat:"photo"},
+  {title:"تصوير وتعديل — Before / After", desc:"جلسة قفطان بالتعديل الاحترافي — قبل وبعد من عند محسن.", img:"assets/proj-beforeafter.jpg", link:"https://www.instagram.com/p/C_ZKHStNx7D/", tag:"🎞️ تعديل صور", likes:0, cat:"edit"},
+  {title:"مونتاج — خلفية خضراء", desc:"من أعمال المونتاج ديالو بخلفية خضراء (Green Screen).", img:"assets/p-C3gGwC6NS-L.jpg", link:"https://www.instagram.com/p/C3gGwC6NS-L/", tag:"🎞️ مونتاج", likes:33, cat:"edit"},
+  {title:"تصميم إعلاني — Sandwich Yassine", desc:"ملصق إعلاني لمحل سندويشات — تصميم جاهز للنشر والطباعة.", img:"assets/proj-design.jpg", link:"https://www.instagram.com/p/C3gF2mKtPrg/", tag:"🎨 تصميم إعلاني", likes:0, cat:"design"}
 ];
 /* R14 categories */
 const CATMAP={"proj-fashion.jpg":"photo","proj-loco.jpg":"film","proj-hidden.jpg":"film","proj-barber.jpg":"photo","proj-design.jpg":"design","proj-beforeafter.jpg":"edit","proj-throne.jpg":"photo","proj-concert.jpg":"photo","proj-film.jpg":"film","proj-studio.jpg":"photo","proj-street.jpg":"photo","proj-welcome.jpg":"photo"};
-PROJECTS.forEach(p=>p.cat=CATMAP[p.img.split('/').pop()]||"photo");
+PROJECTS.forEach(p=>{ if(!p.cat) p.cat=CATMAP[p.img.split('/').pop()]||"photo"; });
 const grid = document.getElementById('projGrid');
 PROJECTS.forEach(p=>{
   const el=document.createElement('a'); el.className='proj reveal'; el.href=p.link; el.target='_blank'; el.rel='noopener'; el.dataset.cat=p.cat;
-  const hot = p.likes && +p.likes>=900;
+  const fmt = n => (+n).toLocaleString('en-US');
+  const hot = p.likes && +p.likes>=50000;
   el.innerHTML=`<div class="cover"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
   <div class="body"><h3>${p.title}</h3><p>${p.desc}</p>
-  <span class="badge gold">${p.tag}</span>${hot?`<span class="badge hot">⭐ الأكثر تفاعلاً</span>`:''}${p.likes?`<span class="likes">❤ ${p.likes}</span>`:''}</div>`;
+  <span class="badge gold">${p.tag}</span>${hot?`<span class="badge hot">🔥 فيرال</span>`:''}${p.likes?`<span class="likes">❤ ${fmt(p.likes)}</span>`:''}</div>`;
   grid.appendChild(el);
 });
 /* R12 ranked row — real likes only */
 const RANKED=[...PROJECTS].filter(p=>p.likes).sort((a,b)=>b.likes-a.likes).slice(0,3);
 document.getElementById('rankRow').innerHTML = RANKED.map((p,i)=>
-  `<a class="rank reveal" href="${p.link}" target="_blank" rel="noopener"><span class="no">${i+1}</span><img src="${p.img}" alt=""><span><h4>${p.title}</h4><span>❤ ${p.likes} — الأكثر تفاعلاً</span></span></a>`).join('');
+  `<a class="rank reveal" href="${p.link}" target="_blank" rel="noopener"><span class="no">${i+1}</span><img src="${p.img}" alt=""><span><h4>${p.title}</h4><span>❤ ${(p.likes).toLocaleString('en-US')} — الأكثر تفاعلاً</span></span></a>`).join('');
 /* R14 chips + filter */
 const CHIPS=[["all","الكل"],["photo","📷 تصوير"],["film","🎬 أفلام وكليبات"],["edit","🎞️ تعديل"],["design","🎨 تصميم"]];
 const chipsEl=document.getElementById('chips');
@@ -388,6 +428,20 @@ addEventListener('scroll',()=>{const y=Math.min(scrollY,420);h1.style.transform=
   stage.addEventListener('mouseenter',()=>{idleAt=performance.now()+999999;});
   stage.addEventListener('mouseleave',()=>{idleAt=performance.now();});
 })();
+
+/* 3D tilt on project cards */
+(function(){
+  if(!matchMedia('(pointer:fine)').matches) return;
+  document.querySelectorAll('.proj').forEach(card=>{
+    card.style.transformStyle='preserve-3d';
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*8}deg) translateY(-4px)`;
+    });
+    card.addEventListener('pointerleave',()=>{card.style.transform='';});
+  });
+})();
 /* R6 loader — counts real loaded images */
 (function(){
   const L=document.getElementById('loader'), pct=document.getElementById('loadPct'), bar=document.getElementById('loadBar');
@@ -411,15 +465,15 @@ addEventListener('scroll',()=>{const y=Math.min(scrollY,420);h1.style.transform=
 })();
 const FR={navSvc:"Services",navAbout:"Qui est-il",navProj:"Projets",navContact:"Contact",kicker:"Filmmaker & photographe — Tanger, Maroc 📍",
 nameAr:"MOHSIN",nameAr2:"DRADRA",lead:"Courts-métrages, shootings, clips et caméra cachée — tous mes projets classés ici, sans fouiller Instagram.",
-ctaIg:"📷 @mohssin_dradra",ctaYt:"▶ Sa chaîne YouTube",ctaProj:"Voir les projets ↓",st1:"abonnés sur Instagram",st2:"publications et plus",st3v:"Tanger",st3:"la ville — Maroc",st4:"Films · Photo · Montage",
+ctaIg:"📷 @mohssin_dradra",ctaYt:"▶ Sa chaîne YouTube",ctaProj:"Voir les projets ↓",st1:"abonnés sur Instagram",st2:"publications et plus",st3v:"Tanger",st3:"la ville — Maroc",st4:"❤ sur son épisode le plus vu",
 svcT:"Que fait Mohsin ?",svcP:"Quatre services — l'un d'eux servira votre projet.",
-sv1t:"Courts-métrages & clips",sv1p:"Réalisation et tournage de courts-métrages et clips d'artistes — de l'idée à l'écran.",
+sv1t:"Courts-métrages & clips",sv1p:"Épisodes viraux, courts-métrages et clips — certains épisodes dépassent 100 000 likes.",
 sv2t:"Photographie",sv2p:"Shootings mode et caftan, portraits d'artistes, photos de boutiques et marques.",
 sv3t:"Montage & retouche",sv3p:"Montage vidéo et retouche photo — Before / After — fond vert et effets.",
 sv4t:"Design publicitaire",sv4p:"Affiches et visuels publicitaires pour boutiques et restaurants — prêts à imprimer.",
 aboutT:"Qui est Mohsin ?",a1t:"Filmmaker au cœur de Tanger",a1p:"Mohsin Dradra est filmmaker et photographe à Tanger. Il a commencé par des courts-métrages inspirés d'histoires vraies publiés sur YouTube, puis a développé son activité : shootings, clips et collaborations avec artistes et marques — le tout partagé avec plus de 50 000 abonnés sur Instagram.",
 a2p:"Sa page Facebook : Mohssin Dradra Tv — et sa chaîne YouTube diffuse les films en entier.",a3p:"— le verset que Mohsin affiche dans sa bio",
-projT:"Les projets",projP:"Une sélection de son vrai travail sur Instagram — cliquez sur un projet pour le voir sur le compte d'origine.",
+projT:"Les projets",projP:"Tout son vrai travail : des épisodes viraux aux shootings et pubs — cliquez sur un projet pour le voir sur le compte d'origine.",
 contactT:"Travailler avec Mohsin ?",contactP:"Trois étapes et un seul bouton — c'est la méthode.",
 s1t:"Voir les projets",s1p:"Choisissez le type : shooting, clip, film ou design.",s2t:"Un seul message",s2p:"Sur Instagram : votre projet, la ville et le délai — sans long préamble.",s3t:"Réponse & accord",s3p:"Mohsin vous répond et vous convenez des détails directement.",
 ctaIg2:"📷 Contacter via Instagram",ctaYt2:"▶ YouTube",hint3d:"↔ Faites glisser pour tourner la galerie — cliquez une photo pour voir le projet",
