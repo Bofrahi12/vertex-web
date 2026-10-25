@@ -128,6 +128,24 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
 #toTop{position:fixed;bottom:20px;inset-inline-end:20px;z-index:60;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);
   background:rgba(13,11,8,.9);color:var(--gold2);font-size:19px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s}
 #toTop.show{opacity:1;pointer-events:auto}
+/* 3D cube */
+.about-img{display:flex;align-items:center;justify-content:center;background:radial-gradient(420px 300px at 50% 42%,rgba(201,162,75,.13),transparent 65%);border:1px solid var(--line);border-radius:20px;min-height:440px;overflow:hidden}
+.cube-stage{--fs:248px;width:100%;height:400px;perspective:1000px;position:relative;cursor:grab;touch-action:pan-y}
+@media(max-width:640px){.cube-stage{--fs:168px;height:320px}.about-img{min-height:360px}}
+.cube-stage:active{cursor:grabbing}
+.cube{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
+.face{position:absolute;left:calc(var(--fs)/-2);top:calc(var(--fs)/-2);width:var(--fs);height:var(--fs);border:2px solid var(--gold);border-radius:12px;overflow:hidden;backface-visibility:hidden;background:#000}
+.face img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.face span{position:absolute;inset:auto 0 0 0;padding:16px 10px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:12.5px;font-weight:700}
+.cube-hint{position:absolute;bottom:10px;inset-inline:0;text-align:center;color:var(--mut);font-size:12.5px}
+/* layered depth tilt */
+.tilt3d{transform-style:preserve-3d}
+.tilt3d .pop{transform:translateZ(26px)}
+.rank img.pop{border-radius:10px}
+.step .num.pop{transform:translateZ(30px)}
+/* 3D flip-in for section heads */
+.sec-head.reveal{transform:perspective(900px) rotateX(18deg) translateY(26px);transform-origin:top center}
+.sec-head.reveal.in{transform:none}
 /* R6 loader — honest counter of loaded images */
 #loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:opacity .5s var(--ease)}
 #loader.done{opacity:0;pointer-events:none}
@@ -287,7 +305,17 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
         <div class="verse">﴿وَإِن يَخْذُلْكُمْ فَمَن ذَا الَّذِي يَنصُرُكُم﴾</div>
         <p style="margin-top:8px;font-size:13px" data-i="a3p">— الآية اللي حاطها محسن في البايو ديالو</p>
       </div>
-      <div class="about-img reveal"><img src="assets/proj-fashion2.jpg" alt="جلسة تصوير قفطان من أعمال محسن الدرادرة"></div>
+      <div class="about-img reveal">
+        <div class="cube-stage" id="cubeStage">
+          <div class="cube" id="cube">
+            <div class="face" style="transform:rotateY(0deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-fashion2.jpg" alt="جلسة قفطان"><span>جلسات تصوير 📷</span></div>
+            <div class="face" style="transform:rotateY(90deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-studio.jpg" alt="تصوير ستوديو"><span>ستوديو 💡</span></div>
+            <div class="face" style="transform:rotateY(180deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-concert.jpg" alt="تصوير حفلات"><span>حفلات 🎤</span></div>
+            <div class="face" style="transform:rotateY(270deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-throne.jpg" alt="بورتريه فاخر"><span>بورتريه 👑</span></div>
+          </div>
+          <div class="cube-hint" data-i="cubeHint">↔ جرّ باش تدوّر المكعب</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -479,8 +507,9 @@ addEventListener('scroll',()=>{const y=Math.min(scrollY,420);h1.style.transform=
 /* 3D tilt on project cards */
 (function(){
   if(!matchMedia('(pointer:fine)').matches) return;
-  document.querySelectorAll('.proj').forEach(card=>{
-    card.style.transformStyle='preserve-3d';
+  document.querySelectorAll('.proj,.rank,.step,.svc,.vf').forEach(card=>{
+    card.classList.add('tilt3d');
+    card.querySelectorAll('.cover,img,.num,.ic').forEach(el=>el.classList.add('pop'));
     card.addEventListener('pointermove',e=>{
       const r=card.getBoundingClientRect();
       const x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
@@ -488,6 +517,25 @@ addEventListener('scroll',()=>{const y=Math.min(scrollY,420);h1.style.transform=
     });
     card.addEventListener('pointerleave',()=>{card.style.transform='';});
   });
+})();
+/* 3D cube: auto-rotate + drag with inertia */
+(function(){
+  const cube=document.getElementById('cube'), stage=document.getElementById('cubeStage');
+  if(!cube||!stage) return;
+  let rot=18, tiltX=-10, spin=0.045, dragging=false, lastX=0, vel=0, idleAt=0;
+  function frame(){
+    if(!dragging){
+      if(Math.abs(vel)>0.02){ rot+=vel; vel*=0.95; }
+      else if(performance.now()-idleAt>1200) rot+=spin;
+    }
+    cube.style.transform=`rotateX(${tiltX}deg) rotateY(${rot}deg)`;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  stage.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;vel=0;stage.setPointerCapture(e.pointerId);});
+  stage.addEventListener('pointermove',e=>{if(!dragging)return; const dx=e.clientX-lastX; rot+=dx*0.4; vel=dx*0.4; lastX=e.clientX;});
+  const end=()=>{dragging=false;idleAt=performance.now();};
+  stage.addEventListener('pointerup',end); stage.addEventListener('pointercancel',end);
 })();
 /* count-up stats */
 (function(){
@@ -548,7 +596,7 @@ s1t:"Contact & conseil",s1p:"On écoute votre idée et on définit le format : �
 s2t:"Préparation & tournage",s2p:"Scénario, lieu et matériel préparés, tournage avec lumière et cadrage pro.",
 s3t:"Montage & retouche",s3p:"Montage, couleurs, son et retouche photo — la touche visible dans le résultat final.",
 s4t:"Livraison & publication",s4p:"Le travail est livré prêt à publier en pleine qualité, avec un accompagnement sur la présentation au public.",
-ftFollow:"Suivez-le",ftCity:"Ville",ftAvail:"Disponible pour de nouveaux projets"};
+cubeHint:"↔ Faites glisser pour tourner le cube",ftFollow:"Suivez-le",ftCity:"Ville",ftAvail:"Disponible pour de nouveaux projets"};
 let fr=false;
 document.getElementById('langBtn').addEventListener('click',e=>{
   fr=!fr; e.target.textContent=fr?'عربي':'FR';
