@@ -1,0 +1,25 @@
+# Lamine Yamal — From Rocafonda to the Throne of World Football
+
+> A multilingual fan-made tribute site telling the complete, fact-checked story of Lamine Yamal (born 13 July 2007, Esplugues de Llobregat, Spain): FC Barcelona and Spain right winger, son of a father from Larache (Morocco) and a mother from Bata (Equatorial Guinea), raised in Rocafonda, Mataró.
+
+## Key facts
+- Youngest player in FC Barcelona history: debut 29 April 2023 vs Real Betis, aged 15 years, 9 months, 16 days.
+- La Masia academy (joined 2014 from CF La Torreta); wears Barcelona's number 10 since July 2025; contract until June 2031 with a €1 billion release clause.
+- UEFA Euro 2024 champion with Spain; youngest player and youngest scorer in EURO history (goal vs France, semi-final, aged 16 years 362 days — UEFA Goal of the Tournament); Young Player of the Tournament.
+- FIFA World Cup 2026 champion with Spain (final vs Argentina, 19 July 2026).
+- Kopa Trophy winner 2024, 2025 and 2026 — the first player ever to win it three times in a row. Ballon d'Or runner-up in 2025; top-3 finalist in 2026. Golden Boy 2024.
+- Club stats (all competitions, through October 2026): 163 appearances, 59 goals, 55 assists. Spain: 37 caps, 11 goals.
+- His "304" celebration refers to the last digits of Rocafonda's postcode (08304).
+- Official Instagram: @lamineyamal. Official TikTok: @lamine.yamal.
+
+## Pages
+- Arabic (original): https://bofrahi12.github.io/vertex-web/lamine-yamal/
+- English: https://bofrahi12.github.io/vertex-web/lamine-yamal/en/
+- Français: https://bofrahi12.github.io/vertex-web/lamine-yamal/fr/
+- Español: https://bofrahi12.github.io/vertex-web/lamine-yamal/es/
+
+## Content on each page
+Player ID card, Ballon d'Or night news, the six-chapter life story, season-by-season stats, playing style, records ("youngest ever"), honours, a 3D photo ring, a photo gallery, five official videos (FC Barcelona, LALIGA EA SPORTS, FOX Soccer) and an FAQ.
+
+## Note
+Fan-made tribute, not an official site of the player, FC Barcelona or the Spanish federation. Photos: Wikimedia Commons (free licences, credited on the page).
