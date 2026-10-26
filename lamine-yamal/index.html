@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لامين يامال | من روكافوندا إلى عرش العالم</title>
+<meta name="description" content="القصة الكاملة للامين يامال: من حي روكافوندا وجذوره المغربية من العرائش، إلى لا ماسيا، يورو 2024، الرقم 10 في برشلونة، وكأس العالم 2026. صور وفيديوهات حقيقية وأرقام موثقة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Archivo:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07090f; --bg2:#0b0f1a; --panel:#0e1322; --line:rgba(233,185,73,.18);
+  --gold:#e9b949; --gold2:#f5d67a; --garnet:#a50044; --blue:#2f6fd0;
+  --tx:#f2f0e9; --mut:#9aa3b5; --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Cairo',system-ui,'Segoe UI',Tahoma,sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+::selection{background:var(--gold);color:#14100a}
+
+/* ---------- Loader ---------- */
+#loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .7s var(--ease),visibility .7s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .lname{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,6vw,54px);letter-spacing:.14em;color:var(--tx)}
+#loader .lname b{color:var(--gold)}
+#loader .pct{font-family:'Archivo',sans-serif;font-size:15px;color:var(--mut);letter-spacing:.3em}
+#loader .bar{width:min(300px,70vw);height:2px;background:#1c2233;overflow:hidden;border-radius:2px}
+#loader .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--garnet),var(--gold));transition:width .3s var(--ease)}
+
+/* ---------- Progress + Nav ---------- */
+#progress{position:fixed;top:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--garnet));width:0;z-index:120}
+nav{position:fixed;top:0;left:0;right:0;z-index:110;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(16px,4vw,44px);background:linear-gradient(180deg,rgba(7,9,15,.88),rgba(7,9,15,0));transition:background .4s}
+nav.scrolled{background:rgba(7,9,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+nav .brand{font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:.12em;font-size:17px;text-decoration:none}
+nav .brand b{color:var(--gold)}
+nav .links{display:flex;gap:clamp(12px,3vw,30px)}
+nav .links a{text-decoration:none;font-size:14.5px;font-weight:700;color:var(--mut);transition:color .3s}
+nav .links a:hover{color:var(--gold2)}
+@media(max-width:640px){nav .links a:nth-child(n+4){display:none}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero .bgimg{position:absolute;inset:-6% 0;background:url('assets/portrait-2025.jpg') center 18%/cover no-repeat;animation:kb 16s var(--ease) infinite alternate;will-change:transform}
+@keyframes kb{from{transform:scale(1) translateY(0)}to{transform:scale(1.09) translateY(-1.5%)}}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,15,.42) 0%,rgba(7,9,15,.05) 34%,rgba(7,9,15,.72) 72%,var(--bg) 100%)}
+.hero .inner{position:relative;z-index:2;width:100%;padding:0 clamp(18px,5vw,56px) 44px}
+.hero .kicker{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:14px;color:var(--gold2);letter-spacing:.02em;border:1px solid var(--line);background:rgba(7,9,15,.5);backdrop-filter:blur(6px);padding:6px 16px;border-radius:99px}
+.hero .kicker i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.hero h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(52px,12.5vw,158px);line-height:.98;letter-spacing:.01em;margin:16px 0 4px;text-shadow:0 10px 50px rgba(0,0,0,.55)}
+.hero h1 b{color:var(--gold)}
+.hero .sub{font-size:clamp(19px,3.4vw,30px);font-weight:800;max-width:22em}
+.hero .sub em{font-style:normal;color:var(--gold2)}
+.hero .meta{margin-top:10px;color:var(--mut);font-size:15.5px;font-weight:600}
+.counters{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.counter{background:rgba(10,14,24,.66);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(8px);border-radius:16px;padding:12px 20px;min-width:128px}
+.counter .n{font-family:'Archivo',sans-serif;font-weight:900;font-size:30px;color:var(--gold);line-height:1.1}
+.counter .l{font-size:13.5px;color:var(--mut);font-weight:700}
+.hero .scrollhint{margin-top:26px;color:var(--mut);font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:10px}
+.hero .scrollhint::after{content:'';width:52px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+
+/* ---------- Marquee ---------- */
+.marquee{border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);background:var(--bg2);overflow:hidden;padding:13px 0;direction:ltr}
+.marquee .track{display:flex;gap:0;width:max-content;animation:mq 34s linear infinite}
+.marquee span{font-weight:800;font-size:16px;color:var(--mut);padding:0 26px;white-space:nowrap}
+.marquee span b{color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{padding:clamp(64px,10vw,120px) clamp(18px,5vw,56px);max-width:1280px;margin:0 auto}
+.sec-head{margin-bottom:clamp(30px,5vw,54px)}
+.sec-head .tag{color:var(--gold);font-weight:900;font-size:14px;letter-spacing:.06em}
+.sec-head h2{font-size:clamp(30px,5.6vw,52px);font-weight:900;line-height:1.35}
+.sec-head p{color:var(--mut);max-width:44em;font-size:17px}
+
+/* ---------- Chapters ---------- */
+.chapter{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4.5vw,60px);align-items:center;padding:clamp(34px,5vw,58px) 0;border-top:1px solid rgba(255,255,255,.06)}
+.chapter:first-of-type{border-top:none}
+.chapter .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:var(--gold);letter-spacing:.34em}
+.chapter h3{font-size:clamp(26px,4vw,40px);font-weight:900;line-height:1.4;margin:8px 0 12px}
+.chapter h3 em{font-style:normal;color:var(--gold2)}
+.chapter p{color:#c9cedb;font-size:17px;margin-bottom:12px}
+.chapter p b{color:var(--tx)}
+.chapter .fact{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid rgba(255,255,255,.07);border-inline-start:3px solid var(--gold);border-radius:12px;padding:13px 16px;margin-top:16px;font-size:15px;color:var(--mut)}
+.chapter .fact b{color:var(--gold2);white-space:nowrap}
+.chapter figure{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.chapter figure img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3.4;transform:scale(1.06);transition:transform 1.2s var(--ease)}
+.chapter figure::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(7,9,15,.55))}
+.chapter figure figcaption{position:absolute;bottom:12px;inset-inline-start:16px;z-index:2;font-size:13px;font-weight:700;color:#e8e4d8;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.chapter.flip figure{order:-1}
+.chapter.txtonly{grid-template-columns:1fr}
+.bigyear{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(80px,17vw,220px);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(233,185,73,.4);text-align:center;margin:6px 0 -8px;user-select:none}
+@media(max-width:820px){.chapter{grid-template-columns:1fr}.chapter.flip figure{order:0}.chapter figure img{aspect-ratio:16/10.5}}
+
+/* ---------- Stats ---------- */
+.stats-wrap{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:22px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:16px}
+th,td{padding:15px 18px;text-align:center}
+th{background:#121830;color:var(--gold2);font-weight:900;font-size:14.5px}
+td{border-top:1px solid rgba(255,255,255,.06);font-weight:700}
+td.s{font-family:'Archivo',sans-serif;color:var(--mut);font-size:14.5px}
+tr.total td{background:rgba(233,185,73,.08);color:var(--gold2);font-weight:900;border-top:1px solid var(--line)}
+.src{color:var(--mut);font-size:13.5px;margin-top:14px}
+
+/* ---------- Honours ---------- */
+.honours{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.hon{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px;transition:transform .5s var(--ease),border-color .5s}
+.hon:hover{transform:translateY(-5px);border-color:var(--line)}
+.hon .ic{font-size:30px;line-height:1}
+.hon h4{font-size:18.5px;font-weight:900;margin:10px 0 4px}
+.hon p{color:var(--mut);font-size:14.5px}
+
+/* ---------- Gallery (R5 drag) ---------- */
+.gal-wrap{margin:0 calc(-1 * clamp(18px,5vw,56px));overflow:hidden;cursor:grab}
+.gal-wrap:active{cursor:grabbing}
+.gal{display:flex;gap:16px;padding:6px clamp(18px,5vw,56px) 18px;width:max-content;will-change:transform}
+.gal figure{position:relative;width:min(74vw,430px);flex:none;border-radius:20px;overflow:hidden}
+.gal img{width:100%;height:300px;object-fit:cover;pointer-events:none}
+.gal figcaption{position:absolute;bottom:0;left:0;right:0;padding:34px 16px 12px;background:linear-gradient(0deg,rgba(5,6,10,.85),transparent);font-size:14px;font-weight:700}
+.gal-hint{color:var(--mut);font-size:13.5px;font-weight:700;margin-top:2px}
+
+/* ---------- Videos ---------- */
+.vids{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.vids{grid-template-columns:1fr}}
+.vid{position:relative;border-radius:20px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.08)}
+.vid .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;opacity:.92;transition:transform .8s var(--ease),opacity .4s}
+.vid:hover .thumb{transform:scale(1.04);opacity:1}
+.vid .play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(0deg,rgba(5,6,10,.72),rgba(5,6,10,.08) 55%);border:none;cursor:pointer;color:var(--tx);font-family:inherit;padding:18px}
+.vid .play .btn{width:70px;height:70px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 40px rgba(233,185,73,.4);transition:transform .35s var(--ease)}
+.vid .play:hover .btn{transform:scale(1.1)}
+.vid .play .btn::after{content:'';border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #14100a;margin-inline-start:5px}
+.vid .play .t{font-weight:900;font-size:17.5px;text-shadow:0 2px 12px rgba(0,0,0,.9)}
+.vid .play .c{font-size:13px;color:var(--gold2);font-weight:800}
+.vid iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+
+/* ---------- Closing ---------- */
+.closing{position:relative;border-radius:26px;overflow:hidden;min-height:480px;display:flex;align-items:flex-end}
+.closing img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.closing::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(7,9,15,.05) 30%,rgba(7,9,15,.9))}
+.closing .in{position:relative;z-index:2;padding:clamp(24px,4vw,48px)}
+.closing .q{font-size:clamp(26px,4.6vw,44px);font-weight:900;line-height:1.5;max-width:16em}
+.closing .q em{font-style:normal;color:var(--gold2)}
+.closing p{color:var(--mut);margin-top:8px;font-weight:700}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid rgba(255,255,255,.07);padding:38px clamp(18px,5vw,56px) 46px;max-width:1280px;margin:0 auto;color:var(--mut);font-size:13.5px}
+footer .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:720px){footer .cols{grid-template-columns:1fr}}
+footer h5{color:var(--tx);font-size:15px;margin-bottom:8px}
+footer a{color:var(--gold2);text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer ul{list-style:none}
+footer li{margin-bottom:4px}
+footer .fine{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)}
+
+/* ---------- Reveal ---------- */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="lname">LAMINE <b>YAMAL</b></div>
+  <div class="bar"><i id="lbar"></i></div>
+  <div class="pct"><span id="lpct">0</span>%</div>
+</div>
+
+<div id="progress"></div>
+
+<nav id="nav">
+  <a class="brand" href="#top">LAMINE <b>YAMAL</b></a>
+  <div class="links">
+    <a href="#story">القصة</a>
+    <a href="#numbers">أرقامه</a>
+    <a href="#honours">الألقاب</a>
+    <a href="#gallery">المعرض</a>
+    <a href="#videos">فيديوهات</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="bgimg" role="img" aria-label="لامين يامال بقميص منتخب إسبانيا"></div>
+  <div class="inner">
+    <span class="kicker"><i></i> نجم برشلونة والعالم · من أصل مغربي</span>
+    <h1>LAMINE <b>YAMAL</b></h1>
+    <p class="sub">من حيّ شعبي في ماطارو… <em>إلى عرش كرة القدم العالمية</em></p>
+    <p class="meta">لامين يامال نصراوي إيبانا · تولّد 13 يوليوز 2007 · جناح أيمن · الرقم 10 في برشلونة · بطل العالم 2026</p>
+    <div class="counters">
+      <div class="counter"><div class="n" data-count="163">0</div><div class="l">مباراة مع برشلونة</div></div>
+      <div class="counter"><div class="n" data-count="59">0</div><div class="l">هدفاً مع برشلونة</div></div>
+      <div class="counter"><div class="n" data-count="55">0</div><div class="l">تمريرة حاسمة</div></div>
+      <div class="counter"><div class="n" data-count="2">0</div><div class="l">كوبا تروفي على التوالي</div></div>
+    </div>
+    <div class="scrollhint">نزّل لتحت… القصة كتبدا</div>
+  </div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true"><div class="track" id="mqtrack">
+  <span>أصغر لاعب في تاريخ <b>برشلونة</b></span><span>✦</span>
+  <span>أصغر هدّاف في تاريخ <b>اليورو</b></span><span>✦</span>
+  <span>أول لاعب يفوز بـ<b>كوبا تروفي</b> مرتين متتاليتين</span><span>✦</span>
+  <span>الرقم <b>10</b> في عمر 18 سنة</span><span>✦</span>
+  <span>عقد حتى <b>2031</b> بشرط جزائي مليار يورو</span><span>✦</span>
+  <span>بطل <b>العالم</b> 2026 وبطل <b>أوروبا</b> 2024</span><span>✦</span>
+</div></div>
+
+<!-- ================= STORY ================= -->
+<section id="story">
+  <div class="sec-head rv">
+    <div class="tag">القصة الكاملة</div>
+    <h2>كيفاش ولّى نجم؟ ستة فصول</h2>
+    <p>ما وصلش بالحظ. وصل بحكاية عائلة عبرات البحر، وحيّ شعبي علّمو ما يستسلمش، وموهبة ما كتتعلّمش.</p>
+  </div>
+
+  <article class="chapter rv">
+    <div>
+      <div class="num">الفصل 01</div>
+      <h3>الجذور: <em>من العرائش… إلى روكافوندا</em></h3>
+      <p>الحكاية كتبدا قبل ما يتولّد لامين. جدّاتو <b>فاطمة</b> ركبات بوحدها في حافلة من المغرب حتى ماطارو، وخدمات ثلاث ورديات في النهار باش تجيب ولدها منير وهو عندو ثلاث سنين. باه <b>منير النصراوي</b> من <b>العرائش</b> المغربية، وأمو <b>شيلا إيبانا</b> من باتا في غينيا الاستوائية.</p>
+      <p>تولّد لامين في 13 يوليوز 2007 في إسبلوغيس دي يوبريغات، وكبر في <b>روكافوندا</b>، الحي الشعبي ديال ماطارو. تمّا تعلّم الكرة في الشارع، وتمّا تصنعات الشخصية.</p>
+      <div class="fact"><b>304</b><span>احتفاليتو الشهيرة بالأصابع هي آخر ثلاث أرقام من الرمز البريدي ديال حيّو (08304) — باش العالم كامل ما ينساش منين جا.</span></div>
+    </div>
+    <figure><img src="assets/wc-final-133.jpg" alt="لامين يامال من الخلف بقميص إسبانيا رقم 19 في نهائي كأس العالم 2026" loading="lazy"><figcaption>الاسم اللي ولّى العالم كامل كيعرفو — نهائي كأس العالم 2026</figcaption></figure>
+  </article>
+
+  <article class="chapter txtonly rv">
+    <div>
+      <div class="num">الفصل 02</div>
+      <div class="bigyear">2007</div>
+      <h3>الطفل الموعود: <em>ميسي بنفسو حمّم الرضيع</em></h3>
+      <p>في 2007، وفي تصوير خيري ديال <b>يونيسف</b>، التقطات صورة ولّات أسطورية: <b>ليونيل ميسي</b> الشاب كيحمّم في حوض صغير رضيع عندو شهور قليلة… داك الرضيع كان هو لامين يامال. الصورة رجعات للواجهة في يورو 2024 والعالم ما صدّقش عينيه.</p>
+      <p>في 2014، وعندو سبع سنين، انتقل من نادي <b>لا تورّيتا</b> إلى <b>لا ماسيا</b>، أكاديمية برشلونة. المدربين لاحظو بسرعة أن هاد الولد ما كيشبه حتى واحد: كيدريبلي بلا خوف، وكيشوف التمريرة قبل ما توصل الكرة.</p>
+      <div class="fact"><b>لا ماسيا</b><span>تدرّج في جميع الفئات وهو ديما كيلعب مع اللي كبر منو بسنة ولا جوج — وما كانش كيبان عليه الفرق.</span></div>
+    </div>
+  </article>
+
+  <article class="chapter flip rv">
+    <div>
+      <div class="num">الفصل 03</div>
+      <h3>الانفجار: <em>أصغر لاعب في تاريخ برشلونة</em></h3>
+      <p>29 أبريل 2023: تشافي كيدخّلو ضد ريال بيتيس، وعمرو <b>15 سنة و9 أشهر و16 يوم</b> — أصغر لاعب كيلبس قميص برشلونة رسمياً في أكثر من قرن ديال تاريخ النادي.</p>
+      <p>في أكتوبر 2023 سجّل أول هدف ليه ضد غرناطة وولّى <b>أصغر هدّاف في تاريخ الليغا</b>. الصحافة بدات كتكتب اسمو حدا أسماء الأساطير، وهو يلاه في المدرسة.</p>
+      <div class="fact"><b>15 سنة</b><span>السن اللي بدا بيه مع الفريق الأول — قبل ما يقدر حتى يسوق ولا يصوّت.</span></div>
+    </div>
+    <figure><img src="assets/portrait-2025.jpg" alt="لامين يامال كيدريبلي بالكرة بقميص إسبانيا" loading="lazy"><figcaption>المراوغة بلا خوف — العلامة المسجلة ديالو</figcaption></figure>
+  </article>
+
+  <article class="chapter rv">
+    <div>
+      <div class="num">الفصل 04</div>
+      <h3>ملك أوروبا: <em>يورو 2024</em></h3>
+      <p>في ألمانيا، ولّى <b>أصغر لاعب</b> كيشارك في تاريخ اليورو، ومن بعد <b>أصغر هدّاف</b> بهدف خيالي ضد فرنسا في نصف النهائي: تسديدة ملتوية من خارج المنطقة اختارتها اليويفا <b>هدف البطولة</b>.</p>
+      <p>في النهائي ضد إنجلترا، صنع هدف الافتتاح، ورفع الكأس وعندو <b>17 سنة ويوم واحد</b>، مع جائزة أفضل لاعب شاب في البطولة. قبل البطولة قال عليه رابيو «خاصو يدير كثر من هكا»… الرد كان في الملعب.</p>
+      <div class="fact"><b>16 سنة و362 يوم</b><span>عمرو نهار سجّل ضد فرنسا — رقم قياسي ما تقدرش حتى تقرّب منو بلا ما تكون استثنائي.</span></div>
+    </div>
+    <figure><img src="assets/wc-nico-252.jpg" alt="لامين يامال ونيكو ويليامز مع منتخب إسبانيا" loading="lazy"><figcaption>الثنائي اللي رعب أوروبا والعالم — يامال ونيكو ويليامز</figcaption></figure>
+  </article>
+
+  <article class="chapter flip rv">
+    <div>
+      <div class="num">الفصل 05</div>
+      <h3>الرقم 10: <em>وريث العرش في برشلونة</em></h3>
+      <p>موسم 2024/25: <b>ثلاثية محلية</b> مع برشلونة — الليغا وكأس الملك والسوبر. فاز بـ<b>كوبا تروفي</b> 2024 و2025، وولّى أول لاعب في التاريخ كيربحها مرتين متتاليتين، وحلّ <b>ثانياً في الكرة الذهبية 2025</b> مورا ديمبيلي وهو عندو 18 سنة.</p>
+      <p>في 16 يوليوز 2025، تسلّم رسمياً <b>القميص رقم 10</b> — رقم ميسي ورونالدينيو ومارادونا — ووقّع عقد حتى <b>2031</b> بشرط جزائي ديال <b>مليار يورو</b>. النادي قال بصوت عالي: هادا هو المستقبل.</p>
+      <div class="fact"><b>مليار يورو</b><span>قيمة الشرط الجزائي في عقدو — برشلونة سدّات الباب على العالم كامل.</span></div>
+    </div>
+    <figure><img src="assets/barca-athletic.jpg" alt="لامين يامال كيحتفل بهدف بقميص برشلونة رقم 10 ضد أتلتيك بلباو" loading="lazy"><figcaption>الاحتفال الشهير بالرقم 10 ضد أتلتيك بلباو، 2026</figcaption></figure>
+  </article>
+
+  <article class="chapter rv">
+    <div>
+      <div class="num">الفصل 06</div>
+      <h3>بطل العالم: <em>والقصة يلاه بدات</em></h3>
+      <p>موسم 2025/26: هدّاف برشلونة الأول بـ<b>24 هدف و17 تمريرة حاسمة</b>، وأفضل لاعب في الليغا، وأول هاتريك في مسيرتو ضد فياريال في فبراير 2026.</p>
+      <p>وفي صيف 2026، رفع <b>كأس العالم</b> مع إسبانيا بعد نهائي ضد الأرجنتين، وعندو 19 سنة. من حيّ روكافوندا إلى قمة العالم في ثلاث سنين ديال كرة احترافية… وكلشي كيقول: الأفضل ما زال ما جاش.</p>
+      <div class="fact"><b>19 سنة</b><span>بطل أوروبا وبطل العالم، وثاني الكرة الذهبية، ورقم 10 ديال برشلونة — قبل ما يكمل 20 عام.</span></div>
+    </div>
+    <figure><img src="assets/wc-final-167.jpg" alt="لامين يامال كيحتفل في نهائي كأس العالم 2026" loading="lazy"><figcaption>الاحتفال في نهائي كأس العالم 2026</figcaption></figure>
+  </article>
+</section>
+
+<!-- ================= NUMBERS ================= -->
+<section id="numbers">
+  <div class="sec-head rv">
+    <div class="tag">الأرقام ما كتكذبش</div>
+    <h2>أرقامه موسم بموسم مع برشلونة</h2>
+    <p>جميع المسابقات، مع الفريق الأول. ومع المنتخب الإسباني: 37 مباراة دولية و11 هدفاً حتى 2026.</p>
+  </div>
+  <div class="stats-wrap rv">
+    <table>
+      <thead><tr><th>الموسم</th><th>المباريات</th><th>الأهداف</th><th>التمريرات الحاسمة</th></tr></thead>
+      <tbody>
+        <tr><td class="s">2022/23</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td class="s">2023/24</td><td>50</td><td>7</td><td>7</td></tr>
+        <tr><td class="s">2024/25</td><td>55</td><td>18</td><td>21</td></tr>
+        <tr><td class="s">2025/26</td><td>45</td><td>24</td><td>17</td></tr>
+        <tr><td class="s">2026/27 (حتى أكتوبر)</td><td>12</td><td>10</td><td>10</td></tr>
+        <tr class="total"><td>المجموع</td><td>163</td><td>59</td><td>55</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">المصادر: PlaymakerStats / ZeroZero وWikipedia — آخر تحديث: أكتوبر 2026.</p>
+</section>
+
+<!-- ================= HONOURS ================= -->
+<section id="honours">
+  <div class="sec-head rv">
+    <div class="tag">خزينة الألقاب</div>
+    <h2>شنو ربح وهو يلاه في البداية؟</h2>
+  </div>
+  <div class="honours">
+    <div class="hon rv"><div class="ic">🌍</div><h4>كأس العالم 2026</h4><p>بطل العالم مع إسبانيا بعد نهائي ضد الأرجنتين — في عمر 19 سنة.</p></div>
+    <div class="hon rv"><div class="ic">🏆</div><h4>يورو 2024</h4><p>بطل أوروبا + أفضل لاعب شاب في البطولة + صاحب هدف البطولة.</p></div>
+    <div class="hon rv"><div class="ic">🔵🔴</div><h4>الليغا ×3</h4><p>بطل إسبانيا 2022/23 و2024/25 و2025/26 مع برشلونة.</p></div>
+    <div class="hon rv"><div class="ic">👑</div><h4>كأس الملك 2024/25</h4><p>رفع الكأس مع برشلونة تحت مطر الذهب في إشبيلية.</p></div>
+    <div class="hon rv"><div class="ic">⭐</div><h4>كوبا تروفي ×2</h4><p>أفضل لاعب شاب في العالم 2024 و2025 — الأول في التاريخ مرتين متتاليتين.</p></div>
+    <div class="hon rv"><div class="ic">🥈</div><h4>الكرة الذهبية: الثاني</h4><p>المركز الثاني في Ballon d'Or 2025 وهو عندو 18 سنة فقط.</p></div>
+    <div class="hon rv"><div class="ic">🧒</div><h4>الفتى الذهبي 2024</h4><p>جائزة Golden Boy لأفضل لاعب تحت 21 سنة في أوروبا.</p></div>
+    <div class="hon rv"><div class="ic">🎯</div><h4>أفضل لاعب في الليغا</h4><p>لاعب الموسم في الدوري الإسباني 2025/26، وهدّاف برشلونة الأول.</p></div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery">
+  <div class="sec-head rv">
+    <div class="tag">صور حقيقية</div>
+    <h2>المعرض — جرّ بصباعك ولا بالفأرة</h2>
+    <p class="gal-hint">كل الصور حقيقية ومن مصادر حرة الترخيص (Wikimedia Commons) — بلا توليد وبلا فبركة.</p>
+  </div>
+  <div class="gal-wrap rv" id="galwrap">
+    <div class="gal" id="gal">
+      <figure><img src="assets/portrait-2025.jpg" alt="لامين يامال كيدريبلي بقميص إسبانيا 2025" draggable="false"><figcaption>السيطرة على الكرة — بقميص إسبانيا، 2025</figcaption></figure>
+      <figure><img src="assets/barca-athletic.jpg" alt="لامين يامال كيحتفل بقميص برشلونة ضد أتلتيك بلباو" draggable="false"><figcaption>احتفال الرقم 10 — برشلونة ضد أتلتيك بلباو، 2026</figcaption></figure>
+      <figure><img src="assets/wc-final-167.jpg" alt="لامين يامال كيحتفل في نهائي كأس العالم 2026" draggable="false"><figcaption>فرحة نهائي كأس العالم 2026</figcaption></figure>
+      <figure><img src="assets/copa-final.jpg" alt="برشلونة يرفع كأس الملك 2025 تحت قصاصات الذهب" draggable="false"><figcaption>برشلونة يرفع كأس الملك 2025</figcaption></figure>
+      <figure><img src="assets/fra-057.jpg" alt="لامين يامال في مباراة فرنسا وإسبانيا 2026" draggable="false"><figcaption>مع منتخب إسبانيا ضد فرنسا، 2026</figcaption></figure>
+      <figure><img src="assets/wc-nico-252.jpg" alt="لامين يامال ونيكو ويليامز في نهائي كأس العالم 2026" draggable="false"><figcaption>مع نيكو ويليامز — نهائي كأس العالم 2026</figcaption></figure>
+      <figure><img src="assets/wc-final-319.jpg" alt="لامين يامال في نهائي كأس العالم 2026" draggable="false"><figcaption>من نهائي كأس العالم 2026 ضد الأرجنتين</figcaption></figure>
+      <figure><img src="assets/fra-187.jpg" alt="لامين يامال ضد فرنسا 2026" draggable="false"><figcaption>المواجهة مع فرنسا، 2026</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEOS ================= -->
+<section id="videos">
+  <div class="sec-head rv">
+    <div class="tag">فيديوهات حقيقية</div>
+    <h2>شوف بعينيك — من القنوات الرسمية</h2>
+    <p>فيديوهات رسمية من قناة برشلونة وقناة الليغا على يوتيوب. ضغط على التشغيل وكتفتح هنا بلا ما تخرج من الموقع.</p>
+  </div>
+  <div class="vids">
+    <div class="vid rv" data-yt="M37orXBtvtg">
+      <img class="thumb" src="https://i.ytimg.com/vi/M37orXBtvtg/hqdefault.jpg" alt="جميع أهداف لامين يامال في 2025 — FC Barcelona" loading="lazy">
+      <button class="play" type="button" aria-label="تشغيل فيديو أهداف لامين يامال 2025">
+        <span class="btn"></span>
+        <span class="t">جميع أهداف لامين يامال في 2025</span>
+        <span class="c">القناة الرسمية · FC Barcelona</span>
+      </button>
+    </div>
+    <div class="vid rv" data-yt="9Fh5J1mIPe8">
+      <img class="thumb" src="https://i.ytimg.com/vi/9Fh5J1mIPe8/hqdefault.jpg" alt="أحسن 19 لحظة للامين يامال في الليغا" loading="lazy">
+      <button class="play" type="button" aria-label="تشغيل فيديو أحسن لحظات لامين يامال">
+        <span class="btn"></span>
+        <span class="t">19 لحظة كبيرة من لامين يامال في الليغا</span>
+        <span class="c">القناة الرسمية · LALIGA EA SPORTS</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="closing rv" style="margin-top:clamp(40px,6vw,70px)">
+    <img src="assets/wc-final-133.jpg" alt="لامين يامال من الخلف في نهائي كأس العالم">
+    <div class="in">
+      <p class="q">من حيّ كيتسمى على رقمو البريدي… <em>إلى اسم كيعرفو العالم كامل.</em></p>
+      <p>والقصة ما سالاتش — يلاه بدات. ✦ 304 للأبد</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="cols">
+    <div>
+      <h5>مصادر الصور (Wikimedia Commons)</h5>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Lamine_Yamal_in_2025.jpg" target="_blank" rel="noopener">Lamine Yamal in 2025</a> — CC BY 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:LamineYamal_-_FCB_-_Partido_Athletic_Club_vs_FC_Barcelona.jpg" target="_blank" rel="noopener">احتفال ضد أتلتيك بلباو</a> — CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:2025_04_26_Final_de_la_Copa_del_Rey.jpg" target="_blank" rel="noopener">نهائي كأس الملك 2025</a> — CC BY-SA 2.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Lamine_Yamal_Argentina_v_Spain_19_July_2026-167.jpg" target="_blank" rel="noopener">نهائي كأس العالم 2026 (احتفال)</a> — CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Lamine_Yamal_Argentina_v_Spain_19_July_2026-133.jpg" target="_blank" rel="noopener">نهائي كأس العالم 2026 (من الخلف)</a> — CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Lamine_Yamal_Nico_Williams_Argentina_v_Spain_19_July_2026-252.jpg" target="_blank" rel="noopener">يامال ونيكو ويليامز</a> — CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Lamine_Yamal_France_v_Spain_7.24.26-057.jpg" target="_blank" rel="noopener">فرنسا ضد إسبانيا 2026</a> — CC BY-SA 4.0</li>
+      </ul>
+    </div>
+    <div>
+      <h5>مصادر الحقائق والفيديوهات</h5>
+      <ul>
+        <li>الأرقام: PlaymakerStats / ZeroZero وWikipedia (أكتوبر 2026)</li>
+        <li>قصة العائلة والجدة فاطمة: Ballon d'Or وحوارات اللاعب مع José Ramón de la Morena</li>
+        <li>هدف البطولة يورو 2024: UEFA</li>
+        <li>الفيديوهات: قناة <a href="https://www.youtube.com/@fcbarcelona" target="_blank" rel="noopener">FC Barcelona</a> وقناة <a href="https://www.youtube.com/@LaLiga" target="_blank" rel="noopener">LALIGA EA SPORTS</a> الرسميتان على يوتيوب</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fine">
+    موقع تكريمي من صنع المعجبين — ماشي موقعاً رسمياً للاعب ولا لنادي برشلونة ولا للاتحاد الإسباني. جميع العلامات والأسماء ملك لأصحابها، والصور مستعملة برخصها الحرة مع ذكر المصدر. صُنع بحب للعبة الجميلة · 2026
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  /* ---------- Loader (honest count + neutralizing failsafe) ---------- */
+  var loader=document.getElementById('loader'),bar=document.getElementById('lbar'),pct=document.getElementById('lpct');
+  var keyImgs=['assets/portrait-2025.jpg','assets/wc-final-133.jpg','assets/barca-athletic.jpg','assets/wc-final-167.jpg'];
+  var done=0,total=keyImgs.length,finished=false;
+  function upd(){ if(finished)return; var p=Math.round(done/total*100); bar.style.width=p+'%'; pct.textContent=p; if(done>=total) finish(); }
+  function finish(){ if(finished)return; finished=true; bar.style.width='100%'; pct.textContent='100'; setTimeout(function(){ loader.classList.add('done'); setTimeout(function(){ loader.remove(); },800); },250); }
+  keyImgs.forEach(function(src){ var im=new Image(); im.onload=im.onerror=function(){ done++; upd(); }; im.src=src; });
+  setTimeout(finish,4000);
+  upd();
+
+  /* ---------- Nav + progress ---------- */
+  var nav=document.getElementById('nav'),prog=document.getElementById('progress');
+  function onScroll(){
+    nav.classList.toggle('scrolled',window.scrollY>40);
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0?(window.scrollY/max*100):0)+'%';
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* ---------- Reveal ---------- */
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } }); },{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  /* ---------- Counters (R13) ---------- */
+  var cio=new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(!e.isIntersecting) return; cio.unobserve(e.target);
+    var end=+e.target.getAttribute('data-count'), t0=null;
+    function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/1400,1), v=Math.round(end*(1-Math.pow(1-p,3))); e.target.textContent=v; if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }); },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  /* ---------- Marquee duplicate ---------- */
+  var mq=document.getElementById('mqtrack'); mq.innerHTML+=mq.innerHTML;
+
+  /* ---------- Gallery drag with inertia (R5) ---------- */
+  var wrap=document.getElementById('galwrap'), gal=document.getElementById('gal');
+  var x=0, vx=0, dragging=false, startX=0, startTx=0, lastX=0, lastT=0, raf=null;
+  function limits(){ return Math.min(0, wrap.clientWidth - gal.scrollWidth - 8); }
+  function clampX(){ var m=limits(); if(x<m){x=m;vx=0} if(x>0){x=0;vx=0} }
+  function apply(){ gal.style.transform='translateX('+x+'px)'; }
+  function inertia(){ vx*=0.95; x+=vx; clampX(); apply(); if(Math.abs(vx)>0.4 && !dragging) raf=requestAnimationFrame(inertia); }
+  function down(px){ dragging=true; startX=px; startTx=x; lastX=px; lastT=performance.now(); vx=0; if(raf)cancelAnimationFrame(raf); }
+  function move(px){ if(!dragging)return; var now=performance.now(), dt=now-lastT; if(dt>0){ vx=(px-lastX)/dt*16; lastX=px; lastT=now; } x=startTx+(px-startX); clampX(); apply(); }
+  function up(){ if(!dragging)return; dragging=false; raf=requestAnimationFrame(inertia); }
+  wrap.addEventListener('pointerdown',function(e){ down(e.clientX); });
+  addEventListener('pointermove',function(e){ move(e.clientX); },{passive:true});
+  addEventListener('pointerup',up);
+  wrap.addEventListener('wheel',function(e){ if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ x-=e.deltaY; clampX(); apply(); e.preventDefault(); } },{passive:false});
+  apply();
+
+  /* ---------- Video facades ---------- */
+  document.querySelectorAll('.vid').forEach(function(box){
+    box.querySelector('.play').addEventListener('click',function(){
+      var id=box.getAttribute('data-yt');
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
+      f.title='فيديو لامين يامال الرسمي';
+      f.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.allowFullscreen=true;
+      box.innerHTML=''; box.appendChild(f);
+    });
+  });
+})();
+</script>
+</body>
+</html>
