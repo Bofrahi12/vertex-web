@@ -200,8 +200,28 @@ document.addEventListener('click', function(e){
   if (a) gtag('event', 'whatsapp_click', {link_url: a.href, page_path: location.pathname});
 });
 </script>
+<style id="vx-pro17-css">/* VX-PRO17 base wave2 */
+:root{--vx-ease:cubic-bezier(.22,1,.36,1)}
+html,body{overflow-x:clip!important}
+.vx-rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--vx-ease),transform .9s var(--vx-ease)}
+.vx-rv.vx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
+</style>
+
+<style id="vx-sig-css">/* VX-SIG R1 pairs */
+.vx-pair{display:block;position:relative;overflow:hidden;width:100%;height:100%}
+.vx-pair>img{width:100%;height:100%;object-fit:cover;display:block}
+.vx-pair>img.vx-alt{position:absolute;inset:0;opacity:0;transition:opacity .7s var(--vx-ease);pointer-events:none}
+.vx-pair .vx-badge{position:absolute;top:10px;inset-inline-start:10px;z-index:3;background:rgba(10,10,14,.72);color:#fff;font-size:11px;letter-spacing:.14em;padding:5px 10px;border-radius:99px;backdrop-filter:blur(4px);pointer-events:none}
+.vx-pair .vx-badge .b2{display:none}
+.vx-pair.vx-on>img.vx-alt{opacity:1}
+.vx-pair.vx-on .vx-badge .b1{display:none}
+.vx-pair.vx-on .vx-badge .b2{display:inline}
+@media(hover:hover){.vx-pair:hover>img.vx-alt{opacity:1}.vx-pair:hover .vx-badge .b1{display:none}.vx-pair:hover .vx-badge .b2{display:inline}}
+</style>
 </head>
 <body>
+
 <div class="demobar">📌 نموذج تجريبي — الصور والأثمنة توضيحية</div>
 <div id="progress"></div>
 <div id="grain"></div>
@@ -807,5 +827,23 @@ try {
 }
 </script>
   <script src="vx-content.js" defer></script>
+<script id="vx-pro17-js">/* VX-PRO17 base wave2 */
+(function(){if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}})();
+</script>
+
+<script id="vx-sig-js">/* VX-SIG R1 */
+(function(){var els=document.querySelectorAll('.grid article.card img');
+els.forEach(function(img){if(img.closest('.vx-pair'))return;
+var pair=document.createElement('span');pair.className='vx-pair';
+var cs=getComputedStyle(img);
+if(cs.position==='absolute'){pair.style.position='absolute';pair.style.inset='0';}
+img.parentNode.insertBefore(pair,img);pair.appendChild(img);
+var alt=img.cloneNode();alt.className=(img.className||'')+' vx-alt';alt.style.filter='brightness(1.06) saturate(1.14) sepia(.12)';alt.removeAttribute('id');pair.appendChild(alt);
+var bd=document.createElement('span');bd.className='vx-badge';bd.innerHTML='<span class="b1">NATUREL</span><span class="b2">AMBIANCE</span>';pair.appendChild(bd);
+pair.addEventListener('click',function(){pair.classList.toggle('vx-on');});
+});
+})();
+</script>
 </body>
 </html>

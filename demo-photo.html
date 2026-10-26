@@ -219,8 +219,33 @@ document.addEventListener('click', function(e){
   if (a) gtag('event', 'whatsapp_click', {link_url: a.href, page_path: location.pathname});
 });
 </script>
+<style id="vx-pro17-css">/* VX-PRO17 base wave2 */
+:root{--vx-ease:cubic-bezier(.22,1,.36,1)}
+html,body{overflow-x:clip!important}
+.vx-rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--vx-ease),transform .9s var(--vx-ease)}
+.vx-rv.vx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
+</style>
+
+<style id="vx-sig-css">/* VX-SIG R3 viseur */
+.vx-viseur{padding:34px 0 10px}
+.vx-viseur .vx-vhead{display:flex;justify-content:space-between;align-items:baseline;padding:0 20px 12px}
+.vx-viseur .vx-vtitle{font-size:13px;letter-spacing:.26em;text-transform:uppercase;opacity:.85}
+.vx-viseur .vx-vcount{font-size:13px;letter-spacing:.12em;opacity:.9}
+.vx-vstrip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding:6px 20px 16px;cursor:grab;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.vx-vstrip:active{cursor:grabbing}
+.vx-vframe{flex:0 0 min(250px,72vw);scroll-snap-align:center;position:relative;margin:0}
+.vx-vframe img{width:100%;height:300px;object-fit:cover;display:block;border-radius:6px}
+.vx-vframe .vx-corner{position:absolute;width:18px;height:18px;border:2px solid rgba(255,255,255,.9);z-index:2;pointer-events:none}
+.vx-vframe .c1{top:8px;left:8px;border-right:none;border-bottom:none}
+.vx-vframe .c2{top:8px;right:8px;border-left:none;border-bottom:none}
+.vx-vframe .c3{bottom:8px;left:8px;border-right:none;border-top:none}
+.vx-vframe .c4{bottom:8px;right:8px;border-left:none;border-top:none}
+.vx-vframe .vx-vnum{position:absolute;bottom:10px;inset-inline-start:12px;z-index:2;background:rgba(10,10,14,.7);color:#fff;font-size:11px;letter-spacing:.16em;padding:4px 9px;border-radius:99px}
+</style>
 </head>
 <body>
+
 <div class="demobar">📌 Modèle de démonstration — projet fictif présenté à titre d'exemple, tarifs indicatifs</div>
 <div id="progress"></div>
 <div id="grain"></div>
@@ -811,5 +836,35 @@ try {
 }
 </script>
   <script src="vx-content.js" defer></script>
-<style>.waf{position:fixed;bottom:20px;inset-inline-end:20px;z-index:195;background:#22c064;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none}</style><a class="waf" target="_blank" rel="noopener" href="https://wa.me/212693981822?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%20VERTEX%20WEB%20%D9%88%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AF%D9%8A%D8%A7%D9%84%D9%8A" aria-label="WhatsApp">✆</a></body>
+<style>.waf{position:fixed;bottom:20px;inset-inline-end:20px;z-index:195;background:#22c064;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none}</style><script id="vx-pro17-js">/* VX-PRO17 base wave2 */
+(function(){if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}})();
+</script>
+
+<script id="vx-sig-js">/* VX-SIG R3 viseur */
+(function(){var gal=document.querySelector('.gallery');if(!gal)return;
+var imgs=[...gal.querySelectorAll('figure img')];if(imgs.length<3)return;
+var sec=document.createElement('section');sec.className='vx-viseur';
+var total=imgs.length,pad=function(n){return String(n).padStart(2,'0');};
+sec.innerHTML='<div class="vx-vhead"><span class="vx-vtitle">Le viseur</span><span class="vx-vcount">01 / '+pad(total)+'</span></div>';
+var strip=document.createElement('div');strip.className='vx-vstrip';
+imgs.forEach(function(im,i){var f=document.createElement('figure');f.className='vx-vframe';
+var c=im.cloneNode();c.removeAttribute('id');f.appendChild(c);
+['c1','c2','c3','c4'].forEach(function(k){var s=document.createElement('span');s.className='vx-corner '+k;f.appendChild(s);});
+var n=document.createElement('span');n.className='vx-vnum';n.textContent=pad(i+1)+' / '+pad(total);f.appendChild(n);strip.appendChild(f);});
+sec.appendChild(strip);
+var host=gal.closest('section')||gal;host.parentNode.insertBefore(sec,host.nextSibling);
+var count=sec.querySelector('.vx-vcount');
+function upd(){var mid=strip.getBoundingClientRect().left+strip.clientWidth/2;var best=0,bd=1e9;
+[...strip.children].forEach(function(f,i){var r=f.getBoundingClientRect();var d=Math.abs(r.left+r.width/2-mid);if(d<bd){bd=d;best=i;}});
+count.textContent=pad(best+1)+' / '+pad(total);}
+strip.addEventListener('scroll',function(){requestAnimationFrame(upd);},{passive:true});upd();
+var down=false,sx=0,sl=0,moved=false;
+strip.addEventListener('pointerdown',function(e){down=true;moved=false;sx=e.clientX;sl=strip.scrollLeft;});
+strip.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4){moved=true;strip.scrollLeft=sl-dx;}});
+['pointerup','pointercancel','pointerleave'].forEach(function(ev){strip.addEventListener(ev,function(){down=false;});});
+strip.querySelectorAll('img').forEach(function(i){i.draggable=false;});
+})();
+</script>
+</body>
 </html>

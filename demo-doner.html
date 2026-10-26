@@ -269,8 +269,24 @@ document.addEventListener('click', function(e){
   if (a) gtag('event', 'whatsapp_click', {link_url: a.href, page_path: location.pathname});
 });
 </script>
+<style id="vx-pro17-css">/* VX-PRO17 base wave2 */
+:root{--vx-ease:cubic-bezier(.22,1,.36,1)}
+html,body{overflow-x:clip!important}
+.vx-rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--vx-ease),transform .9s var(--vx-ease)}
+.vx-rv.vx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
+</style>
+<style id="vx-r1-doner-css">/* VX R1 pairs — DÖNER line-up: same frame, SEARED state */
+.dish .dimg{overflow:hidden}
+.dish .dimg .vx-r1-alt{position:absolute;inset:0;background-size:inherit;background-position:inherit;background-repeat:no-repeat;filter:saturate(1.5) contrast(1.12) sepia(.28) brightness(.94);opacity:0;transition:opacity .6s var(--vx-ease);pointer-events:none;z-index:1}
+.dish .dimg .price{z-index:3}
+.dish .dimg::after{z-index:2}
+.dish .dimg .vx-r1-badge{position:absolute;left:10px;bottom:10px;z-index:3;font-size:10px;letter-spacing:.22em;text-transform:uppercase;background:rgba(10,8,5,.72);color:#f5e9d5;padding:4px 8px;border-radius:99px;pointer-events:none}
+.dish:hover .dimg .vx-r1-alt,.dish .dimg.vx-on .vx-r1-alt{opacity:1}
+</style>
 </head>
 <body>
+
 
 <div class="grain" aria-hidden="true"></div>
 <div class="ruler" aria-hidden="true"></div>
@@ -729,5 +745,20 @@ const CONFIG = { whatsapp: "212693981822", brand: "THE DÖNER" };
 })();
 </script>
   <script src="vx-content.js" defer></script>
-<style>.waf{position:fixed;bottom:20px;inset-inline-end:20px;z-index:195;background:#22c064;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none}</style><a class="waf" target="_blank" rel="noopener" href="https://wa.me/212693981822?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%20VERTEX%20WEB%20%D9%88%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AF%D9%8A%D8%A7%D9%84%D9%8A" aria-label="WhatsApp">✆</a></body>
+<style>.waf{position:fixed;bottom:20px;inset-inline-end:20px;z-index:195;background:#22c064;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none}</style><a class="waf" target="_blank" rel="noopener" href="https://wa.me/212693981822?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%20VERTEX%20WEB%20%D9%88%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AF%D9%8A%D8%A7%D9%84%D9%8A" aria-label="WhatsApp">✆</a><script id="vx-pro17-js">/* VX-PRO17 base wave2 */
+(function(){if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}})();
+</script>
+<script id="vx-r1-doner-js">/* VX R1 pairs — DÖNER */
+(function(){document.querySelectorAll('.dish .dimg').forEach(function(d){
+var alt=document.createElement('span');alt.className='vx-r1-alt';alt.style.backgroundImage=d.style.backgroundImage;alt.style.backgroundSize=d.style.backgroundSize;alt.style.backgroundPosition=d.style.backgroundPosition;
+var badge=document.createElement('span');badge.className='vx-r1-badge';badge.textContent='ROASTED';
+d.insertBefore(alt,d.firstChild);d.appendChild(badge);
+function set(on){badge.textContent=on?'SEARED':'ROASTED';}
+d.closest('.dish').addEventListener('mouseenter',function(){set(true)});
+d.closest('.dish').addEventListener('mouseleave',function(){set(false)});
+d.addEventListener('click',function(){var on=d.classList.toggle('vx-on');set(on);});
+});})();
+</script>
+</body>
 </html>

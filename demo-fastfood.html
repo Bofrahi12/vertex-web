@@ -199,6 +199,7 @@ html,body{overflow-x:clip!important}
 .vx-wa-float svg{width:30px;height:30px;fill:#fff}
 @media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
 </style>
+
 </head>
 <body>
 <div id="vxLoader" aria-hidden="true"><div class="vx-pct">0%</div><div class="vx-bar"><i></i></div><div class="vx-lab">Chargement</div></div>
@@ -542,10 +543,17 @@ vxDrag(document.getElementById('menuGrid'));
 function upd(){var base=document.readyState==='complete'?70:40;var r=imgs.length?Math.round(done/imgs.length*30):30;target=Math.min(99,base+r);if(document.readyState==='complete'&&(!imgs.length||done>=imgs.length))target=100;}
 function tick(){shown+= (target-shown)*.18;if(target-shown<1)shown=target;var v=Math.round(shown);pct.textContent=v+'%';bar.style.width=v+'%';if(v>=100){setTimeout(function(){L.style.opacity='0';L.style.pointerEvents='none';setTimeout(function(){L.remove()},650)},150);return;}requestAnimationFrame(tick);}
 imgs.forEach(function(im){if(im.complete)done++;else{im.addEventListener('load',function(){done++;upd()});im.addEventListener('error',function(){done++;upd()});}});
-window.addEventListener('load',upd);upd();requestAnimationFrame(tick);setTimeout(function(){done=imgs.length;upd()},4000);}
+window.addEventListener('load',upd);upd();requestAnimationFrame(tick);setTimeout(function(){upd=function(){};done=imgs.length;target=100;},4000);}
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}
 })();
 </script>
+<style id="vx-menu-grid-fix">/* VX menu fix v2: strip is desktop-only, phones get the full grid */
+@media (max-width:899px){
+#menuGrid.vx-drag{display:grid!important;grid-template-columns:1fr 1fr;flex-wrap:wrap;overflow:visible!important;cursor:auto;scroll-snap-type:none;padding-bottom:0}
+#menuGrid.vx-drag>.card{flex:none;width:auto}
+}
+@media (max-width:420px){#menuGrid.vx-drag{grid-template-columns:1fr}}
+</style>
 </body>
 </html>

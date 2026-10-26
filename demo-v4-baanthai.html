@@ -200,8 +200,31 @@ document.addEventListener('click', function(e){
   if (a) gtag('event', 'whatsapp_click', {link_url: a.href, page_path: location.pathname});
 });
 </script>
+<style id="vx-pro17-css">/* VX-PRO17 base wave2 */
+:root{--vx-ease:cubic-bezier(.22,1,.36,1)}
+html,body{overflow-x:clip!important}
+.vx-rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--vx-ease),transform .9s var(--vx-ease)}
+.vx-rv.vx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
+</style>
+<style id="vx-sig-css">/* VX-SIG wave2 food */
+.vx-drag{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;overflow-y:hidden;gap:14px;scroll-snap-type:x proximity;padding-bottom:10px;cursor:grab;touch-action:pan-y;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.vx-drag:active{cursor:grabbing}
+.vx-drag>*{flex:0 0 min(280px,80vw)!important;scroll-snap-align:start}
+.vx-drag>img{height:230px;object-fit:cover;border-radius:12px}
+.vx-drag>figure{height:230px;margin:0!important}
+.vx-drag>figure img{width:100%;height:100%;object-fit:cover;display:block}
+.vx-r12{display:inline-block;border:1.5px solid currentColor;border-radius:99px;padding:1px 9px;font-size:.66rem;font-weight:700;letter-spacing:.04em;vertical-align:middle;margin-inline-start:8px;opacity:.92}
+.vx-r15{margin:18px auto 4px;max-width:640px;border:1px dashed currentColor;border-radius:12px;padding:12px 16px;font-size:.86rem;line-height:1.7;text-align:center;opacity:.92}
+.vx-pair{position:relative;overflow:hidden;display:block}
+.vx-pair>img:first-child{display:block;width:100%}
+.vx-pair .vx-alt{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--vx-ease);filter:sepia(.5) saturate(1.25) contrast(1.06) brightness(.95);pointer-events:none}
+.vx-pair:hover .vx-alt,.vx-pair.vx-on .vx-alt{opacity:1}
+.vx-pair .vx-badge{position:absolute;top:10px;inset-inline-start:10px;z-index:3;background:rgba(10,10,10,.72);color:#fff;border-radius:99px;padding:3px 12px;font-size:.68rem;font-weight:700;letter-spacing:.05em;pointer-events:none}
+</style>
 </head>
 <body>
+
 <div class="demobar">📌 نموذج أولي صُمّم خصيصاً لـ Baan Thaï Institut Tanger · من VERTEX WEB</div>
 <div id="progress"></div>
 <div id="grain"></div>
@@ -713,5 +736,20 @@ try {
 }
 </script>
   <script src="vx-content.js" defer></script>
+<script id="vx-pro17-js">/* VX-PRO17 base wave2 */
+(function(){if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}})();
+</script>
+<script id="vx-sig-js">/* VX-SIG wave2 food */
+(function(){
+function vxDrag(el){if(!el||el.dataset.vxDrag)return;el.dataset.vxDrag='1';el.classList.add('vx-drag');var down=false,sx=0,sl=0,moved=false,vel=0,last=0,raf=null,rtl=false;
+el.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=el.scrollLeft;rtl=(getComputedStyle(el).direction==='rtl');vel=0;last=e.clientX;if(raf)cancelAnimationFrame(raf);});
+window.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>6)moved=true;el.scrollLeft=rtl?sl+dx:sl-dx;vel=e.clientX-last;last=e.clientX;});
+window.addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){var v=(rtl?vel:-vel)*2;var step=function(){v*=.94;if(Math.abs(v)>.4){el.scrollLeft+=v;raf=requestAnimationFrame(step);}};raf=requestAnimationFrame(step);}});
+el.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
+el.querySelectorAll('img').forEach(function(im){im.draggable=false;});}
+vxDrag(document.querySelector('#gallery .grid'));document.querySelectorAll('#services .svc-row').forEach(function(it,i){if(i>=3)return;var host=it.querySelector('.svc-txt h4')||it;var b=document.createElement('span');b.className='vx-r12';b.textContent='الأكثر طلباً';host.appendChild(b);});
+})();
+</script>
 </body>
 </html>

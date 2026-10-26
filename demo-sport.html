@@ -246,8 +246,21 @@ document.addEventListener('click', function(e){
   if (a) gtag('event', 'whatsapp_click', {link_url: a.href, page_path: location.pathname});
 });
 </script>
+<style id="vx-pro17-css">/* VX-PRO17 base wave2 */
+:root{--vx-ease:cubic-bezier(.22,1,.36,1)}
+html,body{overflow-x:clip!important}
+.vx-rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--vx-ease),transform .9s var(--vx-ease)}
+.vx-rv.vx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
+</style>
+
+<style id="vx-sig-css">/* VX-SIG R12 */
+.vx-r12{position:absolute;top:10px;inset-inline-start:10px;z-index:3;background:#e8442e;color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 10px;border-radius:99px;pointer-events:none}
+#prodGrid .prod .ph{position:relative}
+</style>
 </head>
 <body>
+
 <div class="demobar">📌 نموذج تجريبي — متجر خيالي للعرض، والأسعار تقريبية</div>
 <div id="progress"></div>
 <div id="grain"></div>
@@ -869,5 +882,15 @@ try {
 }
 </script>
   <script src="vx-content.js" defer></script>
+<script id="vx-pro17-js">/* VX-PRO17 base wave2 */
+(function(){if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}})();
+</script>
+
+<script id="vx-sig-js">/* VX-SIG R12 */
+(function(){var cards=document.querySelectorAll('#prodGrid .prod');var n=0;
+cards.forEach(function(c){if(n>=3)return;var ph=c.querySelector('.ph');if(!ph)return;var b=document.createElement('span');b.className='vx-r12';b.textContent='الأكثر مبيعاً • Top vente';ph.appendChild(b);n++;});
+})();
+</script>
 </body>
 </html>
