@@ -70,6 +70,9 @@ section{padding:84px 0}
 @media(max-width:520px){.svc-grid{grid-template-columns:1fr}}
 .svc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 20px}
 .svc .ic{font-size:30px}
+.svc .inc{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);color:var(--gold2);font-size:12.5px;font-weight:700}
+.svc .ex{display:inline-block;margin-top:12px;color:var(--txt);font-size:13.5px;font-weight:800;border:1px solid var(--line);border-radius:99px;padding:6px 15px;cursor:pointer;background:none;font-family:inherit;transition:.25s}
+.svc .ex:hover{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#191104;border-color:transparent}
 .svc h3{font-size:17px;margin:8px 0 4px}
 .svc p{color:var(--mut);font-size:14px}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch}
@@ -312,16 +315,19 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
     <div class="sec-head reveal">
       <div class="n">01</div>
       <h2 data-i="svcT">شنو كيدير محسن؟</h2>
-      <p data-i="svcP">ربعة ديال الخدمات — وحدة فيهم هي اللي غتنفع مشروعك.</p>
+      <p data-i="svcP">ثمانية ديال الخدمات المتكاملة — وكل وحدة مدعومة بأمثلة حقيقية من خدمتو، دوس على «شوف أمثلة» باش توصّل ليهم.</p>
     </div>
     <div class="svc-grid">
-      <div class="svc reveal"><div class="ic">🎬</div><h3 data-i="sv1t">أفلام قصيرة وكليبات</h3><p data-i="sv1p">إخراج وتصوير أفلام قصيرة وكليبات فنانين — من الفكرة حتى الشاشة.</p></div>
-      <div class="svc reveal"><div class="ic">📷</div><h3 data-i="sv2t">تصوير فوتوغرافي</h3><p data-i="sv2p">جلسات أزياء وقفطان، بورتريهات فنانين، وتصوير محلات وبراندات.</p></div>
-      <div class="svc reveal"><div class="ic">🎞️</div><h3 data-i="sv3t">مونتاج وتعديل</h3><p data-i="sv3p">مونتاج فيديو وتعديل صور — Before / After — بخلفية خضراء وتأثيرات.</p></div>
-      <div class="svc reveal"><div class="ic">🎨</div><h3 data-i="sv4t">تصميم إعلاني</h3><p data-i="sv4p">ملصقات وتصاميم إعلانية للمحلات والمطاعم — جاهزة للنشر والطباعة.</p></div>
+      <div class="svc reveal"><div class="ic">🎬</div><h3 data-i="sv1t">إنتاج حلقات قصصية</h3><p data-i="sv1p">سلاسل قصيرة للسوشيال ميديا كتوصل لعشرات آلاف الإعجابات — من الفكرة حتى النشر.</p><div class="inc" data-i="sv1i">سيناريو · تمثيل وإخراج · مونتاج ونشر</div><button class="ex" data-goto="act:film" data-i="svEx">شوف أمثلة في المشاريع ←</button></div>
+      <div class="svc reveal"><div class="ic">📷</div><h3 data-i="sv2t">تصوير فوتوغرافي</h3><p data-i="sv2p">جلسات أزياء وقفطان، بورتريهات، وتصوير براندات ومحلات — بإضاءة احترافية.</p><div class="inc" data-i="sv2i">ستوديو وخارجي · أزياء وبراندات · بورتريه</div><button class="ex" data-goto="work:photo" data-i="svEx">شوف أمثلة في المشاريع ←</button></div>
+      <div class="svc reveal"><div class="ic">🏢</div><h3 data-i="sv3t">فيديوهات شركات</h3><p data-i="sv3p">فيديوهات مؤسساتية للشركات والجماعات والمحلات — بحال فيديو شركة النظافة بجماعة كزناية.</p><div class="inc" data-i="sv3i">تصوير ميداني · مونتاج احترافي · جاهز للنشر</div><button class="ex" data-goto="work:film" data-i="svEx">شوف أمثلة في المشاريع ←</button></div>
+      <div class="svc reveal"><div class="ic">📣</div><h3 data-i="sv4t">فيديوهات إشهارية</h3><p data-i="sv4p">إشهارات وسكيتشات كوميدية للبراندات والمحلات — محتوى كيشد الجمهور وكيتباع بيه.</p><div class="inc" data-i="sv4i">فكرة وسيناريو · تمثيل · إنتاج كامل</div><button class="ex" data-goto="work:film" data-i="svEx">شوف أمثلة في المشاريع ←</button></div>
+      <div class="svc reveal"><div class="ic">🎵</div><h3 data-i="sv5t">كليبات موسيقية</h3><p data-i="sv5p">تصوير وإنتاج كليبات للفنانين — بتعاونات مع DL Production وLoco Lghadab.</p><div class="inc" data-i="sv5i">تصوير · إخراج · مونتاج</div><button class="ex" data-goto="work:film" data-i="svEx">شوف أمثلة في المشاريع ←</button></div>
+      <div class="svc reveal"><div class="ic">🎤</div><h3 data-i="sv6t">تغطية حفلات ومناسبات</h3><p data-i="sv6p">تغطية حفلات وفنانين ومناسبات — صور وفيديو بجودة عالية وإضاءة مسرح.</p><div class="inc" data-i="sv6i">تصوير فوتوغرافي · فيديو · حفلات ومناسبات</div><button class="ex" data-goto="work:photo" data-i="svEx">شوف أمثلة في المشاريع ←</button></div>
+      <div class="svc reveal"><div class="ic">🎞️</div><h3 data-i="sv7t">مونتاج وتعديل</h3><p data-i="sv7p">مونتاج فيديو وتعديل صور Before / After — وحتى الشاشة الخضراء والمؤثرات.</p><div class="inc" data-i="sv7i">مونتاج فيديو · تعديل صور · Green Screen</div><button class="ex" data-goto="work:edit" data-i="svEx">شوف أمثلة في المشاريع ←</button></div>
+      <div class="svc reveal"><div class="ic">🎨</div><h3 data-i="sv8t">تصميم إعلاني</h3><p data-i="sv8p">ملصقات وتصاميم إعلانية للمحلات والمطاعم — جاهزة للنشر والطباعة.</p><div class="inc" data-i="sv8i">ملصقات · سوشيال ميديا · طباعة</div><button class="ex" data-goto="work:design" data-i="svEx">شوف أمثلة في المشاريع ←</button></div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section id="about" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
@@ -626,6 +632,16 @@ addEventListener('scroll',()=>{const y=Math.min(scrollY,420);h1.style.transform=
   const end=()=>{dragging=false;idleAt=performance.now();};
   stage.addEventListener('pointerup',end); stage.addEventListener('pointercancel',end);
 })();
+/* service card -> jump to its real examples (tab + filter) */
+document.querySelectorAll('[data-goto]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const [tb,cp]=btn.dataset.goto.split(':');
+    document.querySelector(`.tab[data-tab="${tb}"]`).click();
+    const chip=document.querySelector(`.chip[data-f="${cp}"]`);
+    if(chip) chip.click();
+    document.getElementById('projects').scrollIntoView({behavior:'smooth'});
+  });
+});
 /* count-up stats */
 (function(){
   const els=[...document.querySelectorAll('.cnt')]; if(!els.length) return;
@@ -665,11 +681,11 @@ addEventListener('scroll',()=>{const y=Math.min(scrollY,420);h1.style.transform=
 const FR={navSvc:"Services",navAbout:"Qui est-il",navProj:"Projets",navContact:"Contact",kicker:"Filmmaker & photographe — Tanger, Maroc 📍",
 nameAr:"MOHSIN",nameAr2:"DRADRA",lead:"Courts-métrages, shootings, clips et caméra cachée — tous mes projets classés ici, sans fouiller Instagram.",
 ctaIg:"📷 @mohssin_dradra",ctaYt:"▶ Sa chaîne YouTube",ctaProj:"Voir les projets ↓",st1:"abonnés sur Instagram",st2:"publications et plus",st3v:"Tanger",st3:"la ville — Maroc",st4:"❤ sur son épisode le plus vu",
-svcT:"Que fait Mohsin ?",svcP:"Quatre services — l'un d'eux servira votre projet.",
-sv1t:"Courts-métrages & clips",sv1p:"Épisodes viraux, courts-métrages et clips — certains épisodes dépassent 100 000 likes.",
-sv2t:"Photographie",sv2p:"Shootings mode et caftan, portraits d'artistes, photos de boutiques et marques.",
+svcT:"Que fait Mohsin ?",svcP:"Huit services complets — chacun prouvé par des exemples réels de son travail. Cliquez sur « Voir des exemples » pour y arriver.",
+sv1t:"Production d'épisodes & séries",sv1p:"Des séries courtes pour les réseaux qui atteignent des dizaines de milliers de likes — de l'idée à la publication.",
+sv2t:"Photographie",sv2p:"Shootings mode et caftan, portraits, marques et boutiques — lumière professionnelle.",
 sv3t:"Montage & retouche",sv3p:"Montage vidéo et retouche photo — Before / After — fond vert et effets.",
-sv4t:"Design publicitaire",sv4p:"Affiches et visuels publicitaires pour boutiques et restaurants — prêts à imprimer.",
+sv4t:"Vidéos publicitaires",sv4p:"Pubs et sketchs comiques pour marques et commerces — un contenu qui capte le public.",
 aboutT:"Qui est Mohsin ?",a1t:"Filmmaker au cœur de Tanger",a1p:"Mohsin Dradra est filmmaker et photographe à Tanger. Il a commencé par des courts-métrages inspirés d'histoires vraies publiés sur YouTube, puis a développé son activité : shootings, clips et collaborations avec artistes et marques — le tout partagé avec plus de 50 000 abonnés sur Instagram.",
 a2p:"Sa page Facebook : Mohssin Dradra Tv — et sa chaîne YouTube diffuse les films en entier.",a3p:"— le verset que Mohsin affiche dans sa bio",
 projT:"Les projets",projP:"Tout son vrai travail : des épisodes viraux aux shootings et pubs — cliquez sur un projet pour le voir sur le compte d'origine.",
@@ -685,7 +701,15 @@ s1t:"Contact & conseil",s1p:"On écoute votre idée et on définit le format : �
 s2t:"Préparation & tournage",s2p:"Scénario, lieu et matériel préparés, tournage avec lumière et cadrage pro.",
 s3t:"Montage & retouche",s3p:"Montage, couleurs, son et retouche photo — la touche visible dans le résultat final.",
 s4t:"Livraison & publication",s4p:"Le travail est livré prêt à publier en pleine qualité, avec un accompagnement sur la présentation au public.",
-cubeHint:"↔ Faites glisser pour tourner le cube",tabWork:"Le travail",tabAct:"Le jeu d'acteur",spotChip:"Son épisode le plus vu",spotPlay:"Regardez l'épisode ici — sans quitter le site",spotP:"Son plus grand épisode : une histoire sur l'amitié et l'intérêt, massivement partagée. Cliquez sur ▶ pour le regarder ici même.",spotBtn:"L'ouvrir sur Instagram ←",ftFollow:"Suivez-le",ftCity:"Ville",ftAvail:"Disponible pour de nouveaux projets"};
+cubeHint:"↔ Faites glisser pour tourner le cube",tabWork:"Le travail",tabAct:"Le jeu d'acteur",spotChip:"Son épisode le plus vu",spotPlay:"Regardez l'épisode ici — sans quitter le site",spotP:"Son plus grand épisode : une histoire sur l'amitié et l'intérêt, massivement partagée. Cliquez sur ▶ pour le regarder ici même.",spotBtn:"L'ouvrir sur Instagram ←",svEx:"Voir des exemples ←",
+sv1i:"Scénario · Jeu & réalisation · Montage",sv2i:"Studio & extérieur · Mode & marques · Portraits",
+sv3t:"Vidéos d'entreprise",sv3p:"Vidéos institutionnelles pour entreprises, communes et commerces — comme la vidéo de la société de nettoyage de Gzenaya.",sv3i:"Tournage terrain · Montage pro · Prêt à publier",
+sv4i:"Idée & scénario · Jeu d'acteur · Production complète",
+sv5t:"Clips musicaux",sv5p:"Tournage et production de clips pour artistes — collaborations avec DL Production et Loco Lghadab.",sv5i:"Tournage · Réalisation · Montage",
+sv6t:"Couverture d'événements",sv6p:"Concerts, artistes et événements — photo et vidéo haute qualité, lumière de scène.",sv6i:"Photo · Vidéo · Concerts & événements",
+sv7t:"Montage & retouche",sv7p:"Montage vidéo et retouche photo Before/After — fond vert et effets inclus.",sv7i:"Montage vidéo · Retouche photo · Fond vert",
+sv8t:"Design publicitaire",sv8p:"Affiches et visuels pour boutiques et restaurants — prêts à publier et à imprimer.",sv8i:"Affiches · Réseaux sociaux · Impression",
+ftFollow:"Suivez-le",ftCity:"Ville",ftAvail:"Disponible pour de nouveaux projets"};
 let fr=false;
 document.getElementById('langBtn').addEventListener('click',e=>{
   fr=!fr; e.target.textContent=fr?'عربي':'FR';
