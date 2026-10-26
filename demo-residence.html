@@ -136,8 +136,26 @@ document.addEventListener('click', function(e){
   if (a) gtag('event', 'whatsapp_click', {link_url: a.href, page_path: location.pathname});
 });
 </script>
+<style id="vx-pro17-css">/* VX-PRO17 base */
+:root{--vx-ease:cubic-bezier(.22,1,.36,1)}
+html,body{overflow-x:clip!important}
+#vxLoader{position:fixed;inset:0;z-index:99999;background:#0b0b0f;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .6s var(--vx-ease)}
+#vxLoader .vx-pct{font-size:clamp(42px,9vw,84px);font-weight:800;letter-spacing:-.02em;line-height:1}
+#vxLoader .vx-bar{width:min(260px,60vw);height:3px;background:rgba(255,255,255,.18);border-radius:99px;overflow:hidden}
+#vxLoader .vx-bar i{display:block;height:100%;width:0;background:#fff;transition:width .3s var(--vx-ease)}
+#vxLoader .vx-lab{font-size:12px;letter-spacing:.28em;text-transform:uppercase;opacity:.7}
+.vx-rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--vx-ease),transform .9s var(--vx-ease)}
+.vx-rv.vx-in{opacity:1;transform:none}
+.vx-wa-float{position:fixed;right:16px;bottom:16px;z-index:9998;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .35s var(--vx-ease)}
+.vx-wa-float:hover{transform:scale(1.08)}
+.vx-wa-float svg{width:30px;height:30px;fill:#fff}
+@media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
+<div id="vxLoader" aria-hidden="true"><div class="vx-pct">0%</div><div class="vx-bar"><i></i></div><div class="vx-lab">Chargement</div></div>
+<a class="vx-wa-float" href="https://wa.me/212693981822" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4.7 28l6.3-1.6c1.5.8 3.2 1.2 5 1.2 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm5.9 16.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2z"/></svg></a>
+
 <canvas id="bgfilm" data-seq="demo-residence/seq/f" data-frames="324" data-poster="demo-residence/poster.jpg"></canvas>
 <div id="bgveil"></div>
 <div class="grain"></div>
@@ -157,6 +175,12 @@ document.addEventListener('click', function(e){
   <h1 class="rv">AZ<em>UR</em></h1>
   <p class="sub rv">Une résidence d'exception, <b>du premier coup de grue à la remise des clés</b>. Faites défiler : le film se construit sous vos doigts.</p>
   <div class="scrollhint">SCROLL — LE FILM</div>
+<div class="vx-search rv" id="vxSearch" role="search" aria-label="Rechercher une unité">
+  <label>Type d'unité <select id="vxType"><option value="">Tous les types</option><option value="Penthouse">Penthouse</option><option value="Duplex">Duplex</option><option value="Appartement">Appartement</option></select></label>
+  <label>Budget max <select id="vxBudget"><option value="">Tous budgets</option><option value="3000000">Jusqu'à 3 000 000 DH</option><option value="4000000">Jusqu'à 4 000 000 DH</option><option value="99999999">Plus de 4 000 000 DH</option></select></label>
+  <a class="vx-go" href="#collection" id="vxGo">Voir les unités</a>
+  <span class="vx-res" id="vxRes"></span>
+</div>
 </section>
 
 <section class="act" id="acte1" data-chap="02">
@@ -198,9 +222,9 @@ document.addEventListener('click', function(e){
 <section id="collection" data-chap="06">
   <div class="head rv"><div class="label">Le programme — 3 unités signatures</div><h2>Choisissez votre <em>étage.</em></h2></div>
   <div class="grid">
-    <article class="card rv"><div class="ph"><img src="noor/1600607687939-ce8a6c25118c.jpg" alt="Intérieur du penthouse Azur" loading="lazy"></div><div class="bd"><div class="n">UNITÉ 01 — DERNIER ÉTAGE</div><h3>Penthouse Azur</h3><p class="d">Terrasse panoramique, piscine privée, vue détroit des deux côtés.</p><div class="pr">4 900 000 DH</div></div><a class="visit" data-cur="VISITER" href="https://wa.me/212693981822?text=Bonjour%20AZUR%2C%20je%20veux%20réserver%20une%20visite%20%3A%20Penthouse%20Azur%20(4%20900%20000%20DH)" target="_blank" rel="noopener">RÉSERVER UNE VISITE →</a></article>
-    <article class="card rv"><div class="ph"><img src="noor/1600047509807-ba8f99d2cdde.jpg" alt="Façade moderne de la résidence" loading="lazy"></div><div class="bd"><div class="n">UNITÉ 02 — FRONT DE MER</div><h3>Duplex Front de Mer</h3><p class="d">Double hauteur, résidence fermée avec piscine, finitions marbre.</p><div class="pr">2 950 000 DH</div></div><a class="visit" data-cur="VISITER" href="https://wa.me/212693981822?text=Bonjour%20AZUR%2C%20je%20veux%20réserver%20une%20visite%20%3A%20Duplex%20Front%20de%20Mer%20(2%20950%20000%20DH)" target="_blank" rel="noopener">RÉSERVER UNE VISITE →</a></article>
-    <article class="card rv"><div class="ph"><img src="noor/1600566753086-00f18fb6b3ea.jpg" alt="Appartement signature baigné de lumière" loading="lazy"></div><div class="bd"><div class="n">UNITÉ 03 — SIGNATURE</div><h3>Appartement Signature</h3><p class="d">Suite parentale, lumière traversante, accès direct à l'espace bien-être.</p><div class="pr">3 400 000 DH</div></div><a class="visit" data-cur="VISITER" href="https://wa.me/212693981822?text=Bonjour%20AZUR%2C%20je%20veux%20réserver%20une%20visite%20%3A%20Appartement%20Signature%20(3%20400%20000%20DH)" target="_blank" rel="noopener">RÉSERVER UNE VISITE →</a></article>
+    <article class="card rv"><div class="ph"><img src="noor/1600607687939-ce8a6c25118c.jpg" alt="Intérieur du penthouse Azur" loading="lazy"></div><div class="bd"><div class="n">UNITÉ 01 — DERNIER ÉTAGE</div><h3>Penthouse Azur</h3><p class="d">Terrasse panoramique, piscine privée, vue détroit des deux côtés.</p><div class="pr">4 900 000 DH</div><div class="vx-total">Prix total affiché : 4 900 000 DH · Paiement par tranches, à l’avancement des travaux</div></div><a class="visit" data-cur="VISITER" href="https://wa.me/212693981822?text=Bonjour%20AZUR%2C%20je%20veux%20réserver%20une%20visite%20%3A%20Penthouse%20Azur%20(4%20900%20000%20DH)" target="_blank" rel="noopener">RÉSERVER UNE VISITE →</a></article>
+    <article class="card rv"><div class="ph"><img src="noor/1600047509807-ba8f99d2cdde.jpg" alt="Façade moderne de la résidence" loading="lazy"></div><div class="bd"><div class="n">UNITÉ 02 — FRONT DE MER</div><h3>Duplex Front de Mer</h3><p class="d">Double hauteur, résidence fermée avec piscine, finitions marbre.</p><div class="pr">2 950 000 DH</div><div class="vx-total">Prix total affiché : 2 950 000 DH · Paiement par tranches, à l’avancement des travaux</div></div><a class="visit" data-cur="VISITER" href="https://wa.me/212693981822?text=Bonjour%20AZUR%2C%20je%20veux%20réserver%20une%20visite%20%3A%20Duplex%20Front%20de%20Mer%20(2%20950%20000%20DH)" target="_blank" rel="noopener">RÉSERVER UNE VISITE →</a></article>
+    <article class="card rv"><div class="ph"><img src="noor/1600566753086-00f18fb6b3ea.jpg" alt="Appartement signature baigné de lumière" loading="lazy"></div><div class="bd"><div class="n">UNITÉ 03 — SIGNATURE</div><h3>Appartement Signature</h3><p class="d">Suite parentale, lumière traversante, accès direct à l'espace bien-être.</p><div class="pr">3 400 000 DH</div><div class="vx-total">Prix total affiché : 3 400 000 DH · Paiement par tranches, à l’avancement des travaux</div></div><a class="visit" data-cur="VISITER" href="https://wa.me/212693981822?text=Bonjour%20AZUR%2C%20je%20veux%20réserver%20une%20visite%20%3A%20Appartement%20Signature%20(3%20400%20000%20DH)" target="_blank" rel="noopener">RÉSERVER UNE VISITE →</a></article>
   </div>
 </section>
 
@@ -287,5 +311,28 @@ var progfill = document.getElementById('progfill');
 })();
 </script>
   <script src="vx-content.js" defer></script>
-<style>.waf{position:fixed;bottom:20px;inset-inline-end:20px;z-index:195;background:#22c064;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none}</style><a class="waf" target="_blank" rel="noopener" href="https://wa.me/212693981822?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%20VERTEX%20WEB%20%D9%88%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AF%D9%8A%D8%A7%D9%84%D9%8A" aria-label="WhatsApp">✆</a></body>
+<script id="vx-pro17-js">/* VX-PRO17 base */
+(function(){var L=document.getElementById('vxLoader');if(L){var pct=L.querySelector('.vx-pct'),bar=L.querySelector('.vx-bar i'),imgs=[].slice.call(document.images),done=0,shown=0,target=0;
+function upd(){var base=document.readyState==='complete'?70:40;var r=imgs.length?Math.round(done/imgs.length*30):30;target=Math.min(99,base+r);if(document.readyState==='complete'&&(!imgs.length||done>=imgs.length))target=100;}
+function tick(){shown+= (target-shown)*.18;if(target-shown<1)shown=target;var v=Math.round(shown);pct.textContent=v+'%';bar.style.width=v+'%';if(v>=100){setTimeout(function(){L.style.opacity='0';L.style.pointerEvents='none';setTimeout(function(){L.remove()},650)},150);return;}requestAnimationFrame(tick);}
+imgs.forEach(function(im){if(im.complete)done++;else{im.addEventListener('load',function(){done++;upd()});im.addEventListener('error',function(){done++;upd()});}});
+window.addEventListener('load',upd);upd();requestAnimationFrame(tick);setTimeout(function(){upd=function(){};target=100;},4000);}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}
+})();
+</script>
+<style id="vx-sig-css">
+.vx-total{font-size:12px;opacity:.75;margin-top:6px;line-height:1.5}
+.vx-search{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-top:26px;max-width:760px;background:rgba(10,10,14,.55);backdrop-filter:blur(8px);padding:14px;border-radius:12px}
+.vx-search label{display:flex;flex-direction:column;gap:6px;font-size:11px;letter-spacing:.18em;color:#f0ead9;flex:1;min-width:150px}
+.vx-search select{padding:11px;border-radius:8px;border:1px solid rgba(255,255,255,.35);background:#14141a;color:#fff;font-size:14px}
+.vx-go{padding:11px 16px;border-radius:8px;background:#fff;color:#111;text-decoration:none;font-size:13px;letter-spacing:.08em;transition:transform .35s var(--vx-ease)}
+.vx-res{width:100%;font-size:12px;color:#f0ead9;min-height:1em}
+</style><script id="vx-sig-js">
+(function(){var ty=document.getElementById('vxType'),bu=document.getElementById('vxBudget'),res=document.getElementById('vxRes');if(!ty)return;
+var cards=[].slice.call(document.querySelectorAll('#collection .card'));
+function priceOf(c){var p=c.querySelector('.pr');return p?parseInt(p.textContent.replace(/[^0-9]/g,''),10):0}
+function apply(){var tv=ty.value,bv=bu.value?parseInt(bu.value,10):null,n=0;cards.forEach(function(c){var okT=!tv||c.textContent.indexOf(tv)>-1;var pr=priceOf(c);var okB=bv===null||(bv===99999999?pr>4000000:pr<=bv);var ok=okT&&okB;c.style.display=ok?'':'none';if(ok)n++});res.textContent=n+' unité'+(n>1?'s':'')+' correspond'+(n>1?'ent':'e')+' à votre recherche';}
+ty.addEventListener('change',apply);bu.addEventListener('change',apply);apply();})();
+</script></body>
 </html>

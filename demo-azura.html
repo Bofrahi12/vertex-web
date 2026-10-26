@@ -124,8 +124,26 @@ document.addEventListener('click', function(e){
   if (a) gtag('event', 'whatsapp_click', {link_url: a.href, page_path: location.pathname});
 });
 </script>
+<style id="vx-pro17-css">/* VX-PRO17 base */
+:root{--vx-ease:cubic-bezier(.22,1,.36,1)}
+html,body{overflow-x:clip!important}
+#vxLoader{position:fixed;inset:0;z-index:99999;background:#0b0b0f;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .6s var(--vx-ease)}
+#vxLoader .vx-pct{font-size:clamp(42px,9vw,84px);font-weight:800;letter-spacing:-.02em;line-height:1}
+#vxLoader .vx-bar{width:min(260px,60vw);height:3px;background:rgba(255,255,255,.18);border-radius:99px;overflow:hidden}
+#vxLoader .vx-bar i{display:block;height:100%;width:0;background:#fff;transition:width .3s var(--vx-ease)}
+#vxLoader .vx-lab{font-size:12px;letter-spacing:.28em;text-transform:uppercase;opacity:.7}
+.vx-rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--vx-ease),transform .9s var(--vx-ease)}
+.vx-rv.vx-in{opacity:1;transform:none}
+.vx-wa-float{position:fixed;right:16px;bottom:16px;z-index:9998;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .35s var(--vx-ease)}
+.vx-wa-float:hover{transform:scale(1.08)}
+.vx-wa-float svg{width:30px;height:30px;fill:#fff}
+@media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
+<div id="vxLoader" aria-hidden="true"><div class="vx-pct">0%</div><div class="vx-bar"><i></i></div><div class="vx-lab">Chargement</div></div>
+<a class="vx-wa-float" href="https://wa.me/212693981822" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4.7 28l6.3-1.6c1.5.8 3.2 1.2 5 1.2 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm5.9 16.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2z"/></svg></a>
+
 <div class="badge">Modèle de démonstration</div>
 
 <header>
@@ -168,6 +186,7 @@ document.addEventListener('click', function(e){
     <div class="sec-head">
       <div class="kicker">Hébergements</div>
       <h2>Suites & villa privée</h2>
+      <p class="vx-feat">La lumière, l'espace et le murmure de l'océan, dès le réveil.</p>
       <p>Trois adresses, une même exigence : la lumière, l'espace et le murmure de l'océan dès le réveil.</p>
       <div class="rule"></div>
     </div>
@@ -206,11 +225,28 @@ document.addEventListener('click', function(e){
   </div>
 </section>
 
+
+<section id="vx-viseur" aria-label="Le resort dans le viseur">
+  <div class="wrap">
+    <div class="sec-head"><div class="kicker">Le viseur</div><h2>Le resort, cadre par cadre</h2><p class="vx-feat">Faites défiler : chaque cadre est numéroté.</p></div>
+    <div class="vx-vis-wrap">
+      <div class="vx-vis" id="vxVis">
+        <figure class="vx-frame"><img src="azura/shore.jpg" alt="Suite Jardin AZURA BAY" draggable="false"><figcaption><b>01</b> Suite Jardin</figcaption></figure>
+        <figure class="vx-frame"><img src="azura/resort.jpg" alt="Suite Océan AZURA BAY" draggable="false"><figcaption><b>02</b> Suite Océan</figcaption></figure>
+        <figure class="vx-frame"><img src="azura/villa.jpg" alt="Villa Azura privée avec piscine" draggable="false"><figcaption><b>03</b> Villa Azura privée</figcaption></figure>
+        <figure class="vx-frame"><img src="azura/spa.jpg" alt="Spa signature" draggable="false"><figcaption><b>04</b> Spa signature</figcaption></figure>
+      </div>
+      <div class="vx-vis-count"><span id="vxVisNum">01</span> / 04 — <span id="vxVisName">Suite Jardin</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="exp-sec" id="experiences">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Expériences</div>
       <h2>Des journées composées pour vous</h2>
+      <p class="vx-feat">Du premier rayon de soleil au dîner les pieds dans le sable.</p>
       <p>Du premier rayon de soleil au dîner les pieds dans le sable, chaque moment devient un souvenir.</p>
       <div class="rule"></div>
     </div>
@@ -228,6 +264,7 @@ document.addEventListener('click', function(e){
     <div class="sec-head">
       <div class="kicker">Galerie</div>
       <h2>AZURA BAY en images</h2>
+      <p class="vx-feat">Plage turquoise, spa signature et villa privée — en images.</p>
       <div class="rule"></div>
     </div>
     <div class="gal">
@@ -251,6 +288,7 @@ document.addEventListener('click', function(e){
 <section class="cta" id="contact">
   <div class="wrap">
     <h2>Votre parenthèse océan commence ici</h2>
+    <p class="vx-feat">Notre conciergerie vous répond en quelques minutes.</p>
     <p>Écrivez-nous sur WhatsApp : notre conciergerie vous répond en quelques minutes et compose votre séjour sur mesure.</p>
     <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20composer%20mon%20s%C3%A9jour%20%C3%A0%20Tanger." target="_blank" rel="noopener">Nous écrire sur WhatsApp</a>
   </div>
@@ -340,5 +378,37 @@ document.getElementById('bookForm').addEventListener('submit', function(e){
 })();
 </script>
   <script src="vx-content.js" defer></script>
-<style>.waf{position:fixed;bottom:20px;inset-inline-end:20px;z-index:195;background:#22c064;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none}</style><a class="waf" target="_blank" rel="noopener" href="https://wa.me/212693981822?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D9%85%D9%88%D9%82%D8%B9%20VERTEX%20WEB%20%D9%88%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AF%D9%8A%D8%A7%D9%84%D9%8A" aria-label="WhatsApp">✆</a></body>
+<script id="vx-pro17-js">/* VX-PRO17 base */
+(function(){var L=document.getElementById('vxLoader');if(L){var pct=L.querySelector('.vx-pct'),bar=L.querySelector('.vx-bar i'),imgs=[].slice.call(document.images),done=0,shown=0,target=0;
+function upd(){var base=document.readyState==='complete'?70:40;var r=imgs.length?Math.round(done/imgs.length*30):30;target=Math.min(99,base+r);if(document.readyState==='complete'&&(!imgs.length||done>=imgs.length))target=100;}
+function tick(){shown+= (target-shown)*.18;if(target-shown<1)shown=target;var v=Math.round(shown);pct.textContent=v+'%';bar.style.width=v+'%';if(v>=100){setTimeout(function(){L.style.opacity='0';L.style.pointerEvents='none';setTimeout(function(){L.remove()},650)},150);return;}requestAnimationFrame(tick);}
+imgs.forEach(function(im){if(im.complete)done++;else{im.addEventListener('load',function(){done++;upd()});im.addEventListener('error',function(){done++;upd()});}});
+window.addEventListener('load',upd);upd();requestAnimationFrame(tick);setTimeout(function(){upd=function(){};target=100;},4000);}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}
+})();
+</script>
+<style id="vx-sig-css">
+.vx-feat{font-style:italic;opacity:.85;margin-top:10px}
+#vx-viseur{padding:70px 0 10px}
+.vx-vis{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 14px;cursor:grab;scrollbar-width:none}
+.vx-vis::-webkit-scrollbar{display:none}
+.vx-vis.grabbing{cursor:grabbing;scroll-snap-type:none}
+.vx-frame{flex:0 0 78%;max-width:520px;scroll-snap-align:center;position:relative;border-radius:14px;overflow:hidden;margin:0}
+.vx-frame:before,.vx-frame:after{content:"";position:absolute;width:26px;height:26px;z-index:2;border:2px solid rgba(255,255,255,.9)}
+.vx-frame:before{top:10px;left:10px;border-right:none;border-bottom:none}
+.vx-frame:after{bottom:10px;right:10px;border-left:none;border-top:none}
+.vx-frame img{width:100%;height:300px;object-fit:cover;display:block;pointer-events:none}
+.vx-frame figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65));font-size:.95rem}
+.vx-frame figcaption b{margin-right:8px}
+.vx-vis-count{text-align:center;font-variant-numeric:tabular-nums;letter-spacing:.12em;margin-top:4px}
+@media(max-width:640px){.vx-frame{flex-basis:86%}.vx-frame img{height:240px}}
+</style><script id="vx-sig-js">
+(function(){var vis=document.getElementById('vxVis');if(!vis)return;var frames=[].slice.call(vis.querySelectorAll('.vx-frame'));var num=document.getElementById('vxVisNum'),name=document.getElementById('vxVisName');
+function upd(){var c=vis.getBoundingClientRect(),cx=c.left+c.width/2,best=0,bd=1e9;frames.forEach(function(f,i){var r=f.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-cx);if(d<bd){bd=d;best=i}});num.textContent=('0'+(best+1)).slice(-2);var cap=frames[best].querySelector('figcaption');name.textContent=cap?cap.textContent.replace(/^\d+\s*/,''):'';}
+vis.addEventListener('scroll',function(){requestAnimationFrame(upd)},{passive:true});upd();
+var down=false,sx=0,sl=0;vis.addEventListener('pointerdown',function(e){down=true;sx=e.clientX;sl=vis.scrollLeft;vis.classList.add('grabbing')});
+window.addEventListener('pointermove',function(e){if(down)vis.scrollLeft=sl-(e.clientX-sx)});
+window.addEventListener('pointerup',function(){down=false;vis.classList.remove('grabbing')});})();
+</script></body>
 </html>
