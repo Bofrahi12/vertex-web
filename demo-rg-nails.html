@@ -171,6 +171,33 @@ footer a{color:#f1d9de;font-weight:700}
 @media(max-width:760px){.stickybar{display:flex}}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.on{opacity:1;transform:none}
+/* Motion graphics layer */
+#scrollbarTop{position:fixed;top:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--rose));width:0;z-index:130;border-radius:0 0 3px 3px}
+.spark{position:absolute;border-radius:50%;background:radial-gradient(circle,#fff 0%,rgba(255,255,255,0) 68%);opacity:.65;pointer-events:none;animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-16px) scale(1.12)}}
+.vband{background:linear-gradient(180deg,var(--cream),var(--blush) 55%,var(--cream))}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:auto}
+@media(max-width:560px){.vgrid{grid-template-columns:1fr 1fr;gap:10px}}
+.vcard{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 18px 38px rgba(142,74,86,.22);border:5px solid #fff;background:#000}
+.vcard video{width:100%;height:420px;object-fit:cover;display:block}
+@media(max-width:560px){.vcard video{height:290px}}
+.vcard .vtag{position:absolute;bottom:12px;inset-inline-start:12px;background:rgba(47,34,38,.72);color:#fff;font-size:12.5px;font-weight:800;padding:5px 13px;border-radius:20px;backdrop-filter:blur(3px)}
+.vcard .live{position:absolute;top:12px;inset-inline-start:12px;background:#e23b3b;color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;padding:4px 11px;border-radius:16px;display:flex;align-items:center;gap:6px}
+.vcard .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.pres{display:grid;grid-template-columns:1fr .82fr;gap:34px;align-items:center}
+@media(max-width:840px){.pres{grid-template-columns:1fr}}
+.pvid{position:relative;max-width:340px;margin:auto;width:100%}
+.pvid .frame{border-radius:26px;overflow:hidden;box-shadow:0 24px 50px rgba(111,53,64,.3);border:6px solid #fff;background:#000}
+.pvid video{width:100%;height:480px;object-fit:cover;display:block}
+.rotbadge{position:absolute;top:-26px;inset-inline-end:-16px;width:104px;height:104px;z-index:3}
+.rotbadge svg{width:100%;height:100%;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rotbadge .c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px}
+.pres .txt h2{color:var(--rose-dd);font-size:clamp(23px,3.8vw,31px);font-weight:800;margin-bottom:10px}
+.pres .txt p{color:#5f474d}
+.pres .sig2{margin-top:14px;display:flex;gap:9px;flex-wrap:wrap}
+.pres .sig2 span{font-size:12.5px;font-weight:700;color:var(--rose-d);background:#fff;border:1px solid var(--blush2);padding:5px 13px;border-radius:20px}
 </style>
 </head>
 <body>
@@ -182,11 +209,12 @@ footer a{color:#f1d9de;font-weight:700}
   <div class="lpct" id="vxPct">0%</div>
 </div>
 
+<div id="scrollbarTop"></div>
 <header>
   <div class="hwrap">
     <a class="logo" href="#top"><span class="mark">RG</span><span><b>RG NAIL'S</b><small>BY WIAM · TANGER</small></span></a>
     <nav class="desk">
-      <a href="#services">الخدمات</a><a href="#univers">عالمنا</a><a href="#galerie">المعرض</a><a href="#google">Google</a><a href="#faq">أسئلة</a>
+      <a href="#services">الخدمات</a><a href="#video">لقطات حقيقية</a><a href="#univers">عالمنا</a><a href="#galerie">المعرض</a><a href="#google">Google</a>
     </nav>
     <a class="hcta" href="https://wa.me/212631652609?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20RG%20NAIL%27S%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.3z"/></svg>احجزي دابا</a>
   </div>
@@ -207,6 +235,9 @@ footer a{color:#f1d9de;font-weight:700}
         <div class="proofs"><span>حجز فوري في واتساب</span><span>تصاميم على ذوقك</span><span>عناية في كل تفصيلة</span></div>
       </div>
       <div class="himg">
+        <span class="spark" style="width:54px;height:54px;top:6%;inset-inline-start:-14px"></span>
+        <span class="spark" style="width:30px;height:30px;top:22%;inset-inline-end:4%;animation-delay:1.4s"></span>
+        <span class="spark" style="width:20px;height:20px;bottom:26%;inset-inline-start:-6px;animation-delay:2.6s"></span>
         <div class="arch"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1000&q=80" alt="أظافر أنيقة عند RG NAIL'S طنجة" fetchpriority="high"></div>
         <div class="badge"><span class="dot"></span><span><b>الحجز مفتوح</b><small>جاوبك في واتساب في أقرب وقت</small></span></div>
       </div>
@@ -229,6 +260,16 @@ footer a{color:#f1d9de;font-weight:700}
     <button class="go" type="submit"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.3z"/></svg>أكدي في واتساب</button>
   </form>
 </div>
+
+<section class="vband" id="video">
+  <div class="wrap">
+    <div class="shead rv"><div class="k">EN VIDÉO</div><h2>الخدمة… كتتعمل قدام عينيك</h2><p>لقطات حقيقية من قلب الخدمة: التحضير الدقيق، وتطبيق اللون بلمسة ثابتة.</p><div class="rule"></div></div>
+    <div class="vgrid">
+      <div class="vcard rv"><span class="live">LIVE</span><video class="rvid" muted loop playsinline preload="metadata" poster="media/rg-clip-file.jpg"><source src="media/rg-clip-file.mp4" type="video/mp4"></video><span class="vtag">التحضير والتشكيل</span></div>
+      <div class="vcard rv"><span class="live">LIVE</span><video class="rvid" muted loop playsinline preload="metadata" poster="media/rg-clip-polish.jpg"><source src="media/rg-clip-polish.mp4" type="video/mp4"></video><span class="vtag">تطبيق اللون</span></div>
+    </div>
+  </div>
+</section>
 
 <section id="services">
   <div class="wrap">
@@ -303,6 +344,22 @@ footer a{color:#f1d9de;font-weight:700}
   </div>
 </section>
 
+<section id="presenter" style="padding-top:10px">
+  <div class="wrap pres">
+    <div class="txt rv">
+      <div class="k" style="color:var(--rose);font-weight:800;letter-spacing:.3em;font-size:12px">VERTEX WEB</div>
+      <h2>هاد النموذج… تصايب خصيصاً ليك</h2>
+      <p>أنا مقدم VERTEX WEB من طنجة، والفريق ديالنا هو اللي صايب ليك هاد النموذج باسم RG NAIL'S: شوفي الفيديو باش تعرفي شكون غادي يخدم معاك، وكيفاش كنقدمو المواقع ديال زبنائنا قدام الكاميرا — بنفس العناية غادي نقدمو الموقع ديالك لزبوناتك.</p>
+      <p style="margin-top:10px">الموقع الحقيقي ديالك غادي يكون بحال هاد النموذج في الجودة، وبأعمالك وتصاورك نتي: الزبونة كتشوف الخدمة كتتحرك قدام عينيها، وكتحجز في ثواني.</p>
+      <div class="sig2"><span>فريق من طنجة</span><span>تصميم على ذوق علامتك</span><span>حجز واتساب مباشر</span></div>
+    </div>
+    <div class="pvid rv">
+      <div class="rotbadge" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><path id="cir" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><circle cx="50" cy="50" r="49" fill="#8e4a56"/><text font-size="10.2" fill="#f7e8eb" letter-spacing="2.5"><textPath href="#cir">RG NAIL'S • BY WIAM • TANGER • </textPath></text></svg><span class="c">✦</span></div>
+      <div class="frame"><video controls playsinline preload="none" poster="media/rg-presenter.jpg"><source src="media/rg-presenter.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
 <section class="final">
   <div class="wrap rv">
     <h2>جاهزة للوك جديد؟</h2>
@@ -350,6 +407,12 @@ f.addEventListener('click',sw);f.addEventListener('keydown',function(e){if(e.key
 document.querySelectorAll('.ggrid figure').forEach(function(fg){fg.addEventListener('click',function(){var i=fg.querySelector('img');im.src=i.src.replace('w=700','w=1100');lb.classList.add('open');});});
 function close(){lb.classList.remove('open');im.src='';}
 document.getElementById('lbX').addEventListener('click',close);lb.addEventListener('click',function(e){if(e.target===lb)close();});})();
+/* Real clips: play in view, pause out of view */
+(function(){var vids=document.querySelectorAll('.rvid');if(!('IntersectionObserver' in window)){vids.forEach(function(v){v.play().catch(function(){})});return;}
+var vo=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.play().catch(function(){})}else{x.target.pause()}})},{threshold:.3});
+vids.forEach(function(v){vo.observe(v)});})();
+/* Scroll progress */
+(function(){var bar=document.getElementById('scrollbarTop');addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);bar.style.width=(p*100)+'%'},{passive:true});})();
 /* Reveal */
 (function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('on')});return;}
 var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{threshold:.1});
