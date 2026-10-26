@@ -204,6 +204,16 @@ footer .fine{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,
 .faq details[open ] summary::after{content:'−'}
 .faq details p{padding:0 20px 18px;color:var(--mut);font-size:15.5px}
 
+/* ---------- 3D showcase ---------- */
+.stage3d{perspective:1400px;padding:26px 0 30px;overflow:hidden}
+.ring3d{position:relative;width:min(56vw,290px);aspect-ratio:4/3.4;margin:0 auto;transform-style:preserve-3d;cursor:grab;touch-action:pan-y}
+.ring3d:active{cursor:grabbing}
+.panel3d{position:absolute;inset:0;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.22);box-shadow:0 24px 50px rgba(0,0,0,.55);backface-visibility:hidden;background:#0d0f16}
+.panel3d img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.panel3d span{position:absolute;bottom:0;left:0;right:0;padding:26px 12px 9px;background:linear-gradient(0deg,rgba(4,5,9,.85),transparent);font-size:13.5px;font-weight:800;color:#fff}
+.hint3d{text-align:center;color:var(--mut);font-size:14px;margin-top:34px}
+.tilt{transform-style:preserve-3d;will-change:transform}
+
 /* ---------- Reveal ---------- */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.on{opacity:1;transform:none}
@@ -464,6 +474,19 @@ footer .fine{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,
   </div>
 </section>
 
+<!-- ================= 3D SHOWCASE ================= -->
+<section id="showcase">
+  <div class="sec-head rv">
+    <div class="tag">تجربة ثلاثية الأبعاد</div>
+    <h2>لقطات النجم تدور حولك</h2>
+    <p>معرض 3D حقيقي: اسحب بصبعك أو بالفأرة وخلّي لقطات يامال تلفّ قدام عينيك.</p>
+  </div>
+  <div class="stage3d rv">
+    <div class="ring3d" id="ring3d" aria-label="معرض صور ثلاثي الأبعاد للامين يامال"></div>
+    <div class="hint3d">↔️ اسحب باش تلفّ المعرض — كيدور بوحدو إلا خليتيه</div>
+  </div>
+</section>
+
 <!-- ================= GALLERY ================= -->
 <section id="gallery">
   <div class="sec-head rv">
@@ -490,7 +513,7 @@ footer .fine{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,
   <div class="sec-head rv">
     <div class="tag">فيديوهات حقيقية</div>
     <h2>شوف بعينيك — من القنوات الرسمية</h2>
-    <p>فيديوهات رسمية من قناة برشلونة وقناة الليغا على يوتيوب. ضغط على التشغيل وكتفتح هنا بلا ما تخرج من الموقع.</p>
+    <p>خمسة فيديوهات حقيقية من القنوات الرسمية (برشلونة، الليغا، FOX Soccer) على يوتيوب. ضغط على التشغيل وكتفتح هنا بلا ما تخرج من الموقع.</p>
   </div>
   <div class="vids">
     <div class="vid rv" data-yt="M37orXBtvtg">
@@ -507,6 +530,30 @@ footer .fine{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,
         <span class="btn"></span>
         <span class="t">19 لحظة كبيرة من لامين يامال في الليغا</span>
         <span class="c">القناة الرسمية · LALIGA EA SPORTS</span>
+      </button>
+    </div>
+    <div class="vid rv" data-yt="cQQsgMpy2cA">
+      <img class="thumb" src="https://i.ytimg.com/vi/cQQsgMpy2cA/hqdefault.jpg" alt="أفضل لقطات لامين يامال في موسم 2025/26 — برشلونة" loading="lazy">
+      <button class="play" type="button" aria-label="تشغيل فيديو أفضل لقطات لامين يامال 2025/26">
+        <span class="btn"></span>
+        <span class="t">الأفضل في موسم 2025/26 — مهارات وأهداف</span>
+        <span class="c">القناة الرسمية · FC Barcelona</span>
+      </button>
+    </div>
+    <div class="vid rv" data-yt="J0s6gT8OCJc">
+      <img class="thumb" src="https://i.ytimg.com/vi/J0s6gT8OCJc/hqdefault.jpg" alt="كل أهداف وتمريرات لامين يامال في الليغا 2025/26" loading="lazy">
+      <button class="play" type="button" aria-label="تشغيل فيديو كل أهداف لامين يامال في الليغا">
+        <span class="btn"></span>
+        <span class="t">كل أهدافو وتمريراتو في الليغا 2025/26</span>
+        <span class="c">القناة الرسمية · LALIGA EA SPORTS</span>
+      </button>
+    </div>
+    <div class="vid rv" data-yt="7fq5-PfVlCg">
+      <img class="thumb" src="https://i.ytimg.com/vi/7fq5-PfVlCg/hqdefault.jpg" alt="هدف لامين يامال التاريخي ضد فرنسا في يورو 2024" loading="lazy">
+      <button class="play" type="button" aria-label="تشغيل فيديو هدف لامين يامال ضد فرنسا">
+        <span class="btn"></span>
+        <span class="t">الهدف التاريخي ضد فرنسا — أصغر هدّاف في تاريخ اليورو</span>
+        <span class="c">البث الرسمي · FOX Soccer</span>
       </button>
     </div>
   </div>
@@ -588,6 +635,58 @@ footer .fine{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,
     prog.style.width=(max>0?(window.scrollY/max*100):0)+'%';
   }
   addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* ---------- 3D ring carousel ---------- */
+  (function(){
+    var ring=document.getElementById('ring3d');
+    if(!ring) return;
+    var shots=[
+      ['assets/portrait-2025.jpg','المراوغة بقميص إسبانيا'],
+      ['assets/barca-athletic.jpg','الاحتفال بالركبة — الرقم 10'],
+      ['assets/wc-final-167.jpg','ليلة نهائي كأس العالم 2026'],
+      ['assets/wc-nico-252.jpg','مع نيكو ويليامز'],
+      ['assets/copa-final.jpg','رفع كأس الملك 2025'],
+      ['assets/wc-final-133.jpg','من الظهر: LAMINE YAMAL 19'],
+      ['assets/fra-057.jpg','ضد فرنسا 2026'],
+      ['assets/wc-final-319.jpg','لقطة من النهائي']
+    ];
+    var N=shots.length, step=360/N;
+    shots.forEach(function(s){
+      var d=document.createElement('div');
+      d.className='panel3d';
+      d.innerHTML='<img src="'+s[0]+'" alt="'+s[1]+'" loading="lazy"><span>'+s[1]+'</span>';
+      ring.appendChild(d);
+    });
+    var panels=ring.children;
+    function layout(){
+      var w=ring.clientWidth;
+      var tz=Math.round((w/2)/Math.tan(Math.PI/N))+26;
+      for(var i=0;i<N;i++) panels[i].style.transform='rotateY('+(i*step)+'deg) translateZ('+tz+'px)';
+    }
+    layout(); addEventListener('resize',layout);
+    var rot=0, dragging=false, startX=0, startRot=0;
+    function frame(){
+      if(!dragging){ rot+=0.12; ring.style.transform='rotateX(-6deg) rotateY('+rot+'deg)'; }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+    ring.addEventListener('pointerdown',function(e){ dragging=true; startX=e.clientX; startRot=rot; try{ring.setPointerCapture(e.pointerId);}catch(_){} });
+    ring.addEventListener('pointermove',function(e){ if(!dragging) return; rot=startRot+(e.clientX-startX)*0.35; ring.style.transform='rotateX(-6deg) rotateY('+rot+'deg)'; });
+    ['pointerup','pointercancel'].forEach(function(ev){ ring.addEventListener(ev,function(){ dragging=false; }); });
+  })();
+
+  /* ---------- 3D tilt on ID card photo ---------- */
+  (function(){
+    var el=document.querySelector('.idcard figure');
+    if(!el || matchMedia('(hover: none)').matches) return;
+    el.classList.add('tilt');
+    el.addEventListener('pointermove',function(e){
+      var r=el.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+      el.style.transform='perspective(900px) rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg)';
+    });
+    el.addEventListener('pointerleave',function(){ el.style.transform=''; });
+  })();
 
   /* ---------- Reveal ---------- */
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } }); },{threshold:.12});
