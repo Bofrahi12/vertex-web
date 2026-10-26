@@ -156,6 +156,88 @@ html,body{overflow-x:clip!important}
 .vx-wa-float svg{width:30px;height:30px;fill:#fff}
 @media (prefers-reduced-motion:reduce){.vx-rv{opacity:1;transform:none;transition:none}}
 </style>
+<style id="vx-3d-store-css">
+.vx-announce{background:var(--ink);color:#fff;text-align:center;font-size:.8rem;font-weight:600;letter-spacing:.04em;padding:9px 14px;position:relative;z-index:60}
+.vx-announce i{color:var(--acc);font-style:normal;margin:0 8px}
+.vx-cart-btn{position:relative;background:var(--ink);color:#fff;border:none;width:46px;height:46px;border-radius:50%;font-size:1.05rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.vx-cart-count{position:absolute;top:-4px;inset-inline-end:-4px;background:var(--acc);color:#fff;font-size:.68rem;font-weight:800;min-width:20px;height:20px;border-radius:99px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+.vx-globe-wrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#vxGlobe{position:absolute;top:50%;inset-inline-end:-6%;transform:translateY(-50%);width:min(560px,80vw);height:min(560px,80vw);opacity:.85}
+.hero .wrap.grid{position:relative;z-index:1}
+.marquee{transform:perspective(700px) rotateX(15deg) rotateZ(-1.1deg) scale(1.03)!important;transform-origin:center top;box-shadow:0 24px 40px -22px rgba(22,19,14,.45)}
+.vx-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.vx-chips{display:flex;gap:9px;flex-wrap:wrap}
+.vx-chip{border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:9px 17px;border-radius:99px;font-weight:700;font-size:.86rem;cursor:pointer;transition:.25s var(--vx-ease)}
+.vx-chip:hover{border-color:var(--ink)}
+.vx-chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.vx-search{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:10px 16px;min-width:min(280px,100%)}
+.vx-search input{border:none;outline:none;font:inherit;font-size:.92rem;background:transparent;width:100%;color:var(--ink)}
+.vx-nores{color:var(--mut);font-weight:600;padding:12px 0 26px}
+#pgrid{perspective:1300px}
+.pcard{transform-style:preserve-3d}
+.pcard .vx-glare{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;transition:opacity .35s var(--vx-ease);background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.35),transparent 45%)}
+.pcard:hover .vx-glare{opacity:1}
+.vx-heart{position:absolute;bottom:10px;inset-inline-end:10px;z-index:6;width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.92);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(22,19,14,.22);transition:transform .25s var(--vx-ease)}
+.vx-heart:active{transform:scale(1.2)}
+.vx-heart.on{background:var(--acc)}
+.pcard .ph{cursor:pointer}
+.vx-look{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.vx-look figure{flex:0 0 min(240px,68vw);scroll-snap-align:start;border-radius:var(--rad);overflow:hidden;position:relative;margin:0}
+.vx-look img{width:100%;height:300px;object-fit:cover;display:block}
+.vx-look figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;color:#fff;font-weight:700;font-size:.9rem;background:linear-gradient(transparent,rgba(10,8,5,.75))}
+.vx-look figcaption small{display:block;font-weight:600;color:#ffb59d}
+.vx-trust-sec{padding:0 0 80px}
+.vx-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.vx-trust{grid-template-columns:1fr}}
+.vx-trust-i{background:#fff;border:1px solid var(--line);border-radius:var(--rad);padding:24px;display:flex;flex-direction:column;gap:4px}
+.vx-trust-i span{font-size:1.5rem;margin-bottom:8px}
+.vx-trust-i small{color:var(--mut)}
+.vx-overlay{position:fixed;inset:0;background:rgba(15,12,8,.55);z-index:200;opacity:0;pointer-events:none;transition:opacity .35s var(--vx-ease)}
+.vx-overlay.on{opacity:1;pointer-events:auto}
+.vx-drawer{position:fixed;top:0;inset-inline-end:0;height:100dvh;width:min(400px,92vw);background:var(--bg);z-index:210;transform:translateX(105%);transition:transform .5s var(--vx-ease);display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(0,0,0,.25)}
+html[dir="rtl"] .vx-drawer{transform:translateX(-105%)}
+.vx-drawer.on{transform:none!important}
+.vx-drawer header{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line)}
+.vx-drawer header b{font-size:1.1rem;text-transform:uppercase;letter-spacing:.04em}
+.vx-x{background:#fff;border:1px solid var(--line);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem}
+.vx-items{flex:1;overflow-y:auto;padding:16px 22px;display:flex;flex-direction:column;gap:14px}
+.vx-item{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px}
+.vx-item img{width:64px;height:64px;object-fit:cover;border-radius:11px}
+.vx-item .nm{font-weight:700;font-size:.9rem;line-height:1.3}
+.vx-item .sz{color:var(--mut);font-size:.8rem}
+.vx-item .pr{font-weight:800;color:var(--acc);font-size:.9rem;margin-top:3px}
+.vx-qty{display:inline-flex;align-items:center;gap:9px;margin-top:7px}
+.vx-qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-weight:800}
+.vx-rm{margin-inline-start:auto;background:none;border:none;color:var(--acc);cursor:pointer;font-size:1rem;align-self:flex-start}
+.vx-empty{color:var(--mut);text-align:center;padding:34px 0;font-weight:600}
+.vx-drawer footer{padding:18px 22px;border-top:1px solid var(--line)}
+.vx-sub{display:flex;justify-content:space-between;font-weight:800;font-size:1.05rem;margin-bottom:13px}
+.vx-checkout{display:flex;align-items:center;justify-content:center;gap:9px;background:#25D366;color:#fff;font-weight:800;padding:15px;border-radius:99px;text-decoration:none}
+.vx-modal{position:fixed;inset:0;z-index:220;display:none;align-items:center;justify-content:center;padding:18px}
+#vxQuickBg{z-index:0!important}
+.vx-modal.on{display:flex}
+.vx-modal-box{background:var(--bg);border-radius:26px;max-width:820px;width:100%;max-height:92dvh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;position:relative;z-index:2}
+@media(max-width:700px){.vx-modal-box{grid-template-columns:1fr}}
+.vx-modal .vx-mph{position:relative;min-height:300px}
+.vx-modal .vx-mph>img:first-child{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vx-mbody{padding:28px}
+.vx-mbody .cat{color:var(--acc);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem}
+.vx-mbody h3{font-size:1.6rem;font-weight:900;margin:7px 0 9px;line-height:1.1}
+.vx-mbody .desc{color:var(--mut);line-height:1.55}
+.vx-mprice{font-size:1.45rem;font-weight:900;margin:16px 0 4px}
+.vx-mprice del{color:var(--mut);font-size:1rem;margin-inline-end:8px}
+.vx-sizes{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+.vx-size{border:1.5px solid var(--line);background:#fff;border-radius:11px;padding:9px 14px;font-weight:700;cursor:pointer;transition:.2s var(--vx-ease)}
+.vx-size.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.vx-mrow{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px;flex-wrap:wrap}
+.vx-mtotal{font-weight:900;font-size:1.15rem}
+.vx-mtotal small{display:block;color:var(--mut);font-weight:600;font-size:.78rem}
+.vx-mbtns{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.vx-mbtns a,.vx-mbtns button{flex:1;min-width:150px;text-align:center;padding:14px 16px;border-radius:99px;font-weight:800;cursor:pointer;border:none;font-size:.95rem;text-decoration:none}
+.vx-add{background:var(--ink);color:#fff}
+.vx-buy{background:#25D366;color:#fff}
+.vx-modal .vx-x{position:absolute;top:14px;inset-inline-end:14px;z-index:5}
+</style>
 </head>
 <body>
 <div id="vxLoader" aria-hidden="true"><div class="vx-pct">0%</div><div class="vx-bar"><i></i></div><div class="vx-lab">Chargement</div></div>
@@ -164,15 +246,17 @@ html,body{overflow-x:clip!important}
 
 <div id="loader"><div style="text-align:center"><div class="lg">STRIDE<span>.</span></div><div class="bar"><i></i></div></div></div>
 
+<div class="vx-announce">Livraison 24–48h à Tanger <i>✦</i> Paiement à la livraison <i>✦</i> Commande simple sur WhatsApp</div>
 <nav><div class="wrap in">
   <a class="logo" href="#">STRIDE<span>.</span></a>
   <div class="links">
     <a href="#produits">Produits</a><a href="#experience">L'expérience</a><a href="#avis">Avis</a>
   </div>
-  <a class="wa-pill" href="https://wa.me/212693981822?text=Bonjour%20STRIDE%2C%20je%20veux%20des%20infos%20sur%20vos%20produits" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+  <a class="wa-pill" href="https://wa.me/212693981822?text=Bonjour%20STRIDE%2C%20je%20veux%20des%20infos%20sur%20vos%20produits" target="_blank" rel="noopener">Commander sur WhatsApp</a> <button class="vx-cart-btn" id="vxCartBtn" aria-label="Panier">🛒<span class="vx-cart-count" id="vxCartCount">0</span></button>
 </div></nav>
 
 <header class="hero">
+  <div class="vx-globe-wrap" id="vxGlobeWrap"><canvas id="vxGlobe"></canvas></div>
   <div class="ghost">STRIDE</div>
   <div class="wrap grid">
     <div>
@@ -208,9 +292,18 @@ html,body{overflow-x:clip!important}
     <h2>La collection<br><em>du moment</em></h2>
     <p>Des pièces choisies pour le quotidien comme pour l'entraînement. Commande directe sur WhatsApp, sans inscription.</p>
   </div>
+  <div class="vx-toolbar">
+    <div class="vx-chips" id="vxChips"></div>
+    <label class="vx-search"><span>🔍</span><input type="search" id="vxSearch" placeholder="Rechercher un produit…" aria-label="Rechercher un produit"></label>
+  </div>
+  <p class="vx-nores" id="vxNoRes" hidden>Aucun produit ne correspond à ta recherche.</p>
   <div class="pgrid" id="pgrid"></div>
 </div></section>
 
+<section class="vx-look-sec"><div class="wrap">
+  <div class="sec-head rv"><h2>Le look<em>book</em></h2><p>Les pièces de la collection, portées pour de vrai.</p></div>
+  <div class="vx-look" id="vxLook"></div>
+</div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="exp" id="experience">
     <div class="phone-stage rv">
@@ -246,6 +339,11 @@ html,body{overflow-x:clip!important}
   </div>
 </div></section>
 
+<section class="vx-trust-sec"><div class="wrap"><div class="vx-trust">
+  <div class="vx-trust-i"><span>🚚</span><b>Livraison 24–48h</b><small>à Tanger</small></div>
+  <div class="vx-trust-i"><span>💵</span><b>Paiement à la livraison</b><small>tu paies à la réception</small></div>
+  <div class="vx-trust-i"><span>💬</span><b>Commande WhatsApp</b><small>directe, sans inscription</small></div>
+</div></div></section>
 <footer><div class="wrap in">
   <div><b>STRIDE.</b> — Boutique sport & streetwear · Tanger, Maroc</div>
   <div>Site de démonstration réalisé par <b>Vertex Web</b> — produits et avis fictifs, prix indicatifs.</div>
@@ -259,7 +357,13 @@ const PRODUCTS = [
  {img:"demo-stride/img/cap.jpg", tag:"ESSENTIEL", hot:false, cat:"Accessoires", name:"Casquette Trucker", desc:"Filet respirant à l'arrière, visière structurée, taille unique réglable.", price:149, old:199},
  {img:"demo-stride/img/hoodie.jpg", tag:"-25%", hot:true, cat:"Streetwear", name:"Hoodie Essential", desc:"Molleton épais, coupe droite — l'essentiel de la garde-robe.", price:349, old:459},
  {img:"demo-stride/img/fitness.jpg", tag:"PACK", hot:false, cat:"Training", name:"Ensemble Training Pro", desc:"Tissu technique qui sèche vite, pensé pour les séances intenses.", price:499, old:null},
- {img:"demo-stride/img/bag.jpg", tag:"NOUVEAU", hot:false, cat:"Accessoires", name:"Sac à dos Court 20L", desc:"Compartiment chaussures séparé, poche ordinateur 15 pouces.", price:399, old:499},
+ {img:"demo-stride/img/bag.jpg", tag:"NOUVEAU", hot:false, cat:"Accessoires", name:"Sac à dos Court 20L", desc:"Compartiment chaussures séparé, poche ordinateur 15 pouces.", price:399, old:499},,
+ {img:"demo-stride/img/sneakers.jpg", tag:"NOUVEAU", hot:false, cat:"Running", name:"Runner Air Flex", desc:"Amorti réactif, empeigne tricotée — pour les sorties longues comme pour la ville.", price:699, old:null},
+ {img:"demo-stride/img/shoes2.jpg", tag:"ESSENTIEL", hot:false, cat:"Lifestyle", name:"Sneakers Court Classic", desc:"Cuir souple, semelle cupsole — le classique qui va avec tout.", price:499, old:649},
+ {img:"demo-stride/img/hoodie.jpg", tag:"TOP VENTE", hot:true, cat:"Streetwear", name:"Hoodie Oversize Premium", desc:"Coupe oversize, intérieur gratté — confort maximal, style affirmé.", price:399, old:null},
+ {img:"demo-stride/img/fitness.jpg", tag:"PACK", hot:false, cat:"Training", name:"Short Training Dry", desc:"Matière légère à séchage rapide, poche zippée pour les clés.", price:199, old:259},
+ {img:"demo-stride/img/cap.jpg", tag:"NOUVEAU", hot:false, cat:"Accessoires", name:"Casquette Snapback", desc:"Visière plate, broderie ton sur ton, fermeture réglable.", price:129, old:null},
+ {img:"demo-stride/img/bag.jpg", tag:"ESSENTIEL", hot:false, cat:"Accessoires", name:"Sac de sport Duffel 30L", desc:"Grand volume, bandoulière amovible — prêt pour la salle comme pour le week-end.", price:449, old:549}
 ];
 document.getElementById("pgrid").innerHTML = PRODUCTS.map(p => `
  <article class="pcard rv">
@@ -311,6 +415,197 @@ document.querySelectorAll('section, .card, article').forEach(function(el){el.cla
 
 <script id="vx-sig-loaderfix">/* safety: lazy below-fold images can keep the VX loader counter at 99 */
 setTimeout(function(){var L=document.getElementById('vxLoader');if(L){L.style.opacity='0';L.style.pointerEvents='none';setTimeout(function(){L.remove()},650)}},6000);
+</script>
+<div class="vx-overlay" id="vxOverlay"></div>
+<aside class="vx-drawer" id="vxDrawer" aria-label="Panier">
+  <header><b>Mon panier</b><button class="vx-x" id="vxDrawerClose" aria-label="Fermer">✕</button></header>
+  <div class="vx-items" id="vxItems"></div>
+  <footer><div class="vx-sub"><span>Sous-total</span><span id="vxSubtotal">0 DH</span></div>
+  <a class="vx-checkout" id="vxCheckout" href="#" target="_blank" rel="noopener">Commander sur WhatsApp</a></footer>
+</aside>
+<div class="vx-modal" id="vxQuick" role="dialog" aria-modal="true">
+  <div class="vx-overlay on" id="vxQuickBg" style="position:absolute"></div>
+  <div class="vx-modal-box">
+    <button class="vx-x" id="vxQuickClose" aria-label="Fermer">✕</button>
+    <div class="vx-mph vx-ph" id="vxQPh"></div>
+    <div class="vx-mbody">
+      <div class="cat" id="vxQCat"></div><h3 id="vxQName"></h3><p class="desc" id="vxQDesc"></p>
+      <div class="vx-mprice" id="vxQPrice"></div>
+      <div style="font-weight:700;font-size:.86rem">Taille / pointure</div>
+      <div class="vx-sizes" id="vxQSizes"></div>
+      <div class="vx-mrow">
+        <div class="vx-qty"><button id="vxQMinus" aria-label="Moins">−</button><b id="vxQQty">1</b><button id="vxQPlus" aria-label="Plus">+</button></div>
+        <div class="vx-mtotal"><small>Total</small><span id="vxQTotal">0 DH</span></div>
+      </div>
+      <div class="vx-mbtns">
+        <button class="vx-add" id="vxQAdd">Ajouter au panier</button>
+        <a class="vx-buy" id="vxQBuy" href="#" target="_blank" rel="noopener">Commander</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+<script id="vx-store-js">(function(){
+var WA_NUM="212693981822";
+var grid=document.getElementById('pgrid');
+if(!grid||typeof PRODUCTS==='undefined')return;
+var sizesFor=function(cat){if(cat==='Running'||cat==='Lifestyle')return ['40','41','42','43','44','45'];if(cat==='Streetwear'||cat==='Training')return ['S','M','L','XL'];return ['Unique'];};
+var state={cat:'Tout',q:''};
+var wish={};
+var cart=[];
+var cats=['Tout'].concat(PRODUCTS.map(function(p){return p.cat;}).filter(function(v,i,a){return a.indexOf(v)===i;}));
+var chipsEl=document.getElementById('vxChips');
+chipsEl.innerHTML=cats.map(function(c){return '<button class="vx-chip'+(c==='Tout'?' on':'')+'" data-cat="'+c+'">'+c+'</button>';}).join('');
+chipsEl.addEventListener('click',function(e){var b=e.target.closest('.vx-chip');if(!b)return;state.cat=b.dataset.cat;chipsEl.querySelectorAll('.vx-chip').forEach(function(x){x.classList.toggle('on',x===b);});render();});
+document.getElementById('vxSearch').addEventListener('input',function(e){state.q=e.target.value.trim().toLowerCase();render();});
+function cardHTML(p,i){
+ var wished=wish[p.name]?' on':'';
+ return '<article class="pcard" data-idx="'+i+'">'
+ +'<div class="ph vx-ph"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"><img class="vx-duo" src="'+p.img+'" alt="" aria-hidden="true"><span class="tag '+(p.hot?'hot':'')+'">'+p.tag+'</span><span class="vx-badge">STUDIO</span><span class="vx-glare"></span><button class="vx-heart'+wished+'" data-heart="'+i+'" aria-label="Ajouter aux favoris">'+(wished?'❤️':'🤍')+'</button></div>'
+ +'<div class="bd"><div class="cat">'+p.cat+'</div><h3>'+p.name+'</h3><p class="desc">'+p.desc+'</p>'
+ +'<div class="row"><div class="price">'+(p.old?'<del>'+p.old+'</del>':'')+p.price+' <small>DH</small></div>'
+ +'<a class="order" target="_blank" rel="noopener" href="https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('Bonjour STRIDE, je veux commander : '+p.name+' ('+p.price+' DH)')+'">Commander</a></div></div></article>';
+}
+function render(){
+ var list=PRODUCTS.map(function(p,i){return [p,i];}).filter(function(x){return (state.cat==='Tout'||x[0].cat===state.cat)&&(!state.q||x[0].name.toLowerCase().indexOf(state.q)>=0||x[0].cat.toLowerCase().indexOf(state.q)>=0);});
+ grid.innerHTML=list.map(function(x){return cardHTML(x[0],x[1]);}).join('');
+ document.getElementById('vxNoRes').hidden=list.length>0;
+}
+render();
+var look=document.getElementById('vxLook');
+if(look){look.innerHTML=PRODUCTS.map(function(p){return '<figure><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"><figcaption>'+p.name+'<small>'+p.price+' DH</small></figcaption></figure>';}).join('');}
+grid.addEventListener('mouseover',function(e){var ph=e.target.closest('.vx-ph');if(!ph)return;var b=ph.querySelector('.vx-badge');if(b)b.textContent='AMBIANCE';});
+grid.addEventListener('mouseout',function(e){var ph=e.target.closest('.vx-ph');if(!ph||ph.classList.contains('vx-on'))return;var b=ph.querySelector('.vx-badge');if(b)b.textContent='STUDIO';});
+grid.addEventListener('click',function(e){
+ var h=e.target.closest('[data-heart]');
+ if(h){e.stopPropagation();var p=PRODUCTS[+h.dataset.heart];wish[p.name]=!wish[p.name];h.classList.toggle('on',!!wish[p.name]);h.textContent=wish[p.name]?'❤️':'🤍';return;}
+ if(e.target.closest('a.order'))return;
+ var ph=e.target.closest('.ph');
+ if(ph){var card=ph.closest('.pcard');openQuick(+card.dataset.idx);}
+});
+if(window.matchMedia&&matchMedia('(pointer:fine)').matches){
+ grid.addEventListener('pointermove',function(e){
+   var card=e.target.closest('.pcard');if(!card)return;
+   var r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+   card.style.transition='transform .12s ease-out';
+   card.style.transform='rotateY('+((x-.5)*11).toFixed(2)+'deg) rotateX('+((.5-y)*9).toFixed(2)+'deg)';
+   var g=card.querySelector('.vx-glare');if(g){g.style.setProperty('--gx',(x*100)+'%');g.style.setProperty('--gy',(y*100)+'%');}
+ });
+ grid.addEventListener('pointerout',function(e){var card=e.target.closest('.pcard');if(!card||card.contains(e.relatedTarget))return;card.style.transition='transform .6s var(--vx-ease)';card.style.transform='';});
+}
+var cur={idx:0,size:null,qty:1};
+var qm=document.getElementById('vxQuick');
+function openQuick(i){
+ cur={idx:i,size:sizesFor(PRODUCTS[i].cat)[0],qty:1};
+ var p=PRODUCTS[i];
+ document.getElementById('vxQPh').innerHTML='<img src="'+p.img+'" alt="'+p.name+'"><img class="vx-duo" src="'+p.img+'" alt="" aria-hidden="true"><span class="vx-badge">STUDIO</span>';
+ document.getElementById('vxQCat').textContent=p.cat+' · '+p.tag;
+ document.getElementById('vxQName').textContent=p.name;
+ document.getElementById('vxQDesc').textContent=p.desc;
+ document.getElementById('vxQPrice').innerHTML=(p.old?'<del>'+p.old+' DH</del>':'')+p.price+' DH';
+ document.getElementById('vxQSizes').innerHTML=sizesFor(p.cat).map(function(s){return '<button class="vx-size'+(s===cur.size?' on':'')+'" data-size="'+s+'">'+s+'</button>';}).join('');
+ updQ();qm.classList.add('on');
+}
+function updQ(){
+ var p=PRODUCTS[cur.idx];
+ document.getElementById('vxQQty').textContent=cur.qty;
+ document.getElementById('vxQTotal').textContent=(p.price*cur.qty)+' DH';
+ document.getElementById('vxQBuy').href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('Bonjour STRIDE, je veux commander : '+p.name+' — Taille '+cur.size+' × '+cur.qty+' = '+(p.price*cur.qty)+' DH');
+}
+document.getElementById('vxQSizes').addEventListener('click',function(e){var b=e.target.closest('.vx-size');if(!b)return;cur.size=b.dataset.size;this.querySelectorAll('.vx-size').forEach(function(x){x.classList.toggle('on',x===b);});updQ();});
+document.getElementById('vxQPlus').addEventListener('click',function(){if(cur.qty<20){cur.qty++;updQ();}});
+document.getElementById('vxQMinus').addEventListener('click',function(){if(cur.qty>1){cur.qty--;updQ();}});
+document.getElementById('vxQPh').addEventListener('click',function(){this.classList.toggle('vx-on');var b=this.querySelector('.vx-badge');if(b)b.textContent=this.classList.contains('vx-on')?'AMBIANCE':'STUDIO';});
+function closeQuick(){qm.classList.remove('on');}
+document.getElementById('vxQuickClose').addEventListener('click',closeQuick);
+document.getElementById('vxQuickBg').addEventListener('click',closeQuick);
+var drawer=document.getElementById('vxDrawer'),overlay=document.getElementById('vxOverlay');
+function cartCount(){return cart.reduce(function(s,l){return s+l.qty;},0);}
+function cartTotal(){return cart.reduce(function(s,l){return s+PRODUCTS[l.idx].price*l.qty;},0);}
+function renderCart(){
+ document.getElementById('vxCartCount').textContent=cartCount();
+ var box=document.getElementById('vxItems');
+ if(!cart.length){box.innerHTML='<p class="vx-empty">Ton panier est vide pour le moment.</p>';}
+ else box.innerHTML=cart.map(function(l,i){var p=PRODUCTS[l.idx];return '<div class="vx-item"><img src="'+p.img+'" alt=""><div style="flex:1"><div class="nm">'+p.name+'</div><div class="sz">Taille '+l.size+'</div><div class="pr">'+(p.price*l.qty)+' DH</div><span class="vx-qty"><button data-dec="'+i+'">−</button><b>'+l.qty+'</b><button data-inc="'+i+'">+</button></span></div><button class="vx-rm" data-rm="'+i+'" aria-label="Retirer">✕</button></div>';}).join('');
+ document.getElementById('vxSubtotal').textContent=cartTotal()+' DH';
+ var lines=cart.map(function(l){var p=PRODUCTS[l.idx];return '• '+p.name+' (Taille '+l.size+') × '+l.qty+' — '+(p.price*l.qty)+' DH';});
+ document.getElementById('vxCheckout').href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('Bonjour STRIDE, je veux commander :\n'+lines.join('\n')+'\nTotal : '+cartTotal()+' DH');
+}
+document.getElementById('vxItems').addEventListener('click',function(e){
+ var inc=e.target.closest('[data-inc]'),dec=e.target.closest('[data-dec]'),rm=e.target.closest('[data-rm]');
+ if(inc){cart[+inc.dataset.inc].qty++;renderCart();}
+ if(dec){var i2=+dec.dataset.dec;cart[i2].qty--;if(cart[i2].qty<1)cart.splice(i2,1);renderCart();}
+ if(rm){cart.splice(+rm.dataset.rm,1);renderCart();}
+});
+function openCart(){drawer.classList.add('on');overlay.classList.add('on');}
+function closeCart(){drawer.classList.remove('on');overlay.classList.remove('on');}
+document.getElementById('vxCartBtn').addEventListener('click',openCart);
+document.getElementById('vxDrawerClose').addEventListener('click',closeCart);
+overlay.addEventListener('click',closeCart);
+document.getElementById('vxQAdd').addEventListener('click',function(){
+ var f=null;cart.forEach(function(l){if(l.idx===cur.idx&&l.size===cur.size)f=l;});
+ if(f)f.qty+=cur.qty;else cart.push({idx:cur.idx,size:cur.size,qty:cur.qty});
+ renderCart();closeQuick();openCart();
+});
+renderCart();
+var ghost=document.querySelector('.hero .ghost'),gwrap=document.getElementById('vxGlobeWrap'),ticking=false;
+function par(){var y=window.scrollY||0;if(ghost)ghost.style.transform='translateX(-50%) translateY('+(y*.14).toFixed(1)+'px)';if(gwrap)gwrap.style.transform='translateY('+(y*.22).toFixed(1)+'px)';ticking=false;}
+window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(par);}},{passive:true});
+})();
+</script>
+<script id="vx-3d-js">(function(){
+var canvas=document.getElementById('vxGlobe');
+if(!canvas)return;
+window.__vxGlobeState='init';
+function fail(){window.__vxGlobeState='fallback';canvas.style.display='none';}
+if(typeof THREE==='undefined'){fail();return;}
+var renderer;
+try{renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});}catch(e){fail();return;}
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.75));
+var scene=new THREE.Scene();
+scene.fog=new THREE.Fog(0xf4f1ec,7.5,13);
+var camera=new THREE.PerspectiveCamera(42,1,0.1,100);
+camera.position.set(0,0,6.4);
+function size(){var w=canvas.clientWidth||560,h=canvas.clientHeight||560;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+size();
+var globe=new THREE.Group();scene.add(globe);
+var R=2.05;
+var ink=new THREE.LineBasicMaterial({color:0x16130e,transparent:true,opacity:.32});
+var acc=new THREE.LineBasicMaterial({color:0xe4572e,transparent:true,opacity:.85});
+function circle(r,mat){var pts=[];for(var i=0;i<=90;i++){var a=i/90*Math.PI*2;pts.push(new THREE.Vector3(Math.cos(a)*r,Math.sin(a)*r,0));}return new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),mat);}
+var la,y,rr,c,lo;
+for(la=-60;la<=60;la+=20){y=R*Math.sin(la*Math.PI/180);rr=R*Math.cos(la*Math.PI/180);c=circle(rr,la===0?acc:ink);c.rotation.x=Math.PI/2;c.position.y=y;globe.add(c);}
+for(lo=0;lo<180;lo+=20){c=circle(R,lo===0?acc:ink);c.rotation.y=lo*Math.PI/180;globe.add(c);}
+var N=420,pos=new Float32Array(N*3),col=new Float32Array(N*3);
+var cA=new THREE.Color(0xe4572e),cB=new THREE.Color(0xb78a2e),cC=new THREE.Color(0x16130e);
+for(var i=0;i<N;i++){var u=Math.random()*2-1,th=Math.random()*Math.PI*2,s=Math.sqrt(1-u*u);pos[i*3]=s*Math.cos(th)*R;pos[i*3+1]=u*R;pos[i*3+2]=s*Math.sin(th)*R;var cc=Math.random()<.55?cA:(Math.random()<.5?cB:cC);col[i*3]=cc.r;col[i*3+1]=cc.g;col[i*3+2]=cc.b;}
+var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));pg.setAttribute('color',new THREE.BufferAttribute(col,3));
+globe.add(new THREE.Points(pg,new THREE.PointsMaterial({size:.035,vertexColors:true,transparent:true,opacity:.95})));
+var orbit=new THREE.Group();var M=90,opos=new Float32Array(M*3);
+for(var j=0;j<M;j++){var a2=j/M*Math.PI*2,rad=2.75+Math.sin(j*1.7)*.18;opos[j*3]=Math.cos(a2)*rad;opos[j*3+1]=Math.sin(a2)*.5;opos[j*3+2]=Math.sin(a2)*rad;}
+var og=new THREE.BufferGeometry();og.setAttribute('position',new THREE.BufferAttribute(opos,3));
+orbit.add(new THREE.Points(og,new THREE.PointsMaterial({size:.05,color:0xe4572e,transparent:true,opacity:.8})));
+orbit.rotation.x=.5;scene.add(orbit);
+var mx=0,my=0,tx=0,ty=0,heroVisible=true,rendered=false;
+window.addEventListener('pointermove',function(e){tx=(e.clientX/window.innerWidth-.5);ty=(e.clientY/window.innerHeight-.5);},{passive:true});
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){heroVisible=es[0].isIntersecting;},{threshold:.05}).observe(canvas);}
+canvas.addEventListener('webglcontextlost',function(e){e.preventDefault();fail();});
+function frame(){renderer.render(scene,camera);if(!rendered){rendered=true;window.__vxGlobeState='rendering';}}
+var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function loop(){
+ requestAnimationFrame(loop);
+ if(!heroVisible||document.hidden)return;
+ mx+=(tx-mx)*.045;my+=(ty-my)*.045;
+ globe.rotation.y+=.0016;globe.rotation.x=my*.35;globe.rotation.z=mx*.06;
+ orbit.rotation.y-=.0022;
+ camera.position.x=mx*1.1;camera.position.y=-my*.7;camera.lookAt(0,0,0);
+ frame();
+}
+if(reduced){globe.rotation.y=.6;frame();}
+else{loop();}
+setTimeout(function(){if(!rendered)fail();},2500);
+window.addEventListener('resize',size);
+})();
 </script>
 </body>
 </html>
