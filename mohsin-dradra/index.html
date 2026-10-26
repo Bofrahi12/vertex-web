@@ -146,6 +146,32 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
 /* 3D flip-in for section heads */
 .sec-head.reveal{transform:perspective(900px) rotateX(18deg) translateY(26px);transform-origin:top center}
 .sec-head.reveal.in{transform:none}
+/* Moving projects — cinematic Ken Burns covers */
+@keyframes kb1{from{transform:scale(1.03) translate(0,0)}to{transform:scale(1.17) translate(-1.6%,-2.2%)}}
+@keyframes kb2{from{transform:scale(1.03) translate(0,0)}to{transform:scale(1.17) translate(1.6%,-1%)}}
+@keyframes kb3{from{transform:scale(1.15) translate(0,-1.6%)}to{transform:scale(1.04) translate(0,.6%)}}
+.proj .cover img{animation:kb1 11s ease-in-out infinite alternate;animation-play-state:paused}
+.proj .cover img.kb2{animation-name:kb2}.proj .cover img.kb3{animation-name:kb3}
+.proj.motion .cover img{animation-play-state:running}
+.proj[data-cat="film"] .cover::before{content:"▶";position:absolute;bottom:10px;inset-inline-end:10px;z-index:2;width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));color:#191104;display:flex;align-items:center;justify-content:center;font-size:13px;
+  box-shadow:0 4px 14px rgba(0,0,0,.5)}
+/* Spotlight — top episode plays inside the site */
+.spot{display:grid;grid-template-columns:400px 1fr;gap:0;border:1px solid var(--gold);border-radius:20px;overflow:hidden;background:var(--card);margin-bottom:26px}
+@media(max-width:820px){.spot{grid-template-columns:1fr}}
+.spot .media{position:relative;aspect-ratio:4/5;max-height:520px;overflow:hidden;cursor:pointer;background:#000}
+@media(max-width:820px){.spot .media{aspect-ratio:16/10;max-height:none}}
+.spot .media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;animation:kb2 13s ease-in-out infinite alternate}
+.spot .media iframe{width:100%;height:100%;border:0;display:block}
+.spot .play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55))}
+.spot .play .btn{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#191104;font-size:26px;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.55);animation:pulse 1.8s infinite}
+.spot .play small{color:#fff;font-weight:700;text-shadow:0 2px 8px #000}
+.spot .info{padding:28px 26px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.spot .chip{align-self:flex-start;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#191104;font-weight:800;font-size:13px;border-radius:99px;padding:5px 15px}
+.spot h3{font-size:clamp(24px,3.4vw,36px);font-weight:900}
+.spot .info p{color:var(--mut)}
+.spot .likes{color:var(--gold2);font-weight:800;font-size:19px}
 /* R6 loader — honest counter of loaded images */
 #loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:opacity .5s var(--ease)}
 #loader.done{opacity:0;pointer-events:none}
@@ -153,6 +179,12 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
 #loader .bar{width:180px;height:3px;background:var(--line);border-radius:99px;overflow:hidden}
 #loader .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .25s}
 #loader small{color:var(--mut);letter-spacing:3px}
+/* Two worlds: service work vs acting */
+.tabs{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.tab{flex:1;min-width:150px;border:1px solid var(--line);background:var(--card);color:var(--txt);border-radius:16px;padding:14px 10px;cursor:pointer;font-family:"Cairo",sans-serif;font-size:18px;font-weight:800;transition:.25s}
+.tab small{display:block;font-family:"Tajawal",sans-serif;font-weight:500;font-size:12.5px;color:var(--mut);margin-top:2px}
+.tab b{color:var(--gold2)}
+.tab.on{background:linear-gradient(135deg,rgba(201,162,75,.22),rgba(201,162,75,.07));border-color:var(--gold);box-shadow:0 8px 24px rgba(0,0,0,.35)}
 /* R14 filter chips */
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 .chip{border:1px solid var(--line);background:var(--card);color:var(--mut);border-radius:99px;padding:7px 16px;cursor:pointer;font-size:13.5px;font-family:inherit;transition:all .25s}
@@ -166,7 +198,7 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
   font-size:11.5px;font-weight:700;border:1px solid var(--gold);border-radius:99px;padding:3px 11px;opacity:0;transition:opacity .35s;pointer-events:none}
 .proj:hover .cover::after{opacity:1}
 .proj:hover .cover img{filter:brightness(.7) contrast(1.1) saturate(.82) hue-rotate(-10deg)}
-.proj .cover img{transition:transform .5s var(--ease),filter .45s var(--ease)}
+.proj .cover img{transition:filter .45s var(--ease)}
 /* R10 state badge */
 .badge.hot{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#191104;border-color:transparent;font-weight:800}
 /* R12 Netflix-style ranked row */
@@ -356,7 +388,24 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
       <h2 data-i="projT">المشاريع</h2>
       <p data-i="projP">خدمتو الحقيقية كاملة: من الحلقات الفيرال حتى جلسات التصوير والإشهارات — دوس على أي مشروع باش تشوفو في الحساب الأصلي.</p>
     </div>
+    <div class="spot reveal">
+      <div class="media" id="spotMedia" title="شاهد الحلقة هنا">
+        <img src="assets/p-DUOPLoYDPkt.jpg" alt="العشرة عندها موليها — أكثر حلقة مشاهدة عند محسن الدرادرة">
+        <div class="play"><span class="btn">▶</span><small data-i="spotPlay">شاهد الحلقة هنا — بلا ما تخرج من الموقع</small></div>
+      </div>
+      <div class="info">
+        <span class="chip">🔥 <span data-i="spotChip">الأكثر مشاهدة عندو</span></span>
+        <h3>«العشرة عندها موليها» — POV: أصعب إحساس</h3>
+        <p data-i="spotP">أكبر حلقة قصصية عند محسن: قصة على الصحبة والمصلحة كتفاعل معاها الجمهور بشكل كبير. دوس على ▶ وشاهدها هنا مباشرة.</p>
+        <span class="likes">❤ 109,343</span>
+        <span><a class="btn btn-ghost" href="https://www.instagram.com/reel/DUOPLoYDPkt/" target="_blank" rel="noopener" data-i="spotBtn">افتحها في إنستغرام ←</a></span>
+      </div>
+    </div>
     <div class="rank-row" id="rankRow"></div>
+    <div class="tabs" id="tabs">
+      <button class="tab on" data-tab="work">🎥 <span data-i="tabWork">الخدمة</span> <b data-tc="work"></b><small>تصوير · مونتاج · إشهارات · فيديوهات شركات</small></button>
+      <button class="tab" data-tab="act">🎬 <span data-i="tabAct">التمثيل</span> <b data-tc="act"></b><small>حلقات قصصية وسلاسل — الحلقات الفيرال</small></button>
+    </div>
     <div class="chips" id="chips"></div>
     <div class="proj-grid" id="projGrid"></div>
   </div>
@@ -466,16 +515,43 @@ PROJECTS.forEach(p=>{
 const RANKED=[...PROJECTS].filter(p=>p.likes).sort((a,b)=>b.likes-a.likes).slice(0,3);
 document.getElementById('rankRow').innerHTML = RANKED.map((p,i)=>
   `<a class="rank reveal" href="${p.link}" target="_blank" rel="noopener"><span class="no">${i+1}</span><img src="${p.img}" alt=""><span><h4>${p.title}</h4><span>❤ ${(p.likes).toLocaleString('en-US')} — الأكثر تفاعلاً</span></span></a>`).join('');
-/* R14 chips + filter */
+/* Two tabs: client service work vs acting episodes */
+const ACT=new Set(["p-DUOPLoYDPkt.jpg","p-DXCZpREDO3q.jpg","p-DZdfqbps032.jpg","p-DZxz39PMpvC.jpg","p-DZnhn31s36A.jpg","p-DUWqgckDACX.jpg","p-DbeQcp4MJ8J.jpg","p-DYSaX61MXq0.jpg","p-DYIDr3SM_ih.jpg","p-DVwhdOKjEKr.jpg","p-DRcevDEjBDQ.jpg","p-DXzdXCLspn1.jpg","p-DTDcgQLDASL.jpg","p-DYdDKz-M4Rz.jpg","p-DcjRAVfsz12.jpg","p-DQwsBcNjO10.jpg","proj-hidden.jpg","proj-film.jpg","p-B42y5BFDIwu.jpg"]);
+PROJECTS.forEach(p=>p.tab=ACT.has(p.img.split('/').pop())?'act':'work');
+document.querySelectorAll('.proj').forEach(c=>{ const pr=PROJECTS.find(x=>x.link===c.href); });
+grid.querySelectorAll('.proj').forEach((c,i)=>c.dataset.tab=PROJECTS[i].tab);
+document.querySelector('[data-tc="work"]').textContent='('+PROJECTS.filter(p=>p.tab==='work').length+')';
+document.querySelector('[data-tc="act"]').textContent='('+PROJECTS.filter(p=>p.tab==='act').length+')';
+let curTab='work', curChip='all';
+function applyFilter(){
+  document.querySelectorAll('.proj').forEach(c=>{
+    c.classList.toggle('hide', !(c.dataset.tab===curTab && (curChip==='all'||c.dataset.cat===curChip)));
+  });
+}
+/* R14 chips + filter (counts follow the active tab) */
 const CHIPS=[["all","الكل"],["photo","📷 تصوير"],["film","🎬 أفلام وكليبات"],["edit","🎞️ تعديل"],["design","🎨 تصميم"]];
 const chipsEl=document.getElementById('chips');
-chipsEl.innerHTML = CHIPS.map(([k,t])=>{const n=k==='all'?PROJECTS.length:PROJECTS.filter(p=>p.cat===k).length;
-  return `<button class="chip${k==='all'?' on':''}" data-f="${k}">${t} <b>${n}</b></button>`;}).join('');
+function buildChips(){
+  const inTab=PROJECTS.filter(p=>p.tab===curTab);
+  chipsEl.innerHTML = CHIPS.map(([k,t])=>{const n=k==='all'?inTab.length:inTab.filter(p=>p.cat===k).length;
+    if(k!=='all'&&n===0) return '';
+    return `<button class="chip${k===curChip?' on':''}" data-f="${k}">${t} <b>${n}</b></button>`;}).join('');
+}
+buildChips();
 chipsEl.addEventListener('click',e=>{
   const b=e.target.closest('.chip'); if(!b) return;
+  curChip=b.dataset.f;
   chipsEl.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===b));
-  document.querySelectorAll('.proj').forEach(c=>c.classList.toggle('hide', b.dataset.f!=='all' && c.dataset.cat!==b.dataset.f));
+  applyFilter();
 });
+document.getElementById('tabs').addEventListener('click',e=>{
+  const b=e.target.closest('.tab'); if(!b) return;
+  curTab=b.dataset.tab; curChip='all';
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t===b));
+  buildChips(); applyFilter();
+  document.getElementById('projects').scrollIntoView({behavior:'smooth',block:'start'});
+});
+applyFilter();
 const words="MOHSIN DRADRA ✦ FILMMAKER ✦ PHOTOGRAPHE ✦ TANGER ✦ ";
 document.getElementById('mtrack').innerHTML=`<span>${words.repeat(3)}</span><span>${words.repeat(3)}</span>`;
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
@@ -517,6 +593,19 @@ addEventListener('scroll',()=>{const y=Math.min(scrollY,420);h1.style.transform=
     });
     card.addEventListener('pointerleave',()=>{card.style.transform='';});
   });
+})();
+/* motion gating: covers animate only while on screen */
+(function(){
+  const io3=new IntersectionObserver(es=>{es.forEach(e=>e.target.classList.toggle('motion',e.isIntersecting));},{rootMargin:'120px'});
+  document.querySelectorAll('.proj').forEach((c,i)=>{ const img=c.querySelector('.cover img'); if(img) img.classList.add('kb'+(i%3+1)); io3.observe(c); });
+})();
+/* spotlight: load the real Instagram player on click */
+(function(){
+  const m=document.getElementById('spotMedia'); if(!m) return;
+  m.addEventListener('click',()=>{
+    m.innerHTML='<iframe src="https://www.instagram.com/reel/DUOPLoYDPkt/embed/" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="العشرة عندها موليها — محسن الدرادرة"></iframe>';
+    m.style.cursor='default';
+  },{once:true});
 })();
 /* 3D cube: auto-rotate + drag with inertia */
 (function(){
@@ -596,7 +685,7 @@ s1t:"Contact & conseil",s1p:"On écoute votre idée et on définit le format : �
 s2t:"Préparation & tournage",s2p:"Scénario, lieu et matériel préparés, tournage avec lumière et cadrage pro.",
 s3t:"Montage & retouche",s3p:"Montage, couleurs, son et retouche photo — la touche visible dans le résultat final.",
 s4t:"Livraison & publication",s4p:"Le travail est livré prêt à publier en pleine qualité, avec un accompagnement sur la présentation au public.",
-cubeHint:"↔ Faites glisser pour tourner le cube",ftFollow:"Suivez-le",ftCity:"Ville",ftAvail:"Disponible pour de nouveaux projets"};
+cubeHint:"↔ Faites glisser pour tourner le cube",tabWork:"Le travail",tabAct:"Le jeu d'acteur",spotChip:"Son épisode le plus vu",spotPlay:"Regardez l'épisode ici — sans quitter le site",spotP:"Son plus grand épisode : une histoire sur l'amitié et l'intérêt, massivement partagée. Cliquez sur ▶ pour le regarder ici même.",spotBtn:"L'ouvrir sur Instagram ←",ftFollow:"Suivez-le",ftCity:"Ville",ftAvail:"Disponible pour de nouveaux projets"};
 let fr=false;
 document.getElementById('langBtn').addEventListener('click',e=>{
   fr=!fr; e.target.textContent=fr?'عربي':'FR';
