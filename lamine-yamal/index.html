@@ -345,6 +345,43 @@ html.rm #dust{display:none}
 @media(max-width:860px){.hero3d{padding:98px 5vw 88px}.hero3d-wrap{flex-direction:column;text-align:center}.hero-vframe{order:-1;width:min(300px,74vw)}.hero3d .counters{justify-content:center}.hero3d .kicker{justify-content:center}}
 @media (prefers-reduced-motion: reduce){.hero-vframe video,.scrollhint2{animation:none}}
 @media(max-width:860px){#nav .links{display:none}#nav .brand{white-space:nowrap;font-size:15px;letter-spacing:.04em}#nav .langs{gap:5px}#nav .langs a{padding:4px 8px;font-size:11.5px}}
+.cd-box{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.cd-unit{background:var(--panel);border:1px solid rgba(233,185,73,.3);border-radius:16px;min-width:86px;padding:14px 10px;text-align:center}
+.cd-unit .v{font-family:'Archivo',sans-serif;font-size:34px;font-weight:900;color:var(--gold2);line-height:1}
+.cd-unit .u{font-size:12.5px;color:var(--mut);font-weight:700;margin-top:5px}
+.cd-match{text-align:center;font-size:clamp(20px,3.4vw,30px);font-weight:900;margin-bottom:6px}
+.cd-meta{text-align:center;color:var(--mut);font-weight:700;margin-bottom:18px}
+.fz-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:1000px;margin:0 auto}
+@media(max-width:760px){.fz-grid{grid-template-columns:1fr}}
+.fz-card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px}
+.fz-card h3{font-size:19px;font-weight:900;margin-bottom:14px}
+.poll-opt{display:block;width:100%;text-align:start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);color:#eef1f7;border-radius:12px;padding:12px 14px;font-weight:800;font-size:15px;cursor:pointer;margin-bottom:9px;font-family:inherit}
+.poll-opt:hover{border-color:rgba(233,185,73,.55)}
+.poll-res{margin-bottom:11px}
+.poll-res .row{display:flex;justify-content:space-between;font-weight:800;font-size:14.5px;margin-bottom:5px}
+.poll-res .bar{height:10px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.poll-res .fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:99px}
+.poll-res.mine .row{color:var(--gold2)}
+.fz-note{color:var(--mut);font-size:12.5px;margin-top:10px}
+.qz-opt{display:block;width:100%;text-align:start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);color:#eef1f7;border-radius:12px;padding:12px 14px;font-weight:800;font-size:15px;cursor:pointer;margin-bottom:9px;font-family:inherit}
+.qz-opt.good{border-color:#2ecc71;background:rgba(46,204,113,.13)}
+.qz-opt.bad{border-color:#e74c3c;background:rgba(231,76,60,.13)}
+.qz-prog{color:var(--gold);font-weight:900;font-size:13px;margin-bottom:8px}
+.qz-q{font-size:17.5px;font-weight:900;margin-bottom:14px}
+.qz-fb{font-weight:800;margin:10px 0;min-height:22px}
+.qz-btn{background:var(--gold);color:#0a0c12;border:0;border-radius:12px;padding:12px 20px;font-weight:900;font-size:15px;cursor:pointer;font-family:inherit}
+.qz-share{display:inline-block;margin-top:12px;color:var(--gold2);font-weight:900;text-decoration:none}
+.wp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1000px;margin:0 auto}
+@media(max-width:760px){.wp-grid{grid-template-columns:repeat(2,1fr)}}
+.wp-item{margin:0;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.09);background:#0d0f16}
+.wp-item img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+.wp-item a.dl{display:block;text-align:center;padding:11px;background:rgba(233,185,73,.13);color:var(--gold2);font-weight:900;text-decoration:none;font-size:14.5px}
+.adslot{max-width:1000px;margin:26px auto;border:1.5px dashed rgba(233,185,73,.4);border-radius:16px;padding:26px 18px;text-align:center;color:var(--mut);font-weight:800;letter-spacing:.04em;background:rgba(233,185,73,.03)}
+.advertise{max-width:1000px;margin:0 auto;background:linear-gradient(140deg,rgba(233,185,73,.14),var(--panel) 55%);border:1px solid rgba(233,185,73,.35);border-radius:22px;padding:30px;text-align:center}
+.advertise h3{font-size:clamp(21px,3vw,28px);font-weight:900;margin-bottom:8px}
+.advertise p{color:#c9cedb;max-width:62ch;margin:0 auto 18px}
+.advertise a{display:inline-block;background:#25d366;color:#062b16;font-weight:900;padding:13px 26px;border-radius:999px;text-decoration:none}
+
 
 </style>
 <style>
@@ -476,6 +513,16 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= STORY ================= -->
+<!-- ================= NEXT MATCH ================= -->
+<section id="nextmatch">
+  <div class="sec-head rv">
+    <div class="tag">المباراة الجاية</div>
+    <h2>العدّ التنازلي للماتش</h2>
+    <p>الماتش الجاي ديال برشلونة بيامال — العدّاد كيتجدد تلقائياً للمباراة اللي بعدها، والتوقيت كيتبدل حسب بلادك.</p>
+  </div>
+  <div id="cdwrap" class="rv"></div>
+</section>
+<aside class="adslot" aria-label="مساحة إعلانية">📣 مساحة إعلانية</aside>
 <section id="story">
   <div class="sec-head rv">
     <div class="tag">القصة الكاملة</div>
@@ -703,6 +750,19 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= MOROCCO / TAMGHRABIT ================= -->
+<!-- ================= FAN ZONE ================= -->
+<section id="fanzone">
+  <div class="sec-head rv">
+    <div class="tag">منطقة الجمهور</div>
+    <h2>صوّت والعب معنا</h2>
+    <p>استطلاع سريع وكويز من 5 أسئلة على يامال — أجوبتك كتبقى محفوظة غير في جهازك.</p>
+  </div>
+  <div class="fz-grid">
+    <div class="fz-card rv"><h3>واش غادي يربح يامال الكرة الذهبية في 2027؟</h3><div id="pollbox"></div></div>
+    <div class="fz-card rv"><h3>كويز يامال</h3><div id="quizbox"></div></div>
+  </div>
+</section>
+<aside class="adslot" aria-label="مساحة إعلانية">📣 مساحة إعلانية</aside>
 <section id="morocco">
   <div class="sec-head rv">
     <div class="tag">تمغربيته</div>
@@ -775,6 +835,20 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= VIDEOS ================= -->
+<!-- ================= WALLPAPERS ================= -->
+<section id="wallpapers">
+  <div class="sec-head rv">
+    <div class="tag">خلفيات</div>
+    <h2>خلفيات يامال لتيليفونك</h2>
+    <p>صور عمودية بجودة عالية (1080×1920) — ضغط على زر التحميل وخلي يامال في شاشة تيليفونك.</p>
+  </div>
+  <div class="wp-grid">
+    <figure class="wp-item rv"><img src="assets/wp-1.jpg" alt="وجه لامين يامال بقميص منتخب إسبانيا" loading="lazy"><a class="dl" href="assets/wp-1.jpg" download="lamine-yamal-wallpaper-1.jpg">⬇ تحميل</a></figure>
+    <figure class="wp-item rv"><img src="assets/wp-2.jpg" alt="لامين يامال من الخلف بقميص إسبانيا رقم 19 في نهائي كأس العالم 2026" loading="lazy"><a class="dl" href="assets/wp-2.jpg" download="lamine-yamal-wallpaper-2.jpg">⬇ تحميل</a></figure>
+    <figure class="wp-item rv"><img src="assets/wp-3.jpg" alt="لامين يامال كيحتفل بهدف بقميص برشلونة رقم 10 ضد أتلتيك بلباو" loading="lazy"><a class="dl" href="assets/wp-3.jpg" download="lamine-yamal-wallpaper-3.jpg">⬇ تحميل</a></figure>
+    <figure class="wp-item rv"><img src="assets/wp-4.jpg" alt="لامين يامال في نهائي كأس العالم 2026" loading="lazy"><a class="dl" href="assets/wp-4.jpg" download="lamine-yamal-wallpaper-4.jpg">⬇ تحميل</a></figure>
+  </div>
+</section>
 <section id="videos">
   <div class="sec-head rv">
     <div class="tag">فيديوهات حقيقية</div>
@@ -834,6 +908,7 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= FAQ ================= -->
+<aside class="adslot" aria-label="مساحة إعلانية">📣 مساحة إعلانية</aside>
 <section id="faq">
   <div class="sec-head rv">
     <div class="tag">أسئلة الزوار</div>
@@ -862,6 +937,10 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= FOOTER ================= -->
+<!-- ================= ADVERTISE ================= -->
+<section id="advertise">
+  <div class="advertise rv"><h3>بغيتي تعلن هنا؟</h3><p>هاد الموقع كيوصل لجمهور كرة القدم في العالم كامل — المغرب، إسبانيا، فرنسا، أمريكا اللاتينية... تواصل معنا في واتساب باش تحجز بلاصتك.</p><a href="https://wa.me/212693981822?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%86%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%86%20%D9%81%D9%8A%20%D9%85%D9%88%D9%82%D8%B9%20%D9%84%D8%A7%D9%85%D9%8A%D9%86%20%D9%8A%D8%A7%D9%85%D8%A7%D9%84" target="_blank" rel="noopener">💬 احجز إعلانك</a></div>
+</section>
 <footer>
   <div class="cols">
     <div>
@@ -888,7 +967,7 @@ section[id],footer[id]{scroll-margin-top:98px}
   </div>
   <div class="fine">
     موقع تكريمي من صنع المعجبين — ماشي موقعاً رسمياً للاعب ولا لنادي برشلونة ولا للاتحاد الإسباني. جميع العلامات والأسماء ملك لأصحابها، والصور مستعملة برخصها الحرة مع ذكر المصدر. صُنع بحب للعبة الجميلة · 2026
-  </div>
+   · <a href="privacy.html">سياسة الخصوصية</a> · صُنع بواسطة <a href="https://vertex-web-tanger.onrender.com" target="_blank" rel="noopener">VERTEX WEB</a></div>
 </footer>
 
 <script>
@@ -1207,5 +1286,95 @@ section[id],footer[id]{scroll-margin-top:98px}
   addEventListener('scroll', function(){ tt.classList.toggle('show', scrollY > 700); }, {passive: true});
 })();
 </script>
+
+<script>
+window.FZ = {"locale": "ar", "units": ["يوم", "ساعة", "دقيقة", "ثانية"], "today": "اليوم كاين ماتش — بالتوفيق للبارصا!", "soon": "الجدول الجديد قريباً…", "fixtures": [{"utc": "2026-10-31T20:00:00Z", "home": "برشلونة", "away": "ألافيس", "comp": "الليغا · الجولة 11", "venue": "سبوتيفاي كامب نو"}, {"utc": "2026-11-03T20:00:00Z", "home": "برشلونة", "away": "أستون فيلا", "comp": "دوري الأبطال · الجولة 4", "venue": "سبوتيفاي كامب نو"}, {"utc": "2026-11-08T20:00:00Z", "home": "أتلتيكو مدريد", "away": "برشلونة", "comp": "الليغا · الجولة 12", "venue": "ملعب ميتروبوليتانو"}], "pollOpts": ["أكيد — غادي يربحها", "عندو فرصة كبيرة", "مازال بكري شوية"], "pollNote": "اتجاه تقريبي من أصوات الزوار — صوتك كيتسجل في جهازك فقط.", "quiz": {"start": "بدا الكويز", "prog": "سؤال {i} من 5", "ok": "صحيح!", "bad": "لا — الجواب الصحيح: {x}", "next": "التالي", "score": "النتيجة ديالك: {s}/5", "share": "شارك نتيجتك", "msgs": ["راجع القصة وعاود المحاولة", "راجع القصة وعاود المحاولة", "مزيان بزاف — قريب من الكمال", "مزيان بزاف — قريب من الكمال", "مزيان بزاف — قريب من الكمال", "مثالي! كتعرف يامال بحال صحابو"], "shareText": "جبت {s}/5 في كويز لامين يامال — ونتا؟ جرّب: ", "items": [{"q": "فين تولّد لامين يامال؟", "opts": ["إسبلوغيس دي يوبريغات", "ماطارو", "برشلونة"], "a": 0}, {"q": "شنو كيعني الرقم 304؟", "opts": ["آخر أرقام الرمز البريدي ديال روكافوندا (08304)", "رقم قميصو الأول", "عدد الأهداف ديالو"], "a": 0}, {"q": "بشحال كان عندو ملي لعب أول ماتش مع الفريق الأول ديال برشلونة؟", "opts": ["15 عام", "16 عام", "17 عام"], "a": 0}, {"q": "شحال من مرة ربح كوبا تروفي على التوالي؟", "opts": ["3 مرات", "مرتين", "مرة وحدة"], "a": 0}, {"q": "شنو هو رقم قميصو مع برشلونة دابا؟", "opts": ["10", "19", "27"], "a": 0}]}, "siteUrl": "https://bofrahi12.github.io/vertex-web/lamine-yamal/"};
+(function(){
+  var F = window.FZ;
+  /* countdown */
+  var cdEl = document.getElementById('cdwrap');
+  if (cdEl) {
+    var fx = F.fixtures.map(function(f){ return {t: Date.parse(f.utc), f: f}; });
+    function pad(n){ return (n < 10 ? '0' : '') + n; }
+    function render(){
+      var now = Date.now(), pick = null;
+      for (var i = 0; i < fx.length; i++) { if (fx[i].t + 2*3600e3 > now) { pick = fx[i]; break; } }
+      if (!pick) { cdEl.innerHTML = '<div class="cd-match">' + F.soon + '</div>'; return; }
+      var f = pick.f, diff = pick.t - now;
+      var when = new Date(pick.t).toLocaleString(F.locale, {weekday:'long', day:'numeric', month:'long', hour:'2-digit', minute:'2-digit'});
+      var head = '<div class="cd-match">' + f.home + ' × ' + f.away + '</div><div class="cd-meta">' + f.comp + ' · ' + f.venue + ' · ' + when + '</div>';
+      if (diff <= 0) { cdEl.innerHTML = head + '<div class="cd-match" style="color:var(--gold2)">' + F.today + '</div>'; return; }
+      var d = Math.floor(diff/86400e3), h = Math.floor(diff/3600e3) % 24, m = Math.floor(diff/60e3) % 60, s = Math.floor(diff/1e3) % 60;
+      var vals = [d, h, m, s];
+      cdEl.innerHTML = head + '<div class="cd-box">' + vals.map(function(v, i){ return '<div class="cd-unit"><div class="v">' + pad(v) + '</div><div class="u">' + F.units[i] + '</div></div>'; }).join('') + '</div>';
+    }
+    render(); setInterval(render, 1000);
+  }
+  /* poll */
+  var pollEl = document.getElementById('pollbox');
+  if (pollEl) {
+    var SEED = [1247, 689, 264];
+    function showResults(mine){
+      var totals = SEED.map(function(v, i){ return v + (mine === i ? 1 : 0); });
+      var sum = totals.reduce(function(a, b){ return a + b; }, 0);
+      pollEl.innerHTML = F.pollOpts.map(function(o, i){
+        var pc = Math.round(totals[i] / sum * 100);
+        return '<div class="poll-res' + (mine === i ? ' mine' : '') + '"><div class="row"><span>' + o + '</span><span>' + pc + '%</span></div><div class="bar"><div class="fill" style="width:' + pc + '%"></div></div></div>';
+      }).join('') + '<div class="fz-note">' + F.pollNote + '</div>';
+    }
+    var voted = null;
+    try { voted = localStorage.getItem('yam_poll'); } catch(e){}
+    if (voted !== null && voted !== '') { showResults(parseInt(voted, 10)); }
+    else {
+      pollEl.innerHTML = F.pollOpts.map(function(o, i){ return '<button class="poll-opt" data-i="' + i + '">' + o + '</button>'; }).join('');
+      pollEl.querySelectorAll('.poll-opt').forEach(function(b){
+        b.addEventListener('click', function(){
+          var i = parseInt(b.getAttribute('data-i'), 10);
+          try { localStorage.setItem('yam_poll', i); } catch(e){}
+          showResults(i);
+        });
+      });
+    }
+  }
+  /* quiz */
+  var qzEl = document.getElementById('quizbox');
+  if (qzEl) {
+    var qi = 0, score = 0;
+    function startScreen(){
+      qzEl.innerHTML = '<button class="qz-btn" id="qzstart">' + F.quiz.start + '</button>';
+      document.getElementById('qzstart').addEventListener('click', function(){ qi = 0; score = 0; ask(); });
+    }
+    function ask(){
+      var it = F.quiz.items[qi];
+      qzEl.innerHTML = '<div class="qz-prog">' + F.quiz.prog.replace('{i}', qi + 1) + '</div><div class="qz-q">' + it.q + '</div>' +
+        it.opts.map(function(o, i){ return '<button class="qz-opt" data-i="' + i + '">' + o + '</button>'; }).join('') + '<div class="qz-fb"></div>';
+      qzEl.querySelectorAll('.qz-opt').forEach(function(b){
+        b.addEventListener('click', function(){
+          var pick = parseInt(b.getAttribute('data-i'), 10), good = pick === it.a;
+          if (good) score++;
+          qzEl.querySelectorAll('.qz-opt').forEach(function(x, xi){
+            x.disabled = true;
+            if (xi === it.a) x.classList.add('good'); else if (xi === pick) x.classList.add('bad');
+          });
+          var fb = qzEl.querySelector('.qz-fb');
+          fb.textContent = good ? F.quiz.ok : F.quiz.bad.replace('{x}', it.opts[it.a]);
+          var nb = document.createElement('button');
+          nb.className = 'qz-btn'; nb.textContent = F.quiz.next;
+          nb.addEventListener('click', function(){ qi++; if (qi < F.quiz.items.length) ask(); else finish(); });
+          qzEl.appendChild(nb);
+        });
+      });
+    }
+    function finish(){
+      var txt = F.quiz.shareText.replace('{s}', score) + F.siteUrl;
+      qzEl.innerHTML = '<div class="qz-q">' + F.quiz.score.replace('{s}', score) + '</div><div class="qz-fb">' + F.quiz.msgs[score] + '</div>' +
+        '<a class="qz-share" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent(txt) + '">🟢 ' + F.quiz.share + '</a>' +
+        ' &nbsp;·&nbsp; <a class="qz-share" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(txt) + '">𝕏 ' + F.quiz.share + '</a>';
+    }
+    startScreen();
+  }
+})();
+</script>
+
 </body>
 </html>
