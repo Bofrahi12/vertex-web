@@ -391,6 +391,35 @@ html.rm #dust{display:none}
 .evo-card figcaption b{display:block;font-size:16.5px;font-weight:900;color:#fff}
 .evo-card figcaption span{font-size:13px;color:#d5d9e4;font-weight:700}
 .evo-hint{text-align:center;color:var(--mut);font-size:13.5px;font-weight:700}
+.story{max-width:430px;margin:0 auto;border-radius:22px;padding:6px;background:linear-gradient(160deg,rgba(233,185,73,.6),rgba(233,185,73,.07) 45%,rgba(255,255,255,.12));box-shadow:0 34px 80px rgba(0,0,0,.55)}
+.story-stage{position:relative;border-radius:17px;overflow:hidden;aspect-ratio:3/4;background:#000}
+.story-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .65s ease;will-change:transform,opacity}
+.story-img.on{opacity:1;animation:kbIn 5.6s ease-out forwards}
+.story-img.on.rev{animation:kbOut 5.6s ease-out forwards}
+@keyframes kbIn{from{transform:scale(1) translateY(0)}to{transform:scale(1.09) translateY(-1.2%)}}
+@keyframes kbOut{from{transform:scale(1.09) translateY(-1.2%)}to{transform:scale(1) translateY(0)}}
+.story-bars{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:5px;z-index:5}
+.story-bars i{flex:1;height:3.5px;border-radius:99px;background:rgba(255,255,255,.28);overflow:hidden}
+.story-bars i b{display:block;height:100%;width:0;background:#f4cd6a;border-radius:99px}
+.story-shade{position:absolute;inset:auto 0 0 0;height:46%;background:linear-gradient(0deg,rgba(3,4,8,.88),transparent);z-index:3;pointer-events:none}
+.story-cap{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;z-index:4;color:#fff}
+.story-cap .num{display:inline-block;background:rgba(4,5,9,.65);border:1px solid var(--gold);color:var(--gold2);font-weight:900;font-size:12px;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.story-cap b{display:block;font-size:21px;font-weight:900;line-height:1.25}
+.story-cap span{font-size:14px;color:#dde3ee;font-weight:700}
+.story-cap.swap{animation:capIn .5s ease}
+@keyframes capIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.story-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:42px;height:42px;border-radius:50%;border:1px solid rgba(233,185,73,.5);background:rgba(4,5,9,.55);color:#f4cd6a;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.story-nav.prev{inset-inline-start:10px}
+.story-nav.next{inset-inline-end:10px}
+.story-tap{position:absolute;top:0;bottom:0;width:38%;z-index:5;background:none;border:0;cursor:pointer}
+.story-tap.back{inset-inline-start:0}
+.story-tap.fwd{inset-inline-end:0}
+.story-thumbs{display:flex;gap:8px;margin-top:10px}
+.story-thumbs button{flex:1;padding:0;border:2px solid transparent;border-radius:11px;overflow:hidden;background:none;cursor:pointer;opacity:.55;transition:opacity .3s,border-color .3s}
+.story-thumbs button.on{border-color:var(--gold);opacity:1}
+.story-thumbs img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+@media (prefers-reduced-motion: reduce){.story-img.on,.story-img.on.rev{animation:none}}
+
 .edits-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:880px;margin:0 auto}
 @media(max-width:700px){.edits-grid{grid-template-columns:1fr}}
 .edit-card{margin:0;border-radius:20px;padding:6px;background:linear-gradient(160deg,rgba(233,185,73,.55),rgba(233,185,73,.07) 45%,rgba(255,255,255,.1));box-shadow:0 26px 60px rgba(0,0,0,.5)}
@@ -648,23 +677,28 @@ section[id],footer[id]{scroll-margin-top:98px}
 </div>
 
 <!-- ================= NUMBERS ================= -->
-<!-- ================= THE JOURNEY ================= -->
+<!-- ================= THE JOURNEY · STORY ================= -->
 <section id="journey">
   <div class="sec-head rv">
     <div class="tag">O percurso em fotos</div>
     <h2>De um miúdo de Rocafonda… a campeão do mundo</h2>
-    <p>A história em 6 fotos — deslize e veja o sonho tornar-se realidade.</p>
+    <p>A história em 6 fotos a crescer diante dos seus olhos — avança sozinha, ou toque nos lados para viajar.</p>
   </div>
-  <div class="evo-strip" data-lenis-prevent>
-    <figure class="evo-card gg-img rv" data-full="../assets/evo-1.jpg" data-cap="O início — Um miúdo de Rocafonda a jogar sem medo"><img src="../assets/evo-1.jpg" alt="O início — Um miúdo de Rocafonda a jogar sem medo" loading="lazy"><span class="num">01</span><figcaption><b>O início</b><span>Um miúdo de Rocafonda a jogar sem medo</span></figcaption></figure>
-    <figure class="evo-card gg-img rv" data-full="../assets/evo-2.jpg" data-cap="Primeiro troféu — Campeão da LaLiga Promises em criança"><img src="../assets/evo-2.jpg" alt="Primeiro troféu — Campeão da LaLiga Promises em criança" loading="lazy"><span class="num">02</span><figcaption><b>Primeiro troféu</b><span>Campeão da LaLiga Promises em criança</span></figcaption></figure>
-    <figure class="evo-card gg-img rv" data-full="../assets/evo-3.jpg" data-cap="Com a lenda — O miúdo que posou com Messi… e herdou o trono"><img src="../assets/evo-3.jpg" alt="Com a lenda — O miúdo que posou com Messi… e herdou o trono" loading="lazy"><span class="num">03</span><figcaption><b>Com a lenda</b><span>O miúdo que posou com Messi… e herdou o trono</span></figcaption></figure>
-    <figure class="evo-card gg-img rv" data-full="../assets/evo-4.jpg" data-cap="Os anos de La Masia — A formação que criou a estrela"><img src="../assets/evo-4.jpg" alt="Os anos de La Masia — A formação que criou a estrela" loading="lazy"><span class="num">04</span><figcaption><b>Os anos de La Masia</b><span>A formação que criou a estrela</span></figcaption></figure>
-    <figure class="evo-card gg-img rv" data-full="../assets/evo-5.jpg" data-cap="A estrela — O rosto da nova geração de Espanha"><img src="../assets/evo-5.jpg" alt="A estrela — O rosto da nova geração de Espanha" loading="lazy"><span class="num">05</span><figcaption><b>A estrela</b><span>O rosto da nova geração de Espanha</span></figcaption></figure>
-    <figure class="evo-card gg-img rv" data-full="../assets/evo-6.jpg" data-cap="Campeão do mundo — Mundial 2026 — o topo aos 19"><img src="../assets/evo-6.jpg" alt="Campeão do mundo — Mundial 2026 — o topo aos 19" loading="lazy"><span class="num">06</span><figcaption><b>Campeão do mundo</b><span>Mundial 2026 — o topo aos 19</span></figcaption></figure>
+  <div class="story rv">
+    <div class="story-stage" id="storyStage">
+      <div class="story-bars"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+      <img class="story-img" src="../assets/evo-1.jpg" alt="O início" loading="eager"><img class="story-img" src="../assets/evo-2.jpg" alt="Primeiro troféu" loading="lazy"><img class="story-img" src="../assets/evo-3.jpg" alt="Com a lenda" loading="lazy"><img class="story-img" src="../assets/evo-4.jpg" alt="Os anos de La Masia" loading="lazy"><img class="story-img" src="../assets/evo-5.jpg" alt="A estrela" loading="lazy"><img class="story-img" src="../assets/evo-6.jpg" alt="Campeão do mundo" loading="lazy">
+      <div class="story-shade"></div>
+      <button class="story-tap back" type="button" aria-label="prev"></button>
+      <button class="story-tap fwd" type="button" aria-label="next"></button>
+      <button class="story-nav prev" type="button" aria-label="prev">‹</button>
+      <button class="story-nav next" type="button" aria-label="next">›</button>
+      <div class="story-cap"><span class="num">01 / 06</span><b>O início</b><span>Um miúdo de Rocafonda a jogar sem medo</span></div>
+    </div>
+    <div class="story-thumbs"><button type="button" aria-label="1"><img src="../assets/evo-1.jpg" alt="" loading="lazy"></button><button type="button" aria-label="2"><img src="../assets/evo-2.jpg" alt="" loading="lazy"></button><button type="button" aria-label="3"><img src="../assets/evo-3.jpg" alt="" loading="lazy"></button><button type="button" aria-label="4"><img src="../assets/evo-4.jpg" alt="" loading="lazy"></button><button type="button" aria-label="5"><img src="../assets/evo-5.jpg" alt="" loading="lazy"></button><button type="button" aria-label="6"><img src="../assets/evo-6.jpg" alt="" loading="lazy"></button></div>
   </div>
-  <div class="evo-hint">↔ Deslize para viajar</div>
 </section>
+
 <section id="numbers">
   <div class="sec-head rv">
     <div class="tag">Os números não mentem</div>
@@ -1422,6 +1456,74 @@ window.FZ = {"locale": "pt", "units": ["dias", "horas", "minutos", "segundos"], 
     }
     startScreen();
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  var DATA = {"caps": [["O início", "Um miúdo de Rocafonda a jogar sem medo"], ["Primeiro troféu", "Campeão da LaLiga Promises em criança"], ["Com a lenda", "O miúdo que posou com Messi… e herdou o trono"], ["Os anos de La Masia", "A formação que criou a estrela"], ["A estrela", "O rosto da nova geração de Espanha"], ["Campeão do mundo", "Mundial 2026 — o topo aos 19"]], "nums": ["01 / 06", "02 / 06", "03 / 06", "04 / 06", "05 / 06", "06 / 06"]};
+  var stage = document.getElementById('storyStage');
+  if (!stage) return;
+  var imgs = stage.querySelectorAll('.story-img');
+  var fills = stage.querySelectorAll('.story-bars i b');
+  var cap = stage.querySelector('.story-cap');
+  var capNum = cap.querySelector('.num'), capB = cap.querySelector('b'), capS = cap.querySelector('span');
+  var thumbs = document.querySelectorAll('.story-thumbs button');
+  var DUR = 5200, idx = 0, timer = null, startedAt = 0, remaining = DUR, visible = false, held = false;
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function render(i){
+    imgs.forEach(function(im, k){
+      if (k === i) { im.classList.remove('on'); void im.offsetWidth; im.classList.add('on'); im.classList.toggle('rev', i % 2 === 1); }
+      else im.classList.remove('on');
+    });
+    fills.forEach(function(f, k){
+      f.style.transition = 'none';
+      f.style.width = k < i ? '100%' : '0%';
+    });
+    capNum.textContent = DATA.nums[i];
+    capB.textContent = DATA.caps[i][0];
+    capS.textContent = DATA.caps[i][1];
+    cap.classList.remove('swap'); void cap.offsetWidth; cap.classList.add('swap');
+    thumbs.forEach(function(t, k){ t.classList.toggle('on', k === i); });
+  }
+  function arm(ms){
+    clearTimeout(timer);
+    if (RM) return;
+    var f = fills[idx];
+    f.style.transition = 'none'; f.style.width = (100 * (1 - ms / DUR)) + '%';
+    void f.offsetWidth;
+    f.style.transition = 'width ' + ms + 'ms linear'; f.style.width = '100%';
+    startedAt = Date.now(); remaining = ms;
+    timer = setTimeout(function(){ go(idx + 1); }, ms);
+  }
+  function go(i){
+    idx = (i + DATA.caps.length) % DATA.caps.length;
+    render(idx);
+    if (visible && !held) arm(DUR); else { clearTimeout(timer); fills[idx].style.width = '0%'; }
+  }
+  function pause(){
+    if (!visible) return;
+    clearTimeout(timer);
+    remaining = Math.max(300, remaining - (Date.now() - startedAt));
+    var f = fills[idx], cs = getComputedStyle(f);
+    f.style.transition = 'none'; f.style.width = cs.width;
+  }
+  function resume(){ if (visible && !held) arm(remaining); }
+  new IntersectionObserver(function(es){ es.forEach(function(e){
+    visible = e.isIntersecting;
+    if (visible) { if (!held) arm(remaining); } else pause();
+  }); }, {threshold: .45}).observe(stage);
+  stage.querySelector('.story-tap.fwd').addEventListener('click', function(){ go(idx + 1); });
+  stage.querySelector('.story-tap.back').addEventListener('click', function(){ go(idx - 1); });
+  stage.querySelector('.story-nav.next').addEventListener('click', function(e){ e.stopPropagation(); go(idx + 1); });
+  stage.querySelector('.story-nav.prev').addEventListener('click', function(e){ e.stopPropagation(); go(idx - 1); });
+  stage.addEventListener('pointerdown', function(){ held = true; pause(); });
+  addEventListener('pointerup', function(){ if (held) { held = false; resume(); } });
+  thumbs.forEach(function(t, k){ t.addEventListener('click', function(){ remaining = DUR; go(k); }); });
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) pause(); else resume(); });
+  render(0);
+  window.__storyGo = go;
 })();
 </script>
 
