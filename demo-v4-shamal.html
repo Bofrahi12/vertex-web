@@ -92,14 +92,15 @@ html,body{overflow-x:clip!important}
 .vx-pop{position:absolute;top:10px;inset-inline-start:10px;z-index:4;background:#e63946;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:99px;box-shadow:0 6px 18px rgba(0,0,0,.3)}
 .vx-note{max-width:860px;margin:18px auto 0;padding:13px 18px;border-radius:14px;border:1px dashed rgba(127,127,140,.5);font-size:14px;text-align:center;opacity:.92}
 </style>
-</head>
+<style>.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style></head>
     <body id="home_one">
+<h1 class="sr-only">SHAMAL TRAVEL — Agence de voyages à Tanger</h1>
 
         <div style="background:#131e2a;color:#f7c411;text-align:center;padding:10px 12px;font-family:Karla,sans-serif;font-size:14px;letter-spacing:1px;text-transform:uppercase;position:relative;z-index:9999;">Aperçu conçu spécialement pour Shamal Travel · par VERTEX WEB</div>
         
         <!-- start preloader -->
         <div id="loader-wrapper">
-            <div class="logo"><a href="#"><span>SHAMAL</span></a></div>
+            <div class="logo"><a href="demo-v4-shamal.html"><span>SHAMAL</span></a></div>
             <div id="loader">
             </div>
         </div>
@@ -127,8 +128,8 @@ html,body{overflow-x:clip!important}
                                       <a id="brand" class="clearfix navbar-brand border-right-whitesmoke" href="demo-v4-shamal.html" style="font-family:'Playfair Display',serif;font-size:25px;font-weight:700;color:#131e2a;text-decoration:none;">SHAMAL <span style="font-size:12px;letter-spacing:2px;color:#b08d3c;">TRAVEL</span></a>
                                       <div class="header_login floatleft">
                                           <ul>
-                                              <li><a href="#">Connexion</a></li>
-                                              <li><a href="#">S'inscrire</a></li>
+                                              <li>Connexion</li>
+                                              <li>S'inscrire</li>
                                           </ul>
                                       </div>
                                   </div>
@@ -138,29 +139,29 @@ html,body{overflow-x:clip!important}
                                 <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                                   <ul class="nav navbar-nav">
                                     <li role="presentation" class="dropdown">
-                                        <a id="drop-one" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                        <a id="drop-one" href="#accueil" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                                           Accueil
                                         </a>
                                         <ul id="menu1" class="dropdown-menu" role="menu">
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Version 2</a></li>
+                                          <li role="presentation">Version 2</li>
                                         </ul>
                                     </li>        
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Galerie</a></li>
+                                    <li><a href="#services">Services</a></li>
+                                    <li><a href="#chambres">Galerie</a></li>
                                     <li role="presentation" class="dropdown">
-                                        <a id="drop2" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                        <a id="drop2" href="#services" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                                           Services
                                         </a>
                                         <ul id="menu2" class="dropdown-menu" role="menu">
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">À propos</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Réservation</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nos circuits</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nos offres</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Packages</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#apropos">À propos</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#reservation">Réservation</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#chambres">Nos circuits</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#chambres">Nos offres</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#chambres">Packages</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Actualités</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#actualites">Actualités</a></li>
+                                    <li><a href="#contact">Contact</a></li>
                                   </ul>
                                   <div class="emergency_number">
                                       <a href="tel:+212625257055"><img src="panorama/img/call-icon.png" alt="">+212 625 25 70 55</a>
@@ -178,10 +179,10 @@ html,body{overflow-x:clip!important}
         <!-- end header -->
 
         <!-- start main slider -->
-        <div class="main_slider_area">
+        <div class="main_slider_area" id="accueil">
             <div class="main_slider" id="slider_rev">
                 <!-- start réservation -->
-                <div class="hotel_booking_area">
+                <div class="hotel_booking_area" id="reservation">
                     <div class="container">
                         <div class="hotel_booking">
                             <form id="form1" role="form" action="#" class="">
@@ -266,7 +267,7 @@ html,body{overflow-x:clip!important}
                                 </div>
                                 <div class="tp-caption lfb carousel-caption-inner" data-x="105" data-y="313" data-speed="1300" data-start="1700" data-easing="easeInOutBack" 
                                     style="background: #f7c411; padding: 10px; cursor: pointer;">
-                                    <a href="#" class="" style="background: #f7c411; border-radius: 0; color: #313a45; display: inline-block;  font-size: 18px; padding: 8px 34px; text-transform: uppercase; border: 1px solid #9e811a;">Découvrir</a>
+                                    <a href="#apropos" class="" style="background: #f7c411; border-radius: 0; color: #313a45; display: inline-block;  font-size: 18px; padding: 8px 34px; text-transform: uppercase; border: 1px solid #9e811a;">Découvrir</a>
                                 </div>
                             </li>
 
@@ -282,7 +283,7 @@ html,body{overflow-x:clip!important}
                                 </div>
                                 <div class="tp-caption lfb carousel-caption-inner" data-x="105" data-y="313" data-speed="1300" data-start="1700" data-easing="easeInOutBack" 
                                     style="background: #f7c411; padding: 10px; cursor: pointer;">
-                                    <a href="#" class="" style="background: #f7c411; border-radius: 0; color: #313a45; display: inline-block;  font-size: 18px; padding: 8px 34px; text-transform: uppercase; border: 1px solid #9e811a;">Découvrir</a>
+                                    <a href="#apropos" class="" style="background: #f7c411; border-radius: 0; color: #313a45; display: inline-block;  font-size: 18px; padding: 8px 34px; text-transform: uppercase; border: 1px solid #9e811a;">Découvrir</a>
                                 </div>
                             </li>							                           
                         </ul>
@@ -304,10 +305,10 @@ html,body{overflow-x:clip!important}
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3">
-                                <div class="single_room_wrapper clearfix">
+                                <div class="single_room_wrapper clearfix" id="chambres">
                                     <figure class="uk-overlay uk-overlay-hover">
                                         <div class="room_media">
-                                            <a href="#"><img src="panorama/img/room-image-five.png" alt=""></a>
+                                            <a href="panorama/img/room-image-five.png" target="_blank" rel="noopener"><img src="panorama/img/room-image-five.png" alt=""></a>
                                         </div>
                                         <div class="room_title border-bottom-whitesmoke clearfix">
                                                 <div class="left_room_title floatleft">
@@ -315,7 +316,7 @@ html,body{overflow-x:clip!important}
                                                     <p>Devis gratuit</p>
                                                 </div>
                                                 <div class="left_room_title floatright">
-                                                    <a href="#" class="btn">Demander</a>
+                                                    <a href="#reservation" class="btn">Demander</a>
                                                 </div>
                                             </div>
                                         <div class="uk-overlay-panel uk-overlay-background single_wrapper_details clearfix animated bounceInDown">
@@ -332,7 +333,7 @@ html,body{overflow-x:clip!important}
                                                         <p>Devis gratuit</p>
                                                     </div>
                                                     <div class="floatright">
-                                                        <a href="#" class="btn">Demander</a>
+                                                        <a href="#reservation" class="btn">Demander</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -344,7 +345,7 @@ html,body{overflow-x:clip!important}
                                 <div class="single_room_wrapper clearfix">
                                     <figure class="uk-overlay uk-overlay-hover">
                                         <div class="room_media">
-                                            <a href="#"><img src="panorama/img/room-image-nine.png" alt=""></a>
+                                            <a href="panorama/img/room-image-nine.png" target="_blank" rel="noopener"><img src="panorama/img/room-image-nine.png" alt=""></a>
                                         </div>
                                         <div class="room_title border-bottom-whitesmoke clearfix">
                                                 <div class="left_room_title floatleft">
@@ -352,7 +353,7 @@ html,body{overflow-x:clip!important}
                                                     <p>Devis gratuit</p>
                                                 </div>
                                                 <div class="left_room_title floatright">
-                                                    <a href="#" class="btn">Demander</a>
+                                                    <a href="#reservation" class="btn">Demander</a>
                                                 </div>
                                             </div>
                                         <div class="uk-overlay-panel uk-overlay-background single_wrapper_details clearfix animated bounceInUp">
@@ -369,7 +370,7 @@ html,body{overflow-x:clip!important}
                                                         <p>Devis gratuit</p>
                                                     </div>
                                                     <div class="floatright">
-                                                        <a href="#" class="btn">Demander</a>
+                                                        <a href="#reservation" class="btn">Demander</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -381,7 +382,7 @@ html,body{overflow-x:clip!important}
                                 <div class="single_room_wrapper clearfix">
                                     <figure class="uk-overlay uk-overlay-hover">
                                         <div class="room_media">
-                                            <a href="#"><img src="panorama/img/room-image-thirteen.jpg" alt=""></a>
+                                            <a href="panorama/img/room-image-thirteen.jpg" target="_blank" rel="noopener"><img src="panorama/img/room-image-thirteen.jpg" alt=""></a>
                                         </div>
                                         <div class="room_title border-bottom-whitesmoke clearfix">
                                                 <div class="left_room_title floatleft">
@@ -389,7 +390,7 @@ html,body{overflow-x:clip!important}
                                                     <p>Devis gratuit</p>
                                                 </div>
                                                 <div class="left_room_title floatright">
-                                                    <a href="#" class="btn">Demander</a>
+                                                    <a href="#reservation" class="btn">Demander</a>
                                                 </div>
                                             </div>
                                         <div class="uk-overlay-panel uk-overlay-background single_wrapper_details clearfix animated bounceInDown">
@@ -406,7 +407,7 @@ html,body{overflow-x:clip!important}
                                                         <p>Devis gratuit</p>
                                                     </div>
                                                     <div class="floatright">
-                                                        <a href="#" class="btn">Demander</a>
+                                                        <a href="#reservation" class="btn">Demander</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -418,7 +419,7 @@ html,body{overflow-x:clip!important}
                                 <div class="single_room_wrapper clearfix">
                                     <figure class="uk-overlay uk-overlay-hover">
                                         <div class="room_media">
-                                            <a href="#"><img src="panorama/img/room-image-eight.png" alt=""></a>
+                                            <a href="panorama/img/room-image-eight.png" target="_blank" rel="noopener"><img src="panorama/img/room-image-eight.png" alt=""></a>
                                         </div>
                                         <div class="room_title border-bottom-whitesmoke clearfix">
                                                 <div class="left_room_title floatleft">
@@ -426,7 +427,7 @@ html,body{overflow-x:clip!important}
                                                     <p>Devis gratuit</p>
                                                 </div>
                                                 <div class="left_room_title floatright">
-                                                    <a href="#" class="btn">Demander</a>
+                                                    <a href="#reservation" class="btn">Demander</a>
                                                 </div>
                                             </div>
                                         <div class="uk-overlay-panel uk-overlay-background single_wrapper_details clearfix animated bounceInUp">
@@ -443,7 +444,7 @@ html,body{overflow-x:clip!important}
                                                         <p>Devis gratuit</p>
                                                     </div>
                                                     <div class="floatright">
-                                                        <a href="#" class="btn">Demander</a>
+                                                        <a href="#reservation" class="btn">Demander</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -458,7 +459,7 @@ html,body{overflow-x:clip!important}
         <!-- end welcome section -->
         
         <!-- start Hotel Facilities section -->
-        <section class="hotel_facilities_area margin-top-115 margin-bottom-100">
+        <section class="hotel_facilities_area margin-top-115 margin-bottom-100" id="services">
             <div class="container">
                 <div class="hotel_facilities">
                     <div class="section_title nice_title content-center">
@@ -494,7 +495,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5 col-sm-6">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-one.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7 col-sm-6">
@@ -508,8 +509,8 @@ html,body{overflow-x:clip!important}
                                                         Nos offres packagées sont publiées régulièrement — écrivez-nous sur WhatsApp pour recevoir les dernières offres et réserver la vôtre.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
-                                                        <a href="#">WhatsApp : +212 625 25 70 55</a>
+                                                        <a href="https://www.google.com/maps/search/?api=1&query=125+rue+Moulay+Abdelaziz+Tanger" target="_blank" rel="noopener" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
+                                                        <a href="https://wa.me/212625257055" target="_blank" rel="noopener">WhatsApp : +212 625 25 70 55</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -521,7 +522,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-three.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-three.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-three.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7">
@@ -535,8 +536,8 @@ html,body{overflow-x:clip!important}
                                                         Nos offres packagées sont publiées régulièrement — écrivez-nous sur WhatsApp pour recevoir les dernières offres et réserver la vôtre.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
-                                                        <a href="#">WhatsApp : +212 625 25 70 55</a>
+                                                        <a href="https://www.google.com/maps/search/?api=1&query=125+rue+Moulay+Abdelaziz+Tanger" target="_blank" rel="noopener" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
+                                                        <a href="https://wa.me/212625257055" target="_blank" rel="noopener">WhatsApp : +212 625 25 70 55</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -548,7 +549,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-one.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7">
@@ -562,8 +563,8 @@ html,body{overflow-x:clip!important}
                                                         Nos offres packagées sont publiées régulièrement — écrivez-nous sur WhatsApp pour recevoir les dernières offres et réserver la vôtre.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
-                                                        <a href="#">WhatsApp : +212 625 25 70 55</a>
+                                                        <a href="https://www.google.com/maps/search/?api=1&query=125+rue+Moulay+Abdelaziz+Tanger" target="_blank" rel="noopener" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
+                                                        <a href="https://wa.me/212625257055" target="_blank" rel="noopener">WhatsApp : +212 625 25 70 55</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -575,7 +576,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-three.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-three.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-three.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7">
@@ -589,8 +590,8 @@ html,body{overflow-x:clip!important}
                                                         Nos offres packagées sont publiées régulièrement — écrivez-nous sur WhatsApp pour recevoir les dernières offres et réserver la vôtre.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
-                                                        <a href="#">WhatsApp : +212 625 25 70 55</a>
+                                                        <a href="https://www.google.com/maps/search/?api=1&query=125+rue+Moulay+Abdelaziz+Tanger" target="_blank" rel="noopener" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
+                                                        <a href="https://wa.me/212625257055" target="_blank" rel="noopener">WhatsApp : +212 625 25 70 55</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -602,7 +603,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-one.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7">
@@ -616,8 +617,8 @@ html,body{overflow-x:clip!important}
                                                         Nos offres packagées sont publiées régulièrement — écrivez-nous sur WhatsApp pour recevoir les dernières offres et réserver la vôtre.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
-                                                        <a href="#">WhatsApp : +212 625 25 70 55</a>
+                                                        <a href="https://www.google.com/maps/search/?api=1&query=125+rue+Moulay+Abdelaziz+Tanger" target="_blank" rel="noopener" class="margin-right-33">125, rue Moulay Abdelaziz, Résidence Zahra, Tanger </a>
+                                                        <a href="https://wa.me/212625257055" target="_blank" rel="noopener">WhatsApp : +212 625 25 70 55</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -635,11 +636,11 @@ html,body{overflow-x:clip!important}
         <!-- end Hotel Facilities section -->
 
         <!-- start About Us section -->
-        <section class="about_us_area margin-bottom-128">
+        <section class="about_us_area margin-bottom-128" id="apropos">
             <div class="container">
                 <div class="about_us clearfix">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 padding-left-0">
-                        <div class="news">
+                        <div class="news" id="actualites">
                             <div class="section_title margin-bottom-50">
                                 <h5>Actualités</h5>
                             </div>
@@ -649,7 +650,7 @@ html,body{overflow-x:clip!important}
                                         <div class="single_content clearfix border-bottom-whitesmoke">
                                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 padding-left-0">
                                                 <div class="post_media">
-                                                    <a href="#"><img src="panorama/img/news-one.jpg" alt=""></a>
+                                                    <a href="panorama/img/news-one.jpg" target="_blank" rel="noopener"><img src="panorama/img/news-one.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 padding-left-0">
@@ -664,7 +665,7 @@ html,body{overflow-x:clip!important}
                                         <div class="single_content clearfix margin-top-35 border-bottom-whitesmoke">
                                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 padding-left-0">
                                                 <div class="post_media">
-                                                    <a href="#"><img src="panorama/img/news-two.jpg" alt=""></a>
+                                                    <a href="panorama/img/news-two.jpg" target="_blank" rel="noopener"><img src="panorama/img/news-two.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 padding-left-0">
@@ -679,7 +680,7 @@ html,body{overflow-x:clip!important}
                                         <div class="single_content clearfix margin-bottom-35 margin-top-35">
                                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 padding-left-0">
                                                 <div class="post_media">
-                                                    <a href="#"><img src="panorama/img/news-three.jpg" alt=""></a>
+                                                    <a href="panorama/img/news-three.jpg" target="_blank" rel="noopener"><img src="panorama/img/news-three.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 padding-left-0">
@@ -742,7 +743,7 @@ html,body{overflow-x:clip!important}
         <!-- end About Us section -->
         
         <!-- start contact us area -->
-        <section class="contact_us_area content-left">
+        <section class="contact_us_area content-left" id="contact">
             <div class="container">
                 <div class="contact_us clearfix">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -766,10 +767,10 @@ html,body{overflow-x:clip!important}
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                         <div class="social_icons clearfix">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="demo-v4-shamal.html"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="https://www.instagram.com/_shamaltravel_office" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="demo-v4-shamal.html"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="demo-v4-shamal.html"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -786,7 +787,7 @@ html,body{overflow-x:clip!important}
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="footer_widget">
                                 <div class="footer_logo">
-                                    <a href="#" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;text-decoration:none;">SHAMAL <span style="font-size:11px;letter-spacing:2px;color:#f7c411;">TRAVEL</span></a>
+                                    <a href="demo-v4-shamal.html" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;text-decoration:none;">SHAMAL <span style="font-size:11px;letter-spacing:2px;color:#f7c411;">TRAVEL</span></a>
                                 </div>
                                 <p>Agence de voyages au centre de Tanger : vols, hôtels, visas, séjours, circuits et packages.</p>
                                 <ul>
@@ -802,18 +803,18 @@ html,body{overflow-x:clip!important}
                                     <h5 class="padding-left-15">Liens rapides</h5>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <ul>
-                                            <li><a href="#">Vols</a></li>
-                                            <li><a href="#">Hôtels</a></li>
-                                            <li><a href="#">Visas</a></li>
-                                            <li><a href="#">Circuits</a></li>
+                                            <li><a href="#services">Vols</a></li>
+                                            <li><a href="#services">Hôtels</a></li>
+                                            <li><a href="#services">Visas</a></li>
+                                            <li><a href="#chambres">Circuits</a></li>
                                         </ul>  
                                     </div>
                                     <div class="col-lg-6 col-md-6 sol-sm-6">
                                         <ul>
-                                            <li><a href="#">Packages</a></li>
-                                            <li><a href="#">Séjours</a></li>
-                                            <li><a href="#">À propos</a></li>
-                                            <li><a href="#">Contact</a></li>
+                                            <li><a href="#chambres">Packages</a></li>
+                                            <li><a href="#services">Séjours</a></li>
+                                            <li><a href="#apropos">À propos</a></li>
+                                            <li><a href="#contact">Contact</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -823,7 +824,7 @@ html,body{overflow-x:clip!important}
                             <div class="footer_widget">
                                 <h5>Tanger — Maroc</h5>
                                 <div class="footer_map">
-                                    <a href="#"><img src="panorama/img/footer-map-two.jpg" alt=""></a>
+                                    <a href="panorama/img/footer-map-two.jpg" target="_blank" rel="noopener"><img src="panorama/img/footer-map-two.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -831,7 +832,7 @@ html,body{overflow-x:clip!important}
                     <div class="row">
                         <div class="container">
                             <div class="footer_copyright margin-tb-50 content-center">
-                                <p>© 2026 <a href="#">SHAMAL TRAVEL</a>. Tous droits réservés</p>
+                                <p>© 2026 <a href="demo-v4-shamal.html">SHAMAL TRAVEL</a>. Tous droits réservés</p>
                                 <p style="margin-top:6px;font-size:13px;opacity:.85;">Démonstration réalisée par Vertex Web — Tanger</p>
                             </div>
                         </div>

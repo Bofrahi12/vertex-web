@@ -86,14 +86,15 @@ html,body{overflow-x:clip!important}
 .vx-vis-cap{margin-top:8px;font-size:14px;opacity:.85;text-align:center}
 .vx-vis-bar{height:3px;background:rgba(127,127,127,.25);border-radius:99px;overflow:hidden}
 .vx-vis-bar i{display:block;height:100%;width:20%;background:currentColor;opacity:.7;transition:width .3s var(--vx-ease)}</style>
-</head>
+<style>.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style></head>
     <body id="home_one">
+<h1 class="sr-only">PANORAMA HÔTEL & SPA — Tanger</h1>
 
         <div style="background:#131e2a;color:#f7c411;text-align:center;padding:10px 12px;font-family:Karla,sans-serif;font-size:14px;letter-spacing:1px;text-transform:uppercase;position:relative;z-index:9999;">Modèle de démonstration</div>
         
         <!-- start preloader -->
         <div id="loader-wrapper">
-            <div class="logo"><a href="#"><span>PANORAMA</span></a></div>
+            <div class="logo"><a href="demo-panorama.html"><span>PANORAMA</span></a></div>
             <div id="loader">
             </div>
         </div>
@@ -121,8 +122,8 @@ html,body{overflow-x:clip!important}
                                       <a id="brand" class="clearfix navbar-brand border-right-whitesmoke" href="demo-panorama.html" style="font-family:'Playfair Display',serif;font-size:25px;font-weight:700;color:#131e2a;text-decoration:none;">PANORAMA <span style="font-size:12px;letter-spacing:2px;color:#b08d3c;">HÔTEL &amp; SPA</span></a>
                                       <div class="header_login floatleft">
                                           <ul>
-                                              <li><a href="#">Connexion</a></li>
-                                              <li><a href="#">S'inscrire</a></li>
+                                              <li>Connexion</li>
+                                              <li>S'inscrire</li>
                                           </ul>
                                       </div>
                                   </div>
@@ -132,29 +133,29 @@ html,body{overflow-x:clip!important}
                                 <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                                   <ul class="nav navbar-nav">
                                     <li role="presentation" class="dropdown">
-                                        <a id="drop-one" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                        <a id="drop-one" href="#accueil" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                                           Accueil
                                         </a>
                                         <ul id="menu1" class="dropdown-menu" role="menu">
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Version 2</a></li>
+                                          <li role="presentation">Version 2</li>
                                         </ul>
                                     </li>        
-                                    <li><a href="#">Hébergement</a></li>
-                                    <li><a href="#">Galerie</a></li>
+                                    <li><a href="#chambres">Hébergement</a></li>
+                                    <li><a href="#chambres">Galerie</a></li>
                                     <li role="presentation" class="dropdown">
-                                        <a id="drop2" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                                        <a id="drop2" href="#services" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                                           Services
                                         </a>
                                         <ul id="menu2" class="dropdown-menu" role="menu">
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">À propos</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Réservation</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Détails des chambres</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notre équipe</a></li>
-                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Page 404</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#apropos">À propos</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#reservation">Réservation</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#chambres">Détails des chambres</a></li>
+                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#apropos">Notre équipe</a></li>
+                                          <li role="presentation">Page 404</li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Actualités</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="#actualites">Actualités</a></li>
+                                    <li><a href="#contact">Contact</a></li>
                                   </ul>
                                   <div class="emergency_number">
                                       <a href="tel:+212693981822"><img src="panorama/img/call-icon.png" alt="">+212 693 98 18 22</a>
@@ -172,10 +173,10 @@ html,body{overflow-x:clip!important}
         <!-- end header -->
 
         <!-- start main slider -->
-        <div class="main_slider_area">
+        <div class="main_slider_area" id="accueil">
             <div class="main_slider" id="slider_rev">
                 <!-- start réservation -->
-                <div class="hotel_booking_area">
+                <div class="hotel_booking_area" id="reservation">
                     <div class="container">
                         <div class="hotel_booking">
                             <form id="form1" role="form" action="#" class="">
@@ -260,7 +261,7 @@ html,body{overflow-x:clip!important}
                                 </div>
                                 <div class="tp-caption lfb carousel-caption-inner" data-x="105" data-y="313" data-speed="1300" data-start="1700" data-easing="easeInOutBack" 
                                     style="background: #f7c411; padding: 10px; cursor: pointer;">
-                                    <a href="#" class="" style="background: #f7c411; border-radius: 0; color: #313a45; display: inline-block;  font-size: 18px; padding: 8px 34px; text-transform: uppercase; border: 1px solid #9e811a;">Découvrir</a>
+                                    <a href="#apropos" class="" style="background: #f7c411; border-radius: 0; color: #313a45; display: inline-block;  font-size: 18px; padding: 8px 34px; text-transform: uppercase; border: 1px solid #9e811a;">Découvrir</a>
                                 </div>
                             </li>
 
@@ -276,7 +277,7 @@ html,body{overflow-x:clip!important}
                                 </div>
                                 <div class="tp-caption lfb carousel-caption-inner" data-x="105" data-y="313" data-speed="1300" data-start="1700" data-easing="easeInOutBack" 
                                     style="background: #f7c411; padding: 10px; cursor: pointer;">
-                                    <a href="#" class="" style="background: #f7c411; border-radius: 0; color: #313a45; display: inline-block;  font-size: 18px; padding: 8px 34px; text-transform: uppercase; border: 1px solid #9e811a;">Découvrir</a>
+                                    <a href="#apropos" class="" style="background: #f7c411; border-radius: 0; color: #313a45; display: inline-block;  font-size: 18px; padding: 8px 34px; text-transform: uppercase; border: 1px solid #9e811a;">Découvrir</a>
                                 </div>
                             </li>							                           
                         </ul>
@@ -298,10 +299,10 @@ html,body{overflow-x:clip!important}
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3">
-                                <div class="single_room_wrapper clearfix">
+                                <div class="single_room_wrapper clearfix" id="chambres">
                                     <figure class="uk-overlay uk-overlay-hover">
                                         <div class="room_media">
-                                            <a href="#"><img src="panorama/img/room-image-five.png" alt=""></a>
+                                            <a href="panorama/img/room-image-five.png" target="_blank" rel="noopener"><img src="panorama/img/room-image-five.png" alt=""></a>
                                         </div>
                                         <div class="room_title border-bottom-whitesmoke clearfix">
                                                 <div class="left_room_title floatleft">
@@ -309,7 +310,7 @@ html,body{overflow-x:clip!important}
                                                     <p>1 750 DH/ <span>nuit</span></p>
                                                 </div>
                                                 <div class="left_room_title floatright">
-                                                    <a href="#" class="btn">Book</a>
+                                                    <a href="#reservation" class="btn">Book</a>
                                                 </div>
                                             </div>
                                         <div class="uk-overlay-panel uk-overlay-background single_wrapper_details clearfix animated bounceInDown">
@@ -326,7 +327,7 @@ html,body{overflow-x:clip!important}
                                                         <p>1 750 DH/ <span>nuit</span></p>
                                                     </div>
                                                     <div class="floatright">
-                                                        <a href="#" class="btn">Book</a>
+                                                        <a href="#reservation" class="btn">Book</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -338,7 +339,7 @@ html,body{overflow-x:clip!important}
                                 <div class="single_room_wrapper clearfix">
                                     <figure class="uk-overlay uk-overlay-hover">
                                         <div class="room_media">
-                                            <a href="#"><img src="panorama/img/room-image-nine.png" alt=""></a>
+                                            <a href="panorama/img/room-image-nine.png" target="_blank" rel="noopener"><img src="panorama/img/room-image-nine.png" alt=""></a>
                                         </div>
                                         <div class="room_title border-bottom-whitesmoke clearfix">
                                                 <div class="left_room_title floatleft">
@@ -346,7 +347,7 @@ html,body{overflow-x:clip!important}
                                                     <p>1 250 DH/ <span>nuit</span></p>
                                                 </div>
                                                 <div class="left_room_title floatright">
-                                                    <a href="#" class="btn">Book</a>
+                                                    <a href="#reservation" class="btn">Book</a>
                                                 </div>
                                             </div>
                                         <div class="uk-overlay-panel uk-overlay-background single_wrapper_details clearfix animated bounceInUp">
@@ -363,7 +364,7 @@ html,body{overflow-x:clip!important}
                                                         <p>1 250 DH/ <span>nuit</span></p>
                                                     </div>
                                                     <div class="floatright">
-                                                        <a href="#" class="btn">Book</a>
+                                                        <a href="#reservation" class="btn">Book</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -375,7 +376,7 @@ html,body{overflow-x:clip!important}
                                 <div class="single_room_wrapper clearfix">
                                     <figure class="uk-overlay uk-overlay-hover">
                                         <div class="room_media">
-                                            <a href="#"><img src="panorama/img/room-image-thirteen.jpg" alt=""></a>
+                                            <a href="panorama/img/room-image-thirteen.jpg" target="_blank" rel="noopener"><img src="panorama/img/room-image-thirteen.jpg" alt=""></a>
                                         </div>
                                         <div class="room_title border-bottom-whitesmoke clearfix">
                                                 <div class="left_room_title floatleft">
@@ -383,7 +384,7 @@ html,body{overflow-x:clip!important}
                                                     <p>1 450 DH/ <span>nuit</span></p>
                                                 </div>
                                                 <div class="left_room_title floatright">
-                                                    <a href="#" class="btn">Book</a>
+                                                    <a href="#reservation" class="btn">Book</a>
                                                 </div>
                                             </div>
                                         <div class="uk-overlay-panel uk-overlay-background single_wrapper_details clearfix animated bounceInDown">
@@ -400,7 +401,7 @@ html,body{overflow-x:clip!important}
                                                         <p>1 450 DH/ <span>nuit</span></p>
                                                     </div>
                                                     <div class="floatright">
-                                                        <a href="#" class="btn">Book</a>
+                                                        <a href="#reservation" class="btn">Book</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -412,7 +413,7 @@ html,body{overflow-x:clip!important}
                                 <div class="single_room_wrapper clearfix">
                                     <figure class="uk-overlay uk-overlay-hover">
                                         <div class="room_media">
-                                            <a href="#"><img src="panorama/img/room-image-eight.png" alt=""></a>
+                                            <a href="panorama/img/room-image-eight.png" target="_blank" rel="noopener"><img src="panorama/img/room-image-eight.png" alt=""></a>
                                         </div>
                                         <div class="room_title border-bottom-whitesmoke clearfix">
                                                 <div class="left_room_title floatleft">
@@ -420,7 +421,7 @@ html,body{overflow-x:clip!important}
                                                     <p>990 DH/ <span>nuit</span></p>
                                                 </div>
                                                 <div class="left_room_title floatright">
-                                                    <a href="#" class="btn">Book</a>
+                                                    <a href="#reservation" class="btn">Book</a>
                                                 </div>
                                             </div>
                                         <div class="uk-overlay-panel uk-overlay-background single_wrapper_details clearfix animated bounceInUp">
@@ -437,7 +438,7 @@ html,body{overflow-x:clip!important}
                                                         <p>990 DH/ <span>nuit</span></p>
                                                     </div>
                                                     <div class="floatright">
-                                                        <a href="#" class="btn">Book</a>
+                                                        <a href="#reservation" class="btn">Book</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -453,7 +454,7 @@ html,body{overflow-x:clip!important}
         <!-- end welcome section -->
         
         <!-- start Hotel Facilities section -->
-        <section class="hotel_facilities_area margin-top-115 margin-bottom-100">
+        <section class="hotel_facilities_area margin-top-115 margin-bottom-100" id="services">
             <div class="container">
                 <div class="hotel_facilities">
                     <div class="section_title nice_title content-center">
@@ -489,7 +490,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5 col-sm-6">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-one.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7 col-sm-6">
@@ -503,8 +504,8 @@ html,body{overflow-x:clip!important}
                                                         Notre chef compose une cuisine méditerranéenne et marocaine à partir des produits du marché de Tanger, servie en salle panoramique ou en terrasse.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
-                                                        <a href="#">Frais de service : 150 DH</a>
+                                                        <a href="#reservation" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
+                                                        <a href="#reservation">Frais de service : 150 DH</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -516,7 +517,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-three.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-three.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-three.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7">
@@ -530,8 +531,8 @@ html,body{overflow-x:clip!important}
                                                         Notre chef compose une cuisine méditerranéenne et marocaine à partir des produits du marché de Tanger, servie en salle panoramique ou en terrasse.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
-                                                        <a href="#">Frais de service : 150 DH</a>
+                                                        <a href="#reservation" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
+                                                        <a href="#reservation">Frais de service : 150 DH</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -543,7 +544,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-one.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7">
@@ -557,8 +558,8 @@ html,body{overflow-x:clip!important}
                                                         Notre chef compose une cuisine méditerranéenne et marocaine à partir des produits du marché de Tanger, servie en salle panoramique ou en terrasse.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
-                                                        <a href="#">Frais de service : 150 DH</a>
+                                                        <a href="#reservation" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
+                                                        <a href="#reservation">Frais de service : 150 DH</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -570,7 +571,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-three.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-three.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-three.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7">
@@ -584,8 +585,8 @@ html,body{overflow-x:clip!important}
                                                         Notre chef compose une cuisine méditerranéenne et marocaine à partir des produits du marché de Tanger, servie en salle panoramique ou en terrasse.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
-                                                        <a href="#">Frais de service : 150 DH</a>
+                                                        <a href="#reservation" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
+                                                        <a href="#reservation">Frais de service : 150 DH</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -597,7 +598,7 @@ html,body{overflow-x:clip!important}
                                         <div class="row">
                                             <div class="co-lg-5 col-md-5">
                                                 <div class="single-tab-image">
-                                                    <a href="#"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
+                                                    <a href="panorama/img/hotel-facility-one.jpg" target="_blank" rel="noopener"><img src="panorama/img/hotel-facility-one.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="co-lg-7 col-md-7">
@@ -611,8 +612,8 @@ html,body{overflow-x:clip!important}
                                                         Notre chef compose une cuisine méditerranéenne et marocaine à partir des produits du marché de Tanger, servie en salle panoramique ou en terrasse.
                                                     </p>
                                                     <div class="our_services">
-                                                        <a href="#" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
-                                                        <a href="#">Frais de service : 150 DH</a>
+                                                        <a href="#reservation" class="margin-right-33">Horaires : 19h00 – 22h00 </a>
+                                                        <a href="#reservation">Frais de service : 150 DH</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -630,11 +631,11 @@ html,body{overflow-x:clip!important}
         <!-- end Hotel Facilities section -->
 
         <!-- start About Us section -->
-        <section class="about_us_area margin-bottom-128">
+        <section class="about_us_area margin-bottom-128" id="apropos">
             <div class="container">
                 <div class="about_us clearfix">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 padding-left-0">
-                        <div class="news">
+                        <div class="news" id="actualites">
                             <div class="section_title margin-bottom-50">
                                 <h5>Actualités</h5>
                             </div>
@@ -644,7 +645,7 @@ html,body{overflow-x:clip!important}
                                         <div class="single_content clearfix border-bottom-whitesmoke">
                                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 padding-left-0">
                                                 <div class="post_media">
-                                                    <a href="#"><img src="panorama/img/news-one.jpg" alt=""></a>
+                                                    <a href="panorama/img/news-one.jpg" target="_blank" rel="noopener"><img src="panorama/img/news-one.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 padding-left-0">
@@ -659,7 +660,7 @@ html,body{overflow-x:clip!important}
                                         <div class="single_content clearfix margin-top-35 border-bottom-whitesmoke">
                                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 padding-left-0">
                                                 <div class="post_media">
-                                                    <a href="#"><img src="panorama/img/news-two.jpg" alt=""></a>
+                                                    <a href="panorama/img/news-two.jpg" target="_blank" rel="noopener"><img src="panorama/img/news-two.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 padding-left-0">
@@ -674,7 +675,7 @@ html,body{overflow-x:clip!important}
                                         <div class="single_content clearfix margin-bottom-35 margin-top-35">
                                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 padding-left-0">
                                                 <div class="post_media">
-                                                    <a href="#"><img src="panorama/img/news-three.jpg" alt=""></a>
+                                                    <a href="panorama/img/news-three.jpg" target="_blank" rel="noopener"><img src="panorama/img/news-three.jpg" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 padding-left-0">
@@ -749,7 +750,7 @@ html,body{overflow-x:clip!important}
                                                 </div>
                                                 <div class="customer_detail clearfix">
                                                     <div class="customer_pic alignleft-20">
-                                                        <a href="#"><img src="panorama/img/customer-says-one.png" alt=""></a>
+                                                        <a href="panorama/img/customer-says-one.png" target="_blank" rel="noopener"><img src="panorama/img/customer-says-one.png" alt=""></a>
                                                     </div>
                                                     <div class="customer_identity floatleft">
                                                         <h6>Yasmine E.</h6>
@@ -770,7 +771,7 @@ html,body{overflow-x:clip!important}
                                                 </div>
                                                 <div class="customer_detail clearfix">
                                                     <div class="customer_pic alignleft-20">
-                                                        <a href="#"><img src="panorama/img/customer-says-one.png" alt=""></a>
+                                                        <a href="panorama/img/customer-says-one.png" target="_blank" rel="noopener"><img src="panorama/img/customer-says-one.png" alt=""></a>
                                                     </div>
                                                     <div class="customer_identity floatleft">
                                                         <h6>Yasmine E.</h6>
@@ -799,7 +800,7 @@ html,body{overflow-x:clip!important}
         <!-- end About Us section -->
         
         <!-- start contact us area -->
-        <section class="contact_us_area content-left">
+        <section class="contact_us_area content-left" id="contact">
             <div class="container">
                 <div class="contact_us clearfix">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -823,10 +824,10 @@ html,body{overflow-x:clip!important}
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                         <div class="social_icons clearfix">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="demo-panorama.html"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="demo-panorama.html"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="demo-panorama.html"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="demo-panorama.html"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -843,7 +844,7 @@ html,body{overflow-x:clip!important}
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="footer_widget">
                                 <div class="footer_logo">
-                                    <a href="#" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;text-decoration:none;">PANORAMA <span style="font-size:11px;letter-spacing:2px;color:#f7c411;">HÔTEL &amp; SPA</span></a>
+                                    <a href="demo-panorama.html" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;text-decoration:none;">PANORAMA <span style="font-size:11px;letter-spacing:2px;color:#f7c411;">HÔTEL &amp; SPA</span></a>
                                 </div>
                                 <p>Hôtel &amp; spa au cœur de Tanger, à quelques minutes de la médina, de la marina et des plages.</p>
                                 <ul>
@@ -859,18 +860,18 @@ html,body{overflow-x:clip!important}
                                     <h5 class="padding-left-15">Liens rapides</h5>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <ul>
-                                            <li><a href="#">Chambres</a></li>
-                                            <li><a href="#">Gastronomie</a></li>
-                                            <li><a href="#">Espaces &amp; plage</a></li>
-                                            <li><a href="#">Équipements</a></li>
+                                            <li><a href="#chambres">Chambres</a></li>
+                                            <li><a href="#services">Gastronomie</a></li>
+                                            <li><a href="demo-panorama.html">Espaces &amp; plage</a></li>
+                                            <li><a href="#services">Équipements</a></li>
                                         </ul>  
                                     </div>
                                     <div class="col-lg-6 col-md-6 sol-sm-6">
                                         <ul>
-                                            <li><a href="#">La Marina</a></li>
-                                            <li><a href="#">Bien-être &amp; spa</a></li>
-                                            <li><a href="#">Notre histoire</a></li>
-                                            <li><a href="#">Contact</a></li>
+                                            <li><a href="#services">La Marina</a></li>
+                                            <li><a href="demo-panorama.html">Bien-être &amp; spa</a></li>
+                                            <li><a href="#apropos">Notre histoire</a></li>
+                                            <li><a href="#contact">Contact</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -880,7 +881,7 @@ html,body{overflow-x:clip!important}
                             <div class="footer_widget">
                                 <h5>Tanger — Maroc</h5>
                                 <div class="footer_map">
-                                    <a href="#"><img src="panorama/img/footer-map-two.jpg" alt=""></a>
+                                    <a href="panorama/img/footer-map-two.jpg" target="_blank" rel="noopener"><img src="panorama/img/footer-map-two.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -888,7 +889,7 @@ html,body{overflow-x:clip!important}
                     <div class="row">
                         <div class="container">
                             <div class="footer_copyright margin-tb-50 content-center">
-                                <p>© 2026 <a href="#">PANORAMA HÔTEL &amp; SPA</a>. Tous droits réservés</p>
+                                <p>© 2026 <a href="demo-panorama.html">PANORAMA HÔTEL &amp; SPA</a>. Tous droits réservés</p>
                                 <p style="margin-top:6px;font-size:13px;opacity:.85;">Démonstration réalisée par Vertex Web — Tanger</p>
                             </div>
                         </div>
