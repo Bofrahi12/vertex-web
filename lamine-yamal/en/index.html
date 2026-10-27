@@ -392,6 +392,14 @@ html.rm #dust{display:none}
 .evo-card figcaption b{display:block;font-size:16.5px;font-weight:900;color:#fff}
 .evo-card figcaption span{font-size:13px;color:#d5d9e4;font-weight:700}
 .evo-hint{text-align:center;color:var(--mut);font-size:13.5px;font-weight:700}
+.edits-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:880px;margin:0 auto}
+@media(max-width:700px){.edits-grid{grid-template-columns:1fr}}
+.edit-card{margin:0;border-radius:20px;padding:6px;background:linear-gradient(160deg,rgba(233,185,73,.55),rgba(233,185,73,.07) 45%,rgba(255,255,255,.1));box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.edit-card video{width:100%;object-fit:cover;border-radius:15px;display:block;background:#000}
+.edit-card figcaption{padding:13px 10px 9px;text-align:center}
+.edit-card figcaption b{display:block;font-size:16.5px;font-weight:900}
+.edit-card figcaption span{font-size:13px;color:var(--mut);font-weight:700}
+
 
 
 
@@ -939,6 +947,18 @@ section[id],footer[id]{scroll-margin-top:98px}
 
 <!-- ================= FAQ ================= -->
 <aside class="adslot" aria-label="Advertisement">📣 Advertisement</aside>
+<!-- ================= FAN EDITS ================= -->
+<section id="edits">
+  <div class="sec-head rv">
+    <div class="tag">Fan edits</div>
+    <h2>Edits worthy of the star</h2>
+    <p>Fan-made edit videos — tap any clip to play it right here, with sound.</p>
+  </div>
+  <div class="edits-grid">
+    <figure class="edit-card rv"><video src="../assets/edit-1.mp4" poster="../assets/edit-1-poster.jpg" controls preload="none" playsinline style="aspect-ratio:702/1008"></video><figcaption><b>Glory night — the World Cup final</b><span>The trophy and the skills on final night against Argentina</span></figcaption></figure>
+    <figure class="edit-card rv"><video src="../assets/edit-2.mp4" poster="../assets/edit-2-poster.jpg" controls preload="none" playsinline style="aspect-ratio:576/768"></video><figcaption><b>The world champion&#x27;s celebration</b><span>Coronation vibes — celebrating the biggest title of all</span></figcaption></figure>
+  </div>
+</section>
 <section id="faq">
   <div class="sec-head rv">
     <div class="tag">Visitors' questions</div>
