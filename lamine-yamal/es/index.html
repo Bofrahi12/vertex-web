@@ -33,7 +33,7 @@
 :root{
   --bg:#07090f; --bg2:#0b0f1a; --panel:#0e1322; --line:rgba(233,185,73,.18);
   --gold:#e9b949; --gold2:#f5d67a; --garnet:#a50044; --blue:#2f6fd0;
-  --tx:#f2f0e9; --mut:#9aa3b5; --ease:cubic-bezier(.22,1,.36,1);
+  --tx:#f2f0e9; --mut:#aeb8c8; --ease:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{overflow-x:clip}
@@ -362,7 +362,13 @@ html.rm #dust{display:none}
 .wp-item{margin:0;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.09);background:#0d0f16}
 .wp-item img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
 .wp-item a.dl{display:block;text-align:center;padding:11px;background:rgba(233,185,73,.13);color:var(--gold2);font-weight:900;text-decoration:none;font-size:14.5px}
-.adslot{max-width:1000px;margin:26px auto;border:1.5px dashed rgba(233,185,73,.4);border-radius:16px;padding:26px 18px;text-align:center;color:var(--mut);font-weight:800;letter-spacing:.04em;background:rgba(233,185,73,.03)}
+.adslot{max-width:1000px;margin:26px auto;border:1px solid rgba(233,185,73,.45);border-radius:18px;padding:30px 22px;text-align:center;background:radial-gradient(120% 160% at 50% 0%,rgba(233,185,73,.14),rgba(233,185,73,.03) 55%,rgba(255,255,255,.02));box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.adslot .ad-brand{font-size:11.5px;font-weight:900;letter-spacing:.32em;color:var(--gold);text-transform:uppercase}
+.adslot .ad-head{font-size:clamp(20px,3.4vw,28px);font-weight:900;margin:8px 0 6px}
+.adslot .ad-sub{color:var(--mut);font-size:14.5px;font-weight:700}
+
+[dir=rtl] .ad-brand{letter-spacing:.02em}
+.adslot .ad-cta{display:inline-block;margin-top:16px;background:linear-gradient(135deg,#f4cd6a,#dfa92e);color:#191104;font-weight:900;font-size:14.5px;padding:11px 24px;border-radius:999px;text-decoration:none;box-shadow:0 12px 28px rgba(223,169,46,.35)}
 .advertise{max-width:1000px;margin:0 auto;background:linear-gradient(140deg,rgba(233,185,73,.14),var(--panel) 55%);border:1px solid rgba(233,185,73,.35);border-radius:22px;padding:30px;text-align:center}
 .advertise h3{font-size:clamp(21px,3vw,28px);font-weight:900;margin-bottom:8px}
 .advertise p{color:#c9cedb;max-width:62ch;margin:0 auto 18px}
@@ -509,10 +515,10 @@ section[id],footer[id]{scroll-margin-top:98px}
   <div class="sec-head rv">
     <div class="tag">Desde el ojo del aficionado</div>
     <h2>La gloria en movimiento</h2>
-    <p>Montajes creados por aficionados de la noche de la final: la noche en que el chico de Rocafonda se convirtió en campeón del mundo. Dale al play y disfrútalos con sonido, aquí mismo, sin salir del sitio.</p>
+    <p>Montajes de aficionados: de las noches mágicas del Barça a la final que convirtió al chico de Rocafonda en campeón del mundo. Dale al play y disfrútalos con sonido, aquí mismo, sin salir del sitio.</p>
   </div>
   <div class="edits-grid">
-    <figure class="edit-card rv"><video src="../assets/edit-1.mp4" poster="../assets/edit-1-poster.jpg" controls preload="none" playsinline style="aspect-ratio:702/1008"></video><figcaption><b>La noche de gloria: la final del Mundial 2026</b><span>España × Argentina · La final</span><p>Del pitido inicial a levantar el trofeo: las jugadas de Yamal en la noche más grande del fútbol y el oro brillando en sus manos. Un montaje que resume por qué el mundo entero se puso en pie ante un chico de 19 años.</p></figcaption></figure>
+    <figure class="edit-card rv"><video src="../assets/edit-1.mp4" poster="../assets/edit-1-poster.jpg" controls preload="none" playsinline style="aspect-ratio:702/1008"></video><figcaption><b>Una noche de magia blaugrana</b><span>Regates y toques con la camiseta del Barça</span><p>Regates, pases y toques que dejan perdidos a los defensas: un montaje con los mejores momentos de Yamal como blaugrana, de los campos de LaLiga a las noches de Champions.</p></figcaption></figure>
     <figure class="edit-card rv"><video src="../assets/edit-2.mp4" poster="../assets/edit-2-poster.jpg" controls preload="none" playsinline style="aspect-ratio:576/768"></video><figcaption><b>La fiesta del campeón del mundo</b><span>Ambiente de coronación · CAMPEONES</span><p>La medalla al cuello, el trofeo en las manos y la camiseta de campeones en los hombros: la alegría pura de la noche de la coronación, guardada en un montaje breve que habla por toda una generación.</p></figcaption></figure>
   </div>
 </section>
@@ -590,7 +596,7 @@ section[id],footer[id]{scroll-margin-top:98px}
   </div>
   <div id="cdwrap" class="rv"></div>
 </section>
-<aside class="adslot" aria-label="Espacio publicitario">📣 Espacio publicitario</aside>
+<aside class="adslot" aria-label="Espacio publicitario"><span class="ad-brand">Publicidad</span><div class="ad-head">Tu marca podría estar aquí</div><div class="ad-sub">El sitio de los fans de Lamine Yamal: donde se reúne el fútbol mundial.</div><a class="ad-cta" href="https://wa.me/212693981822?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20publicidad%20en%20el%20sitio%20de%20Lamine%20Yamal" target="_blank" rel="noopener">Reserva este espacio</a></aside>
 <section id="story">
   <div class="sec-head rv">
     <div class="tag">La historia completa</div>
@@ -852,7 +858,7 @@ section[id],footer[id]{scroll-margin-top:98px}
     <div class="fz-card rv"><h3>El quiz de Yamal</h3><div id="quizbox"></div></div>
   </div>
 </section>
-<aside class="adslot" aria-label="Espacio publicitario">📣 Espacio publicitario</aside>
+<aside class="adslot" aria-label="Espacio publicitario"><span class="ad-brand">Publicidad</span><div class="ad-head">Tu marca podría estar aquí</div><div class="ad-sub">El sitio de los fans de Lamine Yamal: donde se reúne el fútbol mundial.</div><a class="ad-cta" href="https://wa.me/212693981822?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20publicidad%20en%20el%20sitio%20de%20Lamine%20Yamal" target="_blank" rel="noopener">Reserva este espacio</a></aside>
 <section id="morocco">
   <div class="sec-head rv">
     <div class="tag">Su identidad marroquí</div>
@@ -998,7 +1004,7 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= FAQ ================= -->
-<aside class="adslot" aria-label="Espacio publicitario">📣 Espacio publicitario</aside>
+<aside class="adslot" aria-label="Espacio publicitario"><span class="ad-brand">Publicidad</span><div class="ad-head">Tu marca podría estar aquí</div><div class="ad-sub">El sitio de los fans de Lamine Yamal: donde se reúne el fútbol mundial.</div><a class="ad-cta" href="https://wa.me/212693981822?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20publicidad%20en%20el%20sitio%20de%20Lamine%20Yamal" target="_blank" rel="noopener">Reserva este espacio</a></aside>
 <section id="faq">
   <div class="sec-head rv">
     <div class="tag">Preguntas de los visitantes</div>
