@@ -330,6 +330,7 @@ html.rm #dust{display:none}
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../assets/icon-192.png">
 <meta name="theme-color" content="#07090f">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 </head>
 <body>
 
@@ -539,7 +540,7 @@ html.rm #dust{display:none}
 <!-- ================= FILM: WORLD CUP NIGHT ================= -->
 <div class="filmwrap" style="height:300vh">
   <div class="filmstage">
-    <canvas class="film" data-dir="../assets/film-wc" data-frames="60" aria-hidden="true"></canvas>
+    <canvas class="film" data-dir="../assets/film-wc" data-frames="60" data-dir-m="../assets/film-wc-m" data-frames-m="44" aria-hidden="true"></canvas>
     <div class="filmshade"></div>
     <div class="filmcap" data-cap>
       <div class="fnum">Scene 02 — The night of glory</div>
@@ -627,7 +628,7 @@ html.rm #dust{display:none}
 <!-- ================= FILM: THE NUMBER 10 ================= -->
 <div class="filmwrap" style="height:300vh">
   <div class="filmstage">
-    <canvas class="film" data-dir="../assets/film-barca" data-frames="60" aria-hidden="true"></canvas>
+    <canvas class="film" data-dir="../assets/film-barca" data-frames="60" data-dir-m="../assets/film-barca-m" data-frames-m="44" aria-hidden="true"></canvas>
     <div class="filmshade"></div>
     <div class="filmcap" data-cap>
       <div class="fnum">Scene 03 — The heir to the throne</div>
@@ -708,7 +709,7 @@ html.rm #dust{display:none}
     <h2>The star's shots spin around you</h2>
     <p>A real 3D gallery: drag with your finger or your mouse and let Yamal's shots spin before your eyes.</p>
   </div>
-  <div class="cfstage rv" id="cfstage" aria-label="3D showcase: photos and videos of Lamine Yamal"></div>
+  <div class="cfstage rv" id="cfstage" data-lenis-prevent aria-label="3D showcase: photos and videos of Lamine Yamal"></div>
   <div class="hint3d">↔️ Drag to spin the showcase — and tap the video in the middle to play it right here</div>
 </section>
 
@@ -877,16 +878,16 @@ html.rm #dust{display:none}
     var stage=document.getElementById('cfstage');
     if(!stage) return;
     var items=[
-      {t:'img', src:'../assets/portrait-2025.jpg', cap:'Dribbling in the Spain shirt'},
+      {t:'img', src:'../assets/cards/portrait-2025.jpg', cap:'Dribbling in the Spain shirt'},
       {t:'yt', id:'M37orXBtvtg', cap:'All his goals in 2025 — FC Barcelona'},
-      {t:'img', src:'../assets/barca-athletic.jpg', cap:'The knee celebration — the number 10'},
+      {t:'img', src:'../assets/cards/barca-athletic.jpg', cap:'The knee celebration — the number 10'},
       {t:'yt', id:'7fq5-PfVlCg', cap:'The historic goal against France — FOX Soccer'},
-      {t:'img', src:'../assets/wc-final-167.jpg', cap:'The night of the 2026 World Cup final'},
+      {t:'img', src:'../assets/cards/wc-final-167.jpg', cap:'The night of the 2026 World Cup final'},
       {t:'yt', id:'cQQsgMpy2cA', cap:'The best of the 2025/26 season — FC Barcelona'},
-      {t:'img', src:'../assets/wc-nico-252.jpg', cap:'With Nico Williams'},
+      {t:'img', src:'../assets/cards/wc-nico-252.jpg', cap:'With Nico Williams'},
       {t:'yt', id:'9Fh5J1mIPe8', cap:'19 big moments — LALIGA'},
-      {t:'img', src:'../assets/copa-final.jpg', cap:'Lifting the 2025 Copa del Rey'},
-      {t:'img', src:'../assets/wc-final-133.jpg', cap:'From behind: LAMINE YAMAL 19'}
+      {t:'img', src:'../assets/cards/copa-final.jpg', cap:'Lifting the 2025 Copa del Rey'},
+      {t:'img', src:'../assets/cards/wc-final-133.jpg', cap:'From behind: LAMINE YAMAL 19'}
     ];
     var N=items.length, cards=[], playing=false;
     items.forEach(function(it,i){
@@ -966,13 +967,13 @@ html.rm #dust{display:none}
     if(!cv) return;
     var ctx=cv.getContext('2d'), W=0, H=0, ps=[], run=true;
     function size(){
-      var d=Math.min(devicePixelRatio||1,2);
+      var d=Math.min(devicePixelRatio||1, innerWidth<=640?1.25:2);
       W=cv.clientWidth; H=cv.clientHeight;
       cv.width=W*d; cv.height=H*d; ctx.setTransform(d,0,0,d,0,0);
     }
     function seed(){
       ps=[];
-      var n=Math.min(80, Math.round(W/14));
+      var n=Math.min(innerWidth<=640?26:80, Math.round(W/14));
       for(var i=0;i<n;i++) ps.push({x:Math.random()*W, y:Math.random()*H, r:Math.random()*2+0.6, s:Math.random()*0.35+0.12, o:Math.random()*0.5+0.15, ph:Math.random()*6.28});
     }
     function tick(t){
@@ -1072,7 +1073,9 @@ html.rm #dust{display:none}
     function url(i){ return dir+'/f-'+('00'+(i+1)).slice(-3)+'.webp'; }
     function startLoad(){
       if(started) return; started=true;
-      for(var i=0;i<N;i++){ var im=new Image(); im.onload=function(){ dirty=true; }; im.src=url(i); imgs[i]=im; }
+      function load(i){ var im=new Image(); im.onload=function(){ dirty=true; }; im.src=url(i); imgs[i]=im; }
+      for(var i=0;i<N;i+=2) load(i);
+      setTimeout(function(){ for(var j=1;j<N;j+=2) load(j); }, 650);
     }
     new IntersectionObserver(function(es){ es.forEach(function(e){
       active=e.isIntersecting; if(e.isIntersecting) startLoad();
@@ -1196,5 +1199,6 @@ html.rm #dust{display:none}
   });
 })();
 </script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('../sw.js',{scope:'../'}).catch(function(){});}</script>
 </body>
 </html>
