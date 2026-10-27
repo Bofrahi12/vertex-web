@@ -113,6 +113,24 @@
   .fnav{display:grid;gap:9px}
   .fnav a:hover{color:#fff}
   .legal{border-top:1px solid var(--line);padding-top:22px;text-align:center;color:var(--mut);font-size:.86rem}
+  /* galerie */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .gal figure{border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative;background:var(--noir2)}
+  .gal figure img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:.5s}
+  .gal figure:hover img{transform:scale(1.05)}
+  .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;background:linear-gradient(transparent,rgba(0,0,0,.82));font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.92rem}
+  /* faq */
+  .faq{max-width:860px}
+  .faq details{background:var(--noir2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:14px}
+  .faq summary{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem;cursor:pointer}
+  .faq details p{color:var(--mut);margin-top:10px;font-size:.95rem}
+  /* contact */
+  .contactbox{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;background:linear-gradient(160deg,var(--noir3),var(--noir2));border:1px solid var(--line);border-radius:18px;padding:44px}
+  .contactbox .crow{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);color:var(--mut);font-size:.98rem}
+  .contactbox .crow:last-child{border-bottom:none}
+  .contactbox .crow strong{color:#fff;min-width:110px}
+  @media(max-width:1020px){.gal{grid-template-columns:repeat(2,1fr)}.contactbox{grid-template-columns:1fr}}
+  @media(max-width:620px){.gal{grid-template-columns:1fr}}
   /* whatsapp float */
   .wa-float{position:fixed;bottom:22px;inset-inline-end:22px;z-index:150;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 12px 32px rgba(0,0,0,.5)}
   @media(max-width:1020px){
@@ -166,12 +184,14 @@ html,body{overflow-x:clip!important}
 
 <header>
   <div class="wrap hrow">
-    <a class="logo" href="#">IMPERIAL <span>MOTORS</span><small>TANGER · PREMIUM AUTO</small></a>
+    <a class="logo" href="demo-imperial.html">IMPERIAL <span>MOTORS</span><small>TANGER · PREMIUM AUTO</small></a>
     <nav class="main">
       <a href="#inventaire">Inventaire</a>
       <a href="#services">Services</a>
+      <a href="#galerie">Galerie</a>
       <a href="#pourquoi">Pourquoi nous</a>
       <a href="#essai">Essai</a>
+      <a href="#contact">Contact</a>
     </nav>
     <a class="btn sm" href="https://wa.me/212693981822?text=Bonjour%20IMPERIAL%20MOTORS%2C%20je%20cherche%20un%20v%C3%A9hicule%20premium%20%C3%A0%20Tanger." target="_blank" rel="noopener">Nous contacter</a>
   </div>
@@ -285,6 +305,28 @@ html,body{overflow-x:clip!important}
         </div>
       </article>
 
+      <article class="car">
+        <div class="ph"><img src="imperial/remote-2.jpg" alt="GT Sport V8 Biturbo rouge"></div>
+        <div class="bd">
+          <span class="tag">Sportive</span>
+          <h3>GT Sport V8 Biturbo</h3>
+          <div class="specs"><span>📅 2024</span><span>🛣️ 6 200 km</span><span>⛽ Essence</span><span>⚙️ Automatique</span></div>
+          <div class="price">1 290 000 DH</div><div class="vx-inclus">Inclus : inspection 150 points · historique vérifié · kilométrage garanti · 12 mois de garantie</div>
+          <a class="btn sm" href="https://wa.me/212693981822?text=Bonjour%20IMPERIAL%20MOTORS%2C%20je%20veux%20r%C3%A9server%20un%20essai%20de%20la%20GT%20Sport%20V8%20Biturbo%20(1%20290%20000%20DH)." target="_blank" rel="noopener">Réserver un essai</a>
+        </div>
+      </article>
+
+      <article class="car">
+        <div class="ph"><img src="imperial/remote-1.jpg" alt="Gran Turismo M Sport bleu"></div>
+        <div class="bd">
+          <span class="tag">Gran Turismo</span>
+          <h3>Gran Turismo M Sport</h3>
+          <div class="specs"><span>📅 2020</span><span>🛣️ 52 700 km</span><span>⛽ Diesel</span><span>⚙️ Automatique</span></div>
+          <div class="price">389 000 DH</div><div class="vx-inclus">Inclus : inspection 150 points · historique vérifié · kilométrage garanti · 12 mois de garantie</div>
+          <a class="btn sm" href="https://wa.me/212693981822?text=Bonjour%20IMPERIAL%20MOTORS%2C%20je%20veux%20r%C3%A9server%20un%20essai%20de%20la%20Gran%20Turismo%20M%20Sport%20(389%20000%20DH)." target="_blank" rel="noopener">Réserver un essai</a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -302,6 +344,25 @@ html,body{overflow-x:clip!important}
       <div class="sv"><span class="num">02</span><div class="ic">✅</div><h3>Occasions certifiées</h3><p>Inspection 150 points, historique vérifié, kilométrage garanti et 12 mois de garantie incluse.</p></div>
       <div class="sv"><span class="num">03</span><div class="ic">💳</div><h3>Financement sur mesure</h3><p>Crédit auto et leasing avec réponse en 24 h, mensualités adaptées à votre budget, sans paperasse interminable.</p></div>
       <div class="sv"><span class="num">04</span><div class="ic">🔄</div><h3>Reprise immédiate</h3><p>Estimation gratuite de votre véhicule en 30 minutes et offre ferme le jour même, sans obligation d'achat.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Galerie</div>
+      <h2>Le showroom <em>en images</em></h2>
+      <p>Un aperçu de nos véhicules premium présentés au showroom de Tanger — chaque modèle est disponible à l'essai sur rendez-vous.</p>
+    </div>
+    <div class="gal">
+      <figure><img src="imperial/hero.jpg" alt="Voiture de sport premium au showroom IMPERIAL MOTORS"><figcaption>Notre sportive du moment</figcaption></figure>
+      <figure><img src="imperial/v1.jpg" alt="Coupé Élégance V6 en galerie"><figcaption>Coupé Élégance V6</figcaption></figure>
+      <figure><img src="imperial/v2.jpg" alt="Berline Sport GT en galerie"><figcaption>Berline Sport GT</figcaption></figure>
+      <figure><img src="imperial/v4.jpg" alt="SUV Prestige 4x4 en galerie"><figcaption>SUV Prestige 4×4</figcaption></figure>
+      <figure><img src="imperial/v5.jpg" alt="Limousine Affaires Hybride en galerie"><figcaption>Limousine Affaires Hybride</figcaption></figure>
+      <figure><img src="imperial/v6.jpg" alt="Cabriolet Riviera en galerie"><figcaption>Cabriolet Riviera</figcaption></figure>
     </div>
   </div>
 </section>
@@ -326,9 +387,9 @@ html,body{overflow-x:clip!important}
   <div class="wrap">
     <div class="formbox">
       <div>
-        <div class="kicker">Essai gratuit</div>
+        <div class="kicker">Essai · Financement · Reprise</div>
         <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:14px">Réservez votre <span style="color:var(--accent)">essai</span></h2>
-        <p style="color:var(--mut)">Choisissez le véhicule et la date qui vous conviennent : votre demande part directement sur notre WhatsApp, nous confirmons en quelques minutes. Showroom ouvert du lundi au samedi, 9 h – 19 h, Tanger.</p>
+        <p style="color:var(--mut)">Choisissez le véhicule, le type de demande (essai, financement ou reprise) et la date qui vous conviennent : votre demande part directement sur notre WhatsApp, nous confirmons en quelques minutes. Showroom ouvert du lundi au samedi, 9 h – 19 h, Tanger.</p>
       </div>
       <form id="essaiForm">
         <div>
@@ -340,11 +401,21 @@ html,body{overflow-x:clip!important}
             <option>SUV Prestige 4×4 — 1 150 000 DH</option>
             <option>Limousine Affaires Hybride — 980 000 DH</option>
             <option>Cabriolet Riviera — 545 000 DH</option>
+            <option>GT Sport V8 Biturbo — 1 290 000 DH</option>
+            <option>Gran Turismo M Sport — 389 000 DH</option>
             <option>Autre véhicule premium</option>
           </select>
         </div>
         <div>
-          <label for="f-date">Date de l'essai</label>
+          <label for="f-type">Type de demande</label>
+          <select id="f-type" required>
+            <option>Réserver un essai</option>
+            <option>Demande de financement</option>
+            <option>Reprise de mon véhicule actuel</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-date">Date souhaitée</label>
           <input type="date" id="f-date" required>
         </div>
         <div>
@@ -361,11 +432,59 @@ html,body{overflow-x:clip!important}
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Questions fréquentes</div>
+      <h2>Vos questions, <em>nos réponses</em></h2>
+      <p>Financement, garantie, reprise et livraison : l'essentiel à savoir avant votre visite au showroom.</p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Proposez-vous un financement pour ces véhicules ?</summary>
+        <p>Oui. Nous proposons un crédit auto et un leasing sur mesure, avec une réponse de principe en 24 h et des mensualités adaptées à votre budget. Utilisez le formulaire ci-dessus (type de demande : « Demande de financement ») et nous préparons votre simulation avant votre visite.</p>
+      </details>
+      <details>
+        <summary>Quelle garantie couvre les occasions certifiées ?</summary>
+        <p>Chaque occasion certifiée est couverte 12 mois, pièces et main-d'œuvre, après une inspection complète de 150 points. L'historique du véhicule et son kilométrage sont vérifiés et garantis par écrit au moment de la vente.</p>
+      </details>
+      <details>
+        <summary>Puis-je faire reprendre mon véhicule actuel ?</summary>
+        <p>Oui. L'estimation de votre véhicule actuel est gratuite et prend environ 30 minutes au showroom ; nous vous remettons une offre ferme le jour même, sans obligation d'achat. Le montant de la reprise peut être déduit directement du prix du véhicule choisi.</p>
+      </details>
+      <details>
+        <summary>Livrez-vous en dehors de Tanger ?</summary>
+        <p>Oui, la livraison est possible dans tout le Maroc après finalisation du dossier au showroom de Tanger. Les délais et les frais exacts vous sont confirmés par écrit avant la signature, sans coût caché.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding-top:20px">
+  <div class="wrap">
+    <div class="contactbox">
+      <div>
+        <div class="kicker">Contact</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:14px">Passez au <span style="color:var(--accent)">showroom</span></h2>
+        <p style="color:var(--mut)">Venez découvrir nos véhicules premium en personne à Tanger, réserver un essai ou demander une estimation de reprise gratuite.</p>
+      </div>
+      <div>
+        <div class="crow"><strong>📍 Adresse</strong><span>Zone automobile, Tanger</span></div>
+        <div class="crow"><strong>🕘 Horaires</strong><span>Lundi – Samedi : 9 h – 19 h</span></div>
+        <div class="crow"><strong>💬 WhatsApp</strong><span>+212 693 981 822</span></div>
+        <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20IMPERIAL%20MOTORS%2C%20je%20cherche%20un%20v%C3%A9hicule%20premium%20%C3%A0%20Tanger." target="_blank" rel="noopener" style="margin-top:18px">Nous écrire sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="frow">
       <div>
-        <a class="logo" href="#">IMPERIAL <span>MOTORS</span><small>TANGER · PREMIUM AUTO</small></a>
+        <a class="logo" href="demo-imperial.html">IMPERIAL <span>MOTORS</span><small>TANGER · PREMIUM AUTO</small></a>
         <p style="margin-top:16px">Concessionnaire de voitures premium à Tanger : véhicules neufs et occasions certifiées, financement et reprise, avec 12 mois de garantie.</p>
       </div>
       <div>
@@ -396,10 +515,12 @@ html,body{overflow-x:clip!important}
 document.getElementById('essaiForm').addEventListener('submit', function(e){
   e.preventDefault();
   var veh = document.getElementById('f-veh').value;
+  var type = document.getElementById('f-type').value;
   var date = document.getElementById('f-date').value;
   var nom = document.getElementById('f-nom').value.trim();
   var tel = document.getElementById('f-tel').value.trim();
-  var msg = "Bonjour IMPERIAL MOTORS, je souhaite réserver un essai.\n" +
+  var msg = "Bonjour IMPERIAL MOTORS, voici ma demande.\n" +
+            "• Type de demande : " + type + "\n" +
             "• Véhicule : " + veh + "\n" +
             "• Date souhaitée : " + date + "\n" +
             "• Nom : " + nom + "\n" +

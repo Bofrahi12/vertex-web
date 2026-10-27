@@ -52,6 +52,16 @@
   .service h3{font-size:1.08rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
   .service p{color:var(--gris);font-size:.94rem}
   .fleet{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .gallery figure{border-radius:8px;overflow:hidden;border:1px solid var(--ligne);aspect-ratio:16/10;background:var(--carte)}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .gallery figure:hover img{transform:scale(1.05)}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .contact-card{background:var(--carte);border:1px solid var(--ligne);border-radius:6px;padding:28px 24px}
+  .contact-card h3{font-size:1.05rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .contact-card p{color:var(--gris);font-size:.95rem}
+  .contact-card .btn{margin-top:16px}
+  .estim{grid-column:1/-1;background:rgba(255,106,26,.08);border:1px solid rgba(255,106,26,.45);border-radius:6px;padding:14px 16px;color:#f0d9c8;font-size:.93rem}
   .car{background:var(--carte);border:1px solid var(--ligne);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
   .car:hover{border-color:rgba(255,106,26,.6);transform:translateY(-4px)}
   .car .ph{aspect-ratio:16/10;overflow:hidden}
@@ -143,10 +153,12 @@ html,body{overflow-x:clip!important}
 
 <header>
   <div class="nav">
-    <a class="logo" href="#">TNG <span>DRIVE</span></a>
+    <a class="logo" href="demo-v4-tngdrive.html">TNG <span>DRIVE</span></a>
     <nav>
       <a href="#services">Services</a>
       <a href="#flotte">Flotte</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
       <a href="#pourquoi">Pourquoi nous</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -206,17 +218,18 @@ html,body{overflow-x:clip!important}
   <div class="sec-head">
     <div class="kicker">La flotte</div>
     <h2>Style, vitesse &amp; <em>sophistication</em></h2>
-    <p>Voici les catégories de voitures que nous proposons, présentées à titre d'exemple. La flotte actuelle et les disponibilités se confirment sur WhatsApp.</p>
+    <p>Notre flotte démo compte 8 véhicules premium, avec un tarif par jour affiché pour chacun (prix démo, à titre d'exemple). La disponibilité réelle se confirme sur WhatsApp selon vos dates.</p>
   </div>
   <div class="fleet">
     <article class="car">
       <div class="ph"><img src="veloce/c1.jpg" alt="Coupé sport premium — TNG Drive"></div>
       <div class="body">
         <div class="cat">Coupé sport</div>
-        <h3>Coupé sport</h3>
-        <p class="specs">Allure sportive, finition premium</p><p class="vx-tarif">Tarif par jour confirmé sur WhatsApp — total calculé à la réservation selon vos dates.</p>
+        <h3>Mercedes-AMG GT Coupé</h3>
+        <p class="specs">Essence V8 · Automatique · 2 portes · Climatisation</p><p class="vx-tarif">Prix démo : 1 800 DH / jour — total estimé calculé dans le formulaire selon vos dates, confirmé sur WhatsApp avant réservation.</p>
         <div class="foot">
-          <button class="btn small" data-car="Coupé sport">Réserver</button>
+          <div class="price"><strong>1 800 DH</strong> <span>/ jour · démo</span></div>
+          <button class="btn small" data-car="Mercedes-AMG GT Coupé">Réserver</button>
         </div>
       </div>
     </article>
@@ -224,10 +237,11 @@ html,body{overflow-x:clip!important}
       <div class="ph"><img src="veloce/c2.jpg" alt="Muscle car premium — TNG Drive"></div>
       <div class="body">
         <div class="cat">Muscle car</div>
-        <h3>Muscle car</h3>
-        <p class="specs">Caractère affirmé, conduite plaisir</p><p class="vx-tarif">Tarif par jour confirmé sur WhatsApp — total calculé à la réservation selon vos dates.</p>
+        <h3>Ford Mustang GT</h3>
+        <p class="specs">Essence V8 5.0 · Automatique · 4 places · CarPlay</p><p class="vx-tarif">Prix démo : 1 500 DH / jour — total estimé calculé dans le formulaire selon vos dates, confirmé sur WhatsApp avant réservation.</p>
         <div class="foot">
-          <button class="btn small" data-car="Muscle car">Réserver</button>
+          <div class="price"><strong>1 500 DH</strong> <span>/ jour · démo</span></div>
+          <button class="btn small" data-car="Ford Mustang GT">Réserver</button>
         </div>
       </div>
     </article>
@@ -235,10 +249,11 @@ html,body{overflow-x:clip!important}
       <div class="ph"><img src="veloce/c3.jpg" alt="Cabriolet premium — TNG Drive"></div>
       <div class="body">
         <div class="cat">Cabriolet</div>
-        <h3>Cabriolet</h3>
-        <p class="specs">Pour vos trajets au bord de la mer</p><p class="vx-tarif">Tarif par jour confirmé sur WhatsApp — total calculé à la réservation selon vos dates.</p>
+        <h3>BMW Série 4 Cabriolet</h3>
+        <p class="specs">Essence · Automatique · Décapotable · 4 places</p><p class="vx-tarif">Prix démo : 1 400 DH / jour — total estimé calculé dans le formulaire selon vos dates, confirmé sur WhatsApp avant réservation.</p>
         <div class="foot">
-          <button class="btn small" data-car="Cabriolet">Réserver</button>
+          <div class="price"><strong>1 400 DH</strong> <span>/ jour · démo</span></div>
+          <button class="btn small" data-car="BMW Série 4 Cabriolet">Réserver</button>
         </div>
       </div>
     </article>
@@ -246,10 +261,11 @@ html,body{overflow-x:clip!important}
       <div class="ph"><img src="veloce/c4.jpg" alt="Berline d'affaires premium — TNG Drive"></div>
       <div class="body">
         <div class="cat">Berline d'affaires</div>
-        <h3>Berline d'affaires</h3>
-        <p class="specs">Confort et discrétion au quotidien</p><p class="vx-tarif">Tarif par jour confirmé sur WhatsApp — total calculé à la réservation selon vos dates.</p>
+        <h3>Mercedes Classe E</h3>
+        <p class="specs">Diesel · Automatique · 5 places · GPS & cuir</p><p class="vx-tarif">Prix démo : 1 200 DH / jour — total estimé calculé dans le formulaire selon vos dates, confirmé sur WhatsApp avant réservation.</p>
         <div class="foot">
-          <button class="btn small" data-car="Berline d'affaires">Réserver</button>
+          <div class="price"><strong>1 200 DH</strong> <span>/ jour · démo</span></div>
+          <button class="btn small" data-car="Mercedes Classe E">Réserver</button>
         </div>
       </div>
     </article>
@@ -257,10 +273,11 @@ html,body{overflow-x:clip!important}
       <div class="ph"><img src="veloce/c5.jpg" alt="Sportive premium — TNG Drive"></div>
       <div class="body">
         <div class="cat">Sportive</div>
-        <h3>Sportive</h3>
-        <p class="specs">Performance et sensations</p><p class="vx-tarif">Tarif par jour confirmé sur WhatsApp — total calculé à la réservation selon vos dates.</p>
+        <h3>Porsche 911 Carrera</h3>
+        <p class="specs">Essence · Boîte PDK · 2+2 places · Mode Sport</p><p class="vx-tarif">Prix démo : 2 500 DH / jour — total estimé calculé dans le formulaire selon vos dates, confirmé sur WhatsApp avant réservation.</p>
         <div class="foot">
-          <button class="btn small" data-car="Sportive">Réserver</button>
+          <div class="price"><strong>2 500 DH</strong> <span>/ jour · démo</span></div>
+          <button class="btn small" data-car="Porsche 911 Carrera">Réserver</button>
         </div>
       </div>
     </article>
@@ -268,13 +285,54 @@ html,body{overflow-x:clip!important}
       <div class="ph"><img src="veloce/c6.jpg" alt="Luxe ultime premium — TNG Drive"></div>
       <div class="body">
         <div class="cat">Luxe ultime</div>
-        <h3>Luxe ultime</h3>
-        <p class="specs">Le raffinement pour vos événements</p><p class="vx-tarif">Tarif par jour confirmé sur WhatsApp — total calculé à la réservation selon vos dates.</p>
+        <h3>Mercedes Classe S</h3>
+        <p class="specs">Hybride essence · Automatique · 5 places · Finition luxe</p><p class="vx-tarif">Prix démo : 2 200 DH / jour — total estimé calculé dans le formulaire selon vos dates, confirmé sur WhatsApp avant réservation.</p>
         <div class="foot">
-          <button class="btn small" data-car="Luxe ultime">Réserver</button>
+          <div class="price"><strong>2 200 DH</strong> <span>/ jour · démo</span></div>
+          <button class="btn small" data-car="Mercedes Classe S">Réserver</button>
         </div>
       </div>
     </article>
+    <article class="car">
+      <div class="ph"><img src="imperial/v1.jpg" alt="Range Rover Sport — SUV premium TNG Drive"></div>
+      <div class="body">
+        <div class="cat">SUV premium</div>
+        <h3>Range Rover Sport</h3>
+        <p class="specs">Diesel · Automatique · 5 places · Toit panoramique</p><p class="vx-tarif">Prix démo : 1 900 DH / jour — total estimé calculé dans le formulaire selon vos dates, confirmé sur WhatsApp avant réservation.</p>
+        <div class="foot">
+          <div class="price"><strong>1 900 DH</strong> <span>/ jour · démo</span></div>
+          <button class="btn small" data-car="Range Rover Sport">Réserver</button>
+        </div>
+      </div>
+    </article>
+    <article class="car">
+      <div class="ph"><img src="imperial/v2.jpg" alt="Audi Q7 — SUV familial premium TNG Drive"></div>
+      <div class="body">
+        <div class="cat">SUV familial</div>
+        <h3>Audi Q7</h3>
+        <p class="specs">Diesel · Automatique · 7 places · Grand coffre</p><p class="vx-tarif">Prix démo : 1 700 DH / jour — total estimé calculé dans le formulaire selon vos dates, confirmé sur WhatsApp avant réservation.</p>
+        <div class="foot">
+          <div class="price"><strong>1 700 DH</strong> <span>/ jour · démo</span></div>
+          <button class="btn small" data-car="Audi Q7">Réserver</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="galerie" style="padding-top:10px">
+  <div class="sec-head">
+    <div class="kicker">Galerie</div>
+    <h2>La flotte <em>en images</em></h2>
+    <p>Un aperçu de nos véhicules premium — photos des modèles de la flotte ci-dessus, reprises de notre sélection Tanger.</p>
+  </div>
+  <div class="gallery">
+    <figure><img src="veloce/hero.jpg" alt="Voiture de sport de luxe — galerie TNG Drive"></figure>
+    <figure><img src="veloce/c1.jpg" alt="Mercedes-AMG GT Coupé — galerie TNG Drive"></figure>
+    <figure><img src="veloce/c3.jpg" alt="BMW Série 4 Cabriolet — galerie TNG Drive"></figure>
+    <figure><img src="veloce/c5.jpg" alt="Porsche 911 Carrera — galerie TNG Drive"></figure>
+    <figure><img src="imperial/v1.jpg" alt="Range Rover Sport — galerie TNG Drive"></figure>
+    <figure><img src="imperial/v2.jpg" alt="Audi Q7 — galerie TNG Drive"></figure>
   </div>
 </section>
 
@@ -296,11 +354,15 @@ html,body{overflow-x:clip!important}
       <h3>📍 Là où vous êtes</h3>
       <p>Tanger, Rabat, Nador ou Al Hoceima : votre voiture vous attend dans la ville de votre choix.</p>
     </div>
+    <div class="item">
+      <h3>🧼 Propre &amp; prête</h3>
+      <p>Chaque véhicule est livré propre, contrôlé et avec le plein fait : vous partez dès la remise des clés, sans attente.</p>
+    </div>
   </div>
 </section>
 
 <section id="reservation" style="padding-top:10px">
-  <div class="vx-transp"><strong>Transparence tarifaire</strong><span>Le tarif par jour de la catégorie choisie vous est confirmé sur WhatsApp avant toute réservation. Total = tarif par jour × nombre de jours entre votre date de début et votre date de fin. Aucun montant n’est engagé avant cette confirmation.</span></div>
+  <div class="vx-transp"><strong>Transparence tarifaire</strong><span>Les tarifs démo par jour sont affichés sur chaque véhicule de la flotte. Total estimé = tarif par jour × nombre de jours entre votre date de début et votre date de fin, calculé dans le formulaire ci-dessous puis confirmé sur WhatsApp avant toute réservation. Aucun montant n’est engagé avant cette confirmation.</span></div>
 <div class="booking">
     <div class="side">
       <div class="kicker">Réservation</div>
@@ -313,13 +375,15 @@ html,body{overflow-x:clip!important}
         <label for="car">Voiture souhaitée</label>
         <select id="car" required>
           <option value="">— Choisir une voiture —</option>
-          <option>Coupé sport</option>
-          <option>Muscle car</option>
-          <option>Cabriolet</option>
-          <option>Berline d'affaires</option>
-          <option>Sportive</option>
-          <option>Luxe ultime</option>
-          <option>Autre demande</option>
+          <option value="Mercedes-AMG GT Coupé" data-price="1800">Mercedes-AMG GT Coupé — 1 800 DH/jour</option>
+          <option value="Ford Mustang GT" data-price="1500">Ford Mustang GT — 1 500 DH/jour</option>
+          <option value="BMW Série 4 Cabriolet" data-price="1400">BMW Série 4 Cabriolet — 1 400 DH/jour</option>
+          <option value="Mercedes Classe E" data-price="1200">Mercedes Classe E — 1 200 DH/jour</option>
+          <option value="Porsche 911 Carrera" data-price="2500">Porsche 911 Carrera — 2 500 DH/jour</option>
+          <option value="Mercedes Classe S" data-price="2200">Mercedes Classe S — 2 200 DH/jour</option>
+          <option value="Range Rover Sport" data-price="1900">Range Rover Sport — 1 900 DH/jour</option>
+          <option value="Audi Q7" data-price="1700">Audi Q7 — 1 700 DH/jour</option>
+          <option value="Autre demande">Autre demande</option>
         </select>
       </div>
       <div class="field">
@@ -338,6 +402,7 @@ html,body{overflow-x:clip!important}
         <label for="tel">Téléphone</label>
         <input type="tel" id="tel" placeholder="06 XX XX XX XX" required>
       </div>
+      <div class="estim" id="estim">Sélectionnez un véhicule et vos dates : le total démo estimé (tarif × jours) s’affichera ici.</div>
       <button class="btn" type="submit">Envoyer la demande sur WhatsApp →</button>
     </form>
   </div>
@@ -350,20 +415,43 @@ html,body{overflow-x:clip!important}
   </div>
   <div class="faq">
     <div class="qa">
+      <button class="q" type="button">Quelle caution (dépôt de garantie) faut-il prévoir ? <span class="arr">+</span></button>
+      <div class="a"><p>Contenu démo : une caution est demandée au départ, selon la catégorie du véhicule (à titre d'exemple, de 10 000 à 30 000 DH pour la flotte premium), par empreinte bancaire ou en espèces. Elle est restituée à la restitution du véhicule, après contrôle de son état. Le montant exact vous est confirmé sur WhatsApp avant la réservation.</p></div>
+    </div>
+    <div class="qa">
+      <button class="q" type="button">La livraison du véhicule est-elle possible ? <span class="arr">+</span></button>
+      <div class="a"><p>Oui. Contenu démo : livraison et récupération possibles à Tanger (centre-ville, aéroport Ibn Battouta, gare, hôtel) ainsi qu'à Rabat, Nador et Al Hoceima. Indiquez votre lieu et votre heure de prise en charge dans la demande WhatsApp ; les éventuels frais de livraison hors Tanger sont confirmés avant la réservation.</p></div>
+    </div>
+    <div class="qa">
       <button class="q" type="button">Quels documents faut-il pour louer ? <span class="arr">+</span></button>
-      <div class="a"><p>Un permis de conduire valide et une pièce d'identité ou un passeport. Les conditions exactes, selon la voiture choisie, vous sont confirmées sur WhatsApp avant la réservation.</p></div>
+      <div class="a"><p>Contenu démo : un permis de conduire valide, une pièce d'identité ou un passeport, et être âgé d'au moins 25 ans pour les catégories premium. Les conditions exactes, selon le véhicule choisi, vous sont confirmées sur WhatsApp avant la réservation.</p></div>
     </div>
     <div class="qa">
-      <button class="q" type="button">La livraison à l'aéroport est-elle possible ? <span class="arr">+</span></button>
-      <div class="a"><p>Oui, la livraison est possible à l'aéroport de Tanger ainsi qu'à Rabat, Nador et Al Hoceima. Indiquez simplement votre lieu de prise en charge dans la demande WhatsApp.</p></div>
+      <button class="q" type="button">Quel kilométrage est inclus ? <span class="arr">+</span></button>
+      <div class="a"><p>Contenu démo : 200 km par jour de location sont inclus dans le tarif affiché. Au-delà, chaque kilomètre supplémentaire est facturé au tarif démo de 3 DH/km, calculé à la restitution. Pour un long trajet, demandez une formule kilométrage étendu sur WhatsApp.</p></div>
     </div>
-    <div class="qa">
-      <button class="q" type="button">Quelles villes desservez-vous ? <span class="arr">+</span></button>
-      <div class="a"><p>Tanger, Rabat, Nador et Al Hoceima. Dites-nous votre ville et vos dates sur WhatsApp, nous organisons la livraison de votre voiture.</p></div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:10px">
+  <div class="sec-head">
+    <div class="kicker">Contact</div>
+    <h2>Nous trouver <em>à Tanger</em></h2>
+    <p>Basés à Tanger, nous livrons aussi à Rabat, Nador et Al Hoceima. Le plus rapide : un message WhatsApp.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>📍 Adresse</h3>
+      <p>Centre-ville, Tanger — Maroc<br>Livraison : Tanger · Rabat · Nador · Al Hoceima<br><span style="font-size:.85rem">Adresse démo, à confirmer avec l'agence.</span></p>
     </div>
-    <div class="qa">
-      <button class="q" type="button">Puis-je annuler ou modifier ma réservation ? <span class="arr">+</span></button>
-      <div class="a"><p>Écrivez-nous sur WhatsApp dès que possible : nous ferons le maximum pour adapter vos dates ou la catégorie de voiture, selon la disponibilité.</p></div>
+    <div class="contact-card">
+      <h3>🕘 Horaires</h3>
+      <p>Tous les jours : 08:00 – 22:00<br>Assistance &amp; réservations WhatsApp : 7j/7<br>Prise en charge à l'aéroport sur rendez-vous.</p>
+    </div>
+    <div class="contact-card">
+      <h3>💬 WhatsApp direct</h3>
+      <p>Réponse en quelques minutes pendant les horaires d'ouverture : disponibilités, tarifs et livraison.</p>
+      <a class="btn small" href="https://wa.me/212709497098?text=Bonjour%20TNG%20Drive%2C%20je%20souhaite%20des%20informations%20pour%20une%20location%20de%20voiture%20premium." target="_blank" rel="noopener">Écrire sur WhatsApp →</a>
     </div>
   </div>
 </section>
@@ -408,7 +496,32 @@ html,body{overflow-x:clip!important}
     });
   });
 
-  // Formulaire -> WhatsApp pré-rempli
+  // Formulaire -> WhatsApp pré-rempli (avec estimation démo)
+  function calcBooking(){
+    var opt = select.options[select.selectedIndex];
+    var price = opt ? parseInt(opt.getAttribute('data-price') || '0', 10) : 0;
+    var d1 = document.getElementById('d1').value, d2 = document.getElementById('d2').value;
+    var days = 0, total = 0;
+    if (d1 && d2){
+      days = Math.round((new Date(d2) - new Date(d1)) / 86400000);
+      if (days > 0 && price > 0) total = days * price;
+    }
+    return {price: price, days: days, total: total};
+  }
+  function updateEstim(){
+    var el = document.getElementById('estim'); if (!el) return;
+    var c = calcBooking();
+    if (select.value && c.days > 0 && c.total > 0){
+      el.textContent = "Estimation démo : " + select.value + " — " + c.price.toLocaleString('fr-FR') + " DH/jour × " + c.days + " jour(s) = " + c.total.toLocaleString('fr-FR') + " DH. Total confirmé sur WhatsApp.";
+    } else if (select.value && c.price > 0){
+      el.textContent = "Tarif démo : " + c.price.toLocaleString('fr-FR') + " DH/jour — choisissez vos dates de début et de fin pour voir le total estimé.";
+    } else {
+      el.textContent = "Sélectionnez un véhicule et vos dates : le total démo estimé (tarif × jours) s’affichera ici.";
+    }
+  }
+  select.addEventListener('change', updateEstim);
+  document.getElementById('d1').addEventListener('change', updateEstim);
+  document.getElementById('d2').addEventListener('change', updateEstim);
   document.getElementById('bookForm').addEventListener('submit', function(e){
     e.preventDefault();
     var car = select.value,
@@ -416,13 +529,16 @@ html,body{overflow-x:clip!important}
         d2 = document.getElementById('d2').value,
         nom = document.getElementById('nom').value.trim(),
         tel = document.getElementById('tel').value.trim();
+    var c = calcBooking();
+    if (c.days <= 0){ alert("Veuillez vérifier vos dates : la date de fin doit être après la date de début."); return; }
     var msg = "Bonjour TNG Drive,\n" +
       "Je souhaite réserver une voiture premium :\n" +
       "• Voiture : " + car + "\n" +
-      "• Du : " + d1 + " au : " + d2 + "\n" +
+      "• Du : " + d1 + " au : " + d2 + " (" + c.days + " jour(s))\n" +
+      (c.total > 0 ? "• Estimation démo : " + c.price.toLocaleString('fr-FR') + " DH/jour × " + c.days + " = " + c.total.toLocaleString('fr-FR') + " DH\n" : "") +
       "• Nom : " + nom + "\n" +
       "• Téléphone : " + tel + "\n" +
-      "Merci de me confirmer la disponibilité.";
+      "Merci de me confirmer la disponibilité et le tarif final.";
     window.open("https://wa.me/212709497098?text=" + encodeURIComponent(msg), "_blank");
   });
 

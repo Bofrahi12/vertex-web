@@ -79,6 +79,28 @@ section{padding:96px 0}
 .gal figure.wide{grid-column:span 2;aspect-ratio:2/1}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .gal figure:hover img{transform:scale(1.06)}
+/* catalogue spa note */
+.cat-note{text-align:center;color:#5c6a64;font-weight:300;margin-top:26px;font-size:.98rem}
+/* pourquoi nous */
+.why-sec{background:#fff}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why-card{border:1px solid var(--beige);border-radius:16px;padding:28px 24px;background:var(--ivory)}
+.why-card .ic{font-size:1.6rem;margin-bottom:12px}
+.why-card h3{font-size:1.12rem;color:var(--deep2);margin-bottom:8px}
+.why-card p{font-weight:300;color:#4c5a54;font-size:.96rem}
+/* faq */
+.faq-sec{background:var(--ivory)}
+.faq-list{max-width:820px;margin:0 auto;display:grid;gap:14px}
+.faq-item{background:#fff;border:1px solid var(--beige);border-radius:14px;padding:22px 26px}
+.faq-item h3{font-size:1.08rem;color:var(--deep);margin-bottom:6px}
+.faq-item p{font-weight:300;color:#4c5a54;font-size:.97rem}
+/* contact details */
+.contact-box{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:820px;margin:34px auto 0;text-align:left}
+.contact-box div{border:1px solid rgba(212,165,89,.45);border-radius:14px;padding:18px 20px}
+.contact-box h3{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-family:'Jost',sans-serif}
+.contact-box p{color:#eef2e6;font-weight:300;font-size:.97rem;margin:0;max-width:none}
+@media(max-width:960px){.why{grid-template-columns:1fr 1fr}.contact-box{grid-template-columns:1fr}}
+@media(max-width:560px){.why{grid-template-columns:1fr}}
 /* témoignage */
 .testi{background:var(--beige);text-align:center}
 .testi blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.8rem);color:var(--deep2);max-width:820px;margin:0 auto;line-height:1.5}
@@ -148,11 +170,13 @@ html,body{overflow-x:clip!important}
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#">AZURA <span>BAY</span></a>
+    <a class="logo" href="demo-azura.html">AZURA <span>BAY</span></a>
     <nav>
       <a href="#suites">Suites</a>
       <a href="#experiences">Expériences</a>
       <a href="#galerie">Galerie</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
     <a class="btn ghost" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20des%20informations%20pour%20un%20s%C3%A9jour%20%C3%A0%20Tanger." target="_blank" rel="noopener">Réserver</a>
@@ -175,8 +199,8 @@ html,body{overflow-x:clip!important}
     <div class="field"><label for="out">Départ</label><input type="date" id="out" required></div>
     <div class="field"><label for="guests">Voyageurs</label>
       <select id="guests"><option>1 personne</option><option selected>2 personnes</option><option>3 personnes</option><option>4 personnes</option><option>5 personnes et +</option></select></div>
-    <div class="field"><label for="suite">Hébergement</label>
-      <select id="suite"><option>Suite Jardin — 1 890 DH/nuit</option><option selected>Suite Océan — 3 200 DH/nuit</option><option>Villa Azura privée — 7 500 DH/nuit</option></select></div>
+    <div class="field"><label for="suite">Hébergement ou soin</label>
+      <select id="suite"><option>Suite Jardin — 1 890 DH/nuit</option><option selected>Suite Océan — 3 200 DH/nuit</option><option>Suite Familiale — 4 200 DH/nuit</option><option>Suite Panoramique Prestige — 5 400 DH/nuit</option><option>Villa Azura privée — 7 500 DH/nuit</option><option>Rituel Spa Signature — 850 DH/séance</option><option>Hammam Privatif & Massage Océan — 650 DH/séance</option><option>Dîner Privé sur la Plage (2 pers.) — 1 450 DH/soirée</option></select></div>
     <button class="btn" type="submit">Réserver sur WhatsApp</button>
   </form>
 </div>
@@ -185,9 +209,9 @@ html,body{overflow-x:clip!important}
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Hébergements</div>
-      <h2>Suites & villa privée</h2>
+      <h2>Suites, villa & spa — le catalogue</h2>
       <p class="vx-feat">La lumière, l'espace et le murmure de l'océan, dès le réveil.</p>
-      <p>Trois adresses, une même exigence : la lumière, l'espace et le murmure de l'océan dès le réveil.</p>
+      <p>Huit adresses et soins signature, une même exigence : la lumière, l'espace et le murmure de l'océan dès le réveil. Tarifs de démonstration, par nuit ou par séance.</p>
       <div class="rule"></div>
     </div>
     <div class="suites">
@@ -221,7 +245,58 @@ html,body{overflow-x:clip!important}
           <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20r%C3%A9server%20la%20Villa%20Azura%20priv%C3%A9e%20(7%20500%20DH%2Fnuit)." target="_blank" rel="noopener">Réserver</a>
         </div>
       </article>
+      <article class="suite">
+        <div class="ph"><img src="azura/resort.jpg" alt="Suite Familiale AZURA BAY"></div>
+        <div class="bd">
+          <h3>Suite Familiale</h3>
+          <div class="meta">95 m² · Salon séparé · 4 personnes</div>
+          <p>Deux espaces de nuit, un salon familial et une terrasse vue jardins — pensée pour les séjours en famille, sans renoncer au calme du resort.</p>
+          <div class="price"><strong>4 200 DH</strong><span>/ nuit</span></div>
+          <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20r%C3%A9server%20la%20Suite%20Familiale%20(4%20200%20DH%2Fnuit)." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+      <article class="suite">
+        <div class="ph"><img src="azura/beach.jpg" alt="Suite Panoramique Prestige AZURA BAY"></div>
+        <div class="bd">
+          <h3>Suite Panoramique Prestige</h3>
+          <div class="meta">88 m² · Dernier étage · 2 personnes</div>
+          <p>Au dernier étage, une baie vitrée du sol au plafond face au détroit, un bain face à l'horizon et un service de chambre dédié jusqu'à 23h.</p>
+          <div class="price"><strong>5 400 DH</strong><span>/ nuit</span></div>
+          <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20r%C3%A9server%20la%20Suite%20Panoramique%20Prestige%20(5%20400%20DH%2Fnuit)." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+      <article class="suite">
+        <div class="ph"><img src="azura/spa.jpg" alt="Rituel Spa Signature AZURA BAY"></div>
+        <div class="bd">
+          <h3>Rituel Spa Signature</h3>
+          <div class="meta">Spa · 90 minutes · 1 personne</div>
+          <p>Notre soin emblème : gommage au sel de mer, enveloppement à l'argile et massage aux huiles d'argan, face à l'océan.</p>
+          <div class="price"><strong>850 DH</strong><span>/ séance</span></div>
+          <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20r%C3%A9server%20le%20Rituel%20Spa%20Signature%20(850%20DH%2Fs%C3%A9ance)." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+      <article class="suite">
+        <div class="ph"><img src="azura/spa.jpg" alt="Hammam privatif et massage océan AZURA BAY"></div>
+        <div class="bd">
+          <h3>Hammam Privatif &amp; Massage Océan</h3>
+          <div class="meta">Spa · 75 minutes · 1 à 2 personnes</div>
+          <p>Hammam privatif au savon noir et à l'eucalyptus, suivi d'un massage relaxant bercé par le bruit réel des vagues.</p>
+          <div class="price"><strong>650 DH</strong><span>/ séance</span></div>
+          <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20r%C3%A9server%20le%20Hammam%20Privatif%20et%20Massage%20Oc%C3%A9an%20(650%20DH%2Fs%C3%A9ance)." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
+      <article class="suite">
+        <div class="ph"><img src="azura/shore.jpg" alt="Dîner privé sur la plage AZURA BAY"></div>
+        <div class="bd">
+          <h3>Dîner Privé sur la Plage</h3>
+          <div class="meta">Expérience · Pour 2 personnes · Au coucher du soleil</div>
+          <p>Une table dressée rien que pour vous sur le sable : menu du chef en quatre temps, bougies et ciel étoilé en décor.</p>
+          <div class="price"><strong>1 450 DH</strong><span>/ soirée pour 2</span></div>
+          <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20r%C3%A9server%20le%20D%C3%AEner%20Priv%C3%A9%20sur%20la%20Plage%20(1%20450%20DH%2Fsoir%C3%A9e%20pour%202)." target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </article>
     </div>
+    <p class="cat-note">Catalogue de démonstration : 5 hébergements et 3 soins &amp; expériences — tarifs affichés à titre d'exemple, confirmés sur WhatsApp avant toute réservation.</p>
   </div>
 </section>
 
@@ -273,6 +348,42 @@ html,body{overflow-x:clip!important}
       <figure><img src="azura/villa.jpg" alt="Villa privée et sa piscine"></figure>
       <figure><img src="azura/shore.jpg" alt="Rivage au coucher du soleil"></figure>
       <figure class="wide"><img src="azura/resort.jpg" alt="Le resort vu du ciel"></figure>
+      <figure><img src="azura/beach.jpg" alt="Détail de la plage au matin"></figure>
+      <figure><img src="azura/spa.jpg" alt="Espace de soin du spa signature"></figure>
+      <figure><img src="azura/villa.jpg" alt="Terrasse de la villa privée"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="why-sec" id="pourquoi">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Pourquoi nous</div>
+      <h2>Pourquoi choisir AZURA BAY</h2>
+      <p>Quatre raisons concrètes, vérifiables dès votre arrivée.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="why">
+      <div class="why-card"><div class="ic">🏖️</div><h3>Accès direct à la plage</h3><p>Pas de navette, pas d'attente : votre suite ouvre sur les jardins, et la plage privée du resort est à quelques pas, transats et cabanas compris.</p></div>
+      <div class="why-card"><div class="ic">💬</div><h3>Conciergerie WhatsApp 7j/7</h3><p>Un seul numéro pour tout composer — chambre, spa, dîner sur la plage — avec une réponse en quelques minutes, de 8h à 23h, 7j/7.</p></div>
+      <div class="why-card"><div class="ic">🌿</div><h3>Spa signature, produits du terroir</h3><p>Huiles d'argan, sel de mer et savon noir : nos rituels utilisent des produits marocains, dans un spa face à l'océan, sur réservation privative.</p></div>
+      <div class="why-card"><div class="ic">🌅</div><h3>Petit-déjeuner face à l'horizon</h3><p>Servi sur votre balcon ou en terrasse, avec produits frais du matin — inclus dans les suites Océan, Panoramique et la Villa Azura.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Questions fréquentes</div>
+      <h2>FAQ</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><h3>À quelle heure sont l'arrivée et le départ ?</h3><p>Arrivée à partir de 14h et départ jusqu'à 12h. Selon les disponibilités, notre conciergerie peut avancer l'arrivée ou prolonger le départ — demandez-le sur WhatsApp avant votre séjour.</p></div>
+      <div class="faq-item"><h3>Le petit-déjeuner est-il inclus ?</h3><p>Oui pour la Suite Océan, la Suite Panoramique Prestige et la Villa Azura privée, servi sur le balcon ou en terrasse. Pour les autres hébergements, il s'ajoute sur simple demande lors de la réservation.</p></div>
+      <div class="faq-item"><h3>Peut-on réserver le spa ou le dîner sur la plage sans séjourner au resort ?</h3><p>Oui. Le Rituel Spa Signature, le Hammam Privatif et le Dîner Privé sur la Plage se réservent aussi à la journée, via le même formulaire WhatsApp — choisissez simplement le soin ou l'expérience et votre date.</p></div>
+      <div class="faq-item"><h3>Comment confirmer et payer ma réservation ?</h3><p>Envoyez votre demande via le formulaire : la conciergerie confirme la disponibilité sur WhatsApp et vous indique les modalités. Les tarifs affichés sur cette page sont des tarifs de démonstration, toujours reconfirmés avant tout engagement.</p></div>
     </div>
   </div>
 </section>
@@ -291,6 +402,11 @@ html,body{overflow-x:clip!important}
     <p class="vx-feat">Notre conciergerie vous répond en quelques minutes.</p>
     <p>Écrivez-nous sur WhatsApp : notre conciergerie vous répond en quelques minutes et compose votre séjour sur mesure.</p>
     <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20AZURA%20BAY%2C%20je%20souhaite%20composer%20mon%20s%C3%A9jour%20%C3%A0%20Tanger." target="_blank" rel="noopener">Nous écrire sur WhatsApp</a>
+    <div class="contact-box">
+      <div><h3>Adresse</h3><p>Route de la plage, Tanger — resort en bord de mer, face à l'Atlantique.</p></div>
+      <div><h3>Horaires</h3><p>Conciergerie 7j/7 · 8h – 23h. Arrivées à partir de 14h, départs jusqu'à 12h.</p></div>
+      <div><h3>WhatsApp direct</h3><p>+212 6 93 98 18 22 — réponse en quelques minutes pendant les horaires de la conciergerie.</p></div>
+    </div>
   </div>
 </section>
 
@@ -320,7 +436,7 @@ document.getElementById('bookForm').addEventListener('submit', function(e){
   var d1=document.getElementById('in').value, d2=document.getElementById('out').value,
       g=document.getElementById('guests').value, s=document.getElementById('suite').value;
   function fr(d){ if(!d) return 'à définir'; var p=d.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
-  var msg='Bonjour AZURA BAY, je souhaite réserver :\n• Hébergement : '+s+'\n• Arrivée : '+fr(d1)+'\n• Départ : '+fr(d2)+'\n• Voyageurs : '+g+'\nMerci de me confirmer la disponibilité.';
+  var msg='Bonjour AZURA BAY, je souhaite réserver :\n• Sélection : '+s+'\n• Arrivée / date souhaitée : '+fr(d1)+'\n• Départ : '+fr(d2)+'\n• Voyageurs : '+g+'\nMerci de me confirmer la disponibilité.';
   window.open('https://wa.me/212693981822?text='+encodeURIComponent(msg),'_blank');
 });
 </script>

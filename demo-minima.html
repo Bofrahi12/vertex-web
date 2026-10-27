@@ -127,6 +127,58 @@
   .order-btn:hover{background:#333}
   .order-btn:disabled{background:var(--gris-clair);color:var(--gris);cursor:not-allowed}
 
+
+  /* Catalogue : recherche + filtres */
+  .filters{max-width:640px;margin:0 auto 36px;text-align:center}
+  .filters input{width:100%;border:1px solid var(--gris-clair);padding:13px 16px;font-size:.95rem;font-family:inherit;outline:none;margin-bottom:16px}
+  .filters input:focus{border-color:var(--noir)}
+  .chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+  .chip{background:#fff;border:1px solid var(--gris-clair);padding:9px 18px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase}
+  .chip:hover{border-color:var(--noir)}
+  .chip.on{background:var(--noir);color:#fff;border-color:var(--noir)}
+  .card.hide{display:none}
+  .catlab{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gris)}
+  .nores{color:var(--gris);text-align:center;padding:12px 0 4px}
+  /* Galerie */
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .gal-grid figure{overflow:hidden;background:var(--bg-alt)}
+  .gal-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s ease}
+  .gal-grid figure:hover img{transform:scale(1.045)}
+  .gal-grid figcaption{padding:12px 4px 2px;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);text-align:center}
+  /* Pourquoi nous */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+  .why .n{font-size:.72rem;color:var(--gris);letter-spacing:.2em}
+  .why h3{font-size:.92rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin:8px 0 6px}
+  .why p{color:var(--gris);font-size:.92rem}
+  /* Commande WhatsApp */
+  .order-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .order-wrap .lead{color:var(--gris);max-width:44ch}
+  .order-form{display:grid;gap:14px}
+  .order-form label{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);display:grid;gap:7px}
+  .order-form select,.order-form input{border:1px solid var(--gris-clair);padding:13px 14px;font-size:.95rem;font-family:inherit;outline:none;background:#fff;width:100%}
+  .order-form select:focus,.order-form input:focus{border-color:var(--noir)}
+  .order-total{display:flex;justify-content:space-between;font-size:1.02rem;border-top:1px solid var(--bord);padding-top:14px}
+  .order-link{display:block;text-align:center;background:var(--noir);color:#fff;padding:15px 0;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--noir)}
+  .order-link:hover{background:#fff;color:var(--noir)}
+  /* FAQ */
+  .faq-list{max-width:760px;margin:0 auto}
+  .faq-list details{border-bottom:1px solid var(--bord);padding:18px 2px}
+  .faq-list details:first-child{border-top:1px solid var(--bord)}
+  .faq-list summary{cursor:pointer;font-size:1rem;font-weight:500;list-style:none}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list details p{color:var(--gris);font-size:.94rem;margin-top:8px;max-width:62ch}
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
+  .contact-grid h3{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+  .contact-grid p{color:var(--gris);font-size:.95rem}
+  .contact-cta{text-align:center;margin-top:38px}
+  @media (max-width:960px){
+    .gal-grid{grid-template-columns:repeat(2,1fr)}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .order-wrap{grid-template-columns:1fr;gap:28px}
+    .contact-grid{grid-template-columns:1fr;gap:24px}
+  }
+  @media (max-width:520px){.why-grid{grid-template-columns:1fr}}
   @media (max-width:960px){
     .grid{grid-template-columns:repeat(2,1fr)}
     .hero{grid-template-columns:1fr;gap:34px;padding-top:40px}
@@ -182,10 +234,13 @@ html,body{overflow-x:clip!important}
 
 <header>
   <div class="header-in">
-    <a class="logo" href="#">MINIMA</a>
+    <a class="logo" href="demo-minima.html">MINIMA</a>
     <nav>
       <a href="#collection">Collection</a>
       <a href="#avantages">Services</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#commander">Commander</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="cart-btn" id="openCart" aria-label="Ouvrir le panier">Panier <span class="cart-count" id="cartCount">0</span></button>
@@ -217,7 +272,17 @@ html,body{overflow-x:clip!important}
     <p class="sur">La collection</p>
     <h2>Pièces essentielles</h2>
   </div>
+  <div class="filters">
+    <input type="search" id="catSearch" placeholder="Rechercher une pièce…" aria-label="Rechercher une pièce">
+    <div class="chips" id="catChips">
+      <button type="button" class="chip on" data-filter="toutes">Toutes</button>
+      <button type="button" class="chip" data-filter="vestes">Vestes</button>
+      <button type="button" class="chip" data-filter="essentiels">Essentiels</button>
+      <button type="button" class="chip" data-filter="nouveautes">Nouveautés</button>
+    </div>
+  </div>
   <div class="grid" id="grid"></div>
+  <p class="nores" id="noRes" hidden>Aucune pièce ne correspond à votre recherche.</p>
 </section>
 
 <div class="features" id="avantages">
@@ -240,6 +305,90 @@ html,body{overflow-x:clip!important}
   </div>
 </div>
 
+
+<section class="section" id="galerie">
+  <div class="section-head">
+    <p class="sur">Galerie</p>
+    <h2>Les pièces en situation</h2>
+  </div>
+  <div class="gal-grid">
+    <figure><img src="minima/hero.jpg" alt="Collection minimaliste MINIMA portée" loading="lazy"><figcaption>La collection</figcaption></figure>
+    <figure><img src="minima/p2.jpg" alt="Veste en cuir portée" loading="lazy"><figcaption>Veste en cuir</figcaption></figure>
+    <figure><img src="minima/p5.jpg" alt="Hoodie essentiel porté" loading="lazy"><figcaption>Hoodie essentiel</figcaption></figure>
+    <figure><img src="minima/p7.jpg" alt="Look complet homme" loading="lazy"><figcaption>Look complet</figcaption></figure>
+    <figure><img src="minima/p3.jpg" alt="Blazer moderne porté" loading="lazy"><figcaption>Blazer moderne</figcaption></figure>
+    <figure><img src="minima/p8.jpg" alt="T-shirt blanc porté" loading="lazy"><figcaption>T-shirt blanc</figcaption></figure>
+  </div>
+</section>
+
+<section class="section" id="pourquoi">
+  <div class="section-head">
+    <p class="sur">Pourquoi MINIMA</p>
+    <h2>Moins de pièces, mieux choisies</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why"><div class="n">01</div><h3>Matières choisies</h3><p>Coton dense, laine et cuir sélectionnés pour tenir des années, pas une saison.</p></div>
+    <div class="why"><div class="n">02</div><h3>Coupes intemporelles</h3><p>Des lignes pures qui traversent les modes et se combinent entre elles sans effort.</p></div>
+    <div class="why"><div class="n">03</div><h3>Prix justes</h3><p>Vente directe, sans intermédiaires : les prix affichés sont les prix réels de la pièce.</p></div>
+    <div class="why"><div class="n">04</div><h3>Pensé à Tanger</h3><p>Une petite équipe locale qui répond sur WhatsApp et expédie partout au Maroc.</p></div>
+  </div>
+</section>
+
+<div class="features" id="commander" style="background:#fff">
+  <div class="features-in" style="display:block;text-align:left">
+    <div class="section-head">
+      <p class="sur">Commande rapide</p>
+      <h2>Commander via WhatsApp</h2>
+    </div>
+    <div class="order-wrap">
+      <p class="lead">Choisissez la pièce, la taille et la quantité : le bouton prépare automatiquement votre message WhatsApp avec le détail et le total. Paiement à la livraison, confirmation avant expédition.</p>
+      <form class="order-form" id="orderForm">
+        <label>Pièce
+          <select id="ordItem" aria-label="Choisir une pièce"></select>
+        </label>
+        <label>Taille
+          <select id="ordSize" aria-label="Choisir la taille">
+            <option>S</option><option selected>M</option><option>L</option><option>XL</option>
+          </select>
+        </label>
+        <label>Quantité
+          <input type="number" id="ordQty" value="1" min="1" max="10" aria-label="Quantité">
+        </label>
+        <div class="order-total"><span>Total</span><strong id="ordTotal">0 DH</strong></div>
+        <a class="order-link" id="ordLink" href="https://wa.me/212693981822" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="faq">
+  <div class="section-head">
+    <p class="sur">Questions fréquentes</p>
+    <h2>FAQ</h2>
+  </div>
+  <div class="faq-list">
+    <details><summary>Quels sont les délais de livraison ?</summary><p>Nous expédions depuis Tanger sous 24 à 48 heures, partout au Maroc. La livraison est confirmée avec vous sur WhatsApp avant l'envoi.</p></details>
+    <details><summary>Comment puis-je payer ma commande ?</summary><p>Le paiement se fait à la livraison, en espèces, uniquement à la réception de votre commande. Aucun prépaiement n'est demandé.</p></details>
+    <details><summary>Puis-je échanger de taille ?</summary><p>Oui. Vous disposez de 14 jours après réception pour demander un échange de taille ou un retour, à condition que la pièce soit non portée et avec son étiquette.</p></details>
+    <details><summary>Comment passer commande ?</summary><p>Utilisez l'outil de commande ci-dessus ou le panier : un message WhatsApp pré-rempli est généré avec la pièce, la taille, la quantité et le total. Nous confirmons ensuite la disponibilité avec vous.</p></details>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-head">
+    <p class="sur">Contact</p>
+    <h2>La boutique à Tanger</h2>
+  </div>
+  <div class="contact-grid">
+    <div><h3>Adresse</h3><p>Centre-ville<br>Tanger, Maroc<br><em>(adresse de démonstration)</em></p></div>
+    <div><h3>Horaires</h3><p>Lundi – Samedi<br>10h00 – 20h00<br>Dimanche : fermé</p></div>
+    <div><h3>WhatsApp</h3><p>+212 693 981 822<br>Réponse sous quelques heures,<br>aux horaires d'ouverture.</p></div>
+  </div>
+  <div class="contact-cta">
+    <a class="btn" href="https://wa.me/212693981822?text=Bonjour%20MINIMA%2C%20je%20souhaite%20des%20informations%20sur%20vos%20produits." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+  </div>
+</section>
+
 <section class="section news">
   <div class="section-head" style="margin-bottom:18px">
     <p class="sur">Newsletter</p>
@@ -253,7 +402,7 @@ html,body{overflow-x:clip!important}
   <p class="ok" id="newsOk"></p>
 </section>
 
-<footer id="contact">
+<footer>
   <div class="foot-in">
     <div>
       <span class="logo">MINIMA</span>
@@ -295,14 +444,14 @@ html,body{overflow-x:clip!important}
 
 <script>
   var PRODUCTS = [
-    {id:1, name:"Veste Structurée",   price:890,  img:"minima/p1.jpg", alt:"Veste structurée homme"},
-    {id:2, name:"Veste en Cuir",      price:1890, img:"minima/p2.jpg", alt:"Veste en cuir homme"},
-    {id:3, name:"Blazer Moderne",     price:990,  img:"minima/p3.jpg", alt:"Blazer moderne homme"},
-    {id:4, name:"T-Shirt Premium",    price:190,  img:"minima/p4.jpg", alt:"T-shirt premium"},
-    {id:5, name:"Hoodie Essentiel",   price:450,  img:"minima/p5.jpg", alt:"Hoodie essentiel"},
-    {id:6, name:"Chemise Oxford",     price:390,  img:"minima/p6.jpg", alt:"Chemise oxford"},
-    {id:7, name:"Look Complet Homme", price:1290, img:"minima/p7.jpg", alt:"Look complet homme"},
-    {id:8, name:"T-Shirt Blanc",      price:170,  img:"minima/p8.jpg", alt:"T-shirt blanc"}
+    {id:1, name:"Veste Structurée",   cat:"vestes",     price:890,  img:"minima/p1.jpg", alt:"Veste structurée homme"},
+    {id:2, name:"Veste en Cuir",      cat:"vestes",     price:1890, img:"minima/p2.jpg", alt:"Veste en cuir homme"},
+    {id:3, name:"Blazer Moderne",     cat:"vestes",     price:990,  img:"minima/p3.jpg", alt:"Blazer moderne homme"},
+    {id:4, name:"T-Shirt Premium",    cat:"essentiels", price:190,  img:"minima/p4.jpg", alt:"T-shirt premium"},
+    {id:5, name:"Hoodie Essentiel",   cat:"essentiels", price:450,  img:"minima/p5.jpg", alt:"Hoodie essentiel"},
+    {id:6, name:"Chemise Oxford",     cat:"nouveautes", price:390,  img:"minima/p6.jpg", alt:"Chemise oxford"},
+    {id:7, name:"Look Complet Homme", cat:"nouveautes", price:1290, img:"minima/p7.jpg", alt:"Look complet homme"},
+    {id:8, name:"T-Shirt Blanc",      cat:"essentiels", price:170,  img:"minima/p8.jpg", alt:"T-shirt blanc"}
   ];
   var WHATSAPP = "212693981822";
   var cart = {}; // id -> quantité
@@ -314,9 +463,11 @@ html,body{overflow-x:clip!important}
   PRODUCTS.forEach(function(p){
     var card = document.createElement("article");
     card.className = "card";
+    card.setAttribute("data-cat", p.cat);
+    card.setAttribute("data-name", p.name.toLowerCase());
     card.innerHTML =
       '<div class="card-img vx-pair"><img class="vx-main" src="'+p.img+'" alt="'+p.alt+'" loading="lazy"><img class="vx-alt" src="'+p.img+'" alt="" aria-hidden="true" loading="lazy"><span class="vx-badge">PORTÉ</span></div>' +
-      '<div class="card-body"><h3>'+p.name+'</h3><p class="price">'+fmt(p.price)+'</p>' +
+      '<div class="card-body"><p class="catlab">'+p.cat+'</p><h3>'+p.name+'</h3><p class="price">'+fmt(p.price)+'</p>' +
       '<button class="add-btn" data-add="'+p.id+'">Ajouter au panier</button></div>';
     grid.appendChild(card);
   });
@@ -493,5 +644,40 @@ function badge(pair,on){var b=pair.querySelector('.vx-badge');if(b)b.textContent
 grid.addEventListener('click',function(e){var pair=e.target.closest?e.target.closest('.vx-pair'):null;if(!pair)return;pair.classList.toggle('vx-on');badge(pair,pair.classList.contains('vx-on'))});
 grid.addEventListener('mouseover',function(e){var pair=e.target.closest?e.target.closest('.vx-pair'):null;if(pair)badge(pair,true)});
 grid.addEventListener('mouseout',function(e){var pair=e.target.closest?e.target.closest('.vx-pair'):null;if(pair&&!pair.classList.contains('vx-on'))badge(pair,false)});})();
+</script>
+<script id="minima-extra-js">
+(function(){
+  // --- Filtre + recherche catalogue (R14-style, simple)
+  var chips=document.getElementById('catChips'), search=document.getElementById('catSearch'), noRes=document.getElementById('noRes');
+  var activeFilter='toutes';
+  function norm(t){return (t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  function applyFilter(){
+    var q=norm(search?search.value:''); var visible=0;
+    document.querySelectorAll('#grid .card').forEach(function(card){
+      var okCat=(activeFilter==='toutes'||card.getAttribute('data-cat')===activeFilter);
+      var okQ=(!q||norm(card.getAttribute('data-name')).indexOf(q)>-1);
+      var show=okCat&&okQ; card.classList.toggle('hide',!show); if(show)visible++;
+    });
+    if(noRes) noRes.hidden = visible>0;
+  }
+  if(chips){ chips.addEventListener('click',function(e){ var b=e.target.closest?e.target.closest('[data-filter]'):null; if(!b)return;
+    chips.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on')}); b.classList.add('on'); activeFilter=b.getAttribute('data-filter'); applyFilter(); }); }
+  if(search){ search.addEventListener('input',applyFilter); }
+  // --- Outil de commande WhatsApp : pièce + taille + quantité
+  var sel=document.getElementById('ordItem'), size=document.getElementById('ordSize'), qty=document.getElementById('ordQty'),
+      tot=document.getElementById('ordTotal'), link=document.getElementById('ordLink');
+  if(sel && typeof PRODUCTS!=='undefined'){
+    PRODUCTS.forEach(function(p){ var o=document.createElement('option'); o.value=p.id; o.textContent=p.name+' — '+fmt(p.price); sel.appendChild(o); });
+    function updOrder(){
+      var p=PRODUCTS.find(function(x){return x.id==sel.value;}); if(!p)return;
+      var q=Math.max(1,Math.min(10,parseInt(qty.value,10)||1));
+      var total=p.price*q; tot.textContent=fmt(total);
+      var msg='Bonjour MINIMA, je souhaite commander :\n• '+p.name+' — Taille '+size.value+' × '+q+' — '+fmt(total)+'\nMerci de me confirmer la disponibilité et la livraison.';
+      link.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg);
+    }
+    [sel,size,qty].forEach(function(el){ el.addEventListener('change',updOrder); el.addEventListener('input',updOrder); });
+    updOrder();
+  }
+})();
 </script></body>
 </html>

@@ -52,6 +52,16 @@
   .service h3{font-size:1.08rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
   .service p{color:var(--gris);font-size:.94rem}
   .fleet{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .gallery figure{border-radius:8px;overflow:hidden;border:1px solid var(--ligne);aspect-ratio:16/10;background:var(--carte)}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .gallery figure:hover img{transform:scale(1.05)}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .contact-card{background:var(--carte);border:1px solid var(--ligne);border-radius:6px;padding:28px 24px}
+  .contact-card h3{font-size:1.05rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .contact-card p{color:var(--gris);font-size:.95rem}
+  .contact-card .btn{margin-top:16px}
+  .estim{grid-column:1/-1;background:rgba(255,106,26,.08);border:1px solid rgba(255,106,26,.45);border-radius:6px;padding:14px 16px;color:#f0d9c8;font-size:.93rem}
   .car{background:var(--carte);border:1px solid var(--ligne);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
   .car:hover{border-color:rgba(255,106,26,.6);transform:translateY(-4px)}
   .car .ph{aspect-ratio:16/10;overflow:hidden}
@@ -144,12 +154,14 @@ html,body{overflow-x:clip!important}
 
 <header>
   <div class="nav">
-    <a class="logo" href="#">VELOCE<span>.</span></a>
+    <a class="logo" href="demo-veloce.html">VELOCE<span>.</span></a>
     <nav>
       <a href="#services">Services</a>
       <a href="#flotte">Flotte</a>
       <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#galerie">Galerie</a>
       <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
     </nav>
     <a class="btn small" href="#reservation">Réserver</a>
   </div>
@@ -284,6 +296,46 @@ html,body{overflow-x:clip!important}
         </div>
       </div>
     </article>
+    <article class="car">
+      <div class="ph"><img src="imperial/v1.jpg" alt="McLaren 720S"></div>
+      <div class="body">
+        <div class="cat">Supercar</div>
+        <h3>McLaren 720S</h3>
+        <p class="specs">V8 biturbo · Automatique · 2 places · Portes papillon</p>
+        <div class="foot">
+          <div class="price"><strong>3 800 DH</strong> <span>/ jour</span></div>
+          <button class="btn small" data-car="McLaren 720S">Réserver</button>
+        </div>
+      </div>
+    </article>
+    <article class="car">
+      <div class="ph"><img src="imperial/v3.jpg" alt="Audi RS 6 Avant"></div>
+      <div class="body">
+        <div class="cat">Break sport</div>
+        <h3>Audi RS 6 Avant</h3>
+        <p class="specs">V8 biturbo · Automatique · 5 places · Transmission Quattro</p>
+        <div class="foot">
+          <div class="price"><strong>1 900 DH</strong> <span>/ jour</span></div>
+          <button class="btn small" data-car="Audi RS 6 Avant">Réserver</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="galerie" style="padding-top:10px">
+  <div class="sec-head">
+    <div class="kicker">Galerie</div>
+    <h2>La flotte <em>en images</em></h2>
+    <p>Un aperçu de nos sportives et berlines premium, photographiées telles qu'elles vous sont livrées : propres, révisées et prêtes à partir.</p>
+  </div>
+  <div class="gallery">
+    <figure><img src="veloce/hero.jpg" alt="Sportive de luxe VELOCE — vue principale"></figure>
+    <figure><img src="veloce/c2.jpg" alt="Dodge Challenger — galerie VELOCE"></figure>
+    <figure><img src="veloce/c5.jpg" alt="Mercedes-AMG GT — galerie VELOCE"></figure>
+    <figure><img src="veloce/c6.jpg" alt="Rolls-Royce Wraith — galerie VELOCE"></figure>
+    <figure><img src="imperial/v1.jpg" alt="McLaren 720S — galerie VELOCE"></figure>
+    <figure><img src="imperial/v3.jpg" alt="Audi RS 6 Avant — galerie VELOCE"></figure>
   </div>
 </section>
 
@@ -305,6 +357,10 @@ html,body{overflow-x:clip!important}
       <h3>⏱️ Ponctualité garantie</h3>
       <p>Livraison à l'heure exacte, à l'aéroport comme à l'hôtel. En cas de retard de vol, nous attendons — sans supplément.</p>
     </div>
+    <div class="item">
+      <h3>✨ Impeccable à chaque départ</h3>
+      <p>Chaque voiture est révisée, nettoyée intérieur et extérieur et livrée avec le plein avant votre prise en main — jamais de mauvaise surprise au démarrage.</p>
+    </div>
   </div>
 </section>
 
@@ -322,12 +378,14 @@ html,body{overflow-x:clip!important}
         <label for="car">Voiture souhaitée</label>
         <select id="car" required>
           <option value="">— Choisir une voiture —</option>
-          <option>BMW Série 4 Coupé — 1 200 DH/jour</option>
-          <option>Dodge Challenger — 1 500 DH/jour</option>
-          <option>Ford Mustang GT — 1 600 DH/jour</option>
-          <option>Audi A6 — 1 100 DH/jour</option>
-          <option>Mercedes-AMG GT — 2 800 DH/jour</option>
-          <option>Rolls-Royce Wraith — 4 500 DH/jour</option>
+          <option value="BMW Série 4 Coupé" data-price="1200">BMW Série 4 Coupé — 1 200 DH/jour</option>
+          <option value="Dodge Challenger" data-price="1500">Dodge Challenger — 1 500 DH/jour</option>
+          <option value="Ford Mustang GT" data-price="1600">Ford Mustang GT — 1 600 DH/jour</option>
+          <option value="Audi A6" data-price="1100">Audi A6 — 1 100 DH/jour</option>
+          <option value="Mercedes-AMG GT" data-price="2800">Mercedes-AMG GT — 2 800 DH/jour</option>
+          <option value="Rolls-Royce Wraith" data-price="4500">Rolls-Royce Wraith — 4 500 DH/jour</option>
+          <option value="McLaren 720S" data-price="3800">McLaren 720S — 3 800 DH/jour</option>
+          <option value="Audi RS 6 Avant" data-price="1900">Audi RS 6 Avant — 1 900 DH/jour</option>
         </select>
       </div>
       <div class="field">
@@ -346,6 +404,7 @@ html,body{overflow-x:clip!important}
         <label for="tel">Téléphone</label>
         <input type="tel" id="tel" placeholder="06 XX XX XX XX" required>
       </div>
+      <div class="estim" id="estim">Choisissez une voiture et vos dates : l'estimation démo (tarif par jour × nombre de jours) s'affichera ici en direct.</div>
       <button class="btn" type="submit">Envoyer la demande sur WhatsApp →</button>
     </form>
   </div>
@@ -372,6 +431,29 @@ html,body{overflow-x:clip!important}
     <div class="qa">
       <button class="q" type="button">Puis-je annuler ou modifier ma réservation ? <span class="arr">+</span></button>
       <div class="a"><p>Oui, l'annulation est gratuite jusqu'à 24 heures avant le début de la location. Les modifications de dates ou de modèle se font simplement par WhatsApp, selon disponibilité.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:10px">
+  <div class="sec-head">
+    <div class="kicker">Contact</div>
+    <h2>Parlez à <em>l'équipe VELOCE</em></h2>
+    <p>Une question sur un modèle, un tarif ou une livraison spéciale ? Écrivez-nous sur WhatsApp : réponse en quelques minutes pendant nos horaires d'ouverture.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>📍 Adresse &amp; livraison</h3>
+      <p>Avenue Mohammed V, Tanger.<br>Livraison possible à l'aéroport Ibn Battouta, dans les hôtels et les résidences de Tanger.</p>
+    </div>
+    <div class="contact-card">
+      <h3>🕘 Horaires</h3>
+      <p>Tous les jours : 8h00 – 23h00.<br>Assistance routière 24h/24 pendant toute la durée de votre location.</p>
+    </div>
+    <div class="contact-card">
+      <h3>💬 WhatsApp direct</h3>
+      <p>Le moyen le plus rapide pour vérifier une disponibilité ou recevoir un devis démo détaillé.</p>
+      <a class="btn small" href="https://wa.me/212693981822?text=Bonjour%20VELOCE%2C%20je%20souhaite%20un%20renseignement%20sur%20une%20location%20%C3%A0%20Tanger." target="_blank" rel="noopener">Écrire sur WhatsApp</a>
     </div>
   </div>
 </section>
@@ -416,18 +498,45 @@ html,body{overflow-x:clip!important}
     });
   });
 
-  // Formulaire -> WhatsApp pré-rempli
+  // Estimation démo en direct : tarif par jour × nombre de jours
+  function veloceCalc(){
+    var opt = select.options[select.selectedIndex];
+    var price = opt ? parseInt(opt.getAttribute('data-price') || '0', 10) : 0;
+    var d1 = document.getElementById('d1').value, d2 = document.getElementById('d2').value;
+    var days = 0;
+    if (d1 && d2){ days = Math.round((new Date(d2) - new Date(d1)) / 86400000); }
+    return { price: price, days: days, total: (price > 0 && days > 0) ? price * days : 0 };
+  }
+  function veloceEstim(){
+    var el = document.getElementById('estim'); if (!el) return;
+    var c = veloceCalc();
+    if (c.price > 0 && c.days > 0){
+      el.textContent = "Estimation démo : " + c.price.toLocaleString('fr-FR') + " DH/jour × " + c.days + " jour" + (c.days > 1 ? "s" : "") + " = " + c.total.toLocaleString('fr-FR') + " DH au total. Montant indicatif, confirmé sur WhatsApp avant la réservation.";
+    } else if (c.price > 0){
+      el.textContent = "Tarif démo : " + c.price.toLocaleString('fr-FR') + " DH/jour — choisissez vos dates de début et de fin pour voir le total estimé.";
+    } else if (c.days > 0){
+      el.textContent = "Durée : " + c.days + " jour" + (c.days > 1 ? "s" : "") + " — choisissez une voiture pour voir l'estimation démo.";
+    } else {
+      el.textContent = "Choisissez une voiture et vos dates : l'estimation démo (tarif par jour × nombre de jours) s'affichera ici en direct.";
+    }
+  }
+  ['car','d1','d2'].forEach(function(id){ var n = document.getElementById(id); if (n){ n.addEventListener('change', veloceEstim); n.addEventListener('input', veloceEstim); } });
+  veloceEstim();
+
+  // Formulaire -> WhatsApp pré-rempli (avec estimation démo)
   document.getElementById('bookForm').addEventListener('submit', function(e){
     e.preventDefault();
     var car = select.value,
         d1 = document.getElementById('d1').value,
         d2 = document.getElementById('d2').value,
         nom = document.getElementById('nom').value.trim(),
-        tel = document.getElementById('tel').value.trim();
+        tel = document.getElementById('tel').value.trim(),
+        c = veloceCalc();
     var msg = "Bonjour VELOCE,\n" +
       "Je souhaite réserver une voiture de luxe à Tanger :\n" +
       "• Voiture : " + car + "\n" +
-      "• Du : " + d1 + " au : " + d2 + "\n" +
+      "• Du : " + d1 + " au : " + d2 + (c.days > 0 ? " (" + c.days + " jour" + (c.days > 1 ? "s" : "") + ")" : "") + "\n" +
+      (c.total > 0 ? "• Estimation démo : " + c.total.toLocaleString('fr-FR') + " DH (" + c.price.toLocaleString('fr-FR') + " DH/jour)\n" : "") +
       "• Nom : " + nom + "\n" +
       "• Téléphone : " + tel + "\n" +
       "Merci de me confirmer la disponibilité.";

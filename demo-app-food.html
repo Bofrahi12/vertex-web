@@ -96,6 +96,41 @@
   footer .fl{font-weight:900;font-size:1.25rem;color:#fff}footer .fl span{color:var(--or)}
   @media(max-width:960px){.hero{grid-template-columns:1fr;padding-top:40px}.restos,.feats{grid-template-columns:repeat(2,1fr)}.temo,.steps{grid-template-columns:1fr}.join{grid-template-columns:1fr}.join .cta{text-align:left}nav{display:none}}
   @media(max-width:540px){.stats{grid-template-columns:1fr}.restos,.feats{grid-template-columns:1fr}}
+  /* MENU / COMMANDE / GALERIE / FAQ / CONTACT (completion) */
+  .menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .menu-card{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+  .menu-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(80,50,10,.12)}
+  .menu-card .im{aspect-ratio:4/3;overflow:hidden}
+  .menu-card .im img{width:100%;height:100%;object-fit:cover}
+  .menu-card .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .menu-card h3{font-size:1.02rem;line-height:1.3}
+  .menu-card .cat{color:var(--mut);font-size:.82rem;font-weight:700}
+  .menu-card .desc{color:var(--mut);font-size:.88rem;flex:1}
+  .menu-card .row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px}
+  .menu-card .price{font-weight:900;color:var(--or);font-size:1.08rem;white-space:nowrap}
+  .order-box{background:var(--ink);color:#fff;border-radius:34px;padding:38px 34px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+  .order-box h2{text-align:left;color:#fff}
+  .order-box p{opacity:.88;margin-top:8px}
+  .order-form{background:#fff;color:var(--ink);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:13px}
+  .order-form label{font-weight:800;font-size:.85rem;display:flex;flex-direction:column;gap:6px}
+  .order-form select,.order-form input{font:inherit;padding:11px 13px;border:2px solid var(--line);border-radius:14px;background:var(--cream);width:100%}
+  .order-total{font-size:.92rem;color:var(--mut);border-top:1px dashed var(--line);padding-top:11px;line-height:1.6}
+  .order-total b{color:var(--ink)}
+  .order-total .grand{font-size:1.15rem;color:var(--or);font-weight:900}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .gal-grid figure{border-radius:var(--rad);overflow:hidden;position:relative;border:1px solid var(--line);margin:0}
+  .gal-grid img{width:100%;height:230px;object-fit:cover}
+  .gal-grid figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(20,15,10,.72));color:#fff;font-weight:700;font-size:.88rem;padding:26px 16px 12px}
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq-list details{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px 20px}
+  .faq-list summary{font-weight:800;cursor:pointer}
+  .faq-list p{color:var(--mut);margin-top:8px;font-size:.95rem}
+  .contact-box{background:var(--card);border:1px solid var(--line);border-radius:34px;padding:38px 34px;display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+  .contact-box h2{text-align:left}
+  .contact-box ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:9px;color:#4c463f;font-weight:600}
+  .contact-box .cta{text-align:right}
+  @media(max-width:960px){.menu-grid{grid-template-columns:repeat(2,1fr)}.gal-grid{grid-template-columns:repeat(2,1fr)}.order-box,.contact-box{grid-template-columns:1fr}.contact-box .cta{text-align:left}}
+  @media(max-width:540px){.menu-grid,.gal-grid{grid-template-columns:1fr}.order-box{padding:28px 20px}.contact-box{padding:28px 20px}}
 </style>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "z1xhv3xkh1");
@@ -137,7 +172,10 @@ html,body{overflow-x:clip!important}
 <header>
   <div class="logo">MIAM<span>EXPRESS</span></div>
   <nav>
+    <a href="#menu">Menu</a>
     <a href="#restaurants">Restaurants</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
     <a href="#comment">Comment ça marche</a>
     <a href="#avis">Avis</a>
     <a href="#restaurateurs">Restaurateurs</a>
@@ -259,6 +297,109 @@ html,body{overflow-x:clip!important}
     </div>
   </section>
 
+  <!-- MENU / CATALOGUE -->
+  <section id="menu">
+    <h2>Le menu du jour</h2>
+    <p class="sub">Huit plats parmi les plus commandés à Tanger — prix de démonstration, identiques à ceux du restaurant.</p>
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="im"><img src="demo-burger/img/classic.jpg" alt="Burger Signature" loading="lazy"></div>
+        <div class="bd"><h3>Burger Signature</h3><div class="cat">Grill House • ★ 4.9 • 20 min</div><p class="desc">Bœuf grillé, cheddar fondant, sauce maison et frites dorées.</p><div class="row"><span class="price">65 DH</span><button class="btn sm teal menu-add" type="button" data-dish="0">+ Ajouter</button></div></div>
+      </article>
+      <article class="menu-card">
+        <div class="im"><img src="miam/f5.jpg" alt="Assiette Méditerranéenne" loading="lazy"></div>
+        <div class="bd"><h3>Assiette Méditerranéenne</h3><div class="cat">Le Comptoir • ★ 4.8 • 25 min</div><p class="desc">Grillades, salades fraîches, houmous et pain chaud.</p><div class="row"><span class="price">85 DH</span><button class="btn sm teal menu-add" type="button" data-dish="1">+ Ajouter</button></div></div>
+      </article>
+      <article class="menu-card">
+        <div class="im"><img src="miam/f6.jpg" alt="Petit-déjeuner Complet" loading="lazy"></div>
+        <div class="bd"><h3>Petit-déjeuner Complet</h3><div class="cat">Café Matin • ★ 4.9 • 15 min</div><p class="desc">Œufs, msemen, olives, fromage, jus d'orange frais et café ou thé.</p><div class="row"><span class="price">45 DH</span><button class="btn sm teal menu-add" type="button" data-dish="2">+ Ajouter</button></div></div>
+      </article>
+      <article class="menu-card">
+        <div class="im"><img src="demo-resto/img/dish-tajine.jpg" alt="Tajine Poulet aux Olives" loading="lazy"></div>
+        <div class="bd"><h3>Tajine Poulet aux Olives</h3><div class="cat">La Table d'Or • ★ 4.8 • 30 min</div><p class="desc">Poulet fermier, citron confit et olives, mijoté à la marocaine.</p><div class="row"><span class="price">75 DH</span><button class="btn sm teal menu-add" type="button" data-dish="3">+ Ajouter</button></div></div>
+      </article>
+      <article class="menu-card">
+        <div class="im"><img src="demo-resto/img/dish-couscous.jpg" alt="Couscous du Vendredi" loading="lazy"></div>
+        <div class="bd"><h3>Couscous du Vendredi</h3><div class="cat">La Table d'Or • ★ 4.9 • 30 min</div><p class="desc">Semoule fine, légumes du marché et viande tendre, tfaya en option.</p><div class="row"><span class="price">80 DH</span><button class="btn sm teal menu-add" type="button" data-dish="4">+ Ajouter</button></div></div>
+      </article>
+      <article class="menu-card">
+        <div class="im"><img src="demo-burger/img/bbq.jpg" alt="Burger BBQ Fumé" loading="lazy"></div>
+        <div class="bd"><h3>Burger BBQ Fumé</h3><div class="cat">Grill House • ★ 4.8 • 20 min</div><p class="desc">Bœuf fumé, sauce barbecue, oignons caramélisés et cheddar.</p><div class="row"><span class="price">72 DH</span><button class="btn sm teal menu-add" type="button" data-dish="5">+ Ajouter</button></div></div>
+      </article>
+      <article class="menu-card">
+        <div class="im"><img src="demo-burger/img/chicken.jpg" alt="Burger Poulet Croustillant" loading="lazy"></div>
+        <div class="bd"><h3>Burger Poulet Croustillant</h3><div class="cat">Grill House • ★ 4.7 • 20 min</div><p class="desc">Poulet pané croustillant, salade fraîche et sauce algérienne.</p><div class="row"><span class="price">58 DH</span><button class="btn sm teal menu-add" type="button" data-dish="6">+ Ajouter</button></div></div>
+      </article>
+      <article class="menu-card">
+        <div class="im"><img src="miam/f2.jpg" alt="Assiette du Chef" loading="lazy"></div>
+        <div class="bd"><h3>Assiette du Chef</h3><div class="cat">La Table d'Or • ★ 4.9 • 35 min</div><p class="desc">La création gastronomique du chef, selon le marché du jour.</p><div class="row"><span class="price">90 DH</span><button class="btn sm teal menu-add" type="button" data-dish="7">+ Ajouter</button></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- COMMANDER (WhatsApp) -->
+  <section id="commande">
+    <div class="order-box">
+      <div>
+        <h2>Commandez en moins d'une minute</h2>
+        <p>Choisissez votre plat, la quantité et votre quartier : le récapitulatif part directement sur WhatsApp, et vous payez en espèces ou par carte à la livraison. Livraison offerte dès 150 DH d'achat.</p>
+      </div>
+      <form class="order-form" id="ordForm">
+        <label>Plat
+          <select id="ordDish">
+            <option value="Burger Signature" data-price="65">Burger Signature — Grill House · 65 DH</option>
+            <option value="Assiette Méditerranéenne" data-price="85">Assiette Méditerranéenne — Le Comptoir · 85 DH</option>
+            <option value="Petit-déjeuner Complet" data-price="45">Petit-déjeuner Complet — Café Matin · 45 DH</option>
+            <option value="Tajine Poulet aux Olives" data-price="75">Tajine Poulet aux Olives — La Table d'Or · 75 DH</option>
+            <option value="Couscous du Vendredi" data-price="80">Couscous du Vendredi — La Table d'Or · 80 DH</option>
+            <option value="Burger BBQ Fumé" data-price="72">Burger BBQ Fumé — Grill House · 72 DH</option>
+            <option value="Burger Poulet Croustillant" data-price="58">Burger Poulet Croustillant — Grill House · 58 DH</option>
+            <option value="Assiette du Chef" data-price="90">Assiette du Chef — La Table d'Or · 90 DH</option>
+          </select>
+        </label>
+        <label>Quantité
+          <input type="number" id="ordQty" min="1" max="20" value="1">
+        </label>
+        <label>Quartier de livraison
+          <select id="ordZone">
+            <option value="Centre-ville" data-fee="10">Centre-ville — livraison 10 DH</option>
+            <option value="Marshan" data-fee="10">Marshan — livraison 10 DH</option>
+            <option value="Malabata" data-fee="15">Malabata — livraison 15 DH</option>
+            <option value="Mesnana" data-fee="15">Mesnana — livraison 15 DH</option>
+            <option value="Gzenaya" data-fee="20">Gzenaya — livraison 20 DH</option>
+          </select>
+        </label>
+        <div class="order-total" id="ordSummary"></div>
+        <a class="btn" id="ordBtn" href="https://wa.me/212693981822" target="_blank" rel="noopener">Commander sur WhatsApp →</a>
+      </form>
+    </div>
+  </section>
+<script id="miam-order-js">
+(function(){
+  var dish=document.getElementById('ordDish'),qty=document.getElementById('ordQty'),zone=document.getElementById('ordZone'),sum=document.getElementById('ordSummary'),btn=document.getElementById('ordBtn');
+  if(!dish||!qty||!zone||!sum||!btn)return;
+  var PHONE='212693981822';
+  function upd(){
+    var o=dish.options[dish.selectedIndex],price=parseInt(o.getAttribute('data-price'),10)||0;
+    var q=Math.max(1,Math.min(20,parseInt(qty.value,10)||1));
+    var z=zone.options[zone.selectedIndex],fee=parseInt(z.getAttribute('data-fee'),10)||0;
+    var sub=price*q; if(sub>=150)fee=0;
+    var total=sub+fee;
+    sum.innerHTML='Détail : '+price+' DH × '+q+' = <b>'+sub+' DH</b> + livraison '+(fee===0?'<b>offerte</b>':'<b>'+fee+' DH</b>')+'<br>Total à payer à la livraison : <span class="grand">'+total+' DH</span>';
+    var msg='Bonjour Miam Express, je commande :\n• '+o.value+' × '+q+' — '+sub+' DH\nQuartier : '+z.value+' (livraison '+(fee===0?'offerte':fee+' DH')+')\nTotal : '+total+' DH (paiement à la livraison)';
+    btn.href='https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg);
+  }
+  [dish,qty,zone].forEach(function(el){el.addEventListener('change',upd);el.addEventListener('input',upd);});
+  document.querySelectorAll('.menu-add').forEach(function(b){
+    b.addEventListener('click',function(){
+      dish.selectedIndex=parseInt(b.getAttribute('data-dish'),10)||0; upd();
+      document.getElementById('commande').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+  upd();
+})();
+</script>
+
   <!-- FONCTIONNALITÉS -->
   <section>
     <h2>Pensée pour vous régaler</h2>
@@ -279,6 +420,61 @@ html,body{overflow-x:clip!important}
       <div class="tcard"><div class="stars">★★★★★</div><p>« Commandé à 20h05, livré à 20h31, encore chaud. Le suivi en direct, c'est exactement ce qui manquait à Tanger. »</p><div class="who">Salma B.<span>Cliente — Marshan</span></div></div>
       <div class="tcard"><div class="stars">★★★★★</div><p>« Les promos chaque jour et le paiement à la livraison : je ne commande plus autrement pour toute la famille. »</p><div class="who">Youssef E.<span>Client — Centre-ville</span></div></div>
       <div class="tcard"><div class="stars">★★★★★</div><p>« Interface simple, même ma mère l'utilise. Et le support répond vraiment en quelques minutes. »</p><div class="who">Khadija M.<span>Cliente — Malabata</span></div></div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <h2>En images</h2>
+    <p class="sub">Les cuisines, les salles et les plats de nos restaurants partenaires à Tanger.</p>
+    <div class="gal-grid">
+      <figure><img src="miam/f1.jpg" alt="Salle d'un restaurant partenaire" loading="lazy"><figcaption>Les salles de nos partenaires</figcaption></figure>
+      <figure><img src="miam/f2.jpg" alt="Assiette du chef prête à partir" loading="lazy"><figcaption>L'assiette du chef, prête à partir</figcaption></figure>
+      <figure><img src="miam/f3.jpg" alt="Comptoir et cuisine ouverte" loading="lazy"><figcaption>Côté cuisine, en direct</figcaption></figure>
+      <figure><img src="miam/f4.jpg" alt="Espace café d'un partenaire" loading="lazy"><figcaption>Pause café chez nos partenaires</figcaption></figure>
+      <figure><img src="miam/f5.jpg" alt="Grillades du jour" loading="lazy"><figcaption>Les grillades du jour</figcaption></figure>
+      <figure><img src="miam/f6.jpg" alt="Brunch frais du matin" loading="lazy"><figcaption>Le brunch frais du matin</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- POURQUOI NOUS -->
+  <section id="pourquoi">
+    <h2>Pourquoi Miam Express</h2>
+    <p class="sub">Quatre raisons concrètes de commander chez nous plutôt qu'ailleurs.</p>
+    <div class="feats">
+      <div class="feat"><div class="ic">⏱️</div><h3>30 minutes en moyenne</h3><p>Des livreurs basés à Tanger et des restaurants proches de votre quartier : votre plat arrive chaud, pas tiède.</p></div>
+      <div class="feat"><div class="ic">🏷️</div><h3>Le prix du restaurant</h3><p>Aucune majoration cachée sur les plats : vous payez le prix de la carte, plus des frais de livraison affichés dès le départ (10 à 20 DH selon le quartier).</p></div>
+      <div class="feat"><div class="ic">📲</div><h3>Sans application à installer</h3><p>La commande se fait en moins d'une minute sur WhatsApp — pas de compte à créer, pas de mot de passe à retenir.</p></div>
+      <div class="feat"><div class="ic">⭐</div><h3>Restaurants vérifiés</h3><p>Seuls les partenaires notés 4,7/5 ou plus restent sur Miam Express : qualité contrôlée commande après commande.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>Questions fréquentes</h2>
+    <p class="sub">Tout ce qu'il faut savoir avant votre première commande.</p>
+    <div class="faq-list">
+      <details><summary>En combien de temps ma commande arrive-t-elle ?</summary><p>En 30 minutes en moyenne à Tanger, selon votre quartier et l'affluence du restaurant. Le suivi en direct vous montre la progression de votre commande, de la préparation jusqu'à la livraison.</p></details>
+      <details><summary>Comment puis-je payer ?</summary><p>À la livraison, en espèces ou par carte bancaire. Aucun prépaiement n'est demandé : vous ne payez que lorsque votre commande est entre vos mains.</p></details>
+      <details><summary>Combien coûte la livraison ?</summary><p>De 10 à 20 DH selon le quartier (Centre-ville et Marshan : 10 DH, Malabata et Mesnana : 15 DH, Gzenaya : 20 DH). La livraison est offerte dès 150 DH d'achat, et le total exact s'affiche avant d'envoyer la commande.</p></details>
+      <details><summary>Quels quartiers sont desservis, et à quelles heures ?</summary><p>Nous livrons dans tout Tanger — Centre-ville, Marshan, Malabata, Mesnana, Gzenaya et les quartiers voisins — 7j/7, de 10h à 23h.</p></details>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box">
+      <div>
+        <h2>Une question ? Une commande par téléphone ?</h2>
+        <ul>
+          <li>📍 Zone de livraison : Centre-ville, Tanger — et tous les quartiers desservis</li>
+          <li>🕙 Ouvert 7j/7, de 10h à 23h</li>
+          <li>💵 Paiement en espèces ou par carte à la livraison</li>
+        </ul>
+      </div>
+      <div class="cta">
+        <a class="btn teal" href="https://wa.me/212693981822?text=Bonjour%20Miam%20Express%2C%20j%27ai%20une%20question%20sur%20une%20commande." target="_blank" rel="noopener">💬 Écrire sur WhatsApp</a>
+      </div>
     </div>
   </section>
 
@@ -399,7 +595,7 @@ var obs=setInterval(function(){track.dataset.vxStep=String(i);if(i>=steps.length
 function upd(){var base=document.readyState==='complete'?70:40;var r=imgs.length?Math.round(done/imgs.length*30):30;target=Math.min(99,base+r);if(document.readyState==='complete'&&(!imgs.length||done>=imgs.length))target=100;}
 function tick(){shown+= (target-shown)*.18;if(target-shown<1)shown=target;var v=Math.round(shown);pct.textContent=v+'%';bar.style.width=v+'%';if(v>=100){setTimeout(function(){L.style.opacity='0';L.style.pointerEvents='none';setTimeout(function(){L.remove()},650)},150);return;}requestAnimationFrame(tick);}
 imgs.forEach(function(im){if(im.complete)done++;else{im.addEventListener('load',function(){done++;upd()});im.addEventListener('error',function(){done++;upd()});}});
-window.addEventListener('load',upd);upd();requestAnimationFrame(tick);setTimeout(function(){done=imgs.length;upd()},4000);}
+window.addEventListener('load',upd);upd();requestAnimationFrame(tick);setTimeout(function(){upd=function(){};done=imgs.length;target=100;},4000);}
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('section, .card, article').forEach(function(el){el.classList.add('vx-rv');io.observe(el)});}
 })();
