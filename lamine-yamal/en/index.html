@@ -383,6 +383,16 @@ html.rm #dust{display:none}
 .advertise p{color:#c9cedb;max-width:62ch;margin:0 auto 18px}
 .advertise a{display:inline-block;background:#25d366;color:#062b16;font-weight:900;padding:13px 26px;border-radius:999px;text-decoration:none}
 #card,#news,#numbers,#style,#records,#honours,#goals,#dreams,#morocco,#showcase,#gallery,#videos,#faq,#fanzone,#wallpapers{content-visibility:auto;contain-intrinsic-size:auto 880px}
+.evo-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:none}
+.evo-strip::-webkit-scrollbar{display:none}
+.evo-card{position:relative;flex:0 0 min(290px,72vw);aspect-ratio:3/4;border-radius:18px;overflow:hidden;scroll-snap-align:start;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:#0d0f16;margin:0}
+.evo-card img{width:100%;height:100%;object-fit:cover;display:block}
+.evo-card .num{position:absolute;top:12px;inset-inline-start:12px;background:rgba(4,5,9,.72);border:1px solid var(--gold);color:var(--gold2);font-weight:900;font-size:13px;padding:4px 11px;border-radius:999px;z-index:2}
+.evo-card figcaption{position:absolute;bottom:0;left:0;right:0;padding:34px 14px 12px;background:linear-gradient(0deg,rgba(4,5,9,.9),transparent);z-index:2}
+.evo-card figcaption b{display:block;font-size:16.5px;font-weight:900;color:#fff}
+.evo-card figcaption span{font-size:13px;color:#d5d9e4;font-weight:700}
+.evo-hint{text-align:center;color:var(--mut);font-size:13.5px;font-weight:700}
+
 
 
 
@@ -631,6 +641,23 @@ section[id],footer[id]{scroll-margin-top:98px}
 </div>
 
 <!-- ================= NUMBERS ================= -->
+<!-- ================= THE JOURNEY ================= -->
+<section id="journey">
+  <div class="sec-head rv">
+    <div class="tag">The journey in photos</div>
+    <h2>From a Rocafonda kid… to world champion</h2>
+    <p>The story in 6 photos — swipe through and watch the dream come true.</p>
+  </div>
+  <div class="evo-strip" data-lenis-prevent>
+    <figure class="evo-card gg-img rv" data-full="../assets/evo-1.jpg" data-cap="The beginning — A kid from Rocafonda playing without fear"><img src="../assets/evo-1.jpg" alt="The beginning — A kid from Rocafonda playing without fear" loading="lazy"><span class="num">01</span><figcaption><b>The beginning</b><span>A kid from Rocafonda playing without fear</span></figcaption></figure>
+    <figure class="evo-card gg-img rv" data-full="../assets/evo-2.jpg" data-cap="First silverware — LaLiga Promises champion as a kid"><img src="../assets/evo-2.jpg" alt="First silverware — LaLiga Promises champion as a kid" loading="lazy"><span class="num">02</span><figcaption><b>First silverware</b><span>LaLiga Promises champion as a kid</span></figcaption></figure>
+    <figure class="evo-card gg-img rv" data-full="../assets/evo-3.jpg" data-cap="With the legend — The kid who posed with Messi… and inherited the throne"><img src="../assets/evo-3.jpg" alt="With the legend — The kid who posed with Messi… and inherited the throne" loading="lazy"><span class="num">03</span><figcaption><b>With the legend</b><span>The kid who posed with Messi… and inherited the throne</span></figcaption></figure>
+    <figure class="evo-card gg-img rv" data-full="../assets/evo-4.jpg" data-cap="The La Masia years — The academy that made the star"><img src="../assets/evo-4.jpg" alt="The La Masia years — The academy that made the star" loading="lazy"><span class="num">04</span><figcaption><b>The La Masia years</b><span>The academy that made the star</span></figcaption></figure>
+    <figure class="evo-card gg-img rv" data-full="../assets/evo-5.jpg" data-cap="The star — The face of Spain&#x27;s new generation"><img src="../assets/evo-5.jpg" alt="The star — The face of Spain&#x27;s new generation" loading="lazy"><span class="num">05</span><figcaption><b>The star</b><span>The face of Spain&#x27;s new generation</span></figcaption></figure>
+    <figure class="evo-card gg-img rv" data-full="../assets/evo-6.jpg" data-cap="World champion — World Cup 2026 — the summit at 19"><img src="../assets/evo-6.jpg" alt="World champion — World Cup 2026 — the summit at 19" loading="lazy"><span class="num">06</span><figcaption><b>World champion</b><span>World Cup 2026 — the summit at 19</span></figcaption></figure>
+  </div>
+  <div class="evo-hint">↔ Swipe to travel the journey</div>
+</section>
 <section id="numbers">
   <div class="sec-head rv">
     <div class="tag">The numbers don't lie</div>
