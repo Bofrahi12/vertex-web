@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bofrahi12.github.io/vertex-web/lamine-yamal/sitemap.xml
