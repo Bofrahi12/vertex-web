@@ -367,6 +367,8 @@ html.rm #dust{display:none}
 .advertise h3{font-size:clamp(21px,3vw,28px);font-weight:900;margin-bottom:8px}
 .advertise p{color:#c9cedb;max-width:62ch;margin:0 auto 18px}
 .advertise a{display:inline-block;background:#25d366;color:#062b16;font-weight:900;padding:13px 26px;border-radius:999px;text-decoration:none}
+#card,#news,#numbers,#style,#records,#honours,#goals,#dreams,#morocco,#showcase,#gallery,#videos,#faq,#fanzone,#wallpapers{content-visibility:auto;contain-intrinsic-size:auto 880px}
+
 
 
 </style>
@@ -603,7 +605,7 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= TIMELINE (draws itself) ================= -->
-<div class="filmwrap drawwrap" style="height:280vh">
+<div class="filmwrap drawwrap" style="height:200vh">
   <div class="drawstage">
     <div class="sec-head rv" style="margin-bottom:0">
       <div class="tag">La línea de tiempo</div>
@@ -620,7 +622,7 @@ section[id],footer[id]{scroll-margin-top:98px}
 </div>
 
 <!-- ================= FILM: WORLD CUP NIGHT ================= -->
-<div class="filmwrap" style="height:300vh">
+<div class="filmwrap" style="height:200vh">
   <div class="filmstage">
     <canvas class="film" data-dir="../assets/film-wc" data-frames="60" data-dir-m="../assets/film-wc-m" data-frames-m="44" aria-hidden="true"></canvas>
     <div class="filmshade"></div>
@@ -708,7 +710,7 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= FILM: THE NUMBER 10 ================= -->
-<div class="filmwrap" style="height:300vh">
+<div class="filmwrap" style="height:200vh">
   <div class="filmstage">
     <canvas class="film" data-dir="../assets/film-barca" data-frames="60" data-dir-m="../assets/film-barca-m" data-frames-m="44" aria-hidden="true"></canvas>
     <div class="filmshade"></div>
@@ -782,7 +784,7 @@ section[id],footer[id]{scroll-margin-top:98px}
 </section>
 
 <!-- ================= COLLAGE SCENE ================= -->
-<div class="filmwrap parawrap" style="height:280vh">
+<div class="filmwrap parawrap" style="height:200vh">
   <div class="colstage">
     <figure class="col-img c1" data-speed="-1.1"><img src="../assets/wc-final-319.jpg" alt="Lamine Yamal en la final del Mundial 2026" loading="lazy"></figure>
     <figure class="col-img c2" data-speed="0.8"><img src="../assets/fra-187.jpg" alt="Lamine Yamal contra Francia en 2026" loading="lazy"></figure>
@@ -1036,7 +1038,7 @@ section[id],footer[id]{scroll-margin-top:98px}
     if(!cv) return;
     var ctx=cv.getContext('2d'), W=0, H=0, ps=[], run=true;
     function size(){
-      var d=Math.min(devicePixelRatio||1, innerWidth<=640?1.25:2);
+      var d=Math.min(devicePixelRatio||1, innerWidth<=640?1.25:1.3);
       W=cv.clientWidth; H=cv.clientHeight;
       cv.width=W*d; cv.height=H*d; ctx.setTransform(d,0,0,d,0,0);
     }
@@ -1117,7 +1119,7 @@ section[id],footer[id]{scroll-margin-top:98px}
   /* ---------- Lenis smooth scroll (guarded) ---------- */
   if(window.Lenis && !RM){
     try{
-      var lenis=new Lenis({lerp:0.08, smoothWheel:true});
+      var lenis=new Lenis({lerp:0.13, smoothWheel:true, wheelMultiplier:1.15});
       function lraf(t){ lenis.raf(t); requestAnimationFrame(lraf); }
       requestAnimationFrame(lraf);
     }catch(_){}
@@ -1151,7 +1153,7 @@ section[id],footer[id]{scroll-margin-top:98px}
       active=e.isIntersecting; if(e.isIntersecting) startLoad();
     }); },{rootMargin:'110% 0px 110% 0px'}).observe(wrap);
     function size(){
-      var d=Math.min(devicePixelRatio||1, 1.15);
+      var d=Math.min(devicePixelRatio||1, 1);
       cv.width=Math.round(cv.clientWidth*d); cv.height=Math.round(cv.clientHeight*d); dirty=true;
     }
     size(); addEventListener('resize',size);
