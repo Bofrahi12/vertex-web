@@ -128,6 +128,25 @@ html,body{overflow-x:clip}
 #noRes{display:none;text-align:center;padding:30px;opacity:.8}
 .grid{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+.official-strip{background:rgba(217,164,65,.1);border:1px solid rgba(217,164,65,.45);border-radius:14px;padding:12px 16px;margin:6px 0 14px;font-size:14.5px}
+.official-strip a{color:var(--gold);font-weight:700}
+.demo-sticky{position:sticky;top:74px;z-index:45;background:rgba(12,11,10,.94);backdrop-filter:blur(10px);border:1px solid rgba(217,164,65,.28);border-radius:16px;padding:10px 12px;margin-bottom:16px}
+.demo-sticky .chips{margin:10px 0 2px}
+.demo-thumb{display:block;border-radius:12px;overflow:hidden;margin-bottom:10px;aspect-ratio:16/10;background:linear-gradient(135deg,#211d17,#3a3125)}
+.demo-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+#toTop{position:fixed;bottom:86px;inset-inline-end:16px;z-index:55;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:#141210;color:var(--gold);font-size:19px;cursor:pointer;display:none}
+@media(max-width:700px){
+.demo-sticky{top:60px;padding:8px}
+.grid{grid-template-columns:1fr 1fr;gap:10px}
+.demo-card{padding:10px}
+.demo-card h3{font-size:14px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.demo-card p{font-size:12px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.demo-thumb{margin-bottom:7px}
+.demo-go{font-size:12.5px;margin-top:6px}
+}
+
+@media(max-width:700px){.demo-sticky .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.demo-sticky .chips::-webkit-scrollbar{display:none}.demo-sticky .chip{white-space:nowrap;flex:0 0 auto}}
 </style>
 </head>
 <body>
@@ -154,38 +173,47 @@ html,body{overflow-x:clip}
 <section class="section"><div class="container">
 <h1>معرض النماذج — <span style="color:var(--gold)">64 نموذجاً جاهزاً</span></h1>
 <p>كل نموذج هنا <strong>مشروع كامل خدام</strong> — ماشي صورة. ملي كيجي الزبون، كنبدلو غير المعلومات: الاسم، الرقم، الأثمنة، والصور. قلب على حساب قطاعك، شوف النموذج حي، وقول لينا شنو عجبك.</p>
+<div class="official-strip">⭐ <strong>مشاريع رسمية حية كنخدمو بيها:</strong> Labo Ahlam · Cap Immo · TradePro · Pâtisserie Siham · AWAB CLIM · LocalBoost — <a href="portfolio.html#proof">شوف الإثبات والمشاريع الحية ←</a></div>
 <div class="demo-tools"><input id="demoSearch" class="demo-search" type="search" placeholder="🔎 قلب باسم النموذج أو القطاع…"><span id="shownCount"></span></div>
 <div class="chips"><button class="chip active" data-f="all">الكل (<span id="totalCount"></span>)</button><button class="chip" data-f="food">🍽️ مطاعم ومقاهي</button><button class="chip" data-f="shop">🛍️ متاجر وتجزئة</button><button class="chip" data-f="stay">🏨 إقامة وعقارات</button><button class="chip" data-f="auto">🚗 سيارات ونقل</button><button class="chip" data-f="beauty">💇 جمال وموضة</button><button class="chip" data-f="health">🩺 صحة وخدمات</button><button class="chip" data-f="sport">⚽ رياضة وترفيه</button><button class="chip" data-f="event">🎉 مناسبات وقاعات</button><button class="chip" data-f="creative">📸 إبداع وتصوير</button><button class="chip" data-f="service">🧰 خدمات</button></div>
 <div class="grid" id="demoGrid">
 <a class="pcard demo-card" data-sector="food" data-name="miam express — livraison de repas à tanger demo-app-food.html" href="demo-app-food.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="miam/f4.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>MIAM EXPRESS — Livraison de repas à Tanger</h3><p>Miam Express : vos plats préférés livrés en 30 minutes à Tanger. 120+ restaurants partenaires, paiement à la l</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="service" data-name="atlas energy — l&#x27;énergie qui te révèle | démo vertex web demo-atlas.html" href="demo-atlas.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-atlas/pear.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🧰 خدمات</span></div>
 <h3>ATLAS ENERGY — L&#x27;énergie qui te révèle | Démo Vertex Web</h3><p>Site produit immersif style 2026 : canettes flottantes, film 3D piloté par le scroll, collage surréaliste. Dém</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="shop" data-name="aurelle — mode femme · tanger demo-aurelle.html" href="demo-aurelle.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="aurelle/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🛍️ متاجر وتجزئة</span></div>
 <h3>AURELLE — Mode Femme · Tanger</h3><p>Shoppez par Catégorie</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="azura bay — resort &amp; spa · tanger demo-azura.html" href="demo-azura.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="azura/beach.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>AZURA BAY — Resort &amp; Spa · Tanger</h3><p>AZURA BAY, resort &amp; spa en bord de mer à Tanger. Suites vue océan, villa privée, spa signature et dîners sur l</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="beauty" data-name="lame d&#x27;or — barber club tanger | نموذج تجريبي demo-barber.html" href="demo-barber.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-barber/img/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">💇 جمال وموضة</span></div>
 <h3>LAME D&#x27;OR — Barber Club Tanger | نموذج تجريبي</h3><p>نموذج تجريبي من فيرتكس ويب: موقع نادٍ فاخر للحلاقة الرجالية بطنجة — قصّ شعر، تحديد لحية، حلاقة ملكية وحجز عبر </p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="smash house طنجة | برغر سماش وتوصيل داخل طنجة demo-burger.html" href="demo-burger.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="https://bofrahi12.github.io/vertex-web/demo-burger/img/box.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Smash House طنجة | برغر سماش وتوصيل داخل طنجة</h3><p>اطلب برغر سماش طازج من Smash House في طنجة. دوبل سماش، تشيكن كريسبي، بطاطس ومشروبات مع توصيل سريع وطلب مباشر ع</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="مقهى الأصالة — قهوة مختصة وبرانش في طنجة · تجربة 3d (نموذج تجريبي) demo-cafe.html" href="demo-cafe.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-cafe/img/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>مقهى الأصالة — قهوة مختصة وبرانش في طنجة · تجربة 3D (نموذج تجريبي)</h3><p>نموذج تجريبي لموقع مقهى مختصة في طنجة: قهوة مختصة، برانش، عصائر طازجة وحلويات — الطلب والحجز عبر واتساب.</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="creative" data-name="chroma — la couleur, portée haut · tanger demo-chroma.html" href="demo-chroma.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="chroma/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">📸 إبداع وتصوير</span></div>
 <h3>CHROMA — La couleur, portée haut · Tanger</h3><p>CHROMA — La couleur, portée haut · Tanger</p>
 <span class="demo-go">شوف النموذج ←</span></a>
@@ -194,222 +222,277 @@ html,body{overflow-x:clip}
 <h3>VERTEX WEB — Digital Experiences That Hold Attention</h3><p>VERTEX WEB is a creative digital studio in Tangier designing cinematic, scroll-driven websites and interactive</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="health" data-name="clinique dentaire sourire — dentiste à tanger · expérience 3d demo-dentaire.html" href="demo-dentaire.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-dentaire/img/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🩺 صحة وخدمات</span></div>
 <h3>Clinique Dentaire Sourire — Dentiste à Tanger · Expérience 3D</h3><p>Clinique Dentaire Sourire à Tanger : implants, orthodontie, blanchiment, prothèses et soins enfants. Équipemen</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="the döner — slow-roasted. sliced. stacked. demo-doner.html" href="demo-doner.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="https://bofrahi12.github.io/vertex-web/demo-doner/spit.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>THE DÖNER — Slow-Roasted. Sliced. Stacked.</h3><p>THE DÖNER — a döner engineered like a spec sheet. Dry-aged veal, charcoal fire, 260° sear, seven layers. Born </p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="crispy house — fast-food à tanger | burgers, pizza, poulet crispy demo-fastfood.html" href="demo-fastfood.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="crispy/burger1.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>CRISPY HOUSE — Fast-Food à Tanger | Burgers, Pizza, Poulet Crispy</h3><p>CRISPY HOUSE — fast-food à Tanger. Burgers généreux, poulet crispy, pizza et frites maison. Livraison en 30 mi</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="event" data-name="قاعة الياسمين للأفراح · تجربة افتتاحية 3d · طنجة demo-fetes.html" href="demo-fetes.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-fetes/img/g1.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🎉 مناسبات وقاعات</span></div>
 <h3>قاعة الياسمين للأفراح · تجربة افتتاحية 3D · طنجة</h3><p>قاعة الياسمين للأفراح بطنجة: أعراس، خطوبة، ليالي حنة ومناسبات عائلية في قاعة فاخرة — ممّون، ديكور، نكافة وفرقة</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="sport" data-name="نادي القمة — قاعة رياضة في طنجة | تجربة 3d تفاعلية demo-gym.html" href="demo-gym.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-gym/img/hero3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">⚽ رياضة وترفيه</span></div>
 <h3>نادي القمة — قاعة رياضة في طنجة | تجربة 3D تفاعلية</h3><p>نادي القمة — قاعة رياضة عصرية في طنجة: كمال أجسام، كروس فيت، كارديو، يوغا وتدريب شخصي مع مدربين معتمدين. أول ح</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="noor immobilier — immobilier de luxe à tanger demo-immo-luxe.html" href="demo-immo-luxe.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-immo-luxe/vid/posters/estate.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>NOOR IMMOBILIER — Immobilier de luxe à Tanger</h3><p>NOOR Immobilier — villas, penthouses et biens d&#x27;exception à Tanger. Un site fait par des humains : vidéos réel</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="tanja luxe immobilier — les plus belles adresses de tanger demo-immoluxe.html" href="demo-immoluxe.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-immoluxe/vid/posters/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>Tanja Luxe Immobilier — Les plus belles adresses de Tanger</h3><p>Tanja Luxe Immobilier — villas, penthouses et riads d&#x27;exception à Tanger. Un site fait par des humains : vidéo</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="imperial motors — voitures premium à tanger demo-imperial.html" href="demo-imperial.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="imperial/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>IMPERIAL MOTORS — Voitures Premium à Tanger</h3><p>IMPERIAL MOTORS, concessionnaire de voitures premium à Tanger : véhicules certifiés, financement et reprise. R</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="health" data-name="labo ahlam — مختبر تركيبات الأسنان | prothèses dentaires demo-labo-ahlam.html" href="demo-labo-ahlam.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-labo-ahlam/og-labo.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🩺 صحة وخدمات</span></div>
 <h3>Labo Ahlam — مختبر تركيبات الأسنان | Prothèses dentaires</h3><p>Labo Ahlam — أحلام مغري زرهوني: تركيبات أسنان كاملة وجزئية، سيليكون مرن، Snap-on Smile، واقي ليلي وأحجار الأسن</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="tangier drive — location de voitures à tanger demo-location.html" href="demo-location.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-location/img/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>Tangier Drive — Location de voitures à Tanger</h3><p>Tangier Drive — location de voitures à Tanger : citadines, SUV, familiales et premium. Livraison à l&#x27;aéroport </p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="marlowe gt — carrossier grand tourisme · tanger demo-marlowe.html" href="demo-marlowe.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="marlowe/rear.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>MARLOWE GT — Carrossier Grand Tourisme · Tanger</h3><p>MARLOWE GT — Carrossier Grand Tourisme · Tanger</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="minima — mode minimaliste · tanger demo-minima.html" href="demo-minima.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="minima/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>MINIMA — Mode Minimaliste · Tanger</h3><p>Pièces essentielles</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="beauty" data-name="atlas mode — أطلس مود · متجر أزياء مغربي · تجربة 3d demo-mode.html" href="demo-mode.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-mode/img/wide3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">💇 جمال وموضة</span></div>
 <h3>Atlas Mode — أطلس مود · متجر أزياء مغربي · تجربة 3D</h3><p>نموذج تجريبي لمتجر أزياء مغربي: ملابس نسائية ورجالية، أحذية وإكسسوارات — الدفع عند الاستلام والتوصيل لجميع الم</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="noctis — joaillerie · bagues de caractère, tanger demo-noctis.html" href="demo-noctis.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="noctis/hand.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>NOCTIS — Joaillerie · Bagues de caractère, Tanger</h3><p>NOCTIS — Joaillerie à Tanger. Bagues sculpturales en argent oxydé et grenat, serties à la main. Collection Aut</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="nour coches — location de voitures à tanger | jirari 1 demo-nour.html" href="demo-nour.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-nour/img/clio.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>NOUR COCHES — Location de voitures à Tanger | Jirari 1</h3><p>Nour Coches — agence de location de voitures à Tanger (Jirari 1). Citadines, SUV et premium, modèles récents j</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="service" data-name="ondine — joaillerie · tanger demo-ondine.html" href="demo-ondine.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="ondine/pool.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🧰 خدمات</span></div>
 <h3>ONDINE — Joaillerie · Tanger</h3><p>ONDINE — Joaillerie · Tanger</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="panorama hôtel &amp; spa — tanger demo-panorama.html" href="demo-panorama.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="panorama/img/special-offer-main.png" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>PANORAMA HÔTEL &amp; SPA — Tanger</h3><p></p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="beauty" data-name="دار العطور — maison de parfum | عطور فاخرة في طنجة demo-parfum.html" href="demo-parfum.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-parfum/img/hero3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">💇 جمال وموضة</span></div>
 <h3>دار العطور — Maison de Parfum | عطور فاخرة في طنجة</h3><p>دار العطور — متجر عطور فاخرة في طنجة: عود، مسك، وعطور شرقية وزهرية أصلية. توصيل في 24 ساعة والدفع عند الاستلام</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="حلويات النخبة — باتيسري طنجة · تجربة افتتاحية 3d demo-patisserie.html" href="demo-patisserie.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-patisserie/img/dark.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>حلويات النخبة — باتيسري طنجة · تجربة افتتاحية 3D</h3><p>نموذج تجريبي لمحل حلويات بطنجة: حلويات مغربية تقليدية، حلويات عصرية وكعكات أعراس حسب الطلب — الطلب عبر واتساب </p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="creative" data-name="atelier lumière — studio photo à tanger | mariages, portraits, événements demo-photo.html" href="demo-photo.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-photo/img/wide3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">📸 إبداع وتصوير</span></div>
 <h3>Atelier Lumière — Studio Photo à Tanger | Mariages, Portraits, Événements</h3><p>Atelier Lumière, studio de photographie à Tanger : mariages, portraits, événements et photo produits. Un regar</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="service" data-name="polaire — optiques de montagne · modèle 01 whiteout demo-polaire.html" href="demo-polaire.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="polaire/skier.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🧰 خدمات</span></div>
 <h3>POLAIRE — Optiques de montagne · Modèle 01 Whiteout</h3><p>POLAIRE Modèle 01 — masque de ski à écran torique, pensé pour les jours blancs. Démonstration Vertex Web.</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="event" data-name="مطعم القصر | الشاف ياسين الإدريسي — وسط المدينة، طنجة · كل طبق له حكاية demo-qasr.html" href="demo-qasr.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="https://vertex-web-tanger.onrender.com/demo-qasr/og-qasr.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🎉 مناسبات وقاعات</span></div>
 <h3>مطعم القصر | الشاف ياسين الإدريسي — وسط المدينة، طنجة · كل طبق له حكاية</h3><p>مطعم القصر — الشاف ياسين الإدريسي، وسط المدينة طنجة: لحسة، برغر، بيتزا، طواجن وكسكس الجمعة. التوصيل متوفر — اط</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="service" data-name="مركز رحبة للإدماج المهني — rahba | تمكين النساء… صناعة الأمل (ديمو) demo-rahba.html" href="demo-rahba.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-rahba/poster-hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🧰 خدمات</span></div>
 <h3>مركز رحبة للإدماج المهني — RAHBA | تمكين النساء… صناعة الأمل (ديمو)</h3><p>مركز رحبة للإدماج المهني — طنجة. تكوين مهني للنساء: خياطة وتصميم، مرافقة وإدماج. تمكين النساء… صناعة الأمل. صف</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="azur résidences — un programme d&#x27;exception à tanger | démo vertex web demo-residence.html" href="demo-residence.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="noor/1600607687939-ce8a6c25118c.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>AZUR RÉSIDENCES — Un programme d&#x27;exception à Tanger | Démo Vertex Web</h3><p>AZUR Résidences — programme neuf d&#x27;exception à Tanger. Un seul film, du premier coup de grue à la remise des c</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="le jasmin — cuisine marocaine raffinée à tanger · expérience 3d demo-resto.html" href="demo-resto.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-resto/img/hero3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Le Jasmin — Cuisine marocaine raffinée à Tanger · Expérience 3D</h3><p>Le Jasmin — restaurant marocain raffiné au cœur de Tanger. Tajines, couscous du vendredi, grillades et poisson</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="nuit de rêve — wedding planner &amp; événements à tanger demo-reve.html" href="demo-reve.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="reve/photo-1519741497674-611481863552.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>NUIT DE RÊVE — Wedding Planner &amp; Événements à Tanger</h3><p>NUIT DE RÊVE — organisation de mariages et événements haut de gamme à Tanger. Décoration, traiteur, photograph</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="beauty" data-name="rg nail&#x27;s by wiam — salon d&#x27;ongles à tanger | réservation whatsapp demo-rg-nails.html" href="demo-rg-nails.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">💇 جمال وموضة</span></div>
 <h3>RG NAIL&#x27;S by Wiam — Salon d&#x27;ongles à Tanger | Réservation WhatsApp</h3><p>RG NAIL&#x27;S by Wiam à Tanger : pose gel, semi-permanent, nail art et soins, dans un univers rose raffiné. Réserv</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="riad jasmin — riad de charme dans la médina de tanger · expérience 3d demo-riad.html" href="demo-riad.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-riad/img/wide.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>Riad Jasmin — Riad de charme dans la médina de Tanger · Expérience 3D</h3><p>Riad Jasmin — maison d&#x27;hôtes de charme au cœur de la médina de Tanger : chambres et suites, hammam, terrasse p</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="service" data-name="sabra — jus de figue de barbarie · tanger demo-sabra.html" href="demo-sabra.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="sabra/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🧰 خدمات</span></div>
 <h3>SABRA — Jus de figue de Barbarie · Tanger</h3><p>SABRA — jus de figue de Barbarie pressé à froid, cueilli à l&#x27;aube. Tanger.</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="solenne — haute horlogerie · genève · tanger demo-solenne.html" href="demo-solenne.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="solenne/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>SOLENNE — Haute Horlogerie · Genève · Tanger</h3><p>SOLENNE — Maison de haute horlogerie. Montres mécaniques façonnées entre Genève et Tanger.</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="beauty" data-name="واحة الجمال — صالون وسبا نسائي بطنجة · تجربة افتتاحية 3d demo-spa.html" href="demo-spa.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-spa/img/wide3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">💇 جمال وموضة</span></div>
 <h3>واحة الجمال — صالون وسبا نسائي بطنجة · تجربة افتتاحية 3D</h3><p>نموذج تجريبي لصالون وسبا نسائي بطنجة: تصفيف شعر، عناية بالبشرة، حمّام مغربي، مساج وأظافر — الحجز عبر واتساب.</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="sport" data-name="tanger sport — طنجة سبورت | متجر معدات وملابس رياضية في طنجة demo-sport.html" href="demo-sport.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-sport/img/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">⚽ رياضة وترفيه</span></div>
 <h3>Tanger Sport — طنجة سبورت | متجر معدات وملابس رياضية في طنجة</h3><p>Tanger Sport — متجرك الرياضي في طنجة: أحذية جري، معدات لياقة، حقائب وإكسسوارات. الدفع عند الاستلام وتوصيل سريع</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="shop" data-name="stride — boutique sport &amp; streetwear · tanger demo-stride.html" href="demo-stride.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-stride/img/sneakers.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🛍️ متاجر وتجزئة</span></div>
 <h3>STRIDE — Boutique Sport &amp; Streetwear · Tanger</h3><p>STRIDE — boutique sport et streetwear à Tanger. Sneakers, hoodies, training. Commande WhatsApp, paiement à la </p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="torra — torréfacteur &amp; café · tanger demo-torra.html" href="demo-torra.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="torra/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>TORRA — Torréfacteur &amp; Café · Tanger</h3><p>TORRA, torréfacteur artisanal à Tanger. Des grains choisis, une torréfaction lente, un café qui se déguste san</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="urban food — street-food moderne à tanger demo-urbanfood.html" href="demo-urbanfood.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="urbanfood/photo-1504674900247-0877df9cc836.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>URBAN FOOD — Street-Food Moderne à Tanger</h3><p>URBAN FOOD — la street-food comme à New York, à Tanger. Smash burgers, bowls, poke et tacos, livrés en 30 minu</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="7 caminos — café &amp; restaurant · tanger · نموذج vertex web demo-v3-7caminos.html" href="demo-v3-7caminos.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-cafe/img/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>7 Caminos — Café &amp; Restaurant · Tanger · نموذج VERTEX WEB</h3><p>7 Caminos — مقهى ومطعم في طنجة، مفتوح كل يوم من 7:00 حتى 00:00. Saveurs qui frappent fort — الطلب والحجز عبر و</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="service" data-name="bayti — ameublement complet · tanger · aperçu vertex web demo-v3-bayti.html" href="demo-v3-bayti.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="minima/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🧰 خدمات</span></div>
 <h3>Bayti — Ameublement complet · Tanger · Aperçu VERTEX WEB</h3><p>Meubler chaque pièce</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="dynastie tanger — restaurant, pâtisserie &amp; salon de thé · tanger · aperçu vertex web demo-v3-dynastie.html" href="demo-v3-dynastie.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-resto/img/hero3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Dynastie Tanger — Restaurant, pâtisserie &amp; salon de thé · Tanger · Aperçu VERTEX WEB</h3><p>Dynastie Tanger — restaurant, pâtisserie et salon de thé sur l&#x27;Avenue Mohamed VI, Résidence L&#x27;Océan, Tanger. T</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="beauty" data-name="salons tanger el kobra — salons marocains · tanger · aperçu vertex web demo-v3-elkobra.html" href="demo-v3-elkobra.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="minima/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">💇 جمال وموضة</span></div>
 <h3>Salons Tanger El Kobra — Salons marocains · Tanger · Aperçu VERTEX WEB</h3><p>Un très large choix de salons</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="monarq — pizza, pasta &amp; brunch · tanger · aperçu vertex web demo-v3-monarq.html" href="demo-v3-monarq.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="urbanfood/photo-1504674900247-0877df9cc836.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Monarq — Pizza, Pasta &amp; Brunch · Tanger · Aperçu VERTEX WEB</h3><p>Monarq — pizza et pasta authentiques à Tanger, brunch le week-end. Commandez en un clic sur WhatsApp.</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="shop" data-name="salon mouhcin barbershop — حلاقة رجالية · الخميسات | نموذج vertex web demo-v3-mouhcin.html" href="demo-v3-mouhcin.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-barber/img/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🛍️ متاجر وتجزئة</span></div>
 <h3>Salon Mouhcin Barbershop — حلاقة رجالية · الخميسات | نموذج VERTEX WEB</h3><p>نموذج أولي من فيرتكس ويب: موقع صالون حلاقة رجالية بالخميسات (معازيز) — قصّ شعر، لحية وتصفيف، وحجز عبر الهاتف أ</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="perla dulce — pâtisserie · tanger · نموذج vertex web demo-v3-perladulce.html" href="demo-v3-perladulce.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-patisserie/img/dark.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Perla Dulce — Pâtisserie · Tanger · نموذج VERTEX WEB</h3><p>Perla Dulce — باتيسري في سيدي إدريس، طنجة: كعكات مخصصة حسب الطلب وحلويات حرفية — الطلب عبر واتساب.</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="pulpino — restaurant de fruits de mer · tanger · aperçu vertex web demo-v3-pulpino.html" href="demo-v3-pulpino.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-resto/img/hero3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Pulpino — Restaurant de fruits de mer · Tanger · Aperçu VERTEX WEB</h3><p>Pulpino — restaurant de fruits de mer à Tanger : pêche du jour en direct du port, grillades et jus naturels fr</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="rawan touch caftan — كراء القفطان الفاخر · طنجة · نموذج vertex web demo-v3-rawan.html" href="demo-v3-rawan.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-mode/img/wide3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>Rawan Touch Caftan — كراء القفطان الفاخر · طنجة · نموذج VERTEX WEB</h3><p>نموذج أولي لموقع Rawan Touch Caftan بطنجة: تشكيلة قفطان فاخر للكراء — قفطان العروس، ألبسة الضيوفات وإكسسوارات.</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="ydr car — location de voitures · tanger · aperçu vertex web demo-v3-ydrcar.html" href="demo-v3-ydrcar.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-location/img/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>YDR Car — Location de voitures · Tanger · Aperçu VERTEX WEB</h3><p>YDR Car (AMIN COCHES) — location de voitures à Tanger : flotte SEAT, livraison dans tous les aéroports du Maro</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="service" data-name="مدرسة الأطلس لتعليم السياقة — سلا | autoécole atlass demo-v4-atlass.html" href="demo-v4-atlass.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-gym/img/hero3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🧰 خدمات</span></div>
 <h3>مدرسة الأطلس لتعليم السياقة — سلا | Autoécole Atlass</h3><p>مدرسة الأطلس لتعليم السياقة في قرية أولاد موسى، سلا: دروس قانون السير، دروس سياقة عملية وامتحان تجريبي لجميع ا</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="baan thaï institut — مساج تايلاندي وحمّام مغربي في طنجة · تجربة افتتاحية 3d demo-v4-baanthai.html" href="demo-v4-baanthai.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-spa/img/wide3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Baan Thaï Institut — مساج تايلاندي وحمّام مغربي في طنجة · تجربة افتتاحية 3D</h3><p>Baan Thaï Institut Tanger — مساج تايلاندي تقليدي وحمّام مغربي في طنجة، بمعالجات مدرّبات في مدارس تايلاندية — م</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="frutello — مقهى وباتيسري وجلاصيي في تطوان · تجربة 3d (نموذج أولي) demo-v4-frutello.html" href="demo-v4-frutello.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-cafe/img/hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Frutello — مقهى وباتيسري وجلاصيي في تطوان · تجربة 3D (نموذج أولي)</h3><p>Frutello — مقهى، باتيسري وجلاصيي بفرعين في تطوان: بسطيلة، تشوروس بالشوكولاتة، جيلاتو الدار وقائمة كاملة — الطل</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="food" data-name="maison jouhaina — حمّام وسبا 100% نساء في طنجة · تجربة افتتاحية 3d demo-v4-jouhaina.html" href="demo-v4-jouhaina.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-spa/img/wide3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🍽️ مطاعم ومقاهي</span></div>
 <h3>Maison Jouhaina — حمّام وسبا 100% نساء في طنجة · تجربة افتتاحية 3D</h3><p>Maison Jouhaina — حمّام تقليدي وسبا جمال مخصّص للنساء فقط في طنجة: حمّام مغربي، مساج، عناية بالوجه وليساج بروت</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="lavage auto pro — lavage &amp; detailing à domicile à marrakech demo-v4-lavagepro.html" href="demo-v4-lavagepro.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="imperial/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>Lavage Auto Pro — Lavage &amp; detailing à domicile à Marrakech</h3><p>Lavage Auto Pro — lavage, detailing, lustrage et polissage 100 % à domicile à Marrakech. Réservation simple pa</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="event" data-name="moment with sara — sara loukili, photographe d&#x27;événements à tanger | mariages &amp; fêtes demo-v4-sara.html" href="demo-v4-sara.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-photo/img/wide3d.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🎉 مناسبات وقاعات</span></div>
 <h3>moment with sara — Sara Loukili, photographe d&#x27;événements à Tanger | Mariages &amp; Fêtes</h3><p>moment with sara — Sara Loukili, photographe d&#x27;événements à Tanger : mariages et fêtes documentés à l&#x27;iPhone, </p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="service" data-name="shamal travel — agence de voyages à tanger demo-v4-shamal.html" href="demo-v4-shamal.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="panorama/img/special-offer-main.png" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🧰 خدمات</span></div>
 <h3>SHAMAL TRAVEL — Agence de voyages à Tanger</h3><p></p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="tng drive — location de voitures de luxe à tanger demo-v4-tngdrive.html" href="demo-v4-tngdrive.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="veloce/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>TNG Drive — Location de voitures de luxe à Tanger</h3><p></p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="auto" data-name="veloce — location de voitures de luxe à tanger demo-veloce.html" href="demo-veloce.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="veloce/hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🚗 سيارات ونقل</span></div>
 <h3>VELOCE — Location de voitures de luxe à Tanger</h3><p>Chapitre 02 — La route</p>
 <span class="demo-go">شوف النموذج ←</span></a>
 <a class="pcard demo-card" data-sector="stay" data-name="فيلا الأفق — مرشان، طنجة | villa horizon demo-villa-horizon.html" href="demo-villa-horizon.html" target="_blank" rel="noopener">
+<span class="demo-thumb"><img src="demo-villa-horizon/poster-air.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span>
 <div class="pcard-top"><span class="tag">🏨 إقامة وعقارات</span></div>
 <h3>فيلا الأفق — مرشان، طنجة | Villa Horizon</h3><p>فيلا الأفق — فيلا بيضاء استثنائية في مرشان، طنجة. جولة سينمائية بالسكرول: ادخل، تمشّى، وعش الدار قبل ما تزورها</p>
 <span class="demo-go">شوف النموذج ←</span></a>
@@ -438,6 +521,16 @@ document.getElementById('noRes').style.display=n?'none':'block';}
 document.querySelectorAll('.chip').forEach(ch=>ch.addEventListener('click',()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));ch.classList.add('active');curFilter=ch.dataset.f;apply();}));
 document.getElementById('demoSearch').addEventListener('input',apply);
 apply();
+</script>
+
+<button id="toTop" aria-label="رجوع للأعلى">↑</button>
+<script>
+(function(){var tools=document.querySelector('.demo-tools'),chips=document.querySelector('.chips');
+if(tools&&chips){var w=document.createElement('div');w.className='demo-sticky';tools.parentNode.insertBefore(w,tools);w.appendChild(tools);w.appendChild(chips);}
+var b=document.getElementById('toTop');
+addEventListener('scroll',function(){b.style.display=scrollY>700?'block':'none';},{passive:true});
+b.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'});});
+})(); /*wrapSticky*/
 </script>
 </body>
 </html>
