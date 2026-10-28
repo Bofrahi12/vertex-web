@@ -5460,6 +5460,128 @@ switchTab=function(k){
   if(k==="subjects")renderHome();
 };
 </script>
+<style>
+.x-pnnav{display:flex;gap:10px;margin-top:22px}
+.x-pnnav .x-pn{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 14px;text-align:start;color:var(--ink);cursor:pointer}
+.x-pnnav .x-pn small{display:block;color:var(--muted);font-weight:800;font-size:.8rem;margin-bottom:3px}
+.x-pnnav .x-pn b{display:block;font-size:.98rem;line-height:1.45}
+.x-pnnav .x-pn.nxt{text-align:end}
+.x-pnnav .x-pn.empty{visibility:hidden}
+</style>
+<script>
+"use strict";
+/* ============ PRO LAYER v12 — FREE BROWSING (owner's order, 2026-10-28): every pupil
+   opens ANY lesson of ANY subject and reads all 9 sections in full — explanation,
+   worked examples, corrections, flashcards — with NO completion gate, NO sequential
+   lock, NO mandatory confirmation step anywhere on the reading/navigation path.
+   1) The completion gate is informational only: gateStatus always reports ok, the
+      gate message explains that marking is optional, and the finish button is a
+      plain one-tap toggle («راجعت هاد الدرس») — it never refuses, never demands a
+      quiz threshold or a completed checklist.
+   2) The v5 daily first-attempt VIEW lock is removed: v5lockQz is a no-op, lesson
+      quiz options are never disabled, the lock note never renders, and after ANY
+      answer the full correction (correct option highlighted + explanation shown)
+      is always visible — re-answering stays possible all day. The day's first
+      attempt still feeds the background records (S.qday/S.qok) exactly as before.
+   3) Composite exercises: the correction-steps reveal button is never locked
+      behind a verify attempt — steps can be read freely; verifying values and
+      the compRev documentation bookkeeping keep working in the background.
+   4) Bank exams: the rotation lock is removed — a seen topic can be re-started
+      at any time; results keep recording as before.
+   5) Lesson navigation: clear previous/next lesson buttons (same subject, in
+      curriculum order) at the foot of every lesson.
+   Tracking is untouched and stays in the background: progress, mastery board,
+   streak, badges, error notebook and SRS all keep learning from real activity —
+   none of them locks any content. Store key bac1s.pro.v1, all fields, the 99
+   lessons / 10 subjects, cx-sv1/cx-sv2 checks and the moti/errDay fixes are
+   exactly as they were; this layer only ever ADDS freedom, never deletes data. ============ */
+
+/* ---- 1) gate: informational only, never blocking ---- */
+gateStatus=function(l){
+  var L=lblOf(l), ck=checks[l.id]||{};
+  var chkDone=L.items.filter(function(_,ii){return ck[ii];}).length;
+  var q=S.quiz[l.id]||{}, qAtt=l.quiz.filter(function(_,qi){return q[qi];}).length;
+  return {chkDone:chkDone,chkTot:L.items.length,qAtt:qAtt,qTot:l.quiz.length,miss:[],ok:true};
+};
+paintGate=function(l){
+  var gm=document.getElementById("gate-msg"); if(!gm)return;
+  if(doneSet[l.id]){gm.innerHTML="🎉 هاد الدرس مسجَّل كمكتمل في تقدّمك. القراءة والتنقّل مفتوحان دائماً — ارجعي لأي قسم ولا لأي درس آخر وقت ما بغيتي.";return;}
+  gm.innerHTML="📖 كل أقسام هاد الدرس مفتوحة كاملة، وتقدري تنتقلي لأي درس في أي مادة بحرّية ومن غير شروط. إلا بغيتي تتبّعي تقدّمك، اضغطي «✓ راجعت هاد الدرس» ملي تساليه — خطوة اختيارية للتتبّع فقط، ماشي شرط باش تقراي ولا تنتقلي.";
+};
+
+/* ---- 2) daily first-attempt lock: removed from viewing ---- */
+v5lockQz=function(){};
+
+/* ---- lesson wrapper: free finish toggle + always-visible corrections + prev/next ---- */
+var _openLessonV12=openLesson;
+openLesson=function(id){
+  _openLessonV12(id);
+  var l=lessonById(id); if(!l)return;
+  var body=document.getElementById("lesson-body"); if(!body)return;
+  /* training questions: never disabled, correction always visible after any tap */
+  body.querySelectorAll(".qz").forEach(function(qz){
+    var qi=+qz.getAttribute("data-q"), q=l.quiz[qi]; if(!q)return;
+    qz.querySelectorAll(".opt").forEach(function(o){o.disabled=false;});
+    var note=qz.querySelector(".v5-locknote"); if(note&&note.parentNode)note.parentNode.removeChild(note);
+    qz.addEventListener("click",function(ev){
+      /* registered last on purpose: runs after every earlier handler, so nothing
+         (daily lock included) can hide the correction from a browsing pupil */
+      var t=(ev.target&&ev.target.closest)?ev.target.closest(".opt"):null;
+      qz.querySelectorAll(".opt").forEach(function(o){o.disabled=false;});
+      var ex=qz.querySelector(".expl"); if(ex)ex.classList.add("show");
+      var opts=qz.querySelectorAll(".opt"), co=opts[q.c]; if(co)co.classList.add("good");
+      if(t&&+t.getAttribute("data-oi")!==q.c)t.classList.add("bad");
+    });
+  });
+  /* finish button: one-tap optional toggle — no gate, no threshold, no checklist */
+  var fb=document.getElementById("finish-btn");
+  if(fb){
+    var L=lblOf(l);
+    var nb=fb.cloneNode(true); fb.parentNode.replaceChild(nb,fb);
+    var markTxt=l.en?"✓ I reviewed this lesson":(l.fr?"✓ J'ai révisé ce chapitre":"✓ راجعت هاد الدرس");
+    function paintBtn(){var d=!!doneSet[l.id]; nb.textContent=d?L.finished:markTxt; nb.classList.toggle("done",d);}
+    nb.addEventListener("click",function(){
+      if(doneSet[l.id]){doneSet[l.id]=false;}
+      else{doneSet[l.id]=true; (S.moti=S.moti||{}).doneDays=(S.moti.doneDays||{}); S.moti.doneDays[todayStr()]=1;}
+      save(); renderSubjects(); paintBtn(); paintGate(l);
+    });
+    paintBtn(); paintGate(l);
+  }
+  /* previous / next lesson within the subject, in curriculum order */
+  var sib=lessonsOf(l.subject), idx=-1;
+  sib.forEach(function(x,i){if(x.id===l.id)idx=i;});
+  if(idx>=0&&(sib[idx-1]||sib[idx+1])){
+    var nav=document.createElement("div"); nav.className="x-pnnav";
+    var hp=sib[idx-1], hn=sib[idx+1];
+    nav.innerHTML=
+      (hp?"<button type='button' class='x-pn' data-pn='"+hp.id+"'><small>→ الدرس السابق</small><b>"+esc(hp.title)+"</b></button>":"<span class='x-pn empty'></span>")+
+      (hn?"<button type='button' class='x-pn nxt' data-pn='"+hn.id+"'><small>الدرس التالي ←</small><b>"+esc(hn.title)+"</b></button>":"<span class='x-pn empty'></span>");
+    body.appendChild(nav);
+    nav.querySelectorAll("[data-pn]").forEach(function(b){b.addEventListener("click",function(){openLesson(b.getAttribute("data-pn")); window.scrollTo({top:0});});});
+  }
+};
+
+/* ---- 3) composites: correction steps readable without a verify attempt ---- */
+var _openCompV12=openComp;
+openComp=function(id){
+  _openCompV12(id);
+  var host=document.getElementById("tab-exams"); if(!host)return;
+  host.querySelectorAll(".x-steps [data-reveal]").forEach(function(r){
+    r.disabled=false;
+    if(r.textContent.indexOf("🔒")>=0)r.textContent="أريني الخطوة التالية من التصحيح";
+  });
+};
+
+/* ---- 4) bank: repeats unlocked — any topic can be re-started freely ---- */
+var _renderExamsV12=renderExams;
+renderExams=function(){
+  _renderExamsV12();
+  var host=document.getElementById("tab-exams"); if(!host)return;
+  host.querySelectorAll("[data-bank]").forEach(function(btn){
+    if(btn.disabled){btn.disabled=false; btn.textContent="بداي هاد الامتحان الجديد ⏱";}
+  });
+};
+</script>
 
 </body>
 </html>
