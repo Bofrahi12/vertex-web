@@ -1,4 +1,4 @@
-var C = 'yamal-v63';
+var C = 'yamal-v64';
 self.addEventListener('install', function(e){ self.skipWaiting(); });
 self.addEventListener('activate', function(e){
   e.waitUntil(caches.keys().then(function(ks){
