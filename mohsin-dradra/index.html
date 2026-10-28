@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>محسن الدرادرة — MOHSIN DRADRA | Filmmaker & Photographe — طنجة</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d0b08">
+<link rel="canonical" href="https://vertex-web-tanger.onrender.com/mohsin-dradra/">
 <meta name="description" content="الموقع الرسمي لمحسن الدرادرة — صانع أفلام ومصوّر من طنجة. جلسات تصوير، كليبات، كاميرا خفية، مونتاج وتصميم — مشاريعو كاملة في بلاصة وحدة.">
 <style>
 :root{
@@ -175,6 +179,33 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
 .spot h3{font-size:clamp(24px,3.4vw,36px);font-weight:900}
 .spot .info p{color:var(--mut)}
 .spot .likes{color:var(--gold2);font-weight:800;font-size:19px}
+/* YouTube films row + Facebook banner */
+.yt-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:6px 0 14px;flex-wrap:wrap}
+.yt-head h3{font-size:21px;font-weight:900}
+.yt-head a{color:var(--gold2);font-size:14px;font-weight:700}
+.ytrow{display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;scrollbar-width:thin;margin-bottom:8px}
+.ytcard{flex:0 0 248px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .3s var(--ease)}
+.ytcard:hover{transform:translateY(-4px)}
+.ytcard img{width:100%;height:136px;object-fit:cover}
+.ytcard .b{padding:11px 14px}
+.ytcard h4{font-size:14.5px;line-height:1.5}
+.ytcard span{color:#ff6b5e;font-size:12.5px;font-weight:800}
+.fbbanner{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;border:1px solid #2b4a7a;background:linear-gradient(135deg,rgba(24,119,242,.14),rgba(24,119,242,.04));border-radius:16px;padding:18px 22px;margin-bottom:28px}
+.fbbanner b{font-size:17px}
+.fbbanner p{color:var(--mut);font-size:14px}
+.fbbanner .btn{border-color:#4a7ec2;color:#9ec2f5}
+/* Lightbox for photography projects */
+.proj[data-cat="photo"] .cover::before{content:"🔍";position:absolute;bottom:10px;inset-inline-end:10px;z-index:2;width:34px;height:34px;border-radius:50%;
+  background:rgba(10,8,5,.75);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:14px}
+#lightbox{position:fixed;inset:0;z-index:150;background:rgba(5,4,3,.94);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:22px}
+#lightbox.open{display:flex}
+#lightbox img{max-width:min(920px,94vw);max-height:72vh;border-radius:14px;border:1px solid var(--gold);object-fit:contain}
+#lightbox .cap{text-align:center}
+#lightbox .cap h3{font-size:20px;margin-bottom:4px}
+#lightbox .cap span{color:var(--gold2);font-size:14px;display:block;margin-bottom:12px}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(13,11,8,.85);color:var(--gold2);font-size:22px;cursor:pointer}
+.lb-prev{inset-inline-start:16px}.lb-next{inset-inline-end:16px}
+.lb-x{position:absolute;top:18px;inset-inline-end:18px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(13,11,8,.85);color:#fff;font-size:17px;cursor:pointer}
 /* R6 loader — honest counter of loaded images */
 #loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:opacity .5s var(--ease)}
 #loader.done{opacity:0;pointer-events:none}
@@ -214,7 +245,7 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
 .rank h4{font-size:15px}
 .rank span{color:var(--gold2);font-size:13px}
 /* R2+R3 fixed band + viewfinder */
-.band{position:relative;padding:90px 0;background:url('assets/proj-concert.jpg') center 30%/cover fixed no-repeat}
+.band{position:relative;padding:90px 0;background:url('assets/proj-concert.webp') center 30%/cover fixed no-repeat}
 @media(max-width:820px){.band{background-attachment:scroll}}
 .band::before{content:"";position:absolute;inset:0;background:rgba(8,6,4,.72)}
 .band .wrap{position:relative}
@@ -244,10 +275,11 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<meta name="description" content="محسن الدرادرة — MOHSIN DRADRA: صانع أفلام ومصوّر من طنجة. حلقات قصصية فيرال (+109K)، جلسات تصوير، كليبات، إشهارات وفيديوهات شركات.">
 <meta property="og:type" content="website"><meta property="og:title" content="محسن الدرادرة — MOHSIN DRADRA | Filmmaker & Photographe">
 <meta property="og:description" content="حلقات فيرال، جلسات تصوير، كليبات وإشهارات — من طنجة. كل مشاريعو الحقيقية في بلاصة وحدة.">
-<meta property="og:image" content="assets/proj-throne.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://vertex-web-tanger.onrender.com/mohsin-dradra/">
+<meta property="og:image" content="https://vertex-web-tanger.onrender.com/mohsin-dradra/assets/proj-throne.jpg">
+<meta name="twitter:image" content="https://vertex-web-tanger.onrender.com/mohsin-dradra/assets/proj-throne.jpg"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mohsin Dradra","alternateName":"محسن الدرادرة","jobTitle":"Filmmaker & Photographer","address":{"@type":"PostalAddress","addressLocality":"Tangier","addressCountry":"MA"},"sameAs":["https://www.instagram.com/mohssin_dradra","https://www.youtube.com/channel/UCBaPgX0qLENFBfPRzcnDIOw"]}</script>
 </head>
 <body>
@@ -286,14 +318,14 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
     </div>
     <div class="stage3d" id="stage3d" aria-label="معرض ثلاثي الأبعاد لأعمال محسن">
       <div class="ring3d" id="ring3d">
-        <a class="panel3d" style="--i:0" data-t="قفطان مغربي" href="https://www.instagram.com/p/CrO2BWQNL5s/" target="_blank" rel="noopener"><img src="assets/proj-fashion.jpg" alt="جلسة تصوير قفطان مغربي"></a>
-        <a class="panel3d" style="--i:1" data-t="بورتريه ملكي ❤1004" href="https://www.instagram.com/p/COV-d36nE_C/" target="_blank" rel="noopener"><img src="assets/proj-throne.jpg" alt="بورتريه فاخر"></a>
-        <a class="panel3d" style="--i:2" data-t="DL Production" href="https://www.instagram.com/p/CYXC-cLNy3x/" target="_blank" rel="noopener"><img src="assets/proj-loco.jpg" alt="عمل مع DL Production"></a>
-        <a class="panel3d" style="--i:3" data-t="تصوير حفلات" href="https://www.instagram.com/p/CxlZ6W2NaY8/" target="_blank" rel="noopener"><img src="assets/proj-concert.jpg" alt="تصوير حفلات وفنانين"></a>
-        <a class="panel3d" style="--i:4" data-t="كاميرا خفية 2M" href="https://www.instagram.com/p/CcD9uR3li0l/" target="_blank" rel="noopener"><img src="assets/proj-hidden.jpg" alt="كاميرا خفية 2M"></a>
-        <a class="panel3d" style="--i:5" data-t="حبك خسارة 🎬" href="https://youtu.be/h3iiNNnjhjg" target="_blank" rel="noopener"><img src="assets/proj-film.jpg" alt="فيلم قصير حبك خسارة"></a>
-        <a class="panel3d" style="--i:6" data-t="تصوير ستوديو" href="https://www.instagram.com/p/Cbx8o3et5y3/" target="_blank" rel="noopener"><img src="assets/proj-studio.jpg" alt="تصوير ستوديو"></a>
-        <a class="panel3d" style="--i:7" data-t="قفطان — Before/After" href="https://www.instagram.com/p/C_ZKHStNx7D/" target="_blank" rel="noopener"><img src="assets/proj-beforeafter.jpg" alt="تصوير وتعديل قفطان"></a>
+        <a class="panel3d" style="--i:0" data-t="قفطان مغربي" href="https://www.instagram.com/p/CrO2BWQNL5s/" target="_blank" rel="noopener"><img src="assets/proj-fashion.webp" alt="جلسة تصوير قفطان مغربي"></a>
+        <a class="panel3d" style="--i:1" data-t="بورتريه ملكي ❤1004" href="https://www.instagram.com/p/COV-d36nE_C/" target="_blank" rel="noopener"><img src="assets/proj-throne.webp" alt="بورتريه فاخر"></a>
+        <a class="panel3d" style="--i:2" data-t="DL Production" href="https://www.instagram.com/p/CYXC-cLNy3x/" target="_blank" rel="noopener"><img src="assets/proj-loco.webp" alt="عمل مع DL Production"></a>
+        <a class="panel3d" style="--i:3" data-t="🔥 العشرة عندها موليها — 109K" href="https://www.instagram.com/reel/DUOPLoYDPkt/" target="_blank" rel="noopener"><img src="assets/p-DUOPLoYDPkt.webp" alt="أكبر حلقة عند محسن الدرادرة"></a>
+        <a class="panel3d" style="--i:4" data-t="🔥 إشهار Nour Coches — 108K" href="https://www.instagram.com/reel/DSsR_KIDIZk/" target="_blank" rel="noopener"><img src="assets/p-DSsR_KIDIZk.webp" alt="إشهار وكالة نور كوشيس"></a>
+        <a class="panel3d" style="--i:5" data-t="ستايل شارع ❤764" href="https://www.instagram.com/p/CN5FfpHHaes/" target="_blank" rel="noopener"><img src="assets/proj-street.webp" alt="جلسة تصوير ستايل شارع"></a>
+        <a class="panel3d" style="--i:6" data-t="تصوير ستوديو" href="https://www.instagram.com/p/Cbx8o3et5y3/" target="_blank" rel="noopener"><img src="assets/proj-studio.webp" alt="تصوير ستوديو"></a>
+        <a class="panel3d" style="--i:7" data-t="قفطان — أميمة الغزاوي" href="https://www.instagram.com/p/CrHB0yZtEiR/" target="_blank" rel="noopener"><img src="assets/proj-fashion2.webp" alt="جلسة قفطان مع أميمة الغزاوي"></a>
       </div>
       <div class="stage-floor"></div>
     </div>
@@ -346,10 +378,10 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
       <div class="about-img reveal">
         <div class="cube-stage" id="cubeStage">
           <div class="cube" id="cube">
-            <div class="face" style="transform:rotateY(0deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-fashion2.jpg" alt="جلسة قفطان"><span>جلسات تصوير 📷</span></div>
-            <div class="face" style="transform:rotateY(90deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-studio.jpg" alt="تصوير ستوديو"><span>ستوديو 💡</span></div>
-            <div class="face" style="transform:rotateY(180deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-concert.jpg" alt="تصوير حفلات"><span>حفلات 🎤</span></div>
-            <div class="face" style="transform:rotateY(270deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-throne.jpg" alt="بورتريه فاخر"><span>بورتريه 👑</span></div>
+            <div class="face" style="transform:rotateY(0deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-fashion2.webp" alt="جلسة قفطان"><span>جلسات تصوير 📷</span></div>
+            <div class="face" style="transform:rotateY(90deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-studio.webp" alt="تصوير ستوديو"><span>ستوديو 💡</span></div>
+            <div class="face" style="transform:rotateY(180deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-concert.webp" alt="تصوير حفلات"><span>حفلات 🎤</span></div>
+            <div class="face" style="transform:rotateY(270deg) translateZ(calc(var(--fs)/2))"><img src="assets/proj-throne.webp" alt="بورتريه فاخر"><span>بورتريه 👑</span></div>
           </div>
           <div class="cube-hint" data-i="cubeHint">↔ جرّ باش تدوّر المكعب</div>
         </div>
@@ -379,7 +411,7 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
     <h3 class="reveal" data-i="bandT">كل مشروع كيبدا بلقطة وحدة مظبوطة</h3>
     <p class="sub reveal" data-i="bandP">من عدسة محسن — تصوير ستوديو بإضاءة احترافية، من قلب طنجة</p>
     <div class="vf reveal">
-      <img src="assets/proj-studio.jpg" alt="محسن الدرادرة خدام في الستوديو">
+      <img src="assets/proj-studio.webp" alt="محسن الدرادرة خدام في الستوديو">
       <span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span>
       <span class="rec">● REC</span>
       <div class="meta"><span>MOHSSIN DRADRA</span><span>TANGER — MAROC</span></div>
@@ -396,7 +428,7 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
     </div>
     <div class="spot reveal">
       <div class="media" id="spotMedia" title="شاهد الحلقة هنا">
-        <img src="assets/p-DUOPLoYDPkt.jpg" alt="العشرة عندها موليها — أكثر حلقة مشاهدة عند محسن الدرادرة">
+        <img src="assets/p-DUOPLoYDPkt.webp" alt="العشرة عندها موليها — أكثر حلقة مشاهدة عند محسن الدرادرة">
         <div class="play"><span class="btn">▶</span><small data-i="spotPlay">شاهد الحلقة هنا — بلا ما تخرج من الموقع</small></div>
       </div>
       <div class="info">
@@ -408,6 +440,27 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
       </div>
     </div>
     <div class="rank-row" id="rankRow"></div>
+    <div class="yt-head reveal">
+      <h3 data-i="ytT">🎬 أفلامو وسلاسلو على يوتيوب</h3>
+      <a href="https://www.youtube.com/channel/UCBaPgX0qLENFBfPRzcnDIOw" target="_blank" rel="noopener" data-i="ytAll">القناة كاملة ←</a>
+    </div>
+    <div class="ytrow reveal">
+      <a class="ytcard" href="https://www.youtube.com/watch?v=t_kLLxNk7fc" target="_blank" rel="noopener"><img src="assets/yt-t_kLLxNk7fc.webp" alt="«نهاية الإنحراف»" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>«نهاية الإنحراف» — فيلم قصير</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=fvH-mhfh7Aw" target="_blank" rel="noopener"><img src="assets/yt-fvH-mhfh7Aw.webp" alt="«لعبة الدماغ»" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>«لعبة الدماغ» — فيلم مغربي</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=OyFx6L1o4RI" target="_blank" rel="noopener"><img src="assets/yt-OyFx6L1o4RI.webp" alt="سلسلة ولاد حورية" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>سلسلة ولاد حورية — الحلقة 1</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=TMrBV__7riQ" target="_blank" rel="noopener"><img src="assets/yt-TMrBV__7riQ.webp" alt="سلسلة ولاد حورية" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>سلسلة ولاد حورية — الحلقة 2</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=8QdvOJfkq3Y" target="_blank" rel="noopener"><img src="assets/yt-8QdvOJfkq3Y.webp" alt="سلسلة ولاد حورية" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>سلسلة ولاد حورية — الحلقة 3</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=VHKu3ouy0D4" target="_blank" rel="noopener"><img src="assets/yt-VHKu3ouy0D4.webp" alt="«ولد الخيرية»" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>«ولد الخيرية» — فيلم مغربي</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=nVyy7DmQu-0" target="_blank" rel="noopener"><img src="assets/yt-nVyy7DmQu-0.webp" alt="«حياة شمكارة»" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>«حياة شمكارة» — فيلم مغربي</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=LP7lne8iPTQ" target="_blank" rel="noopener"><img src="assets/yt-LP7lne8iPTQ.webp" alt="«حلم الطفولة»" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>«حلم الطفولة» — فيلم قصير</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=26OGWJQuLsU" target="_blank" rel="noopener"><img src="assets/yt-26OGWJQuLsU.webp" alt="«البكالوريا»" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>«البكالوريا» — فيلم طنجاوي</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=t45RlTsGG0U" target="_blank" rel="noopener"><img src="assets/yt-t45RlTsGG0U.webp" alt="«حياتي ضاعت»" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>«حياتي ضاعت» — قصة واقعية</h4></div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=IoBeeqebSNg" target="_blank" rel="noopener"><img src="assets/yt-IoBeeqebSNg.webp" alt="«حياة المتشرد»" loading="lazy"><div class="b"><span>▶ YouTube</span><h4>«حياة المتشرد» — فيلم قصير</h4></div></a>
+    </div>
+    <div class="fbbanner reveal">
+      <div><b data-i="fbT">📘 حتى على فيسبوك — Mohssin Dradra Tv</b><p data-i="fbP">أفلامو وحلقاتو كيتنشرو حتى في صفحتو على فيسبوك.</p></div>
+      <a class="btn btn-ghost" href="https://www.facebook.com/search/pages/?q=mohssin%20dradra%20Tv" target="_blank" rel="noopener" data-i="fbBtn">افتح الصفحة ←</a>
+    </div>
     <div class="tabs" id="tabs">
       <button class="tab on" data-tab="work">🎥 <span data-i="tabWork">الخدمة</span> <b data-tc="work"></b><small>تصوير · مونتاج · إشهارات · فيديوهات شركات</small></button>
       <button class="tab" data-tab="act">🎬 <span data-i="tabAct">التمثيل</span> <b data-tc="act"></b><small>حلقات قصصية وسلاسل — الحلقات الفيرال</small></button>
@@ -425,7 +478,7 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
       <p style="margin-inline:auto" data-i="holdP">هادي هي خدمة التعديل ديالو: شدّ صابعك على الصورة (ولا دوس وابقى شاد) باش تشوف النتيجة بعد التعديل — وسيّب باش ترجع لنسخة «قبل» (محاكاة بلا تعديل).</p>
     </div>
     <div class="hold-box reveal" id="holdBox">
-      <img src="assets/proj-beforeafter.jpg" alt="جلسة قفطان قبل وبعد التعديل">
+      <img src="assets/proj-beforeafter.webp" alt="جلسة قفطان قبل وبعد التعديل">
       <div class="cap"><b data-i="holdCap">قفطان — جلسة تصوير وتعديل</b><span class="state" id="holdState">قبل — بلا تعديل</span></div>
     </div>
     <div class="hold-bar"><i></i></div>
@@ -448,6 +501,7 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
     <div class="reveal" style="display:flex;gap:12px;flex-wrap:wrap">
       <a class="btn btn-gold" href="https://www.instagram.com/mohssin_dradra" target="_blank" rel="noopener" data-i="ctaIg2">📷 تواصل عبر إنستغرام</a>
       <a class="btn btn-ghost" href="https://www.youtube.com/channel/UCBaPgX0qLENFBfPRzcnDIOw" target="_blank" rel="noopener" data-i="ctaYt2">▶ يوتيوب</a>
+      <a class="btn btn-ghost" href="https://www.facebook.com/search/pages/?q=mohssin%20dradra%20Tv" target="_blank" rel="noopener" data-i="ctaFb">📘 فيسبوك — Mohssin Dradra Tv</a>
     </div>
   </div>
 </section>
@@ -455,61 +509,75 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
 <footer>
   <div class="cols">
     <div><h4>MOHSIN DRADRA</h4><a href="#services" data-i="nav1">الخدمات</a><a href="#projects" data-i="nav3">المشاريع</a><a href="#process" data-i="procT2">طريقة الخدمة</a></div>
-    <div><h4 data-i="ftFollow">تابعو</h4><a href="https://www.instagram.com/mohssin_dradra" target="_blank" rel="noopener">📷 Instagram — @mohssin_dradra</a><a href="https://www.youtube.com/channel/UCBaPgX0qLENFBfPRzcnDIOw" target="_blank" rel="noopener">▶ YouTube</a></div>
+    <div><h4 data-i="ftFollow">تابعو</h4><a href="https://www.instagram.com/mohssin_dradra" target="_blank" rel="noopener">📷 Instagram — @mohssin_dradra</a><a href="https://www.youtube.com/channel/UCBaPgX0qLENFBfPRzcnDIOw" target="_blank" rel="noopener">▶ YouTube</a><a href="https://www.facebook.com/search/pages/?q=mohssin%20dradra%20Tv" target="_blank" rel="noopener">📘 Facebook — Mohssin Dradra Tv</a></div>
     <div><h4 data-i="ftCity">المدينة</h4><a>طنجة — المغرب 📍</a><a data-i="ftAvail">متاح لخدمات جديدة</a></div>
   </div>
   <div class="credit"><span data-i="foot">© محسن الدرادرة — MOHSIN DRADRA · طنجة، المغرب · جميع الحقوق محفوظة</span><br>
   <span style="margin-top:6px;display:inline-block">موقع صُنع بـ <a href="https://vertex-web-tanger.onrender.com" target="_blank" rel="noopener">VERTEX WEB</a> — الصور والمشاريع من حساب محسن الرسمي على إنستغرام</span></div>
 </footer>
+<div id="lightbox" role="dialog" aria-label="عارض الصور">
+  <button class="lb-x" id="lbX" aria-label="إغلاق">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="السابق">‹</button>
+  <img id="lbImg" src="" alt="" loading="lazy">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="التالي">›</button>
+  <div class="cap"><h3 id="lbTitle"></h3><span id="lbLikes"></span><a class="btn btn-gold" id="lbLink" href="#" target="_blank" rel="noopener" data-i="lbBtn">شوف المنشور على إنستغرام ←</a></div>
+</div>
 <button id="toTop" aria-label="الرجوع للأعلى">↑</button>
 
 <script>
 /* المشاريع الحقيقية — من إنستغرام @mohssin_dradra (تحقق 2026-10-25) */
 const PROJECTS = [
-  {title:"العشرة عندها موليها — POV", desc:"أكبر حلقة عندو: قصة قصيرة على الصحبة والمصلحة — أصعب إحساس.", img:"assets/p-DUOPLoYDPkt.jpg", link:"https://www.instagram.com/reel/DUOPLoYDPkt/", tag:"🎬 حلقة قصصية", likes:109343, cat:"film"},
-  {title:"إشهار وكالة Nour Coches", desc:"فيديو إشهاري لوكالة كراء السيارات نور كوشيس بطنجة.", img:"assets/p-DSsR_KIDIZk.jpg", link:"https://www.instagram.com/reel/DSsR_KIDIZk/", tag:"📣 إشهار", likes:108313, cat:"film"},
-  {title:"الصديق الغريب — الجزء الأول", desc:"سلسلة حلقات قصصية كتحقق أرقام كبيرة عند الجمهور.", img:"assets/p-DXCZpREDO3q.jpg", link:"https://www.instagram.com/reel/DXCZpREDO3q/", tag:"🎬 حلقة قصصية", likes:105518, cat:"film"},
-  {title:"POV: صحاب المصلحة", desc:"حلقة على الصحاب اللي كيبانو غير وقت المصلحة.", img:"assets/p-DZdfqbps032.jpg", link:"https://www.instagram.com/reel/DZdfqbps032/", tag:"🎬 حلقة قصصية", likes:82046, cat:"film"},
-  {title:"لا تستهزئ بالصلاة", desc:"حلقة للعبرة على قيمة الصلاة — مع صحابو.", img:"assets/p-DZxz39PMpvC.jpg", link:"https://www.instagram.com/reel/DZxz39PMpvC/", tag:"🎬 حلقة للعبرة", likes:78630, cat:"film"},
-  {title:"حلقة درامية — POV", desc:"مشهد درامي قصير من سلسلة حلقاتو القصصية.", img:"assets/p-DZnhn31s36A.jpg", link:"https://www.instagram.com/reel/DZnhn31s36A/", tag:"🎬 حلقة قصصية", likes:57762, cat:"film"},
-  {title:"الصاحب وقت الشدة", desc:"حلقة على الصحبة الحقيقية اللي كتبان وقت الشدة.", img:"assets/p-DUWqgckDACX.jpg", link:"https://www.instagram.com/reel/DUWqgckDACX/", tag:"🎬 حلقة للعبرة", likes:57338, cat:"film"},
-  {title:"لا تحرق قلب أمك", desc:"حلقة مؤثرة على بر الوالدين ووجع الهجرة.", img:"assets/p-DbeQcp4MJ8J.jpg", link:"https://www.instagram.com/reel/DbeQcp4MJ8J/", tag:"🎬 حلقة للعبرة", likes:50055, cat:"film"},
-  {title:"حكاية مدمن — الجزء الأول", desc:"سلسلة «حكاية مدمن»: قصة للعبرة على مخاطر الإدمان.", img:"assets/p-DYSaX61MXq0.jpg", link:"https://www.instagram.com/reel/DYSaX61MXq0/", tag:"🎬 سلسلة حلقات", likes:45741, cat:"film"},
-  {title:"قصة حقيقية", desc:"حلقة مؤثرة من قصة حقيقية.", img:"assets/p-DYIDr3SM_ih.jpg", link:"https://www.instagram.com/reel/DYIDr3SM_ih/", tag:"🎬 حلقة للعبرة", likes:43609, cat:"film"},
-  {title:"الوالدة وFree Fire 😂", desc:"حلقة كوميدية: «أنا والوالدة في 2030».", img:"assets/p-DVwhdOKjEKr.jpg", link:"https://www.instagram.com/reel/DVwhdOKjEKr/", tag:"😂 كوميديا", likes:42567, cat:"film"},
-  {title:"تهلا في صاحبك", desc:"حلقة على قيمة الصحبة والوفاء بين الصحاب.", img:"assets/p-DRcevDEjBDQ.jpg", link:"https://www.instagram.com/reel/DRcevDEjBDQ/", tag:"🎬 حلقة للعبرة", likes:39081, cat:"film"},
-  {title:"لا تغضب — الجزء الأول", desc:"سلسلة حلقات «لا تغضب» — قصص قصيرة للعبرة.", img:"assets/p-DXzdXCLspn1.jpg", link:"https://www.instagram.com/reel/DXzdXCLspn1/", tag:"🎬 سلسلة حلقات", likes:38588, cat:"film"},
-  {title:"من ستر مسلماً ستره الله", desc:"حلقة للعبرة على فضل الستر.", img:"assets/p-DTDcgQLDASL.jpg", link:"https://www.instagram.com/reel/DTDcgQLDASL/", tag:"🎬 حلقة للعبرة", likes:34542, cat:"film"},
-  {title:"إشهار رائع 😂", desc:"سكيتش إشهاري بطابع كوميدي.", img:"assets/p-DS-kT73jGXY.jpg", link:"https://www.instagram.com/reel/DS-kT73jGXY/", tag:"📣 إشهار", likes:31838, cat:"film"},
-  {title:"حكاية مدمن — الجزء 3", desc:"تكملة سلسلة «حكاية مدمن».", img:"assets/p-DYdDKz-M4Rz.jpg", link:"https://www.instagram.com/reel/DYdDKz-M4Rz/", tag:"🎬 سلسلة حلقات", likes:27077, cat:"film"},
-  {title:"لا تفضّلوا شيئاً على الله", desc:"حلقة روحانية: من ترك شيئاً لله عوّضه الله خيراً منه.", img:"assets/p-DcjRAVfsz12.jpg", link:"https://www.instagram.com/reel/DcjRAVfsz12/", tag:"🎬 حلقة للعبرة", likes:14855, cat:"film"},
-  {title:"الهجرة", desc:"حلقة على الهجرة السرية وتبعاتها على العائلات.", img:"assets/p-DQwsBcNjO10.jpg", link:"https://www.instagram.com/reel/DQwsBcNjO10/", tag:"🎬 حلقة للعبرة", likes:12854, cat:"film"},
-  {title:"فيديو شركة النظافة — كزناية", desc:"تصوير ومونتاج فيديو لشركة النظافة بجماعة كزناية — خدمة للشركات والجماعات.", img:"assets/p-DXFn16OsGmB.jpg", link:"https://www.instagram.com/reel/DXFn16OsGmB/", tag:"🏢 فيديو شركات", likes:0, cat:"film"},
-  {title:"جلسة تصوير قفطان مغربي", desc:"تصوير أزياء تقليدية مع الموديل أميمة الغزاوي — إضاءة وتركيب برو.", img:"assets/proj-fashion.jpg", link:"https://www.instagram.com/p/CrO2BWQNL5s/", tag:"📷 تصوير فوتوغرافي", likes:909, cat:"photo"},
-  {title:"عمل مع DL Production", desc:"تصوير وإنتاج مع الفنان Loco Lghadab.", img:"assets/proj-loco.jpg", link:"https://www.instagram.com/p/CYXC-cLNy3x/", tag:"🎬 تصوير وإنتاج", likes:982, cat:"film"},
-  {title:"بورتريه فاخر — كرسي ملكي", desc:"بورتريه مدروس بإضاءة وديكور ملكي.", img:"assets/proj-throne.jpg", link:"https://www.instagram.com/p/COV-d36nE_C/", tag:"📷 بورتريه", likes:1004, cat:"photo"},
-  {title:"جلسة قفطان — أميمة الغزاوي (2)", desc:"صور أخرى من جلسة تصوير القفطان مع الموديل أميمة الغزاوي.", img:"assets/proj-fashion2.jpg", link:"https://www.instagram.com/p/CrHB0yZtEiR/", tag:"📷 تصوير فوتوغرافي", likes:724, cat:"photo"},
-  {title:"جلسة تصوير ستايل شارع", desc:"بورتريه خارجي بأسلوب عصري — ألوان وتركيب من عند درادرة.", img:"assets/proj-street.jpg", link:"https://www.instagram.com/p/CN5FfpHHaes/", tag:"📷 بورتريه خارجي", likes:764, cat:"photo"},
-  {title:"كاميرا خفية — 2M", desc:"مشاركة في الكاميرا الخفية ديال قناة 2M — تجربة تلفزية من 2022.", img:"assets/proj-hidden.jpg", link:"https://www.instagram.com/p/CcD9uR3li0l/", tag:"🎥 كاميرا خفية", likes:441, cat:"film"},
-  {title:"جلسة تصوير Barber Style", desc:"تصوير داخل صالون حلاقة — محتوى براندات ومحلات محلية.", img:"assets/proj-barber.jpg", link:"https://www.instagram.com/p/C9SRL_mNvFL/", tag:"📷 تصوير براندات", likes:438, cat:"photo"},
-  {title:"تصوير ستوديو", desc:"جلسات داخلية بإضاءة احترافية ومعدات ستوديو كاملة.", img:"assets/proj-studio.jpg", link:"https://www.instagram.com/p/Cbx8o3et5y3/", tag:"💡 تصوير ستوديو", likes:384, cat:"photo"},
-  {title:"بورتريه بعدسة DRADRA", desc:"لقطة موقعة بلوغو درادرة — الهوية البصرية ديال خدمتو.", img:"assets/proj-welcome.jpg", link:"https://www.instagram.com/p/CdGcchftuFR/", tag:"📷 بورتريه", likes:265, cat:"photo"},
-  {title:"كليب L'JAM — الفيديو", desc:"نسخة الفيديو من عملو مع Loco Lghadab وDL Production.", img:"assets/p-CYPhHEJl2gO.jpg", link:"https://www.instagram.com/reel/CYPhHEJl2gO/", tag:"🎬 كليب", likes:210, cat:"film"},
-  {title:"تصوير رياضي — جلسة جيم", desc:"جلسة تصوير رياضية (Shooting برعاية).", img:"assets/p-DemxfDhMqVW.jpg", link:"https://www.instagram.com/reel/DemxfDhMqVW/", tag:"📷 تصوير رياضي", likes:210, cat:"photo"},
-  {title:"بورتريه ليلي — Street Style", desc:"بورتريه ليلي في شوارع طنجة بعدسة درادرة.", img:"assets/p-CrYPSestMIM.jpg", link:"https://www.instagram.com/p/CrYPSestMIM/", tag:"📷 بورتريه", likes:178, cat:"photo"},
-  {title:"فيلم قصير «حبك خسارة»", desc:"من أوائل أفلامو القصيرة المنشورة كاملة على قناتو في يوتيوب.", img:"assets/proj-film.jpg", link:"https://youtu.be/h3iiNNnjhjg", tag:"🎬 فيلم قصير", likes:0, cat:"film"},
-  {title:"فيلم قصير من قصة واقعية", desc:"فيلم قصير مؤثر من قصة واقعية — عبرة كبيرة (على يوتيوب).", img:"assets/p-B42y5BFDIwu.jpg", link:"https://www.instagram.com/p/B42y5BFDIwu/", tag:"🎬 فيلم قصير", likes:0, cat:"film"},
-  {title:"تصوير حفلات وفنانين", desc:"تغطية مسرحية لفنانين — منهم L7or وباد فلو وحمزة ولد عيشة.", img:"assets/proj-concert.jpg", link:"https://www.instagram.com/p/CxlZ6W2NaY8/", tag:"🎤 تصوير حفلات", likes:0, cat:"photo"},
-  {title:"تصوير وتعديل — Before / After", desc:"جلسة قفطان بالتعديل الاحترافي — قبل وبعد من عند محسن.", img:"assets/proj-beforeafter.jpg", link:"https://www.instagram.com/p/C_ZKHStNx7D/", tag:"🎞️ تعديل صور", likes:0, cat:"edit"},
-  {title:"مونتاج — خلفية خضراء", desc:"من أعمال المونتاج ديالو بخلفية خضراء (Green Screen).", img:"assets/p-C3gGwC6NS-L.jpg", link:"https://www.instagram.com/p/C3gGwC6NS-L/", tag:"🎞️ مونتاج", likes:33, cat:"edit"},
-  {title:"تصميم إعلاني — Sandwich Yassine", desc:"ملصق إعلاني لمحل سندويشات — تصميم جاهز للنشر والطباعة.", img:"assets/proj-design.jpg", link:"https://www.instagram.com/p/C3gF2mKtPrg/", tag:"🎨 تصميم إعلاني", likes:0, cat:"design"}
+  {title:"العشرة عندها موليها — POV", desc:"أكبر حلقة عندو: قصة قصيرة على الصحبة والمصلحة — أصعب إحساس.", img:"assets/p-DUOPLoYDPkt.webp", link:"https://www.instagram.com/reel/DUOPLoYDPkt/", tag:"🎬 حلقة قصصية", likes:109343, cat:"film"},
+  {title:"إشهار وكالة Nour Coches", desc:"فيديو إشهاري لوكالة كراء السيارات نور كوشيس بطنجة.", img:"assets/p-DSsR_KIDIZk.webp", link:"https://www.instagram.com/reel/DSsR_KIDIZk/", tag:"📣 إشهار", likes:108313, cat:"film"},
+  {title:"الصديق الغريب — الجزء الأول", desc:"سلسلة حلقات قصصية كتحقق أرقام كبيرة عند الجمهور.", img:"assets/p-DXCZpREDO3q.webp", link:"https://www.instagram.com/reel/DXCZpREDO3q/", tag:"🎬 حلقة قصصية", likes:105518, cat:"film"},
+  {title:"POV: صحاب المصلحة", desc:"حلقة على الصحاب اللي كيبانو غير وقت المصلحة.", img:"assets/p-DZdfqbps032.webp", link:"https://www.instagram.com/reel/DZdfqbps032/", tag:"🎬 حلقة قصصية", likes:82046, cat:"film"},
+  {title:"لا تستهزئ بالصلاة", desc:"حلقة للعبرة على قيمة الصلاة — مع صحابو.", img:"assets/p-DZxz39PMpvC.webp", link:"https://www.instagram.com/reel/DZxz39PMpvC/", tag:"🎬 حلقة للعبرة", likes:78630, cat:"film"},
+  {title:"حلقة درامية — POV", desc:"مشهد درامي قصير من سلسلة حلقاتو القصصية.", img:"assets/p-DZnhn31s36A.webp", link:"https://www.instagram.com/reel/DZnhn31s36A/", tag:"🎬 حلقة قصصية", likes:57762, cat:"film"},
+  {title:"الصاحب وقت الشدة", desc:"حلقة على الصحبة الحقيقية اللي كتبان وقت الشدة.", img:"assets/p-DUWqgckDACX.webp", link:"https://www.instagram.com/reel/DUWqgckDACX/", tag:"🎬 حلقة للعبرة", likes:57338, cat:"film"},
+  {title:"لا تحرق قلب أمك", desc:"حلقة مؤثرة على بر الوالدين ووجع الهجرة.", img:"assets/p-DbeQcp4MJ8J.webp", link:"https://www.instagram.com/reel/DbeQcp4MJ8J/", tag:"🎬 حلقة للعبرة", likes:50055, cat:"film"},
+  {title:"حكاية مدمن — الجزء الأول", desc:"سلسلة «حكاية مدمن»: قصة للعبرة على مخاطر الإدمان.", img:"assets/p-DYSaX61MXq0.webp", link:"https://www.instagram.com/reel/DYSaX61MXq0/", tag:"🎬 سلسلة حلقات", likes:45741, cat:"film"},
+  {title:"قصة حقيقية", desc:"حلقة مؤثرة من قصة حقيقية.", img:"assets/p-DYIDr3SM_ih.webp", link:"https://www.instagram.com/reel/DYIDr3SM_ih/", tag:"🎬 حلقة للعبرة", likes:43609, cat:"film"},
+  {title:"الوالدة وFree Fire 😂", desc:"حلقة كوميدية: «أنا والوالدة في 2030».", img:"assets/p-DVwhdOKjEKr.webp", link:"https://www.instagram.com/reel/DVwhdOKjEKr/", tag:"😂 كوميديا", likes:42567, cat:"film"},
+  {title:"تهلا في صاحبك", desc:"حلقة على قيمة الصحبة والوفاء بين الصحاب.", img:"assets/p-DRcevDEjBDQ.webp", link:"https://www.instagram.com/reel/DRcevDEjBDQ/", tag:"🎬 حلقة للعبرة", likes:39081, cat:"film"},
+  {title:"لا تغضب — الجزء الأول", desc:"سلسلة حلقات «لا تغضب» — قصص قصيرة للعبرة.", img:"assets/p-DXzdXCLspn1.webp", link:"https://www.instagram.com/reel/DXzdXCLspn1/", tag:"🎬 سلسلة حلقات", likes:38588, cat:"film"},
+  {title:"من ستر مسلماً ستره الله", desc:"حلقة للعبرة على فضل الستر.", img:"assets/p-DTDcgQLDASL.webp", link:"https://www.instagram.com/reel/DTDcgQLDASL/", tag:"🎬 حلقة للعبرة", likes:34542, cat:"film"},
+  {title:"إشهار رائع 😂", desc:"سكيتش إشهاري بطابع كوميدي.", img:"assets/p-DS-kT73jGXY.webp", link:"https://www.instagram.com/reel/DS-kT73jGXY/", tag:"📣 إشهار", likes:31838, cat:"film"},
+  {title:"حكاية مدمن — الجزء 3", desc:"تكملة سلسلة «حكاية مدمن».", img:"assets/p-DYdDKz-M4Rz.webp", link:"https://www.instagram.com/reel/DYdDKz-M4Rz/", tag:"🎬 سلسلة حلقات", likes:27077, cat:"film"},
+  {title:"لا تفضّلوا شيئاً على الله", desc:"حلقة روحانية: من ترك شيئاً لله عوّضه الله خيراً منه.", img:"assets/p-DcjRAVfsz12.webp", link:"https://www.instagram.com/reel/DcjRAVfsz12/", tag:"🎬 حلقة للعبرة", likes:14855, cat:"film"},
+  {title:"الهجرة", desc:"حلقة على الهجرة السرية وتبعاتها على العائلات.", img:"assets/p-DQwsBcNjO10.webp", link:"https://www.instagram.com/reel/DQwsBcNjO10/", tag:"🎬 حلقة للعبرة", likes:12854, cat:"film"},
+  {title:"«الفقر» — حلقة قصصية", desc:"حلقة على الفقر والكرامة — من أقوى حلقاتو تمثيلاً.", img:"assets/p-DaGTa-nNihv.webp", link:"https://www.instagram.com/reel/DaGTa-nNihv/", tag:"🎬 حلقة للعبرة", likes:8421, cat:"film"},
+  {title:"حل فقير في عيد الأضحى", desc:"حلقة خاصة بعيد الأضحى — بتصوير مشترك مع أيوب بنعمر.", img:"assets/p-DYlBzv5qCny.webp", link:"https://www.instagram.com/reel/DYlBzv5qCny/", tag:"🎬 حلقة للعبرة", likes:5531, cat:"film"},
+  {title:"طلع بوراقك وطلع قانوني 🇪🇦", desc:"حلقة توعية على الهجرة القانونية — فيديو للعبرة ماشي للمتعة.", img:"assets/p-DbdG5C7MNRS.webp", link:"https://www.instagram.com/reel/DbdG5C7MNRS/", tag:"🎬 حلقة للعبرة", likes:5495, cat:"film"},
+  {title:"الحقيقة المرة 💔", desc:"حلقة قصصية مؤثرة من سلسلته.", img:"assets/p-DVefWpsDLgD.webp", link:"https://www.instagram.com/reel/DVefWpsDLgD/", tag:"🎬 حلقة قصصية", likes:4920, cat:"film"},
+  {title:"حلقة قصصية — من السلسلة", desc:"من حلقات سلسلته القصصية على إنستغرام.", img:"assets/p-De2vHoxM6vX.webp", link:"https://www.instagram.com/reel/De2vHoxM6vX/", tag:"🎬 حلقة قصصية", likes:115, cat:"film"},
+  {title:"فيديو شركة النظافة — كزناية", desc:"تصوير ومونتاج فيديو لشركة النظافة بجماعة كزناية — خدمة للشركات والجماعات.", img:"assets/p-DXFn16OsGmB.webp", link:"https://www.instagram.com/reel/DXFn16OsGmB/", tag:"🏢 فيديو شركات", likes:0, cat:"film"},
+  {title:"جلسة تصوير قفطان مغربي", desc:"تصوير أزياء تقليدية مع الموديل أميمة الغزاوي — إضاءة وتركيب برو.", img:"assets/proj-fashion.webp", link:"https://www.instagram.com/p/CrO2BWQNL5s/", tag:"📷 تصوير فوتوغرافي", likes:909, cat:"photo"},
+  {title:"عمل مع DL Production", desc:"تصوير وإنتاج مع الفنان Loco Lghadab.", img:"assets/proj-loco.webp", link:"https://www.instagram.com/p/CYXC-cLNy3x/", tag:"🎬 تصوير وإنتاج", likes:982, cat:"film"},
+  {title:"بورتريه فاخر — كرسي ملكي", desc:"بورتريه مدروس بإضاءة وديكور ملكي.", img:"assets/proj-throne.webp", link:"https://www.instagram.com/p/COV-d36nE_C/", tag:"📷 بورتريه", likes:1004, cat:"photo"},
+  {title:"جلسة قفطان — أميمة الغزاوي (2)", desc:"صور أخرى من جلسة تصوير القفطان مع الموديل أميمة الغزاوي.", img:"assets/proj-fashion2.webp", link:"https://www.instagram.com/p/CrHB0yZtEiR/", tag:"📷 تصوير فوتوغرافي", likes:724, cat:"photo"},
+  {title:"جلسة تصوير ستايل شارع", desc:"بورتريه خارجي بأسلوب عصري — ألوان وتركيب من عند درادرة.", img:"assets/proj-street.webp", link:"https://www.instagram.com/p/CN5FfpHHaes/", tag:"📷 بورتريه خارجي", likes:764, cat:"photo"},
+  {title:"كاميرا خفية — 2M", desc:"مشاركة في الكاميرا الخفية ديال قناة 2M — تجربة تلفزية من 2022.", img:"assets/proj-hidden.webp", link:"https://www.instagram.com/p/CcD9uR3li0l/", tag:"🎥 كاميرا خفية", likes:441, cat:"film"},
+  {title:"جلسة تصوير Barber Style", desc:"تصوير داخل صالون حلاقة — محتوى براندات ومحلات محلية.", img:"assets/proj-barber.webp", link:"https://www.instagram.com/p/C9SRL_mNvFL/", tag:"📷 تصوير براندات", likes:438, cat:"photo"},
+  {title:"تصوير ستوديو", desc:"جلسات داخلية بإضاءة احترافية ومعدات ستوديو كاملة.", img:"assets/proj-studio.webp", link:"https://www.instagram.com/p/Cbx8o3et5y3/", tag:"💡 تصوير ستوديو", likes:384, cat:"photo"},
+  {title:"بورتريه بعدسة DRADRA", desc:"لقطة موقعة بلوغو درادرة — الهوية البصرية ديال خدمتو.", img:"assets/proj-welcome.webp", link:"https://www.instagram.com/p/CdGcchftuFR/", tag:"📷 بورتريه", likes:265, cat:"photo"},
+  {title:"كليب L'JAM — الفيديو", desc:"نسخة الفيديو من عملو مع Loco Lghadab وDL Production.", img:"assets/p-CYPhHEJl2gO.webp", link:"https://www.instagram.com/reel/CYPhHEJl2gO/", tag:"🎬 كليب", likes:210, cat:"film"},
+  {title:"تصوير رياضي — جلسة جيم", desc:"جلسة تصوير رياضية (Shooting برعاية).", img:"assets/p-DemxfDhMqVW.webp", link:"https://www.instagram.com/reel/DemxfDhMqVW/", tag:"📷 تصوير رياضي", likes:210, cat:"photo"},
+  {title:"بورتريه ليلي — Street Style", desc:"بورتريه ليلي في شوارع طنجة بعدسة درادرة.", img:"assets/p-CrYPSestMIM.webp", link:"https://www.instagram.com/p/CrYPSestMIM/", tag:"📷 بورتريه", likes:178, cat:"photo"},
+  {title:"فيلم قصير «حبك خسارة»", desc:"من أوائل أفلامو القصيرة المنشورة كاملة على قناتو في يوتيوب.", img:"assets/proj-film.webp", link:"https://youtu.be/h3iiNNnjhjg", tag:"🎬 فيلم قصير", likes:0, cat:"film"},
+  {title:"فيلم قصير من قصة واقعية", desc:"فيلم قصير مؤثر من قصة واقعية — عبرة كبيرة (على يوتيوب).", img:"assets/p-B42y5BFDIwu.webp", link:"https://www.instagram.com/p/B42y5BFDIwu/", tag:"🎬 فيلم قصير", likes:0, cat:"film"},
+  {title:"تصوير حفلات وفنانين", desc:"تغطية مسرحية لفنانين — منهم L7or وباد فلو وحمزة ولد عيشة.", img:"assets/proj-concert.webp", link:"https://www.instagram.com/p/CxlZ6W2NaY8/", tag:"🎤 تصوير حفلات", likes:0, cat:"photo"},
+  {title:"تصوير وتعديل — Before / After", desc:"جلسة قفطان بالتعديل الاحترافي — قبل وبعد من عند محسن.", img:"assets/proj-beforeafter.webp", link:"https://www.instagram.com/p/C_ZKHStNx7D/", tag:"🎞️ تعديل صور", likes:0, cat:"edit"},
+  {title:"مونتاج — خلفية خضراء", desc:"من أعمال المونتاج ديالو بخلفية خضراء (Green Screen).", img:"assets/p-C3gGwC6NS-L.webp", link:"https://www.instagram.com/p/C3gGwC6NS-L/", tag:"🎞️ مونتاج", likes:33, cat:"edit"},
+  {title:"Chadatni Ghebina — Out Now 🎵", desc:"إصدار موسيقي — متوفر على منصات الاستماع.", img:"assets/p-DZSmmbgNN1U.webp", link:"https://www.instagram.com/reel/DZSmmbgNN1U/", tag:"🎵 إصدار موسيقي", likes:0, cat:"film"},
+  {title:"روبورتاج — معاناة سكان مسنانة", desc:"تغطية ميدانية مع EcoPress: الشتا ومعاناة سكان مسنانة كتزاد.", img:"assets/p-DT3a06nCM8P.webp", link:"https://www.instagram.com/reel/DT3a06nCM8P/", tag:"📰 روبورتاج", likes:202, cat:"film"},
+  {title:"تصميم إعلاني — Sandwich Yassine", desc:"ملصق إعلاني لمحل سندويشات — تصميم جاهز للنشر والطباعة.", img:"assets/proj-design.webp", link:"https://www.instagram.com/p/C3gF2mKtPrg/", tag:"🎨 تصميم إعلاني", likes:0, cat:"design"}
 ];
 /* R14 categories */
-const CATMAP={"proj-fashion.jpg":"photo","proj-loco.jpg":"film","proj-hidden.jpg":"film","proj-barber.jpg":"photo","proj-design.jpg":"design","proj-beforeafter.jpg":"edit","proj-throne.jpg":"photo","proj-concert.jpg":"photo","proj-film.jpg":"film","proj-studio.jpg":"photo","proj-street.jpg":"photo","proj-welcome.jpg":"photo"};
+const CATMAP={"proj-fashion.webp":"photo","proj-loco.webp":"film","proj-hidden.webp":"film","proj-barber.webp":"photo","proj-design.webp":"design","proj-beforeafter.webp":"edit","proj-throne.webp":"photo","proj-concert.webp":"photo","proj-film.webp":"film","proj-studio.webp":"photo","proj-street.webp":"photo","proj-welcome.webp":"photo"};
 PROJECTS.forEach(p=>{ if(!p.cat) p.cat=CATMAP[p.img.split('/').pop()]||"photo"; });
 const grid = document.getElementById('projGrid');
 PROJECTS.forEach(p=>{
-  const el=document.createElement('a'); el.className='proj reveal'; el.href=p.link; el.target='_blank'; el.rel='noopener'; el.dataset.cat=p.cat;
+  const el=document.createElement('a'); el.className='proj reveal'; el.href=p.link; el.target='_blank'; el.rel='noopener'; el.dataset.cat=p.cat; el.dataset.idx=PROJECTS.indexOf(p);
   const fmt = n => (+n).toLocaleString('en-US');
   const hot = p.likes && +p.likes>=50000;
   el.innerHTML=`<div class="cover"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>
@@ -522,7 +590,7 @@ const RANKED=[...PROJECTS].filter(p=>p.likes).sort((a,b)=>b.likes-a.likes).slice
 document.getElementById('rankRow').innerHTML = RANKED.map((p,i)=>
   `<a class="rank reveal" href="${p.link}" target="_blank" rel="noopener"><span class="no">${i+1}</span><img src="${p.img}" alt=""><span><h4>${p.title}</h4><span>❤ ${(p.likes).toLocaleString('en-US')} — الأكثر تفاعلاً</span></span></a>`).join('');
 /* Two tabs: client service work vs acting episodes */
-const ACT=new Set(["p-DUOPLoYDPkt.jpg","p-DXCZpREDO3q.jpg","p-DZdfqbps032.jpg","p-DZxz39PMpvC.jpg","p-DZnhn31s36A.jpg","p-DUWqgckDACX.jpg","p-DbeQcp4MJ8J.jpg","p-DYSaX61MXq0.jpg","p-DYIDr3SM_ih.jpg","p-DVwhdOKjEKr.jpg","p-DRcevDEjBDQ.jpg","p-DXzdXCLspn1.jpg","p-DTDcgQLDASL.jpg","p-DYdDKz-M4Rz.jpg","p-DcjRAVfsz12.jpg","p-DQwsBcNjO10.jpg","proj-hidden.jpg","proj-film.jpg","p-B42y5BFDIwu.jpg"]);
+const ACT=new Set(["p-DUOPLoYDPkt.webp","p-DXCZpREDO3q.webp","p-DZdfqbps032.webp","p-DZxz39PMpvC.webp","p-DZnhn31s36A.webp","p-DUWqgckDACX.webp","p-DbeQcp4MJ8J.webp","p-DYSaX61MXq0.webp","p-DYIDr3SM_ih.webp","p-DVwhdOKjEKr.webp","p-DRcevDEjBDQ.webp","p-DXzdXCLspn1.webp","p-DTDcgQLDASL.webp","p-DYdDKz-M4Rz.webp","p-DcjRAVfsz12.webp","p-DQwsBcNjO10.webp","proj-hidden.webp","proj-film.webp","p-B42y5BFDIwu.webp","p-DaGTa-nNihv.webp","p-DYlBzv5qCny.webp","p-DbdG5C7MNRS.webp","p-DVefWpsDLgD.webp","p-De2vHoxM6vX.webp"]);
 PROJECTS.forEach(p=>p.tab=ACT.has(p.img.split('/').pop())?'act':'work');
 document.querySelectorAll('.proj').forEach(c=>{ const pr=PROJECTS.find(x=>x.link===c.href); });
 grid.querySelectorAll('.proj').forEach((c,i)=>c.dataset.tab=PROJECTS[i].tab);
@@ -642,6 +710,29 @@ document.querySelectorAll('[data-goto]').forEach(btn=>{
     document.getElementById('projects').scrollIntoView({behavior:'smooth'});
   });
 });
+/* Lightbox: photography projects open inside the site */
+(function(){
+  const lb=document.getElementById('lightbox'); if(!lb) return;
+  const img=document.getElementById('lbImg'), tt=document.getElementById('lbTitle'), lk=document.getElementById('lbLikes'), ln=document.getElementById('lbLink');
+  let list=[], cur=0;
+  const show=i=>{ cur=(i+list.length)%list.length; const pr=PROJECTS[list[cur]];
+    img.src=pr.img; img.alt=pr.title; tt.textContent=pr.title;
+    lk.textContent=pr.likes?('❤ '+pr.likes.toLocaleString('en-US')):''; ln.href=pr.link; };
+  document.getElementById('projGrid').addEventListener('click',e=>{
+    const card=e.target.closest('.proj'); if(!card||card.dataset.cat!=='photo') return;
+    e.preventDefault();
+    list=[...document.querySelectorAll('.proj:not(.hide)')].filter(c=>c.dataset.cat==='photo').map(c=>+c.dataset.idx);
+    if(!list.length) return;
+    show(list.indexOf(+card.dataset.idx)); lb.classList.add('open'); document.body.style.overflow='hidden';
+  });
+  const close=()=>{ lb.classList.remove('open'); document.body.style.overflow=''; };
+  document.getElementById('lbX').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',()=>show(cur-1));
+  document.getElementById('lbNext').addEventListener('click',()=>show(cur+1));
+  lb.addEventListener('click',e=>{ if(e.target===lb) close(); });
+  addEventListener('keydown',e=>{ if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close(); if(e.key==='ArrowLeft') show(cur+1); if(e.key==='ArrowRight') show(cur-1); });
+})();
 /* count-up stats */
 (function(){
   const els=[...document.querySelectorAll('.cnt')]; if(!els.length) return;
@@ -701,7 +792,7 @@ s1t:"Contact & conseil",s1p:"On écoute votre idée et on définit le format : �
 s2t:"Préparation & tournage",s2p:"Scénario, lieu et matériel préparés, tournage avec lumière et cadrage pro.",
 s3t:"Montage & retouche",s3p:"Montage, couleurs, son et retouche photo — la touche visible dans le résultat final.",
 s4t:"Livraison & publication",s4p:"Le travail est livré prêt à publier en pleine qualité, avec un accompagnement sur la présentation au public.",
-cubeHint:"↔ Faites glisser pour tourner le cube",tabWork:"Le travail",tabAct:"Le jeu d'acteur",spotChip:"Son épisode le plus vu",spotPlay:"Regardez l'épisode ici — sans quitter le site",spotP:"Son plus grand épisode : une histoire sur l'amitié et l'intérêt, massivement partagée. Cliquez sur ▶ pour le regarder ici même.",spotBtn:"L'ouvrir sur Instagram ←",svEx:"Voir des exemples ←",
+cubeHint:"↔ Faites glisser pour tourner le cube",ytT:"🎬 Ses films & séries sur YouTube",ytAll:"La chaîne complète ←",fbT:"📘 Aussi sur Facebook — Mohssin Dradra Tv",fbP:"Ses films et épisodes sont aussi publiés sur sa page Facebook.",fbBtn:"Ouvrir la page ←",ctaFb:"📘 Facebook — Mohssin Dradra Tv",lbBtn:"Voir le post sur Instagram ←",tabWork:"Le travail",tabAct:"Le jeu d'acteur",spotChip:"Son épisode le plus vu",spotPlay:"Regardez l'épisode ici — sans quitter le site",spotP:"Son plus grand épisode : une histoire sur l'amitié et l'intérêt, massivement partagée. Cliquez sur ▶ pour le regarder ici même.",spotBtn:"L'ouvrir sur Instagram ←",svEx:"Voir des exemples ←",
 sv1i:"Scénario · Jeu & réalisation · Montage",sv2i:"Studio & extérieur · Mode & marques · Portraits",
 sv3t:"Vidéos d'entreprise",sv3p:"Vidéos institutionnelles pour entreprises, communes et commerces — comme la vidéo de la société de nettoyage de Gzenaya.",sv3i:"Tournage terrain · Montage pro · Prêt à publier",
 sv4i:"Idée & scénario · Jeu d'acteur · Production complète",
