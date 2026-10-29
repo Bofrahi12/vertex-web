@@ -12,7 +12,7 @@ const CONFIG = {
   country: "Maroc",
   hours: "24/24",
   hoursLabelAr: "مفتوح الآن — 24/24، 7 أيام في الأسبوع",
-  domain: "https://bofrahi12.github.io/vertex-web/pharmaliv-tanger/",
+  domain: "https://pharmaliv24.onrender.com/",
   defaultMessageAr: "السلام، أريد طلب توصيل دواء في طنجة.",
   zones: [
     { fr: "Centre-ville", ar: "وسط المدينة" },

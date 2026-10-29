@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bofrahi12.github.io/vertex-web/pharmaliv-tanger/sitemap.xml
+Sitemap: https://pharmaliv24.onrender.com/sitemap.xml
