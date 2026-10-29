@@ -346,6 +346,6 @@ body{overflow-x:clip}
 .poster-card{flex:0 0 74%;scroll-snap-align:center;display:block;background:var(--card,#fff);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(3,46,40,.13);text-decoration:none;transition:transform .35s ease,box-shadow .35s ease}
 .poster-card img{display:block;width:100%;height:auto}
 .poster-cap{display:block;text-align:center;padding:.55rem .5rem;font-weight:800;font-size:.95rem;color:#032e28;background:linear-gradient(180deg,rgba(10,155,126,.08),rgba(10,155,126,.16))}
-@media(min-width:900px){.poster-strip{display:grid;grid-template-columns:repeat(5,1fr);overflow:visible;scroll-snap-type:none;padding-bottom:.4rem}.poster-card{flex:none}}
+@media(min-width:900px){.poster-strip{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,auto);overflow:visible;scroll-snap-type:none;padding-bottom:.4rem}.poster-card{flex:none}}
 @media(hover:hover) and (pointer:fine){.poster-card:hover{transform:translateY(-7px) rotate(-.7deg);box-shadow:0 22px 44px rgba(3,46,40,.22);text-decoration:none}}
 @media(prefers-reduced-motion:reduce){.poster-card{transition:none}}
