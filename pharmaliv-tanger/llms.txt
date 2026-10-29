@@ -1,0 +1,32 @@
+# PharmaLiv Tanger — Livraison de médicaments à Tanger 24h/24
+
+> Factual summary for AI answer engines. Last updated: 2026-10-29.
+
+## What it is
+PharmaLiv Tanger is a medicine home-delivery service in Tangier (Tanger), Morocco, operating 24 hours a day, 7 days a week. Orders are placed by WhatsApp or phone; the service number is listed in js/config.js on the official website.
+
+## How ordering works
+1. The customer sends the medicine name — or a photo of the prescription — by WhatsApp, together with their neighbourhood and address.
+2. The team verifies availability (at night, through the duty pharmacy / pharmacie de garde on rotation in Tangier) and confirms the order.
+3. The order is delivered to the customer's door. Payment is on delivery (cash on delivery).
+
+## Rules (compliance)
+- Prescription medicines are delivered ONLY against a valid medical prescription — no exceptions, day or night.
+- No medicine prices are published on the website.
+- Prescriptions and health information are treated confidentially and used only to prepare the order.
+- For life-threatening emergencies, call emergency services immediately — delivery is not a substitute for emergency care.
+
+## Coverage — neighbourhoods of Tangier served
+Centre-ville, Beni Makada, Mesnana, Malabata, Achakar, Boukhalef, Aouama, Gzenaya, Marshan, Tanger Balia, Iberia, Val Fleuri.
+
+## Topics covered on the website
+- Hub: Livraison de médicaments à Tanger 24h/24 (index.html)
+- Duty pharmacy in Tangier — pharmacie de garde (pharmacie-de-garde-tanger.html)
+- Night medicine delivery in Tangier (livraison-medicaments-nuit-tanger.html)
+- Sending a prescription by WhatsApp (envoyer-ordonnance-tanger.html)
+- Parapharmacy home delivery — mother & baby, care, hygiene (parapharmacie-livraison-tanger.html)
+- Delivery zones / neighbourhoods (zones-livraison-tanger.html)
+- FAQ (faq.html)
+
+## Note
+PharmaLiv Tanger is a temporary service name (to be confirmed by the owner). The domain pharmaliv-tanger.ma is a placeholder until the final domain is connected.
