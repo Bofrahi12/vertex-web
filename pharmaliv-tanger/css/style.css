@@ -3,7 +3,7 @@
   --teal:#077a66; --teal-2:#0a9b7e; --teal-dark:#043f36; --teal-deep:#032e28;
   --ink:#12211d; --muted:#5a6f6a; --line:#dcebe6; --bg:#f6faf8; --card:#ffffff;
   --wa:#1fae55; --wa-dark:#178a43; --amber:#f2b544;
-  --r:18px; --r-lg:26px; --sh:0 10px 30px rgba(4,63,54,.10); --sh-lg:0 24px 60px rgba(4,63,54,.16);
+  --r:18px; --r-lg:26px; --sh:0 2px 6px rgba(4,63,54,.05),0 12px 32px rgba(4,63,54,.10); --sh-lg:0 4px 10px rgba(4,63,54,.06),0 28px 64px rgba(4,63,54,.16);
   --font:"Tajawal","Cairo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --font-lat:"Inter","Tajawal",system-ui,Arial,sans-serif;
 }
@@ -173,3 +173,40 @@ figure.photo img{width:100%;height:100%;object-fit:cover;display:block}
 .photo-page{aspect-ratio:16/9;margin-bottom:2rem}
 @media(min-width:760px){.photo-wide{aspect-ratio:21/9}}
 .dark-band figure.photo{border-color:rgba(255,255,255,.18)}
+
+/* ---------- 3D depth upgrade — transform/opacity only, one signature (hero) ---------- */
+/* Active nav */
+nav.main a.active{color:var(--teal);box-shadow:inset 0 -3px 0 var(--teal-2);padding-bottom:3px}
+/* Layered glow behind section titles */
+.sec-head{position:relative;z-index:0}
+.sec-head::before{content:"";position:absolute;top:-36px;inset-inline-start:-26px;width:300px;height:130px;background:radial-gradient(closest-side,rgba(10,155,126,.15),transparent 72%);pointer-events:none;z-index:-1}
+.dark-band .sec-head::before{background:radial-gradient(closest-side,rgba(124,232,189,.14),transparent 72%)}
+/* Hero 3D stage (signature) */
+.stage3d{perspective:1100px;margin-top:1.6rem}
+.stage3d-inner{position:relative;transform-style:preserve-3d;transform:rotateX(5deg) rotateY(-6deg);will-change:transform}
+.stage3d .photo-hero{margin-top:0}
+.stage3d-card{box-shadow:0 34px 70px rgba(0,0,0,.35)}
+.chip3d{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);border:1px solid rgba(255,255,255,.38);color:#fff;border-radius:999px;padding:.42rem .85rem;font-weight:800;font-size:.86rem;line-height:1.3;box-shadow:0 18px 38px rgba(0,0,0,.30);white-space:nowrap}
+.chip3d svg{width:16px;height:16px;flex:0 0 16px}
+.chip3d-a{top:-15px;inset-inline-start:12px;animation:floatA 6s ease-in-out infinite}
+.chip3d-b{top:42%;inset-inline-end:-8px;animation:floatB 7.5s ease-in-out infinite}
+.chip3d-c{bottom:-15px;inset-inline-start:30px;animation:floatC 8.5s ease-in-out infinite}
+@keyframes floatA{0%,100%{transform:translateZ(56px) translateY(0)}50%{transform:translateZ(56px) translateY(-9px)}}
+@keyframes floatB{0%,100%{transform:translateZ(84px) translateY(0)}50%{transform:translateZ(84px) translateY(-12px)}}
+@keyframes floatC{0%,100%{transform:translateZ(38px) translateY(0)}50%{transform:translateZ(38px) translateY(-7px)}}
+/* Card tilt (JS-driven, desktop fine pointer) */
+.tilt{transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease,border-color .2s ease}
+.tilt.tilting{transition:transform .08s ease-out,box-shadow .3s ease}
+.tilt:hover{box-shadow:var(--sh-lg)}
+/* FAQ smooth accordion */
+.faq-body{overflow:hidden}
+details.faq summary{position:relative;padding-inline-end:1.5rem}
+details.faq summary::after{content:"+";position:absolute;inset-inline-end:.1rem;top:50%;transform:translateY(-50%);font-weight:900;color:var(--teal);font-size:1.25rem;line-height:1}
+details.faq[open ] summary::after{content:"–"}
+/* Back-to-top chip */
+.to-top{position:fixed;bottom:5.6rem;inset-inline-start:1rem;z-index:70;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--teal-dark);display:grid;place-items:center;box-shadow:var(--sh-lg);cursor:pointer;opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top svg{width:22px;height:22px}
+@media(min-width:760px){.to-top{bottom:1.4rem}}
+@media(max-width:640px){.chip3d-b{inset-inline-end:4px}.chip3d-c{inset-inline-start:14px}}
+@media(prefers-reduced-motion:reduce){.chip3d{animation:none}.stage3d-inner{transform:none}.tilt{transition:none}.to-top{transition:none}}

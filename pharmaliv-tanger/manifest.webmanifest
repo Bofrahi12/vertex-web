@@ -1,0 +1,17 @@
+{
+  "name": "PharmaLiv Tanger",
+  "short_name": "PharmaLiv",
+  "description": "Livraison de médicaments à Tanger 24h/24 — توصيل الدواء في طنجة ليلاً ونهاراً",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6faf8",
+  "theme_color": "#0b3d2e",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
