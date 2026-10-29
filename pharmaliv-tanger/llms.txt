@@ -29,4 +29,4 @@ Centre-ville, Beni Makada, Mesnana, Malabata, Achakar, Boukhalef, Aouama, Gzenay
 - FAQ (faq.html)
 
 ## Note
-PharmaLiv Tanger is a temporary service name (to be confirmed by the owner). The domain pharmaliv-tanger.ma is a placeholder until the final domain is connected.
+PharmaLiv Tanger is a temporary service name (to be confirmed by the owner). The domain bofrahi12.github.io/vertex-web/pharmaliv-tanger is a placeholder until the final domain is connected.
