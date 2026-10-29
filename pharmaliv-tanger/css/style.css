@@ -162,3 +162,14 @@ footer.site ul{list-style:none}footer.site li{margin-bottom:.35rem}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.pill .dot{animation:none}html{scroll-behavior:auto}}
+
+/* ---------- Photos (real photography — sources in img/SOURCES.md) ---------- */
+figure.photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg);border:1px solid var(--line);background:#e4f4ee;line-height:0}
+figure.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-hero{aspect-ratio:4/3;margin-top:1.6rem;border-color:rgba(255,255,255,.28)}
+.photo-wide{aspect-ratio:16/9;margin-bottom:1.6rem}
+.photo-band{aspect-ratio:2/1;margin-top:1.6rem}
+.photo-band img{object-position:center 32%}
+.photo-page{aspect-ratio:16/9;margin-bottom:2rem}
+@media(min-width:760px){.photo-wide{aspect-ratio:21/9}}
+.dark-band figure.photo{border-color:rgba(255,255,255,.18)}
