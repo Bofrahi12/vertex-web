@@ -11,6 +11,21 @@ Toutes les photos sont de **vraies photographies libres de droits (Pexels)**, v�
 | photo-pharmacist.webp | 8657359 | https://www.pexels.com/photo/8657359/ | Pharmacien remettant un flacon à une cliente au comptoir | page envoyer ordonnance |
 | photo-mother-baby.webp | 7282623 | https://www.pexels.com/photo/7282623/ | Mère tenant son nouveau-né à la maison | page parapharmacie |
 | photo-tangier.webp | 10205137 | https://www.pexels.com/photo/10205137/ | Rue réelle du centre-ville de Tanger (enseignes arabes visibles) | page zones de livraison |
+| pharmacist-portrait.webp | 19471013 | https://www.pexels.com/photo/19471013/ | Pharmacienne en blouse blanche devant les rayonnages d'une pharmacie moderne (marques floues/non lisibles) | index V2 — tunnel + scatter + reel |
+| pharmacist-counter.webp | 8657373 | https://www.pexels.com/photo/pharmacist-assisting-a-customer-8657373/ | Pharmacien au comptoir en bois servant une cliente, étagères de flacons sans étiquettes lisibles | index V2 — tunnel + scatter + reel |
+| rider-detail.webp | 7363052 | https://www.pexels.com/photo/7363052/ | Coursier avec casque et sac-caisse de livraison orange, consultant son téléphone, fond sombre | index V2 — tunnel + reel + nuit |
+| tangier-medina.webp | 10800568 | https://www.pexels.com/photo/a-man-and-boy-walking-in-an-alley-in-the-evening-10800568/ | Ruelle réelle de la médina de Tanger le soir (lieu géolocalisé Tanger sur Pexels) | index V2 — tunnel + zones + reel |
+| pharmacy-detail.webp | 8657370 | https://www.pexels.com/photo/8657370/ | Détail pharmacie : deux femmes examinant des flacons sans étiquettes lisibles sur une étagère | index V2 — tunnel + scatter + reel |
+
+## V2 — photos examinées et rejetées (traçabilité)
+- 13119975 (pharmacien derrière comptoir, Bangladesh) — rejetée : marques de médicaments très lisibles partout (Ceevit…) + signalétique bengali.
+- 7667454 (remise d'un sac papier) — rejetée : magasin de chaussures, pas une pharmacie.
+- 6867940 (coursier avec carton) — rejetée : contexte suburbain américain, moins fort que 7363052.
+- 31881110 (scooter + caisse) — rejetée : noir et blanc, casse la palette du site.
+- 8657299 (deux pharmaciens, pharmacie ancienne) — non retenue : expressions très sérieuses, redondante avec 8657373 retenue.
+- 4169384 (flat lay médicaments) — non retenue : 8657370 couvre mieux le créneau « détail pharmacie ».
+
+Préparation V2 : téléchargement 1600 px, export WebP qualité 80, largeur max 1600 px.
 
 ## Photos examinées et rejetées (traçabilité)
 - 19471015 (pharmacienne au téléphone) — rejetée : grande enseigne en cyrillique/mongol lisible, contexte étranger évident.
