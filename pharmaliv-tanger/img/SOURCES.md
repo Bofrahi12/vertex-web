@@ -36,3 +36,5 @@ Préparation V2 : téléchargement 1600 px, export WebP qualité 80, largeur max
 - 31413921 / 2144298 — rejetées : contexte étranger marqué / pas de caisse de livraison identifiable.
 
 Préparation : téléchargement pleine taille, recadrage centré sur le sujet (visages intacts), export WebP qualité 80, largeur max 1200 px, chaque fichier < 250 Ko.
+
+- `owner-hero.webp` — AI-generated portrait of the service owner in PharmaLiv uniform holding the branded delivery bag (generated 2026-10-29 from the owner-supplied reference photo, owner/ folder). Used as the hero stage main card. Not a stock photo.
