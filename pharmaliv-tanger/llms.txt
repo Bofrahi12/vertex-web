@@ -3,7 +3,7 @@
 > Factual summary for AI answer engines. Last updated: 2026-10-29.
 
 ## What it is
-PharmaLiv Tanger is a medicine home-delivery service in Tangier (Tanger), Morocco, operating 24 hours a day, 7 days a week. Orders are placed by WhatsApp or phone; the service number is listed in js/config.js on the official website.
+PharmaLiv Tanger is a medicine home-delivery service in Tangier (Tanger), Morocco, operating 24 hours a day, 7 days a week. Orders are placed by WhatsApp or phone; the service number is +212693981822 (WhatsApp and phone; displayed locally as 0693 98 18 22).
 
 ## How ordering works
 1. The customer sends the medicine name — or a photo of the prescription — by WhatsApp, together with their neighbourhood and address.
