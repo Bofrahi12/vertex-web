@@ -179,6 +179,19 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
 .spot h3{font-size:clamp(24px,3.4vw,36px);font-weight:900}
 .spot .info p{color:var(--mut)}
 .spot .likes{color:var(--gold2);font-weight:800;font-size:19px}
+/* Showreel — his real video projects, playable in-site */
+.player{border:1px solid var(--gold);border-radius:18px;overflow:hidden;background:#000;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.player video{width:100%;max-height:72vh;display:block;background:#000}
+.sr-now{padding:12px 18px;background:var(--card);color:var(--mut);font-size:14.5px}
+.sr-now b{color:var(--gold2)}
+.sr-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+@media(max-width:900px){.sr-row{grid-template-columns:repeat(2,1fr)}}
+.sr-item{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;cursor:pointer;font-family:inherit;color:var(--txt);text-align:start;transition:.25s}
+.sr-item:hover{transform:translateY(-2px)}
+.sr-item.on{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,162,75,.16),rgba(201,162,75,.04))}
+.sr-item img{width:76px;height:54px;object-fit:cover;border-radius:8px;flex:none}
+.sr-item h4{font-size:13.5px;line-height:1.45}
+.sr-item small{color:var(--gold2);font-size:12px;font-weight:700}
 /* YouTube films row + Facebook banner */
 .yt-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:6px 0 14px;flex-wrap:wrap}
 .yt-head h3{font-size:21px;font-weight:900}
@@ -339,6 +352,20 @@ footer .credit{border-top:1px solid var(--line);padding-top:14px;font-size:12.5p
   <div class="wrap">
     <div class="lbl" data-i="clientsT">خدم مع / ظهر عند</div>
     <div class="row"><span>2M 📺</span><span>DL Production</span><span>Nour Coches</span><span>جماعة كزناية</span><span>Loco Lghadab</span><span>أميمة الغزاوي</span><span>Sandwich Yassine</span></div>
+  </div>
+</section>
+
+<section id="showreel">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 data-i="srT">🎬 من أعمالو — شوف بعينيك</h2>
+      <p data-i="srP">بروجيات فيديو حقيقية صوّرها ومونتجها محسن بنفسو — دوس على أي بروجي باش يتلعب هنا، بلا ما تخرج من الموقع.</p>
+    </div>
+    <div class="player reveal">
+      <video id="srVideo" controls preload="metadata" poster="assets/vid/p-hollyland.webp" playsinline src="assets/vid/hollyland.mp4"></video>
+      <div class="sr-now"><span data-i="srNow">المعروض دابا:</span> <b id="srTitle">فيديو منتج — ميكروفون Hollyland</b></div>
+    </div>
+    <div class="sr-row reveal" id="srRow"></div>
   </div>
 </section>
 
@@ -710,6 +737,33 @@ document.querySelectorAll('[data-goto]').forEach(btn=>{
     document.getElementById('projects').scrollIntoView({behavior:'smooth'});
   });
 });
+/* Showreel playlist */
+const SR=[
+ {f:"hollyland", t:"فيديو منتج — ميكروفون Hollyland", tf:"Vidéo produit — micro Hollyland", tag:"🎙️ تصوير منتجات", dur:"0:25"},
+ {f:"gzenaya", t:"فيديو جماعة كزناية — قطاع النظافة", tf:"Vidéo institutionnelle — Commune de Gzenaya", tag:"🏢 فيديو شركات", dur:"1:41"},
+ {f:"residence", t:"فيديو مشروع سكني", tf:"Vidéo immobilière — résidence", tag:"🏗️ فيديو عقاري", dur:"1:22"},
+ {f:"caftan", t:"فيديو أزياء — قفطان مغربي", tf:"Film mode — caftan marocain", tag:"👗 فيديو أزياء", dur:"1:20"},
+ {f:"wedding", t:"تغطية عرس", tf:"Couverture de mariage", tag:"💍 فيديو مناسبات", dur:"2:33"},
+ {f:"podcast", t:"بودكاست — مقتطف من حلقة كاملة (23 دقيقة)", tf:"Podcast — extrait (épisode complet : 23 min)", tag:"🎙️ إنتاج بودكاست", dur:"2:00"},
+ {f:"ayoub", t:"بورتريه فيديو — جلسة خارجية", tf:"Portrait vidéo — séance extérieur", tag:"🌊 بورتريه فيديو", dur:"0:47"},
+ {f:"luxe", t:"فيديو ديكورات فاخرة", tf:"Vidéo décoration & architecture", tag:"🏛️ تصوير معماري", dur:"0:39"}
+];
+(function(){
+  const row=document.getElementById('srRow'), vid=document.getElementById('srVideo'), tt=document.getElementById('srTitle');
+  if(!row||!vid) return;
+  SR.forEach((v,i)=>{
+    const b=document.createElement('button'); b.className='sr-item'+(i===0?' on':'');
+    b.innerHTML=`<img src="assets/vid/p-${v.f}.webp" alt="" loading="lazy"><span><small>${v.tag} · ${v.dur}</small><h4>${v.t}</h4></span>`;
+    b.addEventListener('click',()=>{
+      row.querySelectorAll('.sr-item').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+      vid.src=`assets/vid/${v.f}.mp4`; vid.poster=`assets/vid/p-${v.f}.webp`;
+      tt.textContent=(document.documentElement.lang==='fr'&&v.tf)?v.tf:v.t;
+      vid.play().catch(()=>{});
+      vid.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+    row.appendChild(b);
+  });
+})();
 /* Lightbox: photography projects open inside the site */
 (function(){
   const lb=document.getElementById('lightbox'); if(!lb) return;
@@ -792,7 +846,7 @@ s1t:"Contact & conseil",s1p:"On écoute votre idée et on définit le format : �
 s2t:"Préparation & tournage",s2p:"Scénario, lieu et matériel préparés, tournage avec lumière et cadrage pro.",
 s3t:"Montage & retouche",s3p:"Montage, couleurs, son et retouche photo — la touche visible dans le résultat final.",
 s4t:"Livraison & publication",s4p:"Le travail est livré prêt à publier en pleine qualité, avec un accompagnement sur la présentation au public.",
-cubeHint:"↔ Faites glisser pour tourner le cube",ytT:"🎬 Ses films & séries sur YouTube",ytAll:"La chaîne complète ←",fbT:"📘 Aussi sur Facebook — Mohssin Dradra Tv",fbP:"Ses films et épisodes sont aussi publiés sur sa page Facebook.",fbBtn:"Ouvrir la page ←",ctaFb:"📘 Facebook — Mohssin Dradra Tv",lbBtn:"Voir le post sur Instagram ←",tabWork:"Le travail",tabAct:"Le jeu d'acteur",spotChip:"Son épisode le plus vu",spotPlay:"Regardez l'épisode ici — sans quitter le site",spotP:"Son plus grand épisode : une histoire sur l'amitié et l'intérêt, massivement partagée. Cliquez sur ▶ pour le regarder ici même.",spotBtn:"L'ouvrir sur Instagram ←",svEx:"Voir des exemples ←",
+cubeHint:"↔ Faites glisser pour tourner le cube",ytT:"🎬 Ses films & séries sur YouTube",ytAll:"La chaîne complète ←",fbT:"📘 Aussi sur Facebook — Mohssin Dradra Tv",fbP:"Ses films et épisodes sont aussi publiés sur sa page Facebook.",fbBtn:"Ouvrir la page ←",ctaFb:"📘 Facebook — Mohssin Dradra Tv",lbBtn:"Voir le post sur Instagram ←",srT:"🎬 Ses projets — voyez par vous-même",srP:"De vrais projets vidéo filmés et montés par Mohsin lui-même — cliquez sur un projet pour le lire ici, sans quitter le site.",srNow:"À l'affiche :",tabWork:"Le travail",tabAct:"Le jeu d'acteur",spotChip:"Son épisode le plus vu",spotPlay:"Regardez l'épisode ici — sans quitter le site",spotP:"Son plus grand épisode : une histoire sur l'amitié et l'intérêt, massivement partagée. Cliquez sur ▶ pour le regarder ici même.",spotBtn:"L'ouvrir sur Instagram ←",svEx:"Voir des exemples ←",
 sv1i:"Scénario · Jeu & réalisation · Montage",sv2i:"Studio & extérieur · Mode & marques · Portraits",
 sv3t:"Vidéos d'entreprise",sv3p:"Vidéos institutionnelles pour entreprises, communes et commerces — comme la vidéo de la société de nettoyage de Gzenaya.",sv3i:"Tournage terrain · Montage pro · Prêt à publier",
 sv4i:"Idée & scénario · Jeu d'acteur · Production complète",
