@@ -23,16 +23,16 @@ var WA = function(msg){ return "https://wa.me/" + C.whatsapp + "?text=" + encode
 
 /* TUNNEL posters — real site photos, 4 per wall */
 var TUNNEL_PHOTOS = [
-  { src:"img/pharmacist-portrait.webp", alt:"Pharmacienne en blouse blanche devant les rayonnages — صيدلية" },
-  { src:"img/photo-rider-night.webp",   alt:"Livreur de nuit en scooter — موصّل بالليل" },
-  { src:"img/photo-pharmacy-shelves.webp", alt:"Intérieur de pharmacie — داخل الصيدلية" },
-  { src:"img/tangier-medina.webp",      alt:"Ruelle de la médina de Tanger le soir — زقاق في المدينة القديمة بطنجة" },
-  { src:"img/pharmacist-counter.webp",  alt:"Pharmacien au comptoir servant une cliente — الصيدلي عند الكونطوار" },
-  { src:"img/photo-mother-baby.webp",   alt:"Mère tenant son nouveau-né — أم مع رضيعها" },
-  { src:"img/rider-detail.webp",        alt:"Coursier avec casque et caisse de livraison — موصّل بصندوق التوصيل" },
-  { src:"img/photo-tangier.webp",       alt:"Rue du centre-ville de Tanger — شارع في وسط طنجة" },
-  { src:"img/photo-pharmacist.webp",    alt:"Pharmacien remettant un flacon à une cliente — الصيدلي كيسلم الدواء" },
-  { src:"img/photo-rider-delivery.webp", alt:"Courier preparing a parcel next to his motorcycle — موصّل كيجهز طلب" }
+  { src:"img/owner-hero.webp",       alt:"Le fondateur de PharmaLiv en uniforme, sac de livraison à la main, dans une pharmacie — صاحب PharmaLiv بزي الشركة وحقيبة التوصيل داخل صيدلية" },
+  { src:"img/owner-night.webp",      alt:"Livraison de nuit : le livreur PharmaLiv en casque devant une pharmacie éclairée — التوصيل بالليل: موصّل PharmaLiv بالخوذة قدام صيدلية مضيئة" },
+  { src:"img/owner-partner-p.webp",  alt:"Réception d'une commande au comptoir d'une pharmacie — استلام طلب عند كونطوار الصيدلية" },
+  { src:"img/owner-scooter.webp",    alt:"Le livreur PharmaLiv à scooter rue d'Italie à Tanger — موصّل PharmaLiv على دراجة نارية في شارع إيطاليا بطنجة" },
+  { src:"img/owner-dispatch-p.webp", alt:"Le dispatch PharmaLiv devant la carte des quartiers de Tanger — مركز طلبات PharmaLiv قدام خريطة أحياء طنجة" },
+  { src:"img/owner-handover.webp",   alt:"Remise d'une commande à domicile, à la porte de la cliente — تسليم طلب حتى لباب دار الزبونة" },
+  { src:"img/owner-mother-p.webp",   alt:"Livraison à domicile avec le sac PharmaLiv Tanger — التوصيل للمنزل بحقيبة PharmaLiv Tanger" },
+  { src:"img/owner-packing.webp",    alt:"Préparation d'une commande de médicaments en pharmacie — تجهيز طلب دواء داخل الصيدلية" },
+  { src:"img/owner-hero-b.webp",     alt:"Portrait du fondateur en uniforme PharmaLiv — صورة صاحب الشركة بزي PharmaLiv" },
+  { src:"img/owner-night-b.webp",    alt:"Service de nuit PharmaLiv : casque et caisse de livraison — خدمة الليل PharmaLiv: الخوذة وصندوق التوصيل" }
 ];
 var posters = [];
 var postersBox = document.getElementById("mpPosters");
@@ -72,18 +72,18 @@ if(nodesBox){
 
 /* REEL FLUX panels — all site photos with honest illustrative captions */
 var PANELS = [
-  { src:"img/photo-rider-hero.webp",     cap:"الموصّل في الطريق",   alt:"Livreur à scooter avec caisse de livraison — موصّل على دراجة نارية" },
-  { src:"img/pharmacist-counter.webp",   cap:"عند كونطوار الصيدلية", alt:"Pharmacien au comptoir — الصيدلي عند الكونطوار" },
-  { src:"img/photo-rider-night.webp",    cap:"خدمة الليل",           alt:"Livreur de nuit en scooter — موصّل بالليل" },
-  { src:"img/pharmacy-detail.webp",      cap:"رفوف الصيدلية",        alt:"Rayonnages de pharmacie — رفوف الصيدلية" },
-  { src:"img/photo-mother-baby.webp",    cap:"أم وطفل",              alt:"Mère tenant son nouveau-né — أم مع رضيعها" },
-  { src:"img/rider-detail.webp",         cap:"صندوق التوصيل",        alt:"Coursier avec caisse de livraison — موصّل بصندوق التوصيل" },
-  { src:"img/photo-tangier.webp",        cap:"طنجة",                 alt:"Rue du centre-ville de Tanger — شارع في طنجة" },
-  { src:"img/pharmacist-portrait.webp",  cap:"في الصيدلية",          alt:"Pharmacienne en blouse blanche — صيدلية" },
-  { src:"img/photo-rider-delivery.webp", cap:"تحضير الطلب",          alt:"Courier preparing a parcel — موصّل كيجهز طلب" },
-  { src:"img/tangier-medina.webp",       cap:"المدينة القديمة",      alt:"Ruelle de la médina de Tanger — زقاق في المدينة القديمة" },
-  { src:"img/photo-pharmacist.webp",     cap:"تسليم بالوصفة",        alt:"Pharmacien remettant un flacon à une cliente — الصيدلي كيسلم الدواء" },
-  { src:"img/photo-pharmacy-shelves.webp", cap:"من صيدلية الحراسة",  alt:"Intérieur de pharmacie — داخل الصيدلية" }
+  { src:"img/owner-scooter.webp",    cap:"الموصّل في الطريق",   alt:"Le livreur PharmaLiv à scooter rue d'Italie à Tanger — موصّل PharmaLiv على دراجة نارية في طنجة" },
+  { src:"img/owner-partner-p.webp",  cap:"عند كونطوار الصيدلية", alt:"Réception d'une commande au comptoir d'une pharmacie — استلام طلب عند كونطوار الصيدلية" },
+  { src:"img/owner-night.webp",      cap:"خدمة الليل",           alt:"Livraison de nuit devant une pharmacie de garde — التوصيل بالليل قدام صيدلية الحراسة" },
+  { src:"img/owner-packing.webp",    cap:"رفوف الصيدلية",        alt:"Préparation d'une commande devant les rayonnages de la pharmacie — تجهيز طلب قدام رفوف الصيدلية" },
+  { src:"img/owner-mother-p.webp",   cap:"حتى لباب الدار",        alt:"Livraison à domicile, sac PharmaLiv Tanger à la main — التوصيل حتى لباب الدار بحقيبة PharmaLiv" },
+  { src:"img/owner-handover.webp",   cap:"صندوق التوصيل",        alt:"Remise du sac de livraison PharmaLiv à une cliente — تسليم حقيبة PharmaLiv للزبونة" },
+  { src:"img/owner-dispatch-p.webp", cap:"طنجة",                 alt:"Le dispatch PharmaLiv devant la carte de Tanger — مركز الطلبات قدام خريطة طنجة" },
+  { src:"img/owner-hero.webp",       cap:"في الصيدلية",          alt:"Le fondateur de PharmaLiv en uniforme dans une pharmacie — صاحب PharmaLiv بزي الشركة داخل صيدلية" },
+  { src:"img/owner-packing-b.webp",  cap:"تحضير الطلب",          alt:"Le fondateur range un médicament dans le sac de livraison — صاحب الشركة كيحط دواء في حقيبة التوصيل" },
+  { src:"img/owner-scooter-b.webp",  cap:"قدام الصيدلية",        alt:"Le livreur PharmaLiv devant une pharmacie 24/24 à Tanger — موصّل PharmaLiv قدام صيدلية 24/24 في طنجة" },
+  { src:"img/owner-partner-p2.webp", cap:"تسليم بالوصفة",        alt:"La pharmacienne remet le sac de la commande au livreur — الصيدلية كتسلم حقيبة الطلب للموصّل" },
+  { src:"img/owner-night-b.webp",    cap:"من صيدلية الحراسة",    alt:"Le livreur de nuit PharmaLiv et sa caisse de livraison — موصّل الليل PharmaLiv وصندوق التوصيل" }
 ];
 var panels = [];
 var track = document.getElementById("mpTrack");
