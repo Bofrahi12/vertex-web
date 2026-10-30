@@ -350,3 +350,12 @@ body{overflow-x:clip}
 @media(min-width:900px){.poster-strip{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,auto);overflow:visible;scroll-snap-type:none;padding-bottom:.4rem}.poster-card{flex:none}}
 @media(hover:hover) and (pointer:fine){.poster-card:hover{transform:translateY(-7px) rotate(-.7deg);box-shadow:0 22px 44px rgba(3,46,40,.22);text-decoration:none}}
 @media(prefers-reduced-motion:reduce){.poster-card{transition:none}}
+
+/* ===== V3: terrain band — owner in the field (below posters) ===== */
+.terrain-strip{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.3rem .2rem 1.1rem;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.terrain-card{flex:0 0 82%;scroll-snap-align:center;margin:0;display:block;background:var(--card,#fff);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.30);transition:transform .35s ease,box-shadow .35s ease}
+.terrain-card img{display:block;width:100%;height:auto}
+.terrain-cap{display:block;text-align:center;padding:.55rem .5rem;font-weight:800;font-size:.95rem;color:#032e28;background:linear-gradient(180deg,rgba(10,155,126,.08),rgba(10,155,126,.16))}
+@media(min-width:900px){.terrain-strip{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;scroll-snap-type:none;padding-bottom:.4rem}.terrain-card{flex:none}}
+@media(hover:hover) and (pointer:fine){.terrain-card:hover{transform:translateY(-7px);box-shadow:0 24px 48px rgba(0,0,0,.42)}}
+@media(prefers-reduced-motion:reduce){.terrain-card{transition:none}}
