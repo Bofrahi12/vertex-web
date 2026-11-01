@@ -99,7 +99,7 @@ header.scrolled{background:rgba(11,18,32,.94);box-shadow:0 10px 30px rgba(2,6,14
 .fchip.batt{bottom:86px;inset-inline-end:-14px;color:var(--wa);animation-delay:1.4s}
 .fchip.batt .mini{width:44px;height:8px;border-radius:99px;background:#1B2B47;overflow:hidden}
 .fchip.batt .mini i{display:block;height:100%;width:86%;background:linear-gradient(90deg,var(--wa2),var(--wa))}
-@keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+@keyframes floaty{from{transform:translate3d(0,0,60px)}to{transform:translate3d(0,-9px,60px)}}
 .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
 .trust .t{display:flex;align-items:center;gap:11px;background:rgba(18,30,51,.72);border:1px solid var(--line);border-radius:14px;padding:13px 15px}
 .trust .ic{width:38px;height:38px;flex:none;border-radius:11px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);display:flex;align-items:center;justify-content:center;color:var(--acc)}
@@ -193,6 +193,61 @@ footer .contact a{color:var(--acc);font-weight:700}
 /* ---------- Reveal ---------- */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
 .rv.in{opacity:1;transform:none}
+/* ---------- 3D layer (v3) ---------- */
+.featured{perspective:1200px}
+.fstage{position:relative;transform-style:preserve-3d;will-change:transform}
+.featured .fcard{transform-style:preserve-3d;position:relative}
+.featured .fcard .ph{transform:translateZ(30px)}
+.featured .fname{transform:translateZ(18px)}
+.featured .fcard::after{content:"";position:absolute;inset:0;border-radius:26px;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.15),transparent 46%);opacity:var(--gl,0);transition:opacity .3s var(--ease);pointer-events:none;transform:translateZ(42px);z-index:3}
+@media(pointer:coarse){.featured .fcard{animation:idle3d 7s var(--ease) infinite alternate}}
+@keyframes idle3d{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+.sec-head.rv{transform:perspective(900px) translateZ(-36px) translateY(16px)}
+.sec-head.rv.in{transform:none}
+.card{position:relative}
+.card::before{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(340px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.10),transparent 46%);opacity:0;transition:opacity .3s var(--ease);pointer-events:none}
+#grid .card.tilt{transition:transform .15s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease)}
+#grid .card.tilt::before{opacity:1}
+.tool-panel.tilt{transition:transform .18s var(--ease)}
+/* ---------- Cover-flow ---------- */
+.cf{position:relative}
+.cf-track{display:flex;gap:14px;overflow-x:auto;padding:8px 2px 16px;scroll-snap-type:x mandatory}
+.cf-card{flex:0 0 230px;scroll-snap-align:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;user-select:none;-webkit-user-select:none}
+.cf-card .ph{aspect-ratio:1/1;background:#0A1526;overflow:hidden}
+.cf-card .ph img{width:100%;height:100%;object-fit:cover}
+.cf-card .bd{padding:14px;display:flex;flex-direction:column;gap:8px}
+.cf-card h3{font-size:16px;font-weight:800;line-height:1.5}
+.cf-card .batt .bar i{width:0}
+.cf.in .cf-card .batt .bar i{width:var(--w)}
+.cf-arrow,.cf-dots{display:none}
+.cf.on .cf-view{perspective:1400px;height:478px;overflow:hidden;touch-action:pan-y}
+.cf.on .cf-track{display:block;position:relative;height:100%;transform-style:preserve-3d;overflow:visible;padding:0;scroll-snap-type:none}
+.cf.on .cf-card{position:absolute;left:50%;top:50%;width:252px;flex:none;cursor:pointer;box-shadow:var(--sh);transition:none}
+.cf.on .cf-card:not(.cf-active){cursor:pointer}
+.cf-arrow{position:absolute;top:44%;z-index:30;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:rgba(13,23,40,.9);backdrop-filter:blur(6px);color:var(--acc);font-size:19px;font-weight:900;cursor:pointer;align-items:center;justify-content:center;font-family:inherit;transition:background .25s var(--ease),transform .25s var(--ease)}
+.cf-arrow:hover{background:rgba(34,211,238,.16)}
+.cf-arrow:active{transform:scale(.94)}
+.cf.on .cf-arrow{display:flex}
+.cf-prev{inset-inline-start:2px}
+.cf-next{inset-inline-end:2px}
+.cf-dots{gap:8px;justify-content:center;margin-top:4px}
+.cf.on .cf-dots{display:flex}
+.cf-dot{width:10px;height:10px;border-radius:99px;border:0;background:#2A4468;cursor:pointer;padding:0;transition:all .3s var(--ease)}
+.cf-dot.on{width:26px;background:var(--acc)}
+.cf-hint{text-align:center;color:var(--mut);font-size:13px;margin-top:10px}
+/* ---------- Persuasion comparison ---------- */
+.cmp{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card)}
+.cmp-row{display:grid;grid-template-columns:.72fr 1fr 1fr;border-top:1px solid var(--line)}
+.cmp-row:first-child{border-top:0}
+.cmp-row>*{padding:14px 16px;font-size:14.5px;line-height:1.6}
+.cmp-row b{font-weight:800;display:flex;align-items:center}
+.cmp-h{background:var(--card2);font-weight:900;font-size:14px}
+.cmp-h .newh{color:var(--acc)}
+.cmp .old{color:var(--mut)}
+.cmp .new{color:var(--txt);background:rgba(37,211,102,.055);border-inline-start:1px solid var(--line)}
+.cmp-row:not(.cmp-h) .old::before{content:"✕ ";color:#F87171;font-weight:900}
+.cmp-row:not(.cmp-h) .new::before{content:"✓ ";color:var(--wa);font-weight:900}
+@media(max-width:520px){.cf.on .cf-view{height:446px}.cf.on .cf-card{width:230px}.cmp-row>*{padding:10px 9px;font-size:12.5px}.cf-arrow{width:38px;height:38px;font-size:16px}}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:30px}.hero{padding:44px 0 38px}.featured{max-width:340px}.trust{grid-template-columns:repeat(2,1fr)}footer .cols{grid-template-columns:1fr 1fr}}
 @media(max-width:719px){#wafloat{padding:14px;border-radius:50%}#wafloat .wlbl{display:none}#wafloat svg{width:26px;height:26px}}
 @media(max-width:520px){.hd nav{display:none}.grid{grid-template-columns:repeat(2,1fr);gap:11px}.card h3{font-size:14px}.price{font-size:20px}.card .acts{flex-direction:column}.trust{grid-template-columns:1fr 1fr;gap:9px}.trust .t{padding:11px}.sec-t{font-size:22px}footer .cols{grid-template-columns:1fr}}
@@ -234,11 +289,13 @@ footer .contact a{color:var(--acc);font-weight:700}
 </div>
 </div>
 <div class="featured" aria-hidden="true">
+<div class="fstage" id="fstage">
 <div class="fchip price"><span><small>الثمن</small>4,650 د.م.</span></div>
 <div class="fchip batt"><span><small>البطارية</small>86%</span><span class="mini"><i></i></span></div>
 <div class="fcard" id="fcard">
 <div class="ph"><img src="demo-casabarata/assets/img_8963-300x300.png" alt="" loading="eager"></div>
 <div class="fname"><b>iPhone 15 – 128GB</b><span class="tag">هاتف</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -249,6 +306,47 @@ footer .contact a{color:var(--acc);font-weight:700}
 <div class="t"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2.5v3.5M15 2.5v3.5M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5"/></svg></span><span><b>القطع والإكسسوارات</b><small>شاشات وقطع غيار للهواتف</small></span></div>
 </div>
 </div></div>
+
+<section id="showcase"><div class="wrap">
+<div class="sec-head rv"><p class="sec-eyebrow">تشكيلة <span>— مميزة</span></p><h2 class="sec-t">الآيفونات المتوفرة — حرّكها بيدك</h2><p class="sec-s">اسحب أو استعمل الأسهم باش تقلّب بين الهواتف، وكليكي على اللي في الوسط باش تشوف التفاصيل.</p></div>
+<div class="cf" id="cf" tabindex="0" role="group" aria-label="تشكيلة الآيفونات المميزة">
+<div class="cf-view"><div class="cf-track" id="cfTrack">
+
+<article class="cf-card" data-brand="Apple" data-kind="phone" data-name="iPhone 15 – 128GB" data-price="4,650" data-batt="86" data-storage="128GB">
+<div class="ph"><img src="demo-casabarata/assets/img_8963-300x300.png" alt="صورة هاتف iPhone 15 بسعة 128GB" draggable="false"></div>
+<div class="bd"><span class="tag">هاتف</span><h3>iPhone 15 – 128GB</h3>
+<div class="batt"><span>البطارية</span><span class="bar"><i style="--w:86%"></i></span><b>86%</b></div>
+<div class="price">4,650<small>د.م.</small></div>
+</div></article>
+
+<article class="cf-card" data-brand="Apple" data-kind="phone" data-name="iPhone 13 Pro – 128GB" data-price="4,500" data-batt="92" data-storage="128GB">
+<div class="ph"><img src="demo-casabarata/assets/img_8967-1-300x300.png" alt="صورة هاتف iPhone 13 Pro بسعة 128GB" draggable="false"></div>
+<div class="bd"><span class="tag">هاتف</span><h3>iPhone 13 Pro – 128GB</h3>
+<div class="batt"><span>البطارية</span><span class="bar"><i style="--w:92%"></i></span><b>92%</b></div>
+<div class="price">4,500<small>د.م.</small></div>
+</div></article>
+
+<article class="cf-card" data-brand="Apple" data-kind="phone" data-name="iPhone 14 – 128GB" data-price="4,400" data-batt="85" data-storage="128GB">
+<div class="ph"><img src="demo-casabarata/assets/img_8965-300x300.png" alt="صورة هاتف iPhone 14 بسعة 128GB" draggable="false"></div>
+<div class="bd"><span class="tag">هاتف</span><h3>iPhone 14 – 128GB</h3>
+<div class="batt"><span>البطارية</span><span class="bar"><i style="--w:85%"></i></span><b>85%</b></div>
+<div class="price">4,400<small>د.م.</small></div>
+</div></article>
+
+<article class="cf-card" data-brand="Apple" data-kind="phone" data-name="iPhone 13 – 128GB" data-price="3,400" data-batt="88" data-storage="128GB">
+<div class="ph"><img src="demo-casabarata/assets/img_8964-300x300.png" alt="صورة هاتف iPhone 13 بسعة 128GB" draggable="false"></div>
+<div class="bd"><span class="tag">هاتف</span><h3>iPhone 13 – 128GB</h3>
+<div class="batt"><span>البطارية</span><span class="bar"><i style="--w:88%"></i></span><b>88%</b></div>
+<div class="price">3,400<small>د.م.</small></div>
+</div></article>
+
+</div></div>
+<button class="cf-arrow cf-prev" id="cfPrev" aria-label="الهاتف السابق">❯</button>
+<button class="cf-arrow cf-next" id="cfNext" aria-label="الهاتف الموالي">❮</button>
+<div class="cf-dots" id="cfDots"></div>
+<p class="cf-hint">اسحب يميناً أو يساراً للتقليب — وكليكي على الهاتف اللي في الوسط للتفاصيل</p>
+</div>
+</div></section>
 
 <section id="catalogue"><div class="wrap">
 <div class="sec-head rv"><p class="sec-eyebrow">01 <span>— الكاطالوغ</span></p><h2 class="sec-t">هواتف وقطع بثمن كامل ظاهر</h2><p class="sec-s">الثمن كامل ظاهر في كل بطاقة — بلا مفاجآت. البطارية معلنة بنسبة حقيقية للهواتف المستعملة.</p></div>
@@ -351,6 +449,17 @@ footer .contact a{color:var(--acc);font-weight:700}
 </div>
 </div></section>
 
+<section id="why"><div class="wrap">
+<div class="sec-head rv"><p class="sec-eyebrow">علاش <span>— تبدّل؟</span></p><h2 class="sec-t">موقعك الحالي مقابل هاد النسخة</h2><p class="sec-s">الفرق بين موقعك الحالي وهاد الديمو، نقطة بنقطة.</p></div>
+<div class="cmp rv" role="table" aria-label="مقارنة بين الموقع الحالي وهاد النسخة">
+<div class="cmp-row cmp-h" role="row"><span>الجانب</span><span>موقعك الحالي</span><span class="newh">هاد النسخة</span></div>
+<div class="cmp-row" role="row"><b>وزن الصفحة</b><span class="old">حوالي 349KB غير فـ HTML</span><span class="new">أقل من 80KB ملف كامل</span></div>
+<div class="cmp-row" role="row"><b>الوصول للمنتج</b><span class="old">المنتجات مدفونة وسط الصفحة</span><span class="new">بحث وفلترة فورية من أول شاشة</span></div>
+<div class="cmp-row" role="row"><b>طريقة الطلب</b><span class="old">إضافة إلى السلة ثم إتمام الطلب</span><span class="new">زر واتساب واحد برسالة معمّرة بالمنتج والثمن</span></div>
+<div class="cmp-row" role="row"><b>حالة البطارية</b><span class="old">مكتوبة داخل عنوان المنتج</span><span class="new">شريط بصري متحرك كيبان من أول نظرة</span></div>
+</div>
+</div></section>
+
 <section id="faq" class="alt"><div class="wrap">
 <div class="sec-head rv"><p class="sec-eyebrow">04 <span>— الأسئلة الشائعة</span></p><h2 class="sec-t">أسئلة كتتعاود</h2><p class="sec-s">أجوبة صريحة بلا وعود زائدة.</p></div>
 <div class="acc rv"><button class="acc-q" aria-expanded="false">كيفاش كنطلب منتج؟<span class="pm">+</span></button><div class="acc-a"><p>كليكي على زر «اطلب فواتساب» في بطاقة المنتج — كتتفتح محادثة واتساب مع المتجر وفيها رسالة جاهزة باسم المنتج وثمنو. التأكيد والتوفر كيتمّو فالمحادثة.</p></div></div>
@@ -397,18 +506,61 @@ setTimeout(finish,900); // hard failsafe — never hangs, independent of images
 // Header shadow on scroll
 var hdr=document.getElementById('hdr');
 window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10);},{passive:true});
-// Hero featured card: subtle scroll parallax (transform only)
-var fcard=document.getElementById('fcard');
-if(fcard&&!reduced){
-  var ticking=false;
-  window.addEventListener('scroll',function(){
-    if(ticking)return;ticking=true;
-    requestAnimationFrame(function(){
-      var y=window.scrollY;
-      if(y<700)fcard.style.transform='translateY('+(y*-0.045)+'px)';
-      ticking=false;
+// Hero 3D stage: pointer tilt with lerp + gloss (fine pointers); scroll rotation (touch); wrapper parallax
+var fstage=document.getElementById('fstage'),feat=document.querySelector('.featured'),fcard=document.getElementById('fcard');
+var finePointer=window.matchMedia('(pointer: fine)').matches;
+if(fstage&&feat&&!reduced){
+  if(finePointer){
+    var tX=0,tY=0,cX=0,cY=0,tiltRaf=null;
+    var renderTilt=function(){
+      cX+=(tX-cX)*.09; cY+=(tY-cY)*.09;
+      fstage.style.transform='rotateX('+cX.toFixed(2)+'deg) rotateY('+cY.toFixed(2)+'deg)';
+      if(Math.abs(tX-cX)>.02||Math.abs(tY-cY)>.02){tiltRaf=requestAnimationFrame(renderTilt);}else{tiltRaf=null;}
+    };
+    var kickTilt=function(){if(!tiltRaf)tiltRaf=requestAnimationFrame(renderTilt);};
+    feat.addEventListener('pointermove',function(e){
+      var r=feat.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+      tY=px*10; tX=-py*10;
+      if(fcard){fcard.style.setProperty('--gx',((px+.5)*100)+'%');fcard.style.setProperty('--gy',((py+.5)*100)+'%');fcard.style.setProperty('--gl','1');}
+      kickTilt();
     });
-  },{passive:true});
+    feat.addEventListener('pointerleave',function(){tX=0;tY=0;if(fcard)fcard.style.setProperty('--gl','0');kickTilt();});
+    var pTick=false;
+    window.addEventListener('scroll',function(){
+      if(pTick)return;pTick=true;
+      requestAnimationFrame(function(){var y=window.scrollY;if(y<700)feat.style.transform='translateY('+(y*-0.045)+'px)';pTick=false;});
+    },{passive:true});
+  }else{
+    var sTick=false;
+    window.addEventListener('scroll',function(){
+      if(sTick)return;sTick=true;
+      requestAnimationFrame(function(){
+        var y=window.scrollY;
+        if(y<700){feat.style.transform='translateY('+(y*-0.045)+'px)';var sc=Math.min(y,600)/600;fstage.style.transform='rotateY('+(-4+sc*8).toFixed(2)+'deg)';}
+        sTick=false;
+      });
+    },{passive:true});
+  }
+}
+// Subtle 3D tilt on catalogue cards + sell panel (fine pointers only)
+if(finePointer&&!reduced){
+  function addTilt(el,max){
+    if(!el)return;
+    el.addEventListener('pointermove',function(e){
+      var r=el.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+      el.classList.add('tilt');
+      el.style.transform='perspective(950px) rotateX('+(-py*max).toFixed(2)+'deg) rotateY('+(px*max).toFixed(2)+'deg)';
+      el.style.setProperty('--gx',((px+.5)*100)+'%'); el.style.setProperty('--gy',((py+.5)*100)+'%');
+    });
+    el.addEventListener('pointerleave',function(){
+      el.style.transform='';
+      setTimeout(function(){el.classList.remove('tilt');},180);
+    });
+  }
+  document.querySelectorAll('#grid .card').forEach(function(c){addTilt(c,5);});
+  addTilt(document.querySelector('.tool-panel'),3);
 }
 // WhatsApp order links + details modal per card
 document.querySelectorAll('.card').forEach(function(card){
@@ -463,6 +615,87 @@ document.querySelectorAll('.acc').forEach(function(acc){
     if(!isOpen){acc.classList.add('open');panel.style.maxHeight=panel.scrollHeight+'px';btn.setAttribute('aria-expanded','true');}
   });
 });
+// 3D cover-flow gallery (falls back to a native scroll row without JS 3D)
+var cf=document.getElementById('cf');
+if(cf){
+  var cfCards=[].slice.call(cf.querySelectorAll('.cf-card'));
+  cfCards.forEach(function(card){
+    card._wa=waLink('السلام، بغيت نطلب '+card.getAttribute('data-name')+' بثمن '+card.getAttribute('data-price')+' د.م. واش متوفر؟');
+  });
+  if('IntersectionObserver' in window){
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){cf.classList.add('in');cio.disconnect();}});},{threshold:.15});
+    cio.observe(cf);
+  }else{cf.classList.add('in');}
+  if(!reduced){
+    cf.classList.add('on');
+    var cfView=cf.querySelector('.cf-view'),cfDots=document.getElementById('cfDots');
+    var pos=0,target=0,cfRaf=null,interacted=false,cfDir=1,dragging=false,moved=0,startX=0,startPos=0;
+    cfCards.forEach(function(c,i){
+      var d=document.createElement('button');
+      d.className='cf-dot'; d.setAttribute('aria-label','عرض الهاتف '+(i+1));
+      d.addEventListener('click',function(){interacted=true;goCf(i);});
+      cfDots.appendChild(d);
+    });
+    var dots=[].slice.call(cfDots.children);
+    function stepPx(){return cfCards[0].offsetWidth*0.62;}
+    function clampT(n){return Math.max(0,Math.min(cfCards.length-1,n));}
+    function renderCf(){
+      pos+=(target-pos)*.13;
+      if(Math.abs(target-pos)<.001)pos=target;
+      cfCards.forEach(function(c,i){
+        var o=i-pos, ao=Math.abs(o);
+        var x=(pos-i)*stepPx();
+        var ry=Math.max(-52,Math.min(52,o*46));
+        c.style.transform='translate(-50%,-50%) translateX('+x.toFixed(1)+'px) translateZ('+(-ao*175).toFixed(1)+'px) rotateY('+ry.toFixed(1)+'deg)';
+        c.style.zIndex=String(20-Math.round(ao*2));
+        c.style.opacity=ao>2.3?'0':'1';
+        c.style.pointerEvents=ao>2.3?'none':'auto';
+        c.classList.toggle('cf-active',Math.round(pos)===i);
+      });
+      dots.forEach(function(d,i){d.classList.toggle('on',i===Math.round(pos));});
+      if(Math.abs(target-pos)>.001||dragging){cfRaf=requestAnimationFrame(renderCf);}else{cfRaf=null;}
+    }
+    function kickCf(){if(!cfRaf)cfRaf=requestAnimationFrame(renderCf);}
+    function goCf(n){target=clampT(n);kickCf();}
+    document.getElementById('cfNext').addEventListener('click',function(){interacted=true;goCf(target+1);});
+    document.getElementById('cfPrev').addEventListener('click',function(){interacted=true;goCf(target-1);});
+    cf.addEventListener('keydown',function(e){
+      if(e.key==='ArrowLeft'){interacted=true;goCf(target+1);}
+      else if(e.key==='ArrowRight'){interacted=true;goCf(target-1);}
+    });
+    var downIdx=-1;
+    cfView.addEventListener('pointerdown',function(e){
+      dragging=true;moved=0;startX=e.clientX;startPos=target;interacted=true;
+      var dc=e.target.closest?e.target.closest('.cf-card'):null;
+      downIdx=dc?cfCards.indexOf(dc):-1;
+      try{cfView.setPointerCapture(e.pointerId);}catch(_){}
+      kickCf();
+    });
+    cfView.addEventListener('pointermove',function(e){
+      if(!dragging)return;
+      var dx=e.clientX-startX; moved=Math.max(moved,Math.abs(dx));
+      target=clampT(startPos+dx/stepPx()); pos=target; kickCf();
+    });
+    function endDrag(){if(!dragging)return;dragging=false;target=clampT(Math.round(pos));kickCf();}
+    cfView.addEventListener('pointerup',function(){
+      var wasDrag=moved>8, di=downIdx;
+      endDrag(); downIdx=-1;
+      if(!wasDrag&&di>-1){
+        if(di===Math.round(pos)){openModal(cfCards[di],cfCards[di]._wa);}
+        else{interacted=true;goCf(di);}
+      }
+    });
+    cfView.addEventListener('pointercancel',function(){endDrag();downIdx=-1;});
+    var cfAuto=setInterval(function(){
+      if(interacted){clearInterval(cfAuto);return;}
+      var n=target+cfDir;
+      if(n>=cfCards.length-1){n=cfCards.length-1;cfDir=-1;}
+      if(n<=0){n=0;cfDir=1;}
+      goCf(n);
+    },3400);
+    kickCf();
+  }
+}
 // Reveal on scroll with stagger (<=60ms steps within each parent group)
 if('IntersectionObserver' in window&&!reduced){
   document.querySelectorAll('.rv').forEach(function(el){
