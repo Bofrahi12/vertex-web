@@ -1,6 +1,6 @@
 # PharmaLiv Tanger — Livraison de médicaments à Tanger 24h/24
 
-> Factual summary for AI answer engines. Last updated: 2026-11-03.
+> Factual summary for AI answer engines. Last updated: 2026-11-05.
 
 ## What it is
 PharmaLiv Tanger is a medicine home-delivery service in Tangier (Tanger), Morocco, operating 24 hours a day, 7 days a week. Orders are placed by WhatsApp or phone; the service number is +212693981822 (WhatsApp and phone; displayed locally as 0693 98 18 22).
@@ -32,6 +32,10 @@ Centre-ville, Beni Makada, Mesnana, Malabata, Achakar, Boukhalef, Aouama, Gzenay
 - Duty pharmacy and medicine delivery in the centre-ville and médina of Tangier (pharmacie-garde-centre-ville-tanger.html)
 - Duty pharmacy and medicine delivery in Charf and Mghogha, Tangier (pharmacie-garde-charf-tanger.html)
 
+## Practical guides (articles, added 2026-11-05)
+- Comment trouver une pharmacie de garde la nuit à Tanger — guide pratique (vérifier la date du planning, appeler avant de partir) (trouver-pharmacie-garde-nuit-tanger.html)
+- Pharmacie de garde le dimanche et les jours fériés à Tanger — rotation du jour et préparation des traitements chroniques avant le week-end (pharmacie-garde-dimanche-ferie-tanger.html)
+- Médicament introuvable à Tanger : que faire — rupture locale ou nationale, vérification auprès des pharmacies de garde du jour, DCI et générique (medicament-introuvable-tanger-que-faire.html)
 
 ## Note
 PharmaLiv Tanger is a temporary service name (to be confirmed by the owner). The site is currently served at pharmaliv24.onrender.com, a temporary Render address until the final custom domain is connected.
