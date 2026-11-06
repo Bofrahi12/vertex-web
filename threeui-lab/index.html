@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VERTEX WEB × ThreeUI — Démo laboratoire</title>
+<meta name="description" content="Démo VERTEX WEB : composants Three.js/WebGL de la bibliothèque open-source ThreeUI (MIT) intégrés à nos sites statiques.">
+<style>
+  :root{--bg:#05070d;--panel:#0a0f1c;--line:rgba(120,200,255,.16);--ink:#eef6ff;--dim:#9db8d6;--cy:#00e5ff;--bl:#2f7bff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+  #gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 38%,transparent 40%,rgba(5,7,13,.55) 100%);pointer-events:none}
+  nav{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:20px clamp(18px,5vw,56px)}
+  .logo{font-weight:800;letter-spacing:.14em;font-size:18px}
+  .logo b{color:var(--cy)}
+  .badge{font-size:11px;letter-spacing:.18em;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:rgba(10,15,28,.5);backdrop-filter:blur(8px)}
+  .hero-c{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px 20px 70px}
+  .kicker{font-size:12px;letter-spacing:.34em;color:var(--cy);text-transform:uppercase;margin-bottom:18px}
+  h1{font-size:clamp(38px,8.5vw,84px);line-height:1.04;font-weight:900;max-width:12ch}
+  h1 .grad{background:linear-gradient(92deg,var(--cy),var(--bl));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{margin-top:20px;color:var(--dim);font-size:clamp(15px,2.4vw,19px);max-width:56ch;line-height:1.65}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+  .btn{display:inline-block;padding:15px 30px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .25s,box-shadow .25s}
+  .btn-p{background:linear-gradient(92deg,var(--cy),var(--bl));color:#02131f;box-shadow:0 10px 34px rgba(0,180,255,.35)}
+  .btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(0,180,255,.5)}
+  .btn-g{border:1px solid var(--line);color:var(--ink);background:rgba(10,15,28,.45);backdrop-filter:blur(8px)}
+  .btn-g:hover{transform:translateY(-2px)}
+  .scroll-hint{position:relative;z-index:2;text-align:center;padding-bottom:22px;color:var(--dim);font-size:11px;letter-spacing:.3em}
+  /* ---------- SECTIONS ---------- */
+  section{padding:clamp(60px,10vw,110px) clamp(18px,6vw,72px);max-width:1180px;margin:0 auto}
+  .sec-k{font-size:11px;letter-spacing:.32em;color:var(--cy);text-transform:uppercase;margin-bottom:12px}
+  h2{font-size:clamp(26px,4.6vw,42px);font-weight:850;line-height:1.15;margin-bottom:14px}
+  .sec-sub{color:var(--dim);line-height:1.7;max-width:62ch}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:36px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}
+  .card h3{font-size:17px;margin-bottom:8px}
+  .card p{color:var(--dim);font-size:14px;line-height:1.65}
+  .card .tag{display:inline-block;font-size:10px;letter-spacing:.16em;color:var(--cy);border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin-bottom:14px}
+  /* ---------- LAB ---------- */
+  .lab{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:36px}
+  .lab iframe{width:100%;height:300px;border:0;display:block;background:#000}
+  .lab-cap{padding:18px 24px;color:var(--dim);font-size:14px;line-height:1.65;border-top:1px solid var(--line)}
+  .lab-cap b{color:var(--ink)}
+  /* ---------- PACKS ---------- */
+  .price{font-size:30px;font-weight:900;margin:6px 0 4px}
+  .price small{font-size:13px;color:var(--dim);font-weight:600}
+  .card ul{list-style:none;margin-top:12px;color:var(--dim);font-size:14px;line-height:2}
+  .card ul li::before{content:"✓ ";color:var(--cy);font-weight:800}
+  .card.hot{border-color:rgba(0,229,255,.55);box-shadow:0 0 0 1px rgba(0,229,255,.25),0 18px 50px rgba(0,140,255,.12)}
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:34px clamp(18px,6vw,72px);color:var(--dim);font-size:13px;line-height:1.8;text-align:center}
+  @media (max-width:480px){.lab iframe{height:240px}.badge{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <nav>
+    <div class="logo">VERTEX <b>WEB</b></div>
+    <div class="badge">LABO · THREEUI</div>
+  </nav>
+  <div class="hero-c">
+    <div class="kicker">WebGL · Three.js · Open-source</div>
+    <h1>Des sites qui ont l'air de <span class="grad">2026</span>, pas de 2016.</h1>
+    <p class="sub">Cette page tourne sur un vrai composant de <b>ThreeUI</b> — la bibliothèque open-source (MIT) de Meng&nbsp;To / DesignCode. Le fond animé derrière ce titre est son shader « Dot Matrix », intégré tel quel dans notre page statique.</p>
+    <div class="cta-row">
+      <a class="btn btn-p" href="https://wa.me/212693981822?text=Bonjour%20VERTEX%20WEB%2C%20je%20veux%20un%20site%20avec%20des%20effets%203D%20comme%20la%20d%C3%A9mo%20ThreeUI." target="_blank" rel="noopener">Je veux ce niveau pour mon business</a>
+      <a class="btn btn-g" href="#labo">Voir le composant en direct</a>
+    </div>
+  </div>
+  <div class="scroll-hint">DÉFILER ↓</div>
+</header>
+
+<section>
+  <div class="sec-k">Ce que ThreeUI apporte</div>
+  <h2>164 effets prêts — on choisit, on adapte, on livre.</h2>
+  <p class="sec-sub">Au lieu de réinventer chaque animation, on puise dans un catalogue professionnel : fonds WebGL, boutons shader, galeries 3D, textes animés. Chaque composant est procédural (100–200 Ko, sans images lourdes) et se re-thème aux couleurs du client.</p>
+  <div class="grid">
+    <div class="card"><span class="tag">HERO</span><h3>Fonds WebGL vivants</h3><p>Dot Matrix, Flow Field, Nebula, Constellation… un fond qui réagit à la souris et donne immédiatement le niveau « premium ».</p></div>
+    <div class="card"><span class="tag">CTA</span><h3>Boutons shader</h3><p>Liquid Metal, Generate, Gradient Beam : des boutons qui brillent et bougent — faits pour être cliqués (et pour WhatsApp).</p></div>
+    <div class="card"><span class="tag">PRODUITS</span><h3>Vitrines 3D</h3><p>Bookshelf, Gallery, Character Carousel : présenter des produits, un catalogue ou une équipe comme une scène, pas comme un tableau.</p></div>
+    <div class="card"><span class="tag">TEXTE</span><h3>Typographie animée</h3><p>Neon Typography, Text Path, Outline Flow : des titres qui entrent en scène au lieu d'apparaître statiques.</p></div>
+  </div>
+</section>
+
+<section id="labo" style="padding-top:0">
+  <div class="sec-k">Le labo</div>
+  <h2>Le bouton « Liquid Metal », en vrai, en direct.</h2>
+  <p class="sec-sub">Ce n'est pas une capture d'écran : le composant original de ThreeUI tourne ci-dessous, dans cette page. Touchez-le du doigt — le métal réagit.</p>
+  <div class="lab">
+    <iframe src="components/liquid-metal-button.html" title="ThreeUI Liquid Metal Button — composant réel" loading="lazy"></iframe>
+    <div class="lab-cap"><b>Composant :</b> Liquid Metal Button · ThreeUI Community (MIT) · source : github.com/MengTo/threeui — intégré sans modification.</div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sec-k">Nos packs</div>
+  <h2>Le même niveau, des prix clairs.</h2>
+  <div class="grid">
+    <div class="card"><h3>Landing</h3><div class="price">900 <small>DH</small></div><ul><li>Page unique qui convertit</li><li>Effet WebGL au choix</li><li>Bouton WhatsApp direct</li></ul></div>
+    <div class="card"><h3>Vitrine</h3><div class="price">1 900 <small>DH</small></div><ul><li>Site complet de présentation</li><li>Animations ThreeUI adaptées</li><li>Formulaire → WhatsApp</li></ul></div>
+    <div class="card"><h3>E-commerce</h3><div class="price">4 900 <small>DH</small></div><ul><li>Catalogue + commandes</li><li>Vitrine produits 3D</li><li>Paiement à la livraison</li></ul></div>
+    <div class="card hot"><h3>Site Cinéma</h3><div class="price">8 000 <small>DH</small></div><ul><li>Film défilant + scènes 3D</li><li>Système de commandes intégré</li><li>Le niveau de cette démo, en grand</li></ul></div>
+  </div>
+  <div class="cta-row" style="margin-top:40px">
+    <a class="btn btn-p" href="https://wa.me/212693981822?text=Bonjour%20VERTEX%20WEB%2C%20je%20veux%20discuter%20d%27un%20site%20pour%20mon%20business." target="_blank" rel="noopener">Discuter sur WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  Démo laboratoire VERTEX WEB — Tanger · Composants : ThreeUI Community © Meng To / DesignCode, licence MIT (fichier THREEUI-LICENSE.txt joint au projet).<br>
+  Les prix affichés sont les packs publics VERTEX WEB. Cette page est une démo technique, pas un site client.
+</footer>
+
+<script>
+(function(){
+  // ===== ThreeUI "Dot Matrix" hero — fragment shader from
+  // ===== src/shaders/dot-matrix/dotMatrixShaders.ts (MIT, MengTo/threeui)
+  var FRAG = [
+    "precision highp float;",
+    "uniform float uTime;","uniform vec2 uResolution;","uniform vec2 uMouse;",
+    "uniform float uGridScale;","uniform float uMouseAmount;","uniform float uPulseSpeed;",
+    "uniform float uRadius;","uniform float uOpacity;","varying vec2 vUv;",
+    "void main(){",
+    "  vec2 uv = gl_FragCoord.xy / uResolution.xy;",
+    "  float aspect = uResolution.x / uResolution.y;",
+    "  uv.x *= aspect;",
+    "  uv += uMouse * uMouseAmount;",
+    "  vec2 grid = fract(uv * uGridScale);",
+    "  vec2 id = floor(uv * uGridScale);",
+    "  float dist = length(grid - vec2(0.5));",
+    "  float pulse = sin(uTime * uPulseSpeed + id.x * 0.05 + id.y * 0.05) * 0.5 + 0.5;",
+    "  float radius = 0.08 + pulse * uRadius;",
+    "  float alpha = smoothstep(radius, radius - 0.05, dist);",
+    "  vec2 center = vec2(0.5 * aspect, 0.5);",
+    "  float depthFade = smoothstep(1.2, 0.1, length(uv - center));",
+    "  vec3 color = vec3(0.0, 0.9, 1.0) * pulse;",
+    "  gl_FragColor = vec4(color, alpha * depthFade * uOpacity);",
+    "}"
+  ].join("\n");
+  var VERT = "attribute vec2 p; varying vec2 vUv; void main(){ vUv = p*0.5+0.5; gl_Position = vec4(p,0.0,1.0); }";
+  var cv = document.getElementById('gl');
+  var gl = cv.getContext('webgl', {alpha:false, antialias:false, powerPreference:'low-power'});
+  if(!gl){ cv.style.display='none'; return; }
+  function sh(t, src){ var s = gl.createShader(t); gl.shaderSource(s, src); gl.compileShader(s); return s; }
+  var pr = gl.createProgram();
+  gl.attachShader(pr, sh(gl.VERTEX_SHADER, VERT));
+  gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FRAG));
+  gl.linkProgram(pr); gl.useProgram(pr);
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  var loc = gl.getAttribLocation(pr, 'p');
+  gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  var U = {};
+  ['uTime','uResolution','uMouse','uGridScale','uMouseAmount','uPulseSpeed','uRadius','uOpacity'].forEach(function(n){ U[n]=gl.getUniformLocation(pr,n); });
+  var mx=0,my=0,tx=0,ty=0, running=true, visible=true;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function resize(){
+    var dpr = Math.min(window.devicePixelRatio||1, 1.5);
+    cv.width = Math.floor(cv.clientWidth*dpr); cv.height = Math.floor(cv.clientHeight*dpr);
+    gl.viewport(0,0,cv.width,cv.height);
+  }
+  resize(); window.addEventListener('resize', resize);
+  window.addEventListener('pointermove', function(e){ tx=(e.clientX/window.innerWidth-0.5); ty=(e.clientY/window.innerHeight-0.5); }, {passive:true});
+  document.addEventListener('visibilitychange', function(){ running = !document.hidden; if(running && !reduced) requestAnimationFrame(frame); });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ visible = en[0].isIntersecting; if(visible && running && !reduced) requestAnimationFrame(frame); }).observe(cv);
+  }
+  var t0 = performance.now();
+  function frame(now){
+    if(!running || !visible){ return; }
+    mx += (tx-mx)*0.04; my += (ty-my)*0.04;
+    gl.uniform1f(U.uTime, (now-t0)/1000);
+    gl.uniform2f(U.uResolution, cv.width, cv.height);
+    gl.uniform2f(U.uMouse, mx, -my);
+    gl.uniform1f(U.uGridScale, 26.0);
+    gl.uniform1f(U.uMouseAmount, 0.12);
+    gl.uniform1f(U.uPulseSpeed, 1.4);
+    gl.uniform1f(U.uRadius, 0.22);
+    gl.uniform1f(U.uOpacity, 0.85);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    if(!reduced) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
