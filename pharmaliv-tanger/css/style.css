@@ -413,3 +413,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible,input:focus-visible,sel
 .garde-note p{margin-bottom:.45rem;line-height:1.7}
 .garde-note p:last-child{margin-bottom:0}
 .garde-src{font-size:.93rem;color:#5a6f6a}
+
+/* Garde du jour — strip "today in this quartier" (regen-garde.py, 2026-11-12) */
+.garde-today-quartier{background:#eef7ee;border-right:4px solid #1d7a3d;padding:.8rem 1rem;border-radius:8px;margin:1rem 0}
+.garde-verif{color:#1d7a3d;font-weight:700}
