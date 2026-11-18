@@ -77,6 +77,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 #gl{position:absolute;inset:0;width:100%;height:100%}
 #fallback3d{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;transition:opacity .6s ease}
 #fallback3d img{height:86svh;max-width:92vw;object-fit:contain;filter:drop-shadow(0 24px 60px rgba(0,0,0,.6))}
+#fallback3d video{height:86svh;max-width:92vw;object-fit:contain;filter:drop-shadow(0 24px 60px rgba(0,0,0,.6))}
 #fallback3d.gone{opacity:0;pointer-events:none}
 .pin .vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 52%,rgba(0,0,0,.6));z-index:3}
 .pin .frame{position:absolute;inset:14px;border:1px solid rgba(244,240,230,.13);pointer-events:none;z-index:3}
@@ -98,10 +99,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ovl .ticks{margin-top:18px;display:grid;gap:8px;justify-items:start}
 .ovl .ticks span{background:rgba(10,10,12,.72);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--ivory)}
 .ovl .specs-mini{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--sand)}
-.reel-lines{margin-top:16px}
-.reel-lines .rl{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(25px,3.2vw,42px);line-height:1.14;color:#fff;text-shadow:0 4px 34px rgba(0,0,0,.7)}
-.reel-lines .rl + .rl{margin-top:2px}
-.reel-lines .rl.gold em{font-style:italic;color:var(--sand)}
 #ov1 p{margin-top:16px}
 #ov1{left:0;top:13svh;padding:0 38px;max-width:760px}
 #ov1 .over{font-family:var(--mono);font-size:11px;letter-spacing:.55em;color:#fff;margin-bottom:14px}
@@ -124,16 +121,26 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 #skipAnim{position:absolute;top:84px;right:24px;bottom:auto;left:auto;z-index:9;background:rgba(10,10,12,.8);border:1px solid var(--line);color:#cfc7b2;padding:9px 16px;border-radius:99px;font-size:13.5px;font-weight:700;backdrop-filter:blur(6px)}
 #skipAnim:hover{color:#fff;border-color:var(--sand)}
+/* ---- opening video controls (real reel) ---- */
+#soundBtn{position:absolute;top:132px;right:24px;z-index:9;display:flex;align-items:center;gap:8px;background:rgba(10,10,12,.8);border:1px solid var(--line);color:#ece7db;padding:10px 18px;border-radius:99px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;backdrop-filter:blur(6px)}
+#soundBtn:hover{color:#fff;border-color:var(--sand)}
+#soundBtn .ic{font-size:15px}
+#playBtn{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:9;width:84px;height:84px;border-radius:50%;background:rgba(10,10,12,.72);border:1.5px solid var(--sand);color:#fff;font-size:30px;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+#playBtn.show{display:flex}
+#playBtn:hover{background:rgba(200,180,138,.85);color:#12100d}
+body.static #soundBtn,body.static #playBtn{display:none}
+@media(max-width:820px){#soundBtn{right:16px;top:76px;padding:9px 14px}}
 @media(max-width:820px){
   #ov1,#ov2,#ov3{padding:0 20px;top:6.5svh}
+  /* repli (avant WebGL) : la vidéo descend pour que son visage reste
+     sous le texte d'ouverture — en 3D le plan est déjà décalé (y −1.2) */
+  #fallback3d video{transform:translateY(16svh)}
   #ov1 h1{font-size:clamp(46px,12.5vw,64px)}
   #ov1 p{margin-top:10px}
   #ov1 .cta-row{margin-top:14px}
   #ov2{text-align:left}
   #ov4{padding:0 16px}
   #skipAnim{display:none}
-  .reel-lines{margin-top:10px}
-  .reel-lines .rl{font-size:clamp(18px,4.8vw,26px);line-height:1.08}
 }
 /* ---- static mode (no WebGL / reduced motion / weak device) ---- */
 body.static .pin,html:not(.js) .pin{height:auto;min-height:0;overflow:visible}
@@ -141,6 +148,7 @@ body.static #glwrap,body.static #scrollcue,body.static #skipAnim,body.static #ra
 html:not(.js) #glwrap,html:not(.js) #scrollcue,html:not(.js) #skipAnim,html:not(.js) #rail{display:none}
 body.static #fallback3d,html:not(.js) #fallback3d{position:relative;inset:auto;height:min(58svh,560px);margin-top:64px}
 body.static #fallback3d img,html:not(.js) #fallback3d img{height:100%;max-height:560px}
+body.static #fallback3d video,html:not(.js) #fallback3d video{height:100%;max-height:560px;transform:none}
 body.static .ovl,html:not(.js) .ovl{position:relative;inset:auto;transform:none!important}
 body.static #ov2,body.static #ov3,body.static #ov4,
 html:not(.js) #ov2,html:not(.js) #ov3,html:not(.js) #ov4{display:none}
@@ -336,7 +344,7 @@ document.addEventListener('click', function(e){
 <section class="stage" id="stage" data-chap="01" aria-label="Chorouk Realty — expérience 3D">
  <div class="pin" id="pin">
   <div class="grid-bg" aria-hidden="true"></div>
-  <div id="fallback3d"><img src="demo-chorouk/img/chorouk-reel-cover.jpg" alt="Chorouk Karrouk, en blazer noir, devant un palmier et la mer à Achakkar — image réelle tirée de son reel Instagram du 1er novembre 2026" width="1290" height="2294" fetchpriority="high"></div>
+  <div id="fallback3d"><video id="reelVideo" src="demo-chorouk/vid/chorouk-reel.mp4" poster="demo-chorouk/img/chorouk-reel-cover.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Vidéo réelle de Chorouk Realty — Villas Achakkar, reel Instagram du 1er novembre 2026"></video></div>
   <div id="glwrap" aria-hidden="true"><canvas id="gl"></canvas></div>
   <div class="vig" aria-hidden="true"></div><div class="frame" aria-hidden="true"></div>
   <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span><span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
@@ -344,12 +352,6 @@ document.addEventListener('click', function(e){
   <div class="ovl" id="ov1">
     <div class="over">CHOROUK REALTY — TANGER · MAROC</div>
     <h1>CHOR<em>OUK</em></h1>
-    <div class="reel-lines" aria-label="Today Achakkar speaks for itself — Exceptional comfort, and strong investment potential — Opportunities">
-      <span class="rl">TODAY ACHAKKAR<br>SPEAKS FOR ITSELF</span>
-      <span class="rl">EXCEPTIONAL COMFORT,</span>
-      <span class="rl">AND STRONG INVESTMENT<br>POTENTIAL</span>
-      <span class="rl gold"><em>OPPORTUNITIES</em></span>
-    </div>
     <p>Trois projets, une même exigence : des villas d'exception à Tanger, présentées par Chorouk — faites défiler, la visite commence avec elle.</p>
     <div class="cta-row">
       <a class="btn solid" href="#projets">Découvrir les projets ↓</a>
@@ -399,6 +401,8 @@ document.addEventListener('click', function(e){
   </div>
 
   <button id="skipAnim" type="button">Passer la 3D ⤓</button>
+  <button id="soundBtn" type="button" aria-label="Activer le son de la vidéo"><span class="ic">🔇</span><span id="soundLbl">SON COUPÉ</span></button>
+  <button id="playBtn" type="button" aria-label="Lire la vidéo de Chorouk">▶</button>
   <div id="scrollcue" aria-hidden="true">DÉFILER<i></i></div>
  </div>
 </section>
@@ -552,7 +556,7 @@ document.addEventListener('click', function(e){
 <footer>
   <div class="ft"><div><div class="label">CHOROUK REALTY — TANGER</div><p style="margin-top:10px;color:#9a927e;font-size:13.5px;max-width:330px;line-height:1.6">Démonstration 3D Vertex Web pour Chorouk Realty : trois projets à Tanger — Villas Achakkar, villa de 2 000 m² et villas d'exception.</p></div><nav><a href="#projets">LES PROJETS</a><a href="#equipements">ÉQUIPEMENTS</a><a href="#who">CHOROUK</a><a href="portfolio.html">PORTFOLIO</a></nav></div>
   <div class="ft-brand" aria-hidden="true">CHOROUK</div>
-  <div class="honest">Démonstration 3D Vertex Web — prix sur demande partout (aucun prix publié par la cliente). Projet 01 : Villas Achakkar, en cours de construction — surfaces des villas I/II/III à confirmer. Projet 02 : villa de 2 000 m² / 5 chambres citée d'après la vidéo de Chorouk Realty du 31 octobre 2026. Projet 03 : Villas d'exception — positionnement de Chorouk Realty (citation exacte de sa publication du 31 octobre 2026), adresse, surface et prix non inventés : à confirmer. Visuels : la photo d'ouverture est l'image réelle du reel Instagram de Chorouk du 1er novembre 2026 ; les autres vidéos et photographies sont des illustrations réelles (Pexels · Unsplash) et une image d'illustration du chantier — ce ne sont pas des photos du projet réel d'Achakkar.</div>
+  <div class="honest">Démonstration 3D Vertex Web — prix sur demande partout (aucun prix publié par la cliente). Projet 01 : Villas Achakkar, en cours de construction — surfaces des villas I/II/III à confirmer. Projet 02 : villa de 2 000 m² / 5 chambres citée d'après la vidéo de Chorouk Realty du 31 octobre 2026. Projet 03 : Villas d'exception — positionnement de Chorouk Realty (citation exacte de sa publication du 31 octobre 2026), adresse, surface et prix non inventés : à confirmer. Visuels : la vidéo d'ouverture est le reel Instagram réel de Chorouk du 1er novembre 2026 (79 s, voix réelle) ; les autres vidéos et photographies sont des illustrations réelles (Pexels · Unsplash) et une image d'illustration du chantier — ce ne sont pas des photos du projet réel d'Achakkar.</div>
   <div class="ft-credit">صُمّم وبُني بـ <a href="index.html">فيرتكس ويب — VERTEX WEB</a> · طنجة، المغرب · 2026</div>
 </footer>
 </main>
@@ -585,12 +589,33 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('[data-chap]').forEach(function(s){ io.observe(s); });
   var vio = new IntersectionObserver(function(es){ es.forEach(function(e){ var v = e.target; if (e.isIntersecting) { var p = v.play(); if (p) p.catch(function(){}); } else v.pause(); }); }, { threshold:.12 });
   document.querySelectorAll('#showcase video').forEach(function(v){ vio.observe(v); });
+  /* opening video (reel réel) : lecture auto muette au chargement + reprise
+     à l'arrivée dans la vue ; boutons son / lecture pour les téléphones */
+  var rv = document.getElementById('reelVideo');
+  var soundBtn = document.getElementById('soundBtn'), soundLbl = document.getElementById('soundLbl'), playBtn = document.getElementById('playBtn');
+  function rvPlay(){ if (rv) { var p = rv.play(); if (p) p.catch(function(){}); } }
+  if (rv) {
+    rvPlay();
+    rv.addEventListener('play', function(){ if (playBtn) playBtn.classList.remove('show'); });
+    rv.addEventListener('pause', function(){ if (playBtn) playBtn.classList.add('show'); });
+    setTimeout(function(){ if (rv.paused && playBtn) playBtn.classList.add('show'); }, 1200);
+    var stageEl = document.getElementById('stage');
+    if (stageEl) {
+      var rvIO = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) rvPlay(); else rv.pause(); }); }, { threshold:.12 });
+      rvIO.observe(stageEl);
+    }
+  }
+  if (playBtn) playBtn.addEventListener('click', function(){ rvPlay(); });
+  if (soundBtn) soundBtn.addEventListener('click', function(){
+    if (!rv) return;
+    rv.muted = !rv.muted;
+    if (!rv.muted) rvPlay();
+    var ic = soundBtn.querySelector('.ic'); if (ic) ic.textContent = rv.muted ? '🔇' : '🔊';
+    if (soundLbl) soundLbl.textContent = rv.muted ? 'SON COUPÉ' : 'SON ACTIVÉ';
+  });
   var rio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('vx-in'); rio.unobserve(e.target); } }); }, { threshold:.12 });
   document.querySelectorAll('section, .card, article').forEach(function(el){ el.classList.add('vx-rv'); rio.observe(el); });
 }
-/* reel-lines : titres exacts du reel, révélés dans l'ordre au chargement
-   (animation des enfants de #ov1 : aucun conflit avec le fade du parent) */
-if (window.gsap) gsap.from('.reel-lines .rl', { y: 34, opacity: 0, duration: .8, stagger: .2, delay: 1.0, ease: 'power3.out' });
 /* booking → WhatsApp */
 var u = document.getElementById('bkUnit'), d = document.getElementById('bkDate'), m = document.getElementById('bkMode'), b = document.getElementById('bkGo'), o = document.getElementById('bkOut'), n = document.getElementById('bkNote');
 if (u && b) b.addEventListener('click', function(){
@@ -607,7 +632,7 @@ if (u && b) b.addEventListener('click', function(){
 <script type="module">
 /* ================================================================
    CHOROUK REALTY 3D — moteur de scène (pattern maison demo-burger)
-   5 scènes, 1 par projet : Ouverture (Chorouk, image réelle du reel)
+   5 scènes, 1 par projet : Ouverture (Chorouk, vidéo réelle du reel)
    → Projet 01 Achakkar → Projet 02 Villa 2 000 m² → Projet 03
    Villas d'exception → Clôture. WebGL paresseux (2 s max) avec
    repli statique : la page complète sans WebGL.
@@ -666,7 +691,7 @@ const SCENES = [
   }}
 ];
 const LAYER_SRC = {
-  portrait: { make: 'portrait', src: 'demo-chorouk/img/chorouk-reel-cover.jpg', w: 3.3 },
+  portrait: { make: 'video', src: 'demo-chorouk/vid/chorouk-reel.mp4', poster: 'demo-chorouk/img/chorouk-reel-cover.jpg', w: 3.3 },
   chantier: { make: 'card', src: 'demo-chorouk/vid/chantier.jpg', label: 'LE CHANTIER — DE LA GRUE À LA CLÉ', w: 5.6, cw: 1024, ch: 640 },
   villa1:   { make: 'card', src: 'demo-chorouk/img/villa-jardin.jpg', label: 'VILLA ACHAKKAR I — PRIX SUR DEMANDE', w: 3.4 },
   villa2:   { make: 'card', src: 'demo-chorouk/img/villa-piscine.jpg', label: 'VILLA ACHAKKAR II — PRIX SUR DEMANDE', w: 3.4 },
@@ -706,6 +731,8 @@ function goStatic() {
   if (mode === 'static') { document.body.classList.add('static'); return; }
   mode = 'static';
   document.body.classList.add('static');
+  /* vidéo d'ouverture : contrôles natifs en mode statique (boutons perso masqués par CSS) */
+  var rvS = document.getElementById('reelVideo'); if (rvS) rvS.setAttribute('controls', '');
   const st = window.ScrollTrigger && ScrollTrigger.getById('stage');
   if (st) st.kill(true);
   if (tl) { tl.kill(); tl = null; }
@@ -781,6 +808,9 @@ if (mode === 'animated') {
   }
 } else {
   document.body.classList.add('static');
+  /* mode statique d'entrée : contrôles natifs sur la vidéo d'ouverture
+     (les boutons perso sont masqués par CSS en mode statique) */
+  var rv0 = document.getElementById('reelVideo'); if (rv0) rv0.setAttribute('controls', '');
 }
 
 /* ---- WebGL : init paresseuse, 2 s max ---- */
@@ -830,21 +860,6 @@ function initGL() {
         const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
         return { tex: t, aspect: c.height / c.width };
       }
-      async function portraitTexture(src) {
-        const img = await loadImg(src);
-        const c = document.createElement('canvas'); c.width = 900; c.height = 1500;
-        const x = c.getContext('2d');
-        cover(x, img, 0, 0, 900, 1352);
-        x.fillStyle = '#0c0a08'; x.fillRect(0, 1352, 900, 148);
-        x.fillStyle = '#c8b48a'; x.fillRect(28, 1352, 34, 4);
-        x.fillStyle = '#f4f0e6'; x.font = '700 38px Archivo, sans-serif';
-        x.fillText('CHOROUK KARROUK', 28, 1412);
-        x.fillStyle = '#c8b48a'; x.font = '22px "Space Mono", monospace';
-        x.fillText('ACHAKKAR — REEL INSTAGRAM · 1 NOV 2026', 28, 1456);
-        x.strokeStyle = 'rgba(200,180,138,.55)'; x.lineWidth = 3; x.strokeRect(2, 2, 896, 1496);
-        const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
-        return { tex: t, aspect: 1500 / 900 };
-      }
       function glowTexture() {
         const c = document.createElement('canvas'); c.width = 512; c.height = 512;
         const x = c.getContext('2d');
@@ -867,12 +882,36 @@ function initGL() {
       for (const [key, d] of Object.entries(LAYER_SRC)) {
         if (key === 'sea') continue;
         let r;
-        if (d.make === 'portrait') r = await portraitTexture(d.src);
+        if (d.make === 'video') {
+          /* portrait : texture poster d'abord (même ratio que la vidéo 9:16),
+             puis VideoTexture sur l'élément <video> partagé #reelVideo */
+          const poster = await loadImg(d.poster);
+          const c = document.createElement('canvas'); c.width = 900; c.height = 1600;
+          cover(c.getContext('2d'), poster, 0, 0, 900, 1600);
+          const pt = new THREE.CanvasTexture(c); pt.colorSpace = THREE.SRGBColorSpace; pt.anisotropy = 4;
+          r = { tex: pt, aspect: 1600 / 900 };
+        }
         else r = await cardTexture(d.src, d.label, d.cw, d.ch);
         if (settled || mode !== 'animated') return;
         const m = new THREE.Mesh(new THREE.PlaneGeometry(d.w, d.w * r.aspect),
           new THREE.MeshBasicMaterial({ map: r.tex, transparent: true, depthWrite: false }));
         m.renderOrder = 5; scene.add(m); meshes[key] = m;
+      }
+      /* portrait vidéo : la texture suit l'élément <video> partagé (#reelVideo) —
+         un seul élément, un seul téléchargement, pour le repli ET la 3D */
+      {
+        const v = document.getElementById('reelVideo');
+        const pm = meshes.portrait;
+        if (v && pm) {
+          const swapToVideo = () => {
+            const vt = new THREE.VideoTexture(v);
+            vt.colorSpace = THREE.SRGBColorSpace; vt.anisotropy = 4;
+            pm.material.map = vt; pm.material.needsUpdate = true;
+          };
+          const tryPlay = () => { const p = v.play(); if (p) p.then(swapToVideo).catch(() => {}); else swapToVideo(); };
+          if (v.readyState >= 2) tryPlay();
+          else v.addEventListener('canplay', tryPlay, { once: true });
+        }
       }
       // sea : poster d'abord, vidéo réelle ensuite si elle démarre
       const seaDef = LAYER_SRC.sea;

@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHOROUK REALTY — Trois projets d'exception à Tanger | Site 3D</title>
+<meta name="description" content="Chorouk Realty — Villas Achakkar, villa de luxe 2 000 m² et villas d'exception à Tanger. Visite 3D réelle, vidéo réelle, visite privée sur WhatsApp.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@400;600;800&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#12100d; --char2:#1a1712; --ivory:#f4f0e6; --sand:#c8b48a; --gold:#d9a441; --red:#a03d2a;
+  --line:rgba(244,240,230,.18); --serif:'Cormorant Garamond',serif; --sans:'Archivo',sans-serif; --mono:'Space Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{background:var(--char);color:var(--ivory);font-family:var(--sans);line-height:1.55}
+::selection{background:var(--sand);color:var(--char)}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--sand);outline-offset:3px}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.38em;text-transform:uppercase}
+.grain{position:fixed;inset:-100px;z-index:200;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr 7s steps(8) infinite}
+@keyframes gr{0%,100%{transform:translate(0,0)}25%{transform:translate(-30px,20px)}50%{transform:translate(20px,-25px)}75%{transform:translate(-15px,-10px)}}
+@media(max-width:768px){.grain{animation:none}}
+/* ---- loader (timer-based, cannot hang) ---- */
+#loader{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:#0c0a08;transition:opacity .7s ease}
+#loader.done{opacity:0;pointer-events:none}
+#loader .core{text-align:center}
+#loader .lg{font-family:var(--serif);font-size:clamp(26px,4.6vw,46px);letter-spacing:.14em}
+#loader .ct{font-family:var(--serif);font-style:italic;font-size:clamp(58px,11vw,120px);line-height:1;color:var(--sand)}
+#loader .bar{width:min(300px,60vw);height:1px;background:#ffffff26;margin:16px auto 0}
+#loader .fill{height:100%;width:0;background:var(--sand);transition:width .2s}
+#loader .tg{font-family:var(--mono);font-size:10px;letter-spacing:.4em;color:#ffffff7d;margin-top:12px}
+/* ---- header / nav ---- */
+header.site{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 28px;background:linear-gradient(rgba(12,10,8,.82),rgba(12,10,8,.55) 70%,transparent);transition:background .3s}
+header.site.scrolled{background:rgba(12,10,8,.92);backdrop-filter:blur(10px)}
+.logo{font-family:var(--serif);font-size:23px;letter-spacing:.16em}
+.logo em{font-style:italic;color:var(--sand)}
+nav.main{display:flex;gap:26px;align-items:center}
+nav.main a{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.85;padding:6px 0;border-bottom:1.5px solid transparent}
+nav.main a:hover{opacity:1;color:var(--sand)}
+nav.main a.active{color:var(--sand);border-color:var(--sand);opacity:1}
+.nav-cta{font-family:var(--mono);font-size:11px;letter-spacing:.22em;border:1.5px solid #fff;border-radius:99px;padding:10px 18px;white-space:nowrap}
+.nav-cta:hover{background:var(--sand);border-color:var(--sand);color:var(--char)}
+#burger{display:none;flex-direction:column;gap:5px;padding:8px}
+#burger i{display:block;width:24px;height:2px;background:#fff}
+@media(max-width:980px){
+  nav.main{position:fixed;top:0;right:0;bottom:0;width:min(320px,84vw);background:#0c0a08;flex-direction:column;align-items:flex-start;justify-content:center;padding:80px 32px;gap:22px;transform:translateX(102%);transition:transform .35s ease;z-index:400;box-shadow:-20px 0 60px rgba(0,0,0,.5)}
+  nav.main.open{transform:none}
+  nav.main a{font-size:14px}
+  #burger{display:flex;z-index:401}
+  .nav-cta{display:none}
+}
+#navClose{display:none}
+@media(max-width:980px){#navClose{display:block;position:absolute;top:20px;right:22px;font-size:26px;color:var(--sand)}}
+/* ---- buttons ---- */
+.btn{display:inline-flex;padding:16px 30px;border-radius:99px;border:1.5px solid var(--ivory);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:.3s;color:var(--ivory)}
+.btn.solid{background:var(--ivory);color:var(--char)}
+.btn:hover{background:var(--sand);border-color:var(--sand);color:var(--char)}
+.btn-ghost{background:transparent}
+/* ---- 3D viewer ---- */
+.villa3d{position:relative;width:100%;height:100%;min-height:420px;background:linear-gradient(180deg,#1b2a44 0%,#5c4450 45%,#c96f3a 72%,#2a1a12 100%);overflow:hidden}
+.villa3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.villa3d canvas:active{cursor:grabbing}
+.villa3d .vfb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.villa3d.no-webgl .vfb{display:block}
+.villa3d.no-webgl canvas{display:none}
+.villa3d .vctrl{position:absolute;left:50%;transform:translateX(-50%);bottom:18px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;z-index:5;width:calc(100% - 24px)}
+.villa3d .vctrl button{background:rgba(10,10,12,.72);border:1px solid var(--line);color:var(--ivory);border-radius:99px;padding:9px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;backdrop-filter:blur(6px)}
+.villa3d .vctrl button:hover{border-color:var(--sand);color:#fff}
+.villa3d .vctrl button.on{background:var(--sand);color:var(--char);border-color:var(--sand)}
+.villa3d .vhint{position:absolute;top:78px;left:50%;transform:translateX(-50%);z-index:5;font-family:var(--mono);font-size:10px;letter-spacing:.34em;color:#ffffffb8;background:rgba(10,10,12,.55);padding:7px 14px;border-radius:99px;white-space:nowrap;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis}
+.villa3d .vbadge{position:absolute;top:78px;right:14px;z-index:5;font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--sand);background:rgba(10,10,12,.6);padding:7px 12px;border-radius:99px}
+/* ---- hero ---- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end}
+.hero .villa3d{position:absolute;inset:0;min-height:0}
+.hero .hero-in{position:relative;z-index:6;padding:104px 5vw 84px;max-width:900px}
+.hero .over{font-family:var(--mono);font-size:11px;letter-spacing:.55em;color:#fff;margin-bottom:16px;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(50px,8.6vw,120px);line-height:.98;letter-spacing:.02em;color:#fff;text-shadow:0 10px 60px rgba(0,0,0,.55)}
+.hero h1 em{font-style:italic;color:var(--sand)}
+.hero p.lead{color:#f0ead8;font-size:clamp(15px,1.6vw,18px);line-height:1.65;max-width:520px;margin-top:18px;text-shadow:0 2px 16px rgba(0,0,0,.85)}
+.hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero .meta{display:flex;gap:18px;margin-top:24px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:#ffffffc9;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+.hero .scrollcue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:6;color:#ffffffa6;font-family:var(--mono);font-size:10px;letter-spacing:.42em;text-align:center}
+.hero .scrollcue i{display:block;width:1px;height:42px;background:linear-gradient(#fff,transparent);margin:8px auto 0;animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:820px){
+  .hero .hero-in{padding:110px 20px 96px}
+  .hero h1{font-size:clamp(46px,12.5vw,64px)}
+  .hero .scrollcue{display:none}
+}
+.hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;background:#0b0a08}
+.hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-video .hero-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,7,5,.5),rgba(8,7,5,.12) 38%,rgba(8,7,5,.18) 62%,rgba(8,7,5,.78)),linear-gradient(90deg,rgba(8,7,5,.62),rgba(8,7,5,.15) 65%,transparent)}
+.hero-vbtns{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;position:relative;z-index:7}
+.hero-vbtns button{background:rgba(10,10,12,.72);border:1px solid var(--line);color:var(--ivory);border-radius:99px;padding:10px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;backdrop-filter:blur(6px)}
+.hero-vbtns button:hover{border-color:var(--sand);color:#fff}
+/* ---- generic sections ---- */
+section.blk{padding:120px 5vw}
+section.blk.light{background:var(--ivory);color:var(--char)}
+section.blk.dark{background:var(--char)}
+section.blk.dark2{background:var(--char2)}
+.blk .label{color:#8a6f3c}
+.blk.dark .label,.blk.dark2 .label{color:var(--sand)}
+.blk h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5.4vw,68px);line-height:1.1;margin:16px 0 16px;max-width:900px}
+.blk h2 em{color:var(--red)}
+.blk.dark h2 em,.blk.dark2 h2 em{color:var(--sand)}
+.blk .intro{max-width:640px;font-size:15.5px;line-height:1.7;color:#454036}
+.blk.dark .intro,.blk.dark2 .intro{color:#d9d2bf}
+.blk .intro + .intro{margin-top:12px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1.5px solid #12100d2b}
+.pillar{padding:28px 26px 6px;border-left:1.5px solid #12100d2b}
+.pillar:first-child{border-left:0;padding-left:0}
+.pillar b{font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.2em}
+.pillar h4{font-family:var(--serif);font-size:25px;font-weight:600;margin:10px 0 8px}
+.pillar p{font-size:14.5px;line-height:1.65;color:#454036}
+@media(max-width:820px){.pillars{grid-template-columns:1fr}.pillar{border-left:0;padding-left:0;border-top:1px solid #12100d1f}.pillar:first-child{border-top:0}}
+/* ---- project cards ---- */
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:54px 34px;margin-top:48px}
+.card .ph{overflow:hidden;aspect-ratio:4/3;background:#ddd}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.19,1,.22,1)}
+.card:hover .ph img{transform:scale(1.06)}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:18px}
+.card .n{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.2em}
+.card h3{font-family:var(--serif);font-size:29px;font-weight:600;margin-top:6px}
+.card .d{font-size:14.5px;color:#454036;margin-top:5px}
+.card .pr{font-family:var(--serif);font-size:24px;white-space:nowrap}
+.card .visit{display:inline-block;margin-top:13px;font-family:var(--mono);font-size:11px;letter-spacing:.26em;border-bottom:1.5px solid var(--char);padding-bottom:4px}
+.card .visit:hover{color:var(--red);border-color:var(--red)}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+/* ---- split / steps / specs ---- */
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;margin-top:40px}
+.split .ph{overflow:hidden;aspect-ratio:4/3;background:#ddd}
+.split .ph.tall{aspect-ratio:4/5}
+.split .ph img{width:100%;height:100%;object-fit:cover}
+.split h4{font-family:var(--serif);font-size:26px;font-weight:600;margin:0 0 10px}
+.split p{font-size:15px;line-height:1.7;color:#454036}
+.split p + p{margin-top:10px}
+.mini-specs{margin-top:22px;border-top:1px solid #12100d2b}
+.mini-specs div{display:flex;justify-content:space-between;gap:14px;padding:12px 2px;border-bottom:1px solid #12100d2b;font-size:14px}
+.mini-specs span{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--red);white-space:nowrap}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.cta-row a{font-family:var(--mono);font-size:11px;letter-spacing:.24em;border-bottom:1.5px solid var(--char);padding-bottom:4px}
+.cta-row a:hover{color:var(--red);border-color:var(--red)}
+.dark .cta-row a{border-color:var(--ivory);color:var(--ivory)}
+.dark .cta-row a:hover{color:var(--sand);border-color:var(--sand)}
+.steps{margin-top:34px;border-top:1px solid var(--line)}
+.steps div{display:flex;justify-content:space-between;gap:14px;padding:15px 2px;border-bottom:1px solid var(--line);font-size:14.5px}
+.steps span{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--sand);white-space:nowrap}
+.quote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(26px,3.4vw,40px);line-height:1.25;color:var(--char);max-width:680px;margin-top:8px}
+.src{margin-top:14px;font-size:12.5px;color:#6b6455;line-height:1.6}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+/* ---- reel video ---- */
+.reel{display:grid;grid-template-columns:1.15fr 1fr;min-height:80vh;background:var(--char2)}
+.reel .vidwrap{position:relative;min-height:60vh;background:#000}
+.reel .vidwrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reel .txt{padding:100px 5vw;display:flex;flex-direction:column;justify-content:center}
+.reel .label{color:var(--sand)}
+.reel h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.6vw,58px);line-height:1.1;margin:18px 0 16px}
+.reel h2 em{color:var(--sand)}
+.reel p{font-size:15.5px;line-height:1.7;color:#d9d2bf;max-width:440px}
+.reel p + p{margin-top:12px}
+.reel .vbtns{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.reel .vbtns button{background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--ivory);border-radius:99px;padding:10px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.2em}
+.reel .vbtns button:hover{border-color:var(--sand);color:#fff}
+@media(max-width:820px){.reel{grid-template-columns:1fr}.reel .vidwrap{min-height:52vh}}
+/* ---- equipements ---- */
+.equip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1.5px solid var(--line);margin-top:54px}
+.eq{padding:30px 26px;border-left:1.5px solid var(--line);border-bottom:1.5px solid var(--line)}
+.eq:nth-child(3n+1){border-left:0;padding-left:0}
+.eq .ico{font-size:30px}
+.eq h4{font-family:var(--serif);font-size:24px;font-weight:600;margin:12px 0 8px}
+.eq p{font-size:14px;line-height:1.65;color:#cfc7b2}
+@media(max-width:820px){.equip{grid-template-columns:1fr}.eq{border-left:0;padding-left:0}}
+/* ---- who ---- */
+.who{position:relative;padding:140px 5vw 120px;overflow:hidden;background:#0b0a08}
+.who .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;filter:grayscale(.35)}
+.who .wveil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,8,6,.9),rgba(9,8,6,.5) 60%,rgba(9,8,6,.78))}
+.who .in{position:relative;z-index:2;max-width:860px}
+.who h2{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7.4vw,96px);line-height:1;margin:16px 0 22px}
+.who h2 em{color:var(--sand)}
+.who p{font-size:16.5px;line-height:1.75;color:#e6dfcd;max-width:640px}
+.who p+p{margin-top:14px}
+.values{margin-top:48px;border-top:1px solid var(--line);max-width:760px}
+.values div{display:flex;gap:20px;align-items:baseline;padding:19px 2px;border-bottom:1px solid var(--line)}
+.values b{font-family:var(--mono);font-size:12px;color:var(--sand)}
+.values h4{font-family:var(--serif);font-size:23px;font-weight:600;min-width:230px}
+.values p{font-size:14px;color:#cfc7b2}
+@media(max-width:820px){.values h4{min-width:0}.values div{flex-wrap:wrap;gap:6px}}
+/* ---- booking ---- */
+.book{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;max-width:900px;background:#fff;border:1px solid #12100d22;padding:22px;margin-top:44px}
+.book label{display:flex;flex-direction:column;gap:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;color:#8a6f3c;flex:1;min-width:200px}
+.book select,.book input{padding:13px;border:1px solid #12100d33;background:#f4f0e6;color:#12100d;font-size:14.5px;font-family:var(--sans);width:100%}
+#bkGo{border:1.5px solid var(--char);background:var(--char);color:var(--ivory);padding:14px 24px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;cursor:pointer}
+#bkGo:hover{background:var(--red);border-color:var(--red)}
+.bk-note{width:100%;font-size:12.5px;color:#6b6455;line-height:1.6}
+.bk-out{width:100%;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--red)}
+/* ---- finale / footer ---- */
+.finale{position:relative;padding:150px 5vw 110px;overflow:hidden;text-align:center}
+.finale .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.finale .fveil{position:absolute;inset:0;background:rgba(8,7,5,.62)}
+.finale .in{position:relative;z-index:2}
+.finale h2{font-family:var(--serif);font-weight:500;font-size:clamp(38px,6.6vw,88px);line-height:1.05;margin:18px auto;max-width:880px}
+.finale h2 em{color:var(--sand)}
+.finale p{color:#e6dfcd;font-size:16px;max-width:520px;margin:0 auto 32px;line-height:1.7}
+footer{background:#080706;padding:64px 5vw 0;overflow:hidden}
+.ft{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:40px}
+.ft .label{color:#ffffff70}
+.ft nav{display:flex;gap:24px;font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;flex-wrap:wrap}
+.ft nav a{opacity:.8}.ft nav a:hover{opacity:1;color:var(--sand)}
+.ft-brand{font-family:var(--serif);font-size:14vw;line-height:.8;text-align:center;letter-spacing:.03em;color:var(--ivory);transform:translateY(15%);user-select:none;white-space:nowrap}
+.ft-credit{text-align:center;font-size:13px;color:#9a927e;padding:14px 0 20px;position:relative;z-index:2;background:#080706}
+.ft-credit a{color:var(--sand);font-weight:800}
+.honest{text-align:center;font-size:12px;color:#8b8474;padding:0 5vw 18px;background:#080706;position:relative;z-index:2;line-height:1.7}
+.waf{position:fixed;bottom:24px;right:20px;z-index:195;background:#22c064;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+.viewer-wrap{position:relative;height:min(72vh,640px);min-height:420px;margin-top:40px;border:1px solid var(--line)}
+.viewer-wrap .villa3d{min-height:0}
+.page-head{padding:150px 5vw 0}
+.page-head h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7vw,96px);line-height:1.02;margin:16px 0}
+.page-head h1 em{color:var(--sand);font-style:italic}
+.page-head.light h1 em{color:var(--red)}
+.page-head .lede{max-width:640px;font-size:16px;line-height:1.7;color:#d9d2bf}
+.page-head.light .lede{color:#454036}
+@media(max-width:820px){.page-head{padding:120px 20px 0}}
+/* ---- Airbnb-grade: filters, wishlist, trust, map, steps ---- */
+.filterbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:34px 0 8px}
+.searchbox{flex:1;min-width:220px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #12100d33;border-radius:99px;padding:12px 20px}
+.searchbox input{border:0;outline:0;background:none;font:inherit;font-size:15px;width:100%;color:var(--char)}
+.searchbox span{font-size:17px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;border:1.5px solid #12100d33;border-radius:99px;padding:10px 18px;background:#fff;color:var(--char);transition:.25s;white-space:nowrap}
+.chip:hover{border-color:var(--char)}
+.chip.on{background:var(--char);color:var(--ivory);border-color:var(--char)}
+#filterCount{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#8a6f3c;margin:14px 0 0}
+.card .ph{position:relative}
+.heart{position:absolute;top:12px;right:12px;z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(12,10,8,.6);backdrop-filter:blur(4px);color:#fff;font-size:19px;display:flex;align-items:center;justify-content:center;transition:.25s;border:1px solid rgba(255,255,255,.25)}
+.heart:hover{transform:scale(1.1)}
+.heart.saved{background:var(--red);border-color:var(--red);color:#fff}
+.spec-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.spec-chips span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;background:#12100d0d;border:1px solid #12100d22;border-radius:99px;padding:6px 12px;color:#454036}
+.badge{position:absolute;top:12px;left:12px;z-index:3;font-family:var(--mono);font-size:10px;letter-spacing:.22em;background:var(--ivory);color:var(--char);border-radius:99px;padding:7px 13px}
+.favpill{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ivory);border:1.5px solid rgba(255,255,255,.4);border-radius:99px;padding:10px 16px;white-space:nowrap}
+.favpill:hover{border-color:var(--sand);color:var(--sand)}
+.favpill b{color:var(--sand)}
+@media(max-width:980px){.favpill{display:none}}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line);margin-top:56px}
+.trust-item{padding:30px 24px;border-left:1.5px solid var(--line)}
+.trust-item:first-child{border-left:0;padding-left:0}
+.trust-item .big{font-family:var(--serif);font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.05}
+.trust-item .big em{color:var(--sand);font-style:italic}
+.trust-item p{font-size:13.5px;color:#cfc7b2;margin-top:8px;line-height:1.6}
+@media(max-width:820px){.trust{grid-template-columns:1fr 1fr}.trust-item{border-left:0;border-top:1px solid var(--line);padding-left:0}.trust-item:nth-child(-n+2){border-top:0}}
+.mapbox{margin-top:44px;border:1px solid #12100d22;background:#0e0c09;border-radius:4px;overflow:hidden}
+.mapbox svg{display:block;width:100%;height:auto}
+.map-dist{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #12100d2b;margin-top:0}
+.map-dist div{padding:22px;border-left:1.5px solid #12100d2b}
+.map-dist div:first-child{border-left:0;padding-left:0}
+.map-dist b{font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.18em;display:block}
+.map-dist h4{font-family:var(--serif);font-size:23px;font-weight:600;margin:8px 0 4px}
+.map-dist p{font-size:13.5px;color:#454036;line-height:1.6}
+@media(max-width:820px){.map-dist{grid-template-columns:1fr}.map-dist div{border-left:0;border-top:1px solid #12100d1f;padding-left:0}.map-dist div:first-child{border-top:0}}
+.map-note{font-size:12px;color:#8a8474;margin-top:14px}
+.bksteps{display:flex;gap:0;margin-top:44px;max-width:900px}
+.bkstep{flex:1;padding:16px 12px 0 4px;border-top:2px solid #12100d22;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:#8a6f3c;text-transform:uppercase}
+.bkstep b{display:block;font-family:var(--serif);font-size:21px;color:var(--char);letter-spacing:0;text-transform:none;margin-top:6px}
+.bkstep.on{border-color:var(--red);color:var(--red)}
+@media(max-width:820px){.bkstep{font-size:9px}.bkstep b{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="loader" aria-hidden="true"><div class="core"><div class="lg">CHOROUK REALTY</div><div class="ct" id="lcount">0</div><div class="bar"><div class="fill" id="lfill"></div></div><div class="tg">TROIS PROJETS — TANGER · 3D</div></div></div>
+<div class="grain"></div>
+<header class="site" id="siteHeader">
+  <a class="logo" href="#/">CHOROUK<em> REALTY</em></a>
+  <nav class="main" id="mainNav" aria-label="Navigation principale">
+    <button id="navClose" type="button" aria-label="Fermer le menu">✕</button>
+    <a href="#/" data-route="">Accueil</a>
+    <a href="#/projets" data-route="projets">Les Projets</a>
+    <a href="#/projet-01" data-route="projet-01">Achakkar</a>
+    <a href="#/projet-02" data-route="projet-02">Villa 2 000 m²</a>
+    <a href="#/projet-03" data-route="projet-03">Exception</a>
+    <a href="#/a-propos" data-route="a-propos">À Propos</a>
+    <a href="#/contact" data-route="contact">Contact</a>
+  </nav>
+  <a class="favpill" href="#/projets" title="Vos villas favorites">♥ <b id="favCount">0</b> FAVORI(S)</a>
+  <a class="nav-cta" href="https://wa.me/212693981822?text=Bonjour%20Chorouk%20Realty%2C%20je%20veux%20une%20visite%20priv%C3%A9e%20%C3%A0%20Tanger" target="_blank" rel="noopener">VISITE PRIVÉE</a>
+  <button id="burger" type="button" aria-label="Ouvrir le menu"><i></i><i></i><i></i></button>
+</header>
+<main id="app"></main>
+<a class="waf" target="_blank" rel="noopener" href="https://wa.me/212693981822?text=Bonjour%20Chorouk%20Realty%2C%20je%20veux%20une%20visite%20priv%C3%A9e%20%C3%A0%20Tanger" aria-label="WhatsApp">✆</a>
+<script>
+/* ================= PAGES (hash routing, French copy from the verified demo) ================= */
+const WA = 'https://wa.me/212693981822';
+const wa = t => WA + '?text=' + encodeURIComponent(t);
+const FOOTER = `
+<footer>
+  <div class="ft"><div><div class="label">CHOROUK REALTY — TANGER</div><p style="margin-top:10px;color:#9a927e;font-size:13.5px;max-width:330px;line-height:1.6">Trois projets à Tanger — Villas Achakkar, villa de 2 000 m² et villas d'exception. Visite 3D réelle, vidéo réelle, visite privée sur WhatsApp.</p></div><nav><a href="#/projets">LES PROJETS</a><a href="#/projet-01">ACHAKKAR</a><a href="#/projet-02">VILLA 2 000 M²</a><a href="#/a-propos">CHOROUK</a><a href="#/contact">CONTACT</a></nav></div>
+  <div class="ft-brand" aria-hidden="true">CHOROUK</div>
+  <div class="honest">Prix sur demande partout — aucun prix publié par la cliente. Projet 01 : Villas Achakkar, en cours de construction — surfaces des villas I/II/III à confirmer. Projet 02 : villa de 2 000 m² / 5 chambres citée d'après la vidéo de Chorouk Realty du 31 octobre 2026. Projet 03 : Villas d'exception — positionnement de Chorouk Realty (citation exacte de sa publication du 31 octobre 2026), adresse, surface et prix non inventés : à confirmer. Visuels : la vidéo d'ouverture est le reel Instagram réel de Chorouk du 1er novembre 2026 (79 s, voix réelle) ; les autres vidéos et photographies sont des illustrations réelles (Pexels · Unsplash) et une image d'illustration du chantier — ce ne sont pas des photos du projet réel d'Achakkar.</div>
+  <div class="ft-credit">CHOROUK REALTY · Tanger, Maroc · 2026 — <a href="https://www.instagram.com/chorouk.realty/" target="_blank" rel="noopener">@chorouk.realty</a></div>
+</footer>`;
+
+const CTA_VISITE = `<a class="btn solid" href="${wa('Bonjour Chorouk Realty, je veux une visite privée à Tanger')}" target="_blank" rel="noopener">Réserver une visite</a>`;
+
+const PAGES = {
+'': `
+<section class="hero">
+  <div class="hero-video">
+    <img class="hero-fallback" src="assets/img/chorouk-reel-cover.jpg" alt="Chorouk Realty — villa moderne à Tanger">
+    <video id="heroVideo" src="assets/vid/chorouk-reel-web.mp4" poster="assets/img/chorouk-reel-cover.jpg" autoplay muted loop playsinline preload="auto" aria-label="Vidéo réelle de Chorouk Realty — reel Instagram du 1er novembre 2026"></video>
+    <div class="hero-veil"></div>
+  </div>
+  <div class="hero-in">
+    <div class="over">CHOROUK REALTY — TANGER · MAROC</div>
+    <h1>Trois projets,<br>une même <em>exigence.</em></h1>
+    <p class="lead">Des villas d'exception à Tanger, présentées par Chorouk — la visite commence en vidéo, puis en 3D.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="#/projets">Découvrir les projets ↓</a>
+      <a class="btn btn-ghost" href="${wa('Bonjour Chorouk Realty, je veux une visite privée à Tanger')}" target="_blank" rel="noopener">Visite privée</a>
+    </div>
+    <div class="hero-vbtns">
+      <button type="button" id="reelPlay">▶ LIRE / PAUSE</button>
+      <button type="button" id="reelSound">🔇 SON COUPÉ</button>
+    </div>
+    <div class="meta"><span>3 PROJETS</span><span>5 MIN MER</span><span>10 MIN AUTOROUTE</span><span>PISCINE PRIVÉE</span></div>
+  </div>
+  <div class="scrollcue">DÉFILER<i></i></div>
+</section>
+
+<section class="blk dark" id="visite-3d">
+  <div class="label">Visite 3D — La villa en 3D réelle</div>
+  <h2>Faites pivoter <em>la villa.</em></h2>
+  <p class="intro">Une villa moderne en 3D réelle — deux étages, piscine privée, pergola et palmiers au coucher du soleil. Glissez pour la faire tourner, choisissez votre angle.</p>
+  <div class="viewer-wrap">
+    <div class="villa3d" data-villa data-preset="exterieur" data-autorotate="1">
+      <img class="vfb" src="assets/img/chorouk-reel-cover.jpg" alt="Chorouk Realty — villa moderne à Tanger">
+      <span class="vbadge">3D RÉELLE · THREE.JS</span>
+      <span class="vhint">GLISSEZ POUR FAIRE PIVOTER LA VILLA</span>
+      <div class="vctrl">
+        <button type="button" data-view="exterieur" class="on">EXTÉRIEUR</button>
+        <button type="button" data-view="piscine">PISCINE</button>
+        <button type="button" data-view="interieur">INTÉRIEUR</button>
+        <button type="button" data-play>❚❚ PAUSE</button>
+      </div>
+    </div>
+  </div>
+  <div class="cta-row" style="margin-top:34px"><a href="#/projets">DÉCOUVRIR LES PROJETS →</a></div>
+</section>
+
+<section class="blk light">
+  <div class="label">Le manifeste — Achakkar</div>
+  <h2>Un cadre de vie privilégié où <em>confort, élégance et nature</em> se rencontrent.</h2>
+  <p class="intro">« Découvrez un cadre de vie privilégié où confort, élégance et nature se rencontrent. Des villas spacieuses avec piscine privée et espaces verts, pensées pour vous offrir intimité, sérénité et qualité de vie. À quelques minutes de la mer, profitez d'un environnement idéal pour vivre ou investir. »</p>
+  <p class="intro">Achakkar est un quartier qui grandit vite : un nouveau pôle de vie à Tanger, entre la mer et les collines vertes — un endroit pour vivre, et un endroit pour investir.</p>
+  <div class="pillars">
+    <div class="pillar"><b>01</b><h4>Vivre</h4><p>Une villa à vous, un jardin à vous, une piscine à vous. Le calme d'un quartier résidentiel, à quelques minutes de la plage.</p></div>
+    <div class="pillar"><b>02</b><h4>Investir</h4><p>Un secteur en pleine croissance, proche de la mer et de l'autoroute : une adresse qui prend de la valeur, année après année.</p></div>
+    <div class="pillar"><b>03</b><h4>Être accompagné</h4><p>Chorouk, MBA et Project Manager, vous guide de la première visite à la remise des clés — en français, en arabe ou en anglais.</p></div>
+  </div>
+</section>
+
+<section class="blk light" style="padding-top:0">
+  <div class="label">Les projets — Chorouk Realty</div>
+  <h2>Trois projets, <em>une même exigence.</em></h2>
+  <p class="intro">Chorouk ne vend pas des adresses au hasard : elle choisit des projets, les suit sur le chantier, et les présente un par un.</p>
+  <div class="grid">
+    <article class="card"><div class="ph"><a href="#/projet-01"><img src="assets/img/villa-jardin.jpg" alt="Villa moderne blanche avec piscine privée" loading="lazy"></a><span class="badge">EN COURS</span><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button></div><div class="row"><div><div class="n">N°01 — ACHAKKAR · EN COURS</div><h3>Villas Achakkar</h3><p class="d">Piscine privée · Jardin · 2 étages</p></div><div class="pr">Prix sur demande</div></div><a class="visit" href="#/projet-01">VOIR LE PROJET →</a></article>
+    <article class="card"><div class="ph"><a href="#/projet-02"><img src="assets/img/interieur-lumiere.jpg" alt="Intérieur lumineux d'une villa moderne" loading="lazy"></a><span class="badge">2 000 M²</span><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button></div><div class="row"><div><div class="n">N°02 — TANGER · 2 000 M²</div><h3>La villa de 2 000 m²</h3><p class="d">5 chambres · Cheminée en marbre · Piscine + pergola</p></div><div class="pr">Prix sur demande</div></div><a class="visit" href="#/projet-02">VOIR LE PROJET →</a></article>
+    <article class="card"><div class="ph"><a href="#/projet-03"><img src="assets/vid/posters-hero.jpg" alt="Villas avec piscines au bord de la mer, vue aérienne" loading="lazy"></a><span class="badge">SIGNATURE</span><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button></div><div class="row"><div><div class="n">N°03 — VILLAS D'EXCEPTION</div><h3>Villas d'exception</h3><p class="d">« More than a property, a lifestyle. »</p></div><div class="pr">Prix sur demande</div></div><a class="visit" href="#/projet-03">VOIR LE PROJET →</a></article>
+  </div>
+</section>
+
+<section class="blk dark">
+  <div class="label">Équipements &amp; cadre de vie</div>
+  <h2>Tout est là, <em>à quelques minutes.</em></h2>
+  <div class="equip">
+    <div class="eq"><div class="ico">🏊</div><h4>Piscine privée</h4><p>Chaque villa a sa propre piscine — nager chez soi, quand on veut.</p></div>
+    <div class="eq"><div class="ico">🌿</div><h4>Espaces verts</h4><p>Des jardins et des espaces verts pensés pour respirer, en famille.</p></div>
+    <div class="eq"><div class="ico">☕</div><h4>Café</h4><p>Un café dans le quartier — le rendez-vous des voisins, à pied.</p></div>
+    <div class="eq"><div class="ico">🕌</div><h4>Mosquée</h4><p>Une mosquée à proximité, au cœur de la vie du quartier.</p></div>
+    <div class="eq"><div class="ico">🛝</div><h4>Aire de jeux</h4><p>Un espace de jeux pour les enfants, en sécurité près de chez vous.</p></div>
+    <div class="eq"><div class="ico">🌊</div><h4>5 min de la mer</h4><p>La plage d'Achakkar à cinq minutes — le soir, après le travail.</p></div>
+    <div class="eq"><div class="ico">🛣️</div><h4>10 min de l'autoroute</h4><p>L'autoroute à dix minutes : Tanger centre, l'aéroport, tout est proche.</p></div>
+    <div class="eq"><div class="ico">🔒</div><h4>Intimité &amp; sérénité</h4><p>Des villas pensées pour l'intimité : votre jardin, votre calme.</p></div>
+    <div class="eq"><div class="ico">📈</div><h4>Un quartier qui grandit</h4><p>Achakkar est en pleine croissance — vivre ici, c'est investir ici.</p></div>
+  </div>
+</section>
+
+<section class="blk dark" style="padding-top:80px;padding-bottom:80px">
+  <div class="label">Pourquoi Chorouk</div>
+  <h2 style="margin-bottom:0">La confiance, <em>avant tout.</em></h2>
+  <div class="trust">
+    <div class="trust-item"><div class="big">30 000<em>+</em></div><p>abonnés suivent son travail sur Instagram — <a href="https://www.instagram.com/chorouk.realty/" target="_blank" rel="noopener" style="color:var(--sand)">@chorouk.realty</a></p></div>
+    <div class="trust-item"><div class="big">MBA · <em>Project Manager</em></div><p>Chorouk Karrouk — spécialiste des propriétés de luxe et de l'investissement immobilier au Maroc.</p></div>
+    <div class="trust-item"><div class="big">« More than <em>a property,</em> a lifestyle. »</div><p>Citation exacte de sa publication du 31 octobre 2026 — sa promesse, en ses propres mots.</p></div>
+    <div class="trust-item"><div class="big">Prix <em>sur demande</em></div><p>Transparence totale : aucun prix inventé ici. Chaque prix se confirme directement avec Chorouk.</p></div>
+  </div>
+</section>
+
+<section class="blk light">
+  <div class="label">Où — Achakkar, Tanger</div>
+  <h2>Achakkar, <em>entre la mer et les collines.</em></h2>
+  <p class="intro">Un nouveau pôle de vie à Tanger, entre la mer et les collines vertes — un endroit pour vivre, et un endroit pour investir.</p>
+  <div class="mapbox">
+    <svg viewBox="0 0 900 420" role="img" aria-label="Plan schématique d'Achakkar à Tanger : la mer à 5 minutes, l'autoroute à 10 minutes">
+      <rect width="900" height="420" fill="#0e0c09"/>
+      <path d="M0,0 L250,0 C200,90 210,180 150,260 C110,320 130,380 90,420 L0,420 Z" fill="#123240"/>
+      <path d="M250,0 C200,90 210,180 150,260 C110,320 130,380 90,420" fill="none" stroke="#c8b48a" stroke-width="2" stroke-dasharray="1 0"/>
+      <text x="34" y="60" fill="#7fb3c4" font-family="Space Mono, monospace" font-size="13" letter-spacing="3">OCÉAN ATLANTIQUE</text>
+      <text x="34" y="82" fill="#7fb3c4" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">PLAGE D'ACHAKKAR</text>
+      <path d="M330,420 C360,300 420,220 560,180 C680,145 780,120 900,90" fill="none" stroke="#d9a441" stroke-width="3"/>
+      <text x="600" y="140" fill="#d9a441" font-family="Space Mono, monospace" font-size="12" letter-spacing="3">AUTOROUTE — 10 MIN</text>
+      <circle cx="330" cy="300" r="9" fill="#d9a441"/><circle cx="330" cy="300" r="18" fill="none" stroke="#d9a441" stroke-width="1.5"/>
+      <text x="352" y="296" fill="#f4f0e6" font-family="Cormorant Garamond, serif" font-size="26" font-weight="600">Achakkar</text>
+      <text x="352" y="322" fill="#c8b48a" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">LES VILLAS — 5 MIN DE LA MER</text>
+      <circle cx="700" cy="330" r="6" fill="#f4f0e6"/>
+      <text x="716" y="334" fill="#f4f0e6" font-family="Cormorant Garamond, serif" font-size="22" font-weight="600">Tanger centre</text>
+      <text x="716" y="356" fill="#c8b48a" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">CENTRE &amp; AÉROPORT — PROCHES</text>
+      <path d="M330,300 L150,290" stroke="#c8b48a" stroke-width="1.5" stroke-dasharray="5 5"/>
+      <text x="180" y="272" fill="#c8b48a" font-family="Space Mono, monospace" font-size="11" letter-spacing="2">5 MIN → MER</text>
+    </svg>
+  </div>
+  <div class="map-dist">
+    <div><b>🌊 5 MIN</b><h4>La mer</h4><p>La plage d'Achakkar à cinq minutes — le soir, après le travail.</p></div>
+    <div><b>🛣️ 10 MIN</b><h4>L'autoroute</h4><p>L'autoroute à dix minutes : Tanger centre, l'aéroport, tout est proche.</p></div>
+    <div><b>🏙️ QUARTIER</b><h4>Achakkar grandit</h4><p>Café, mosquée, aire de jeux et espaces verts — un nouveau pôle de vie.</p></div>
+  </div>
+  <p class="map-note">Plan schématique — distances indicatives communiquées par Chorouk Realty. Aucune adresse exacte n'est publiée ici.</p>
+</section>
+
+<section class="finale">
+  <img class="bgimg" src="assets/vid/posters-hero.jpg" alt="Villas avec piscines au bord de la mer, vue aérienne" loading="lazy">
+  <div class="fveil"></div>
+  <div class="in"><div class="label">Le dernier acte</div><h2>Votre future adresse <em>est déjà à Tanger.</em></h2><p>Une visite privée vaut mille photos. Écrivez-nous — la porte s'ouvre.</p>${CTA_VISITE}</div>
+</section>
+${FOOTER}`,
+
+'projets': `
+<div class="page-head light" style="background:var(--ivory);color:var(--char);padding-bottom:60px">
+  <div class="label" style="color:#8a6f3c">Les projets — Chorouk Realty</div>
+  <h1>Trois projets, <em>une même exigence.</em></h1>
+  <p class="lede">Chorouk ne vend pas des adresses au hasard : elle choisit des projets, les suit sur le chantier, et les présente un par un. Voici ses trois projets — Achakkar en construction, la villa signature de 2 000 m², et les villas d'exception.</p>
+</div>
+<section class="blk light" style="padding-top:20px">
+  <div class="filterbar" id="filterBar">
+    <label class="searchbox"><span>🔍</span><input type="search" id="q" placeholder="Rechercher une villa… (Achakkar, 2 000 m², pergola…)" aria-label="Rechercher"></label>
+    <button type="button" class="chip on" data-filter="all">Tous</button>
+    <button type="button" class="chip" data-filter="achakkar">Achakkar</button>
+    <button type="button" class="chip" data-filter="luxe">Villa 2 000 m²</button>
+    <button type="button" class="chip" data-filter="exception">Exception</button>
+    <button type="button" class="chip" data-filter="piscine">Piscine</button>
+    <button type="button" class="chip" data-filter="jardin">Jardin</button>
+    <button type="button" class="chip" data-filter="terrasse">Terrasse</button>
+    <button type="button" class="chip" data-filter="pergola">Pergola</button>
+  </div>
+  <p id="filterCount">5 annonces</p>
+  <div class="grid" id="listingGrid" style="margin-top:24px">
+    <article class="card" data-proj="achakkar" data-tags="piscine jardin"><div class="ph"><a href="#/projet-01"><img src="assets/img/villa-jardin.jpg" alt="Villa moderne blanche avec piscine privée"></a><span class="badge">EN COURS</span><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button></div><div class="row"><div><div class="n">N°01 — ACHAKKAR</div><h3>Villa Achakkar I</h3><p class="d">Villas modernes, 2 étages · Piscine privée — chaque villa</p></div><div class="pr">Prix sur demande</div></div><div class="spec-chips"><span>🏊 Piscine privée</span><span>🌿 Jardin</span><span>🏠 2 étages</span></div><p class="d" style="margin-top:10px">De la grue à la clé. Le chantier avance : les structures en béton montent, les grues dessinent le quartier de demain.</p><a class="visit" href="#/projet-01">VOIR LE PROJET →</a></article>
+    <article class="card" data-proj="achakkar" data-tags="piscine terrasse"><div class="ph"><a href="#/projet-01"><img src="assets/img/villa-piscine.jpg" alt="Villa moderne avec piscine et terrasse ensoleillée"></a><span class="badge">EN COURS</span><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button></div><div class="row"><div><div class="n">N°02 — ACHAKKAR</div><h3>Villa Achakkar II</h3><p class="d">Villas modernes, 2 étages · Piscine privée — chaque villa</p></div><div class="pr">Prix sur demande</div></div><div class="spec-chips"><span>🏊 Piscine privée</span><span>☀️ Terrasse</span><span>🏠 2 étages</span></div><p class="d" style="margin-top:10px">Piscine privée et terrasse ensoleillée, dans un quartier qui grandit vite — à 5 minutes de la mer.</p><a class="visit" href="#/projet-01">VOIR LE PROJET →</a></article>
+    <article class="card" data-proj="achakkar" data-tags="piscine jardin"><div class="ph"><a href="#/projet-01"><img src="assets/img/villa-verte.jpg" alt="Villa moderne entourée d'un jardin verdoyant"></a><span class="badge">EN COURS</span><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button></div><div class="row"><div><div class="n">N°03 — ACHAKKAR</div><h3>Villa Achakkar III</h3><p class="d">Villas modernes, 2 étages · Piscine privée — chaque villa</p></div><div class="pr">Prix sur demande</div></div><div class="spec-chips"><span>🏊 Piscine privée</span><span>🌿 Jardin paysager</span><span>🏠 2 étages</span></div><p class="d" style="margin-top:10px">Jardin paysager et piscine privée — le calme d'un quartier résidentiel, à quelques minutes de la plage.</p><a class="visit" href="#/projet-01">VOIR LE PROJET →</a></article>
+    <article class="card" data-proj="luxe" data-tags="piscine pergola"><div class="ph"><a href="#/projet-02"><img src="assets/img/interieur-lumiere.jpg" alt="Intérieur lumineux d'une villa moderne"></a><span class="badge">SIGNATURE · 2 000 M²</span><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button></div><div class="row"><div><div class="n">N°02 — TANGER · 2 000 M²</div><h3>La villa de 2 000 m²</h3><p class="d">5 chambres · Cheminée en marbre · Piscine + pergola</p></div><div class="pr">Prix sur demande</div></div><div class="spec-chips"><span>🛏 5 chambres</span><span>🔥 Cheminée en marbre</span><span>🏊 Piscine + pergola</span></div><p class="d" style="margin-top:10px">La villa signature présentée par Chorouk : de grands volumes, une cheminée en marbre, une piscine et une pergola.</p><a class="visit" href="#/projet-02">VOIR LE PROJET →</a></article>
+    <article class="card" data-proj="exception" data-tags=""><div class="ph"><a href="#/projet-03"><img src="assets/vid/posters-hero.jpg" alt="Villas avec piscines au bord de la mer, vue aérienne"></a><span class="badge">SIGNATURE</span><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button></div><div class="row"><div><div class="n">N°03 — VILLAS D'EXCEPTION</div><h3>Villas d'exception</h3><p class="d">« More than a property, a lifestyle. »</p></div><div class="pr">Prix sur demande</div></div><div class="spec-chips"><span>✦ Élégance</span><span>✦ Confort</span><span>✦ Sophistication</span></div><p class="d" style="margin-top:10px">Des villas d'exception où élégance, confort et sophistication se rencontrent. Des adresses choisies une par une.</p><a class="visit" href="#/projet-03">VOIR LE PROJET →</a></article>
+  </div>
+  <div class="cta-row" style="margin-top:56px;justify-content:center"><a href="#/contact">RÉSERVER UNE VISITE PRIVÉE →</a></div>
+</section>
+${FOOTER}`,
+
+'projet-01': `
+<div class="page-head" style="background:var(--char)">
+  <div class="label">Projet 01 — Villas Achakkar · En cours</div>
+  <h1>De la grue <em>à la clé.</em></h1>
+  <p class="lede">Le chantier avance : les structures en béton montent, les grues dessinent le quartier de demain. Chaque villa naît sous vos yeux — suivez sa construction, puis recevez vos clés.</p>
+</div>
+<section class="blk dark" style="padding-top:40px">
+  <div class="viewer-wrap">
+    <div class="villa3d" data-villa data-preset="exterieur" data-autorotate="1">
+      <img class="vfb" src="assets/img/villa-jardin.jpg" alt="Villa moderne blanche avec piscine privée">
+      <span class="vbadge">3D RÉELLE · ACHAKKAR</span>
+      <span class="vhint">GLISSEZ POUR FAIRE PIVOTER LA VILLA</span>
+      <div class="vctrl">
+        <button type="button" data-view="exterieur" class="on">EXTÉRIEUR</button>
+        <button type="button" data-view="piscine">PISCINE</button>
+        <button type="button" data-view="interieur">INTÉRIEUR</button>
+        <button type="button" data-play>❚❚ PAUSE</button>
+      </div>
+    </div>
+  </div>
+  <div class="split" style="margin-top:60px">
+    <div class="ph tall"><img src="assets/vid/chantier.jpg" alt="Villa moderne de deux étages en cours de construction, grue et échafaudages, collines vertes"></div>
+    <div>
+      <h4>Le projet — En cours de construction</h4>
+      <p>Les rendus du programme montrent des villas modernes de deux étages, lumineuses, ouvertes sur leurs jardins. Le projet se construit en ce moment même à Achakkar.</p>
+      <p>Le projet phare : des villas modernes de deux étages à Achakkar, chacune avec sa piscine privée et son jardin, dans un quartier qui grandit vite — café, mosquée, aire de jeux et espaces verts, à 5 minutes de la mer et 10 minutes de l'autoroute.</p>
+      <div class="steps">
+        <div>Structure béton &amp; gros œuvre <span>EN COURS</span></div>
+        <div>Villas modernes, 2 étages <span>RENDUS</span></div>
+        <div>Piscine privée &amp; jardin <span>CHAQUE VILLA</span></div>
+        <div>Remise des clés <span>À CONFIRMER</span></div>
+      </div>
+      <div class="cta-row"><a href="${wa('Bonjour Chorouk Realty, je veux le prix et les détails des Villas Achakkar à Tanger')}" target="_blank" rel="noopener">DEMANDER LE PRIX →</a><a href="#/contact">RÉSERVER UNE VISITE →</a></div>
+    </div>
+  </div>
+  <div class="grid" style="margin-top:70px">
+    <article class="card"><div class="ph"><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button><img src="assets/img/villa-jardin.jpg" alt="Villa moderne blanche avec piscine privée" loading="lazy"></div><div class="row"><div><div class="n">N°01 — ACHAKKAR</div><h3>Villa Achakkar I</h3><p class="d">Piscine privée · Jardin · Surface à confirmer</p></div><div class="pr">Prix sur demande</div></div><a class="visit" href="${wa('Bonjour Chorouk Realty, je veux le prix et les détails de la Villa Achakkar I')}" target="_blank" rel="noopener">DEMANDER LE PRIX →</a></article>
+    <article class="card"><div class="ph"><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button><img src="assets/img/villa-piscine.jpg" alt="Villa moderne avec piscine et terrasse ensoleillée" loading="lazy"></div><div class="row"><div><div class="n">N°02 — ACHAKKAR</div><h3>Villa Achakkar II</h3><p class="d">Piscine privée · Terrasse · Surface à confirmer</p></div><div class="pr">Prix sur demande</div></div><a class="visit" href="${wa('Bonjour Chorouk Realty, je veux le prix et les détails de la Villa Achakkar II')}" target="_blank" rel="noopener">DEMANDER LE PRIX →</a></article>
+    <article class="card"><div class="ph"><button class="heart" type="button" data-fav aria-label="Ajouter aux favoris">♥</button><img src="assets/img/villa-verte.jpg" alt="Villa moderne entourée d'un jardin verdoyant" loading="lazy"></div><div class="row"><div><div class="n">N°03 — ACHAKKAR</div><h3>Villa Achakkar III</h3><p class="d">Piscine privée · Jardin paysager · Surface à confirmer</p></div><div class="pr">Prix sur demande</div></div><a class="visit" href="${wa('Bonjour Chorouk Realty, je veux le prix et les détails de la Villa Achakkar III')}" target="_blank" rel="noopener">DEMANDER LE PRIX →</a></article>
+  </div>
+</section>
+${FOOTER}`,
+
+'projet-02': `
+<div class="page-head" style="background:var(--char)">
+  <div class="label">Projet 02 — Villa de luxe, Tanger · D'après sa vidéo</div>
+  <h1>2 000 m² <em>de luxe à Tanger.</em></h1>
+  <p class="lede">Une villa d'exception présentée par Chorouk : de grands volumes, une cheminée en marbre, une piscine et une pergola — le raffinement jusque dans les détails.</p>
+</div>
+<section class="blk dark" style="padding-top:40px">
+  <div class="viewer-wrap">
+    <div class="villa3d" data-villa data-preset="piscine" data-autorotate="1">
+      <img class="vfb" src="assets/img/villa-piscine.jpg" alt="Villa moderne avec piscine et terrasse ensoleillée">
+      <span class="vbadge">3D RÉELLE · VILLA 2 000 M²</span>
+      <span class="vhint">GLISSEZ POUR FAIRE PIVOTER LA VILLA</span>
+      <div class="vctrl">
+        <button type="button" data-view="exterieur">EXTÉRIEUR</button>
+        <button type="button" data-view="piscine" class="on">PISCINE</button>
+        <button type="button" data-view="interieur">INTÉRIEUR</button>
+        <button type="button" data-play>❚❚ PAUSE</button>
+      </div>
+    </div>
+  </div>
+  <div class="split" style="margin-top:60px">
+    <div class="ph"><img src="assets/img/interieur-lumiere.jpg" alt="Intérieur lumineux d'une villa moderne"></div>
+    <div>
+      <h4>2 000 m² de luxe à Tanger</h4>
+      <p>Une villa d'exception : 5 chambres, une cheminée en marbre, des pièces lumineuses et un extérieur pensé pour vivre dehors — piscine et pergola.</p>
+      <div class="mini-specs" style="border-color:var(--line)">
+        <div style="border-color:var(--line);color:var(--ivory)">Surface <span>2 000 M² *</span></div>
+        <div style="border-color:var(--line);color:var(--ivory)">Chambres <span>5 *</span></div>
+        <div style="border-color:var(--line);color:var(--ivory)">Cheminée <span>MARBRE *</span></div>
+        <div style="border-color:var(--line);color:var(--ivory)">Extérieur <span>PISCINE + PERGOLA *</span></div>
+      </div>
+      <p class="src" style="color:#9a927e">* D'après la vidéo publiée par Chorouk Realty le 31 octobre 2026. Prix sur demande — à confirmer avec Chorouk.</p>
+      <div class="cta-row"><a href="${wa('Bonjour Chorouk Realty, je veux visiter la villa de 2 000 m² à Tanger')}" target="_blank" rel="noopener">VISITER CETTE VILLA →</a><a href="#/contact">RÉSERVER UNE VISITE →</a></div>
+    </div>
+  </div>
+</section>
+<section class="reel">
+  <div class="vidwrap"><video src="assets/vid/mer-villas.mp4" poster="assets/vid/posters-hero.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+  <div class="txt rv"><div class="label">La villa signature — D'après sa vidéo</div>
+    <h2>2 000 m² <em>de luxe à Tanger.</em></h2>
+    <p>Une villa d'exception présentée par Chorouk : de grands volumes, une cheminée en marbre, une piscine et une pergola — le raffinement jusque dans les détails.</p>
+    <p class="src" style="color:#9a927e">* D'après la vidéo publiée par Chorouk Realty le 31 octobre 2026. Prix sur demande — à confirmer avec Chorouk.</p>
+    <div style="margin-top:26px"><a class="btn solid" href="${wa('Bonjour Chorouk Realty, je veux visiter la villa de 2 000 m² à Tanger')}" target="_blank" rel="noopener">VISITER CETTE VILLA →</a></div>
+  </div>
+</section>
+${FOOTER}`,
+
+'projet-03': `
+<div class="page-head" style="background:var(--char)">
+  <div class="label">Projet 03 — Villas d'exception</div>
+  <h1>« More than a property, <em>a lifestyle. »</em></h1>
+  <p class="lede">Des villas d'exception où élégance, confort et sophistication se rencontrent. La promesse de Chorouk : des adresses choisies une par une — jamais listées au hasard.</p>
+</div>
+<section class="blk dark" style="padding-top:40px">
+  <div class="viewer-wrap">
+    <div class="villa3d" data-villa data-preset="wide" data-autorotate="1">
+      <img class="vfb" src="assets/vid/posters-hero.jpg" alt="Villas avec piscines au bord de la mer, vue aérienne">
+      <span class="vbadge">3D RÉELLE · VILLAS D'EXCEPTION</span>
+      <span class="vhint">GLISSEZ POUR FAIRE PIVOTER LA VILLA</span>
+      <div class="vctrl">
+        <button type="button" data-view="exterieur">EXTÉRIEUR</button>
+        <button type="button" data-view="piscine">PISCINE</button>
+        <button type="button" data-view="interieur">INTÉRIEUR</button>
+        <button type="button" data-play>❚❚ PAUSE</button>
+      </div>
+    </div>
+  </div>
+  <div class="split" style="margin-top:60px">
+    <div class="ph"><img src="assets/vid/posters-hero.jpg" alt="Villas avec piscines au bord de la mer, vue aérienne"></div>
+    <div>
+      <p class="quote" style="color:var(--ivory)">« More than a property, a lifestyle. Discover exceptional villas where elegance, comfort, and sophistication come together. »</p>
+      <p class="src" style="color:#9a927e">— Chorouk Realty, publication du 31 octobre 2026. Citation exacte de sa publication, en anglais comme publiée.</p>
+      <h4 style="margin-top:26px">Des adresses choisies une par une</h4>
+      <p>La promesse de Chorouk : des villas d'exception à Tanger, où élégance, confort et sophistication se rencontrent — jamais listées au hasard.</p>
+      <p>Adresse, surface et prix : à confirmer avec Chorouk pour chaque villa d'exception. Aucune adresse, surface ou prix n'est inventé ici.</p>
+      <div class="mini-specs" style="border-color:var(--line)">
+        <div style="border-color:var(--line);color:var(--ivory)">Adresse <span>À CONFIRMER</span></div>
+        <div style="border-color:var(--line);color:var(--ivory)">Surface <span>À CONFIRMER</span></div>
+        <div style="border-color:var(--line);color:var(--ivory)">Prix <span>SUR DEMANDE</span></div>
+      </div>
+      <div class="cta-row"><a href="${wa("Bonjour Chorouk Realty, je veux le prix et les détails des villas d'exception à Tanger")}" target="_blank" rel="noopener">DEMANDER LE PRIX →</a><a href="#/contact">RÉSERVER UNE VISITE →</a></div>
+    </div>
+  </div>
+</section>
+<section class="reel">
+  <div class="vidwrap"><video src="assets/vid/coast-estate.mp4" poster="assets/vid/posters-estate.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+  <div class="txt rv"><div class="label">Tanger — La côte</div>
+    <h2>Une adresse, <em>un art de vivre.</em></h2>
+    <p>Des villas d'exception au bord de la mer : l'élégance, le confort et la sophistication se rencontrent — à quelques minutes de la plage.</p>
+    <div style="margin-top:26px">${CTA_VISITE}</div>
+  </div>
+</section>
+${FOOTER}`,
+
+'a-propos': `
+<section class="who" style="padding-top:170px">
+  <img class="bgimg" src="assets/img/interieur-lumiere.jpg" alt="Intérieur lumineux d'une villa moderne" loading="lazy">
+  <div class="wveil"></div>
+  <div class="in"><div class="label">Qui est Chorouk</div><h2>Excellence. <em>Vision. Value.</em></h2>
+    <p>Chorouk Karrouk — MBA, Project Manager, spécialiste des propriétés de luxe et de l'investissement immobilier au Maroc. Elle choisit des adresses, suit des chantiers et accompagne des acquéreurs exigeants — à Tanger et au-delà.</p>
+    <p>Plus de 30 000 personnes suivent son travail sur Instagram. Son approche : la vision d'abord, la valeur ensuite — et l'excellence dans chaque détail.</p>
+    <div class="values">
+      <div><b>01</b><h4>Excellence</h4><p>Des biens choisis un par un, jamais listés au hasard.</p></div>
+      <div><b>02</b><h4>Vision</h4><p>Repérer les quartiers qui grandissent — comme Achakkar — avant tout le monde.</p></div>
+      <div><b>03</b><h4>Value</h4><p>Un investissement qui a du sens : vivre bien, et faire grandir son patrimoine.</p></div>
+    </div>
+    <div style="margin-top:34px;display:flex;gap:14px;flex-wrap:wrap">
+      <a class="btn" href="https://www.instagram.com/chorouk.realty/" target="_blank" rel="noopener">SUIVRE @CHOROUK.REALTY SUR INSTAGRAM →</a>
+      <a class="btn solid" href="${wa('Bonjour Chorouk Realty, je veux une visite privée à Tanger')}" target="_blank" rel="noopener">RÉSERVER UNE VISITE</a>
+    </div>
+  </div>
+</section>
+<section class="blk light">
+  <div class="label">Son approche</div>
+  <h2>La vision d'abord, <em>la valeur ensuite.</em></h2>
+  <p class="intro">Chorouk, MBA et Project Manager, vous guide de la première visite à la remise des clés — en français, en arabe ou en anglais.</p>
+  <div class="pillars">
+    <div class="pillar"><b>01</b><h4>Vivre</h4><p>Une villa à vous, un jardin à vous, une piscine à vous. Le calme d'un quartier résidentiel, à quelques minutes de la plage.</p></div>
+    <div class="pillar"><b>02</b><h4>Investir</h4><p>Un secteur en pleine croissance, proche de la mer et de l'autoroute : une adresse qui prend de la valeur, année après année.</p></div>
+    <div class="pillar"><b>03</b><h4>Être accompagné</h4><p>Un accompagnement personnel, du premier appel à la remise des clés — dossier confidentiel, visite privée.</p></div>
+  </div>
+</section>
+${FOOTER}`,
+
+'contact': `
+<section class="blk light" style="padding-top:150px">
+  <div class="label">Visite privée</div>
+  <h2>Choisissez votre projet, <em>on s'occupe du reste.</em></h2>
+  <p class="intro">Remplissez votre demande : elle part directement sur WhatsApp, avec le projet et la date déjà remplis. Sans engagement — Chorouk vous confirme le créneau.</p>
+  <div class="bksteps">
+    <div class="bkstep on">Étape 1<b>Choisir le projet</b></div>
+    <div class="bkstep">Étape 2<b>Date &amp; créneau</b></div>
+    <div class="bkstep">Étape 3<b>Confirmer sur WhatsApp</b></div>
+  </div>
+  <div class="book">
+    <label>Projet <select id="bkUnit">
+      <option value="Villa Achakkar I (prix sur demande)">Villas Achakkar — Villa I — Prix sur demande</option>
+      <option value="Villa Achakkar II (prix sur demande)">Villas Achakkar — Villa II — Prix sur demande</option>
+      <option value="Villa Achakkar III (prix sur demande)">Villas Achakkar — Villa III — Prix sur demande</option>
+      <option value="La villa de 2 000 m², 5 chambres (prix sur demande)">La villa de 2 000 m² — Prix sur demande</option>
+      <option value="Villas d'exception (prix sur demande)">Villas d'exception — Prix sur demande</option>
+    </select></label>
+    <label>Date de visite <input type="date" id="bkDate"></label>
+    <label>Créneau souhaité <select id="bkTime"><option value="10:00">10:00 — matin</option><option value="14:00">14:00 — après-midi</option><option value="16:00">16:00 — après-midi</option><option value="18:00">18:00 — fin de journée</option></select></label>
+    <label>Format <select id="bkMode"><option value="Visite sur place à Tanger">Visite sur place à Tanger</option><option value="Appel vidéo">Appel vidéo</option></select></label>
+    <button type="button" id="bkGo">CONFIRMER SUR WHATSAPP →</button>
+    <p class="bk-note" id="bkNote">Prix sur demande pour tous les projets — à confirmer avec Chorouk. La visite est confirmée sur WhatsApp, sans engagement.</p>
+    <p class="bk-note">Les créneaux sont proposés à titre indicatif : Chorouk confirme la disponibilité sur WhatsApp. Aucune disponibilité en direct n'est affichée sur ce site.</p>
+    <a class="bk-out" id="bkOut" href="${WA}" target="_blank" rel="noopener" hidden>Ouvrir WhatsApp avec ma demande →</a>
+  </div>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:44px">
+    <a class="btn solid" style="background:var(--char);color:var(--ivory);border-color:var(--char)" href="${wa('Bonjour Chorouk Realty, je veux une visite privée à Tanger')}" target="_blank" rel="noopener">Réserver une visite</a>
+    <a class="btn solid" style="background:var(--char);color:var(--ivory);border-color:var(--char)" href="${wa("Bonjour Chorouk Realty, je veux investir à Tanger, Achakkar")}" target="_blank" rel="noopener">Je veux investir</a>
+    <a class="btn" style="border-color:var(--char);color:var(--char)" href="https://www.instagram.com/chorouk.realty/" target="_blank" rel="noopener">@CHOROUK.REALTY →</a>
+  </div>
+</section>
+${FOOTER}`
+};
+</script>
+<script type="module">
+/* ================= REAL THREE.JS VILLA ENGINE =================
+   Procedural modern white villa — two floors, flat roof, glass with
+   warm dusk glow, terrace + pergola, animated pool, palms, sea +
+   sunset sky. No CSS 3D anywhere. Graceful fallback to the real
+   cover photo when WebGL is unavailable. */
+let THREE = null;
+async function loadThree() {
+  if (THREE) return THREE;
+  THREE = await import('./assets/gl/three.module.js');
+  return THREE;
+}
+
+const VIEWS = {
+  exterieur: { pos: [10.5, 4.2, 12.5], look: [0, 2.2, 0] },
+  piscine:   { pos: [7.5, 1.8, 8.5],  look: [4.2, 0.9, 3.2] },
+  interieur: { pos: [3.2, 2.0, 5.2],  look: [-0.5, 2.4, 0] },
+  wide:      { pos: [15, 7, 17],      look: [0, 1.5, 0] }
+};
+
+function skyTexture() {
+  const c = document.createElement('canvas'); c.width = 16; c.height = 512;
+  const x = c.getContext('2d');
+  const g = x.createLinearGradient(0, 0, 0, 512);
+  g.addColorStop(0, '#0e1a30'); g.addColorStop(.42, '#33405e');
+  g.addColorStop(.62, '#7a5248'); g.addColorStop(.78, '#d97a3f'); g.addColorStop(1, '#f7b267');
+  x.fillStyle = g; x.fillRect(0, 0, 16, 512);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+function waterTexture() {
+  const c = document.createElement('canvas'); c.width = 256; c.height = 256;
+  const x = c.getContext('2d');
+  x.fillStyle = '#2a7d8f'; x.fillRect(0, 0, 256, 256);
+  x.strokeStyle = 'rgba(255,255,255,.35)'; x.lineWidth = 2;
+  for (let i = 0; i < 26; i++) {
+    x.beginPath();
+    const y = Math.random() * 256;
+    x.moveTo(0, y);
+    for (let px = 0; px <= 256; px += 16) x.lineTo(px, y + Math.sin(px * .09 + i) * 5);
+    x.stroke();
+  }
+  x.strokeStyle = 'rgba(255,220,160,.25)';
+  for (let i = 0; i < 12; i++) {
+    x.beginPath();
+    const y = Math.random() * 256;
+    x.moveTo(0, y); x.lineTo(256, y + (Math.random() * 20 - 10)); x.stroke();
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(2, 1);
+  t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+function glowSpriteTexture() {
+  const c = document.createElement('canvas'); c.width = 256; c.height = 256;
+  const x = c.getContext('2d');
+  const g = x.createRadialGradient(128, 128, 4, 128, 128, 128);
+  g.addColorStop(0, 'rgba(255,180,92,.9)'); g.addColorStop(.4, 'rgba(255,140,70,.35)'); g.addColorStop(1, 'rgba(255,140,70,0)');
+  x.fillStyle = g; x.fillRect(0, 0, 256, 256);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+
+function buildVilla(THREE) {
+  const g = new THREE.Group();
+  const white = new THREE.MeshStandardMaterial({ color: 0xf0ead9, roughness: .92 });
+  const white2 = new THREE.MeshStandardMaterial({ color: 0xe6ddc8, roughness: .95 });
+  const dark = new THREE.MeshStandardMaterial({ color: 0x26211b, roughness: .8 });
+  const stone = new THREE.MeshStandardMaterial({ color: 0x8d8272, roughness: 1 });
+  const wood = new THREE.MeshStandardMaterial({ color: 0x4a3423, roughness: .85 });
+  const glass = new THREE.MeshStandardMaterial({ color: 0x182830, roughness: .12, metalness: .55, emissive: 0xff9a3c, emissiveIntensity: .55 });
+  const frame = new THREE.MeshStandardMaterial({ color: 0x2a2620, roughness: .7 });
+  const add = (geo, mat, x, y, z, parent) => {
+    const m = new THREE.Mesh(geo, mat);
+    m.position.set(x, y, z); m.castShadow = true; m.receiveShadow = true;
+    (parent || g).add(m); return m;
+  };
+  // platform + ground + grass
+  add(new THREE.BoxGeometry(17, .5, 13), stone, 0, .25, 0);
+  const grass = new THREE.Mesh(new THREE.PlaneGeometry(120, 120), new THREE.MeshStandardMaterial({ color: 0x2e4a33, roughness: 1 }));
+  grass.rotation.x = -Math.PI / 2; grass.position.y = .02; grass.receiveShadow = true; g.add(grass);
+  const lawn = new THREE.Mesh(new THREE.PlaneGeometry(26, 9), new THREE.MeshStandardMaterial({ color: 0x35573a, roughness: 1 }));
+  lawn.rotation.x = -Math.PI / 2; lawn.position.set(0, .06, 10); lawn.receiveShadow = true; g.add(lawn);
+  // floors
+  add(new THREE.BoxGeometry(8.4, 3.1, 5.6), white, 0, 2.05, 0);
+  add(new THREE.BoxGeometry(5.6, 2.9, 4.4), white2, -1.2, 5.05, -0.4);
+  // flat roof slabs
+  add(new THREE.BoxGeometry(9.2, .28, 6.4), dark, 0, 3.74, 0);
+  add(new THREE.BoxGeometry(6.4, .28, 5.2), dark, -1.2, 6.64, -0.4);
+  // windows — ground front (+Z face z=2.8)
+  const win = (x, y, z, w, h, ry) => {
+    const f = add(new THREE.BoxGeometry(w + .18, h + .18, .08), frame, x, y, z);
+    const gl = add(new THREE.BoxGeometry(w, h, .1), glass, x, y, z + (ry ? 0 : .02));
+    f.rotation.y = gl.rotation.y = ry || 0;
+    return gl;
+  };
+  win(-2.8, 2.0, 2.8, 1.7, 2.3); win(-0.9, 2.0, 2.8, 1.7, 2.3); win(1.0, 2.0, 2.8, 1.7, 2.3);
+  // door (front right)
+  add(new THREE.BoxGeometry(1.1, 2.4, .12), wood, 3.4, 1.7, 2.82);
+  // windows — upper front (z = -0.4+2.2 = 1.8)
+  win(-2.6, 5.0, 1.82, 1.6, 2.0); win(-0.2, 5.0, 1.82, 1.6, 2.0);
+  // windows — +X side
+  win(4.22, 2.0, 0.8, 1.5, 2.0, Math.PI / 2); win(4.22, 2.0, -1.4, 1.5, 2.0, Math.PI / 2);
+  // terrace + pergola on ground roof (right strip, x 1.6..4.2)
+  add(new THREE.BoxGeometry(2.6, .12, 5.0), stone, 2.9, 3.94, 0);
+  [[1.9, 2.2], [1.9, -2.2], [3.9, 2.2], [3.9, -2.2]].forEach(([px, pz]) =>
+    add(new THREE.BoxGeometry(.14, 2.2, .14), wood, px, 5.1, pz));
+  for (let i = 0; i < 8; i++) add(new THREE.BoxGeometry(.16, .08, 5.2), wood, 1.85 + i * .3, 6.24, 0);
+  // pool (front-right of platform)
+  add(new THREE.BoxGeometry(4.6, .55, 2.4), new THREE.MeshStandardMaterial({ color: 0xcfc4ae, roughness: .9 }), 4.4, .78, 3.4);
+  const wtex = waterTexture();
+  const water = new THREE.Mesh(new THREE.PlaneGeometry(4.3, 2.1),
+    new THREE.MeshStandardMaterial({ map: wtex, color: 0x9fd4dd, roughness: .15, metalness: .35, transparent: true, opacity: .94 }));
+  water.rotation.x = -Math.PI / 2; water.position.set(4.4, 1.08, 3.4); water.receiveShadow = true;
+  g.add(water);
+  // palms
+  const trunkMat = new THREE.MeshStandardMaterial({ color: 0x6b4a2f, roughness: 1 });
+  const leafMat = new THREE.MeshStandardMaterial({ color: 0x2f5d33, roughness: .9, side: THREE.DoubleSide });
+  const palm = (x, z, s) => {
+    const p = new THREE.Group(); p.position.set(x, 0, z); p.scale.setScalar(s);
+    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(.11, .2, 3.4, 7), trunkMat);
+    trunk.position.y = 1.7; trunk.rotation.z = .08; trunk.castShadow = true; p.add(trunk);
+    for (let i = 0; i < 7; i++) {
+      const leaf = new THREE.Mesh(new THREE.PlaneGeometry(2.1, .5), leafMat);
+      leaf.position.set(0, 3.45, 0);
+      leaf.rotation.set(-.95, (i / 7) * Math.PI * 2, 0);
+      leaf.translateY(1.0); leaf.castShadow = true; p.add(leaf);
+    }
+    g.add(p);
+  };
+  palm(-6.2, 3.8, 1); palm(6.8, -3.2, 1.15); palm(-6.8, -3.6, .9); palm(7.2, 4.6, .85);
+  // bushes
+  const bushMat = new THREE.MeshStandardMaterial({ color: 0x2a4a2e, roughness: 1 });
+  [[-5.4, 5.2, .7], [-3.6, 5.4, .55], [6.6, 5.6, .6], [-7.2, .5, .8]].forEach(([bx, bz, bs]) => {
+    const b = new THREE.Mesh(new THREE.SphereGeometry(bs, 10, 8), bushMat);
+    b.scale.y = .7; b.position.set(bx, .55, bz); b.castShadow = true; g.add(b);
+  });
+  // sea + sun (behind villa, -Z)
+  const seaTexC = document.createElement('canvas'); seaTexC.width = 16; seaTexC.height = 256;
+  const sx = seaTexC.getContext('2d');
+  const sg = sx.createLinearGradient(0, 0, 0, 256);
+  sg.addColorStop(0, '#e08a4a'); sg.addColorStop(.35, '#2a6b7a'); sg.addColorStop(1, '#123240');
+  sx.fillStyle = sg; sx.fillRect(0, 0, 16, 256);
+  const seaTex = new THREE.CanvasTexture(seaTexC); seaTex.colorSpace = THREE.SRGBColorSpace;
+  const sea = new THREE.Mesh(new THREE.PlaneGeometry(240, 80), new THREE.MeshBasicMaterial({ map: seaTex }));
+  sea.rotation.x = -Math.PI / 2; sea.position.set(0, .35, -55); g.add(sea);
+  const sun = new THREE.Mesh(new THREE.CircleGeometry(4.5, 32), new THREE.MeshBasicMaterial({ color: 0xffb45c, fog: false }));
+  sun.position.set(0, 7, -95); g.add(sun);
+  const glow = new THREE.Mesh(new THREE.PlaneGeometry(34, 34),
+    new THREE.MeshBasicMaterial({ map: glowSpriteTexture(), transparent: true, depthWrite: false, fog: false }));
+  glow.position.set(0, 7, -96); g.add(glow);
+  return { group: g, waterTex: wtex };
+}
+
+class VillaViewer {
+  constructor(container, preset, autorotate) {
+    this.container = container; this.preset = preset || 'exterieur';
+    this.playing = autorotate !== false; this.dragging = false;
+    this.targetRotY = 0; this.rotY = 0; this.lastDrag = 0;
+    this.camPos = new THREE.Vector3(...VIEWS[this.preset].pos);
+    this.camLook = new THREE.Vector3(...VIEWS[this.preset].look);
+    this.tPos = this.camPos.clone(); this.tLook = this.camLook.clone();
+    this.disposed = false; this.visible = true; this.raf = 0;
+    this.init();
+  }
+  async init() {
+    try {
+      const canvas = document.createElement('canvas');
+      this.container.appendChild(canvas); this.canvas = canvas;
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      this.renderer = renderer;
+      const scene = new THREE.Scene();
+      scene.background = skyTexture();
+      scene.fog = new THREE.Fog(0x2a2a3a, 45, 130);
+      const camera = new THREE.PerspectiveCamera(40, 1, .1, 300);
+      camera.position.copy(this.camPos); camera.lookAt(this.camLook);
+      this.scene = scene; this.camera = camera;
+      // lights
+      const sun = new THREE.DirectionalLight(0xffb066, 2.2);
+      sun.position.set(14, 12, 10); sun.castShadow = true;
+      sun.shadow.mapSize.set(2048, 2048);
+      sun.shadow.camera.left = -18; sun.shadow.camera.right = 18;
+      sun.shadow.camera.top = 18; sun.shadow.camera.bottom = -18;
+      sun.shadow.camera.far = 60; sun.shadow.bias = -0.0004;
+      scene.add(sun);
+      scene.add(new THREE.HemisphereLight(0x46587a, 0x241a12, .6));
+      const inner = new THREE.PointLight(0xff9a3c, 10, 12, 2);
+      inner.position.set(0, 2.2, 1); scene.add(inner);
+      const built = buildVilla(THREE);
+      this.villa = built.group; this.waterTex = built.waterTex;
+      scene.add(this.villa);
+      // drag rotate
+      let lastX = 0;
+      const down = e => { this.dragging = true; lastX = e.clientX; canvas.setPointerCapture(e.pointerId); };
+      const move = e => {
+        if (!this.dragging) return;
+        this.targetRotY += (e.clientX - lastX) * .0055; lastX = e.clientX; this.lastDrag = performance.now();
+      };
+      const up = () => { this.dragging = false; };
+      canvas.addEventListener('pointerdown', down);
+      canvas.addEventListener('pointermove', move);
+      canvas.addEventListener('pointerup', up);
+      canvas.addEventListener('pointercancel', up);
+      this._handlers = { down, move, up };
+      // buttons
+      this.container.querySelectorAll('[data-view]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          this.container.querySelectorAll('[data-view]').forEach(b => b.classList.remove('on'));
+          btn.classList.add('on'); this.setView(btn.dataset.view);
+        });
+      });
+      const playBtn = this.container.querySelector('[data-play]');
+      if (playBtn) playBtn.addEventListener('click', () => {
+        this.playing = !this.playing;
+        playBtn.textContent = this.playing ? '❚❚ PAUSE' : '▶ LECTURE';
+      });
+      // resize + visibility
+      this.ro = new ResizeObserver(() => this.resize());
+      this.ro.observe(this.container);
+      this.resize();
+      new IntersectionObserver(es => { this.visible = es[0].isIntersecting; }).observe(this.container);
+      this.container.classList.add('gl-on');
+      this.tick();
+    } catch (e) {
+      console.warn('[chorouk-4k] WebGL failed, fallback photo', e);
+      this.container.classList.add('no-webgl');
+    }
+  }
+  resize() {
+    if (!this.renderer) return;
+    const w = this.container.clientWidth, h = this.container.clientHeight;
+    if (!w || !h) return;
+    this.renderer.setSize(w, h, false);
+    this.camera.aspect = w / h; this.camera.updateProjectionMatrix();
+  }
+  setView(name) {
+    const v = VIEWS[name]; if (!v) return;
+    this.tPos.set(...v.pos); this.tLook.set(...v.look);
+  }
+  tick() {
+    if (this.disposed) return;
+    this.raf = requestAnimationFrame(() => this.tick());
+    if (!this.visible || !this.renderer) return;
+    if (this.playing && !this.dragging && performance.now() - this.lastDrag > 2000) this.targetRotY += .0022;
+    this.rotY += (this.targetRotY - this.rotY) * .08;
+    this.villa.rotation.y = this.rotY;
+    this.camera.position.lerp(this.tPos, .045);
+    this.camLook.lerp(this.tLook, .045);
+    this.camera.lookAt(this.camLook);
+    if (this.waterTex) { this.waterTex.offset.x += .0016; this.waterTex.offset.y += .0009; }
+    this.renderer.render(this.scene, this.camera);
+  }
+  dispose() {
+    this.disposed = true;
+    cancelAnimationFrame(this.raf);
+    if (this.ro) this.ro.disconnect();
+    if (this.canvas && this._handlers) {
+      this.canvas.removeEventListener('pointerdown', this._handlers.down);
+      this.canvas.removeEventListener('pointermove', this._handlers.move);
+      this.canvas.removeEventListener('pointerup', this._handlers.up);
+      this.canvas.removeEventListener('pointercancel', this._handlers.up);
+    }
+    if (this.renderer) this.renderer.dispose();
+  }
+}
+window.__villaViewers = [];
+async function initVillas() {
+  try { await loadThree(); } catch (e) {
+    console.warn('[chorouk-4k] Three.js load failed', e);
+    document.querySelectorAll('[data-villa]').forEach(c => c.classList.add('no-webgl'));
+    return;
+  }
+  document.querySelectorAll('[data-villa]').forEach(c => {
+    window.__villaViewers.push(new VillaViewer(c, c.dataset.preset, c.dataset.autorotate === '1'));
+  });
+}
+
+/* ================= APP: loader, router, nav, booking, video ================= */
+const app = document.getElementById('app');
+const header = document.getElementById('siteHeader');
+const nav = document.getElementById('mainNav');
+
+/* loader — timer-based, cannot hang */
+(function loader() {
+  const el = document.getElementById('loader'), n = document.getElementById('lcount'), f = document.getElementById('lfill');
+  const t0 = Date.now(); let p = 0;
+  const iv = setInterval(() => {
+    p = Math.min(100, p + Math.random() * 14 + 6);
+    n.textContent = Math.floor(p); f.style.width = p + '%';
+    if (p >= 100 && Date.now() - t0 > 900) { clearInterval(iv); el.classList.add('done'); setTimeout(() => el.remove(), 900); }
+  }, 110);
+  setTimeout(() => { clearInterval(iv); el.classList.add('done'); setTimeout(() => el.remove(), 900); }, 4000);
+})();
+
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 40), { passive: true });
+document.getElementById('burger').addEventListener('click', () => nav.classList.add('open'));
+document.getElementById('navClose').addEventListener('click', () => nav.classList.remove('open'));
+nav.addEventListener('click', e => { if (e.target.tagName === 'A') nav.classList.remove('open'); });
+
+function disposeViewers() {
+  (window.__villaViewers || []).forEach(v => { try { v.dispose(); } catch (e) {} });
+  window.__villaViewers = [];
+}
+function wireReveals() {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+}
+function wireBooking() {
+  const u = document.getElementById('bkUnit'), d = document.getElementById('bkDate'),
+        m = document.getElementById('bkMode'), t = document.getElementById('bkTime'), b = document.getElementById('bkGo'),
+        o = document.getElementById('bkOut'), n = document.getElementById('bkNote');
+  if (!u || !b) return;
+  b.addEventListener('click', () => {
+    if (!d.value) { n.textContent = 'Choisissez d\u2019abord une date de visite.'; d.focus(); return; }
+    const msg = 'Bonjour Chorouk Realty, je souhaite r\u00e9server une visite \u00e0 Tanger : ' + u.value + ', le ' + d.value + (t ? ', cr\u00e9neau : ' + t.value : '') + ', format : ' + m.value + '. Merci de me confirmer le cr\u00e9neau.';
+    const url = WA + '?text=' + encodeURIComponent(msg);
+    o.href = url; o.hidden = false;
+    n.textContent = 'Votre demande est pr\u00eate : ' + u.value + ' — ' + d.value + (t ? ' — ' + t.value : '') + ' — ' + m.value + '.';
+    window.open(url, '_blank');
+  });
+}
+function wireReel() {
+  const v = document.getElementById('heroVideo');
+  const playBtn = document.getElementById('reelPlay');
+  const soundBtn = document.getElementById('reelSound');
+  if (!v) return;
+  const tryPlay = () => { const p = v.play(); if (p) p.catch(() => {}); };
+  tryPlay();
+  if (playBtn) playBtn.addEventListener('click', () => { v.paused ? tryPlay() : v.pause(); });
+  if (soundBtn) soundBtn.addEventListener('click', () => {
+    v.muted = !v.muted; if (!v.muted) tryPlay();
+    soundBtn.textContent = v.muted ? '🔇 SON COUPÉ' : '🔊 SON ACTIVÉ';
+  });
+  new IntersectionObserver(es => es.forEach(e => { e.isIntersecting ? tryPlay() : v.pause(); }), { threshold: .12 }).observe(v);
+}
+function wireShowcaseVideos() {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { const p = v.play(); if (p) p.catch(() => {}); } else v.pause();
+  }), { threshold: .12 });
+  document.querySelectorAll('.reel .vidwrap video').forEach(v => io.observe(v));
+}
+
+function wireFavs() {
+  const pill = document.getElementById('favCount');
+  let saved = new Set();
+  try { saved = new Set(JSON.parse(localStorage.getItem('chorouk-favs') || '[]')); } catch (e) {}
+  const update = () => { if (pill) pill.textContent = saved.size; };
+  document.querySelectorAll('[data-fav]').forEach(btn => {
+    const titleEl = btn.closest('article') ? btn.closest('article').querySelector('h3') : null;
+    const id = titleEl ? titleEl.textContent.trim() : ('fav-' + Math.random());
+    btn.dataset.favId = id;
+    if (saved.has(id)) btn.classList.add('saved');
+    btn.addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation();
+      if (saved.has(id)) saved.delete(id); else saved.add(id);
+      btn.classList.toggle('saved', saved.has(id));
+      try { localStorage.setItem('chorouk-favs', JSON.stringify([...saved])); } catch (err) {}
+      update();
+    });
+  });
+  update();
+}
+function wireFilters() {
+  const bar = document.getElementById('filterBar');
+  if (!bar) return;
+  const q = document.getElementById('q');
+  let chip = 'all';
+  const apply = () => {
+    const query = (q && q.value ? q.value : '').toLowerCase().trim();
+    let visible = 0;
+    document.querySelectorAll('#listingGrid .card').forEach(card => {
+      const okChip = chip === 'all' || card.dataset.proj === chip || (card.dataset.tags || '').split(' ').includes(chip);
+      const okQ = !query || card.textContent.toLowerCase().includes(query);
+      card.style.display = (okChip && okQ) ? '' : 'none';
+      if (okChip && okQ) visible++;
+    });
+    const n = document.getElementById('filterCount');
+    if (n) n.textContent = visible + ' annonce' + (visible > 1 ? 's' : '') + (visible === 0 ? ' — essayez un autre filtre' : '');
+  };
+  bar.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    bar.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+    c.classList.add('on'); chip = c.dataset.filter; apply();
+  }));
+  if (q) q.addEventListener('input', apply);
+  apply();
+}
+function route() {
+  const h = location.hash.replace(/^#\/?/, '').split('?')[0];
+  const key = PAGES[h] ? h : '';
+  disposeViewers();
+  app.innerHTML = PAGES[key];
+  document.querySelectorAll('#mainNav a[data-route]').forEach(a =>
+    a.classList.toggle('active', a.dataset.route === key));
+  window.scrollTo(0, 0);
+  wireReveals(); wireBooking(); wireReel(); wireShowcaseVideos(); wireFavs(); wireFilters();
+  initVillas();
+}
+addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>

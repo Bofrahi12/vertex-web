@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Bouregreg Hôtel — Rabat | Nouveau site</title>
+<meta name="description" content="Bouregreg Hôtel Rabat 3★, au cœur de la ville : chambres dès 495 DH, petit-déjeuner, WiFi, parking. Réservez direct au 0537 72 04 14.">
+<meta property="og:title" content="Bouregreg Hôtel — Au cœur de Rabat">
+<meta property="og:description" content="Bouregreg Hôtel Rabat 3★, au cœur de la ville : chambres dès 495 DH, petit-déjeuner, WiFi, parking. Réservez direct au 0537 72 04 14.">
+<meta name="theme-color" content="#171008">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏨</text></svg>">
+<style>
+:root{--bg:#171008;--bg2:#1e1509;--panel:#241a0c;--line:#3d2c14;--acc:#d97706;--acc2:#fbbf24;--txt:#f7f4ee;--mut:#b9b2a4;--wa:#22c064}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Cairo','Segoe UI',Tahoma,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--acc);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.demobar{background:#000;color:#ffd977;text-align:center;font-size:13.5px;padding:9px 14px;border-bottom:1px solid #3a2f10;position:relative;z-index:200;line-height:1.7}
+header{position:sticky;top:0;z-index:140;transition:background .3s,border-color .3s}
+header .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 22px;max-width:1180px;margin:0 auto}
+header.scrolled{background:rgba(10,8,6,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font-weight:900;font-size:21px;letter-spacing:.4px;white-space:nowrap}
+.logo b{color:var(--acc2)} .logo span{font-family:'Marcellus',serif;font-weight:400}
+nav.chaps{display:flex;gap:20px;font-size:13.5px;color:var(--mut);font-weight:700}
+nav.chaps a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--acc);color:#fff;padding:13px 26px;border-radius:999px;font-weight:800;font-size:15.5px;border:0;cursor:pointer;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn-wa{background:var(--wa)} .btn-wa:hover{background:#1aa653}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
+.btn-ghost:hover{background:var(--panel)}
+.eyebrow{color:var(--acc2);font-weight:800;letter-spacing:3px;font-size:12.5px;text-transform:uppercase;font-family:'Marcellus',serif}
+h2.title{font-size:clamp(27px,4.4vw,42px);font-weight:900;line-height:1.35;margin:10px 0 8px}
+.lede{color:var(--mut);font-size:16.5px;line-height:1.9;max-width:640px}
+section{padding:84px 0;position:relative}
+.micro{font-size:11.5px;letter-spacing:1.6px;color:var(--mut);text-transform:uppercase;font-weight:700}
+#hero{min-height:92svh;display:flex;align-items:center;padding:120px 0 80px;background:radial-gradient(900px 480px at 85% -10%,rgba(217,119,6,.28),transparent 60%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(32px,5.2vw,54px);font-weight:900;line-height:1.35;margin:14px 0 12px}
+.hero h1 em{font-style:normal;color:var(--acc2)}
+.hero p.sub{color:var(--mut);font-size:17px;line-height:2;max-width:520px}
+.hero p.sub .ar{display:block;color:var(--acc2);font-weight:700;margin-top:8px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13.5px;font-weight:800}
+.chip i{font-style:normal;color:var(--acc2)}
+.hero-img{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 80px rgba(0,0,0,.5);position:relative}
+.hero-img img{width:100%;height:520px;object-fit:cover}
+.hero-img .cap{position:absolute;bottom:0;left:0;right:0;padding:34px 18px 14px;background:linear-gradient(transparent,rgba(5,3,2,.88));font-weight:800;font-size:15px}
+.marquee{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:15px 0;direction:ltr}
+.mq-track{display:flex;width:max-content;animation:mq 26s linear infinite}
+.mq-track span{font-family:'Marcellus',serif;font-size:19px;letter-spacing:2px;color:var(--acc2);padding:0 26px;white-space:nowrap}
+.mq-track span::after{content:'✦';margin-inline-start:52px;color:var(--acc)}
+@keyframes mq{to{transform:translateX(-50%)}}
+#change{background:var(--bg2)}
+.chg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.chg{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 22px}
+.chg .old{color:#f08a8a;font-weight:800;font-size:14px}
+.chg .new{color:var(--acc2);font-weight:800;font-size:14px}
+.chg h3{font-size:19px;font-weight:900;margin:10px 0 6px}
+.chg p{color:var(--mut);font-size:14.5px;line-height:1.9}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.svc{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s}
+.svc:hover{transform:translateY(-6px);border-color:var(--acc)}
+.svc .ph{height:200px;overflow:hidden}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.svc:hover .ph img{transform:scale(1.07)}
+.svc .bd{padding:20px 20px 22px}
+.svc h3{font-size:19px;font-weight:900;margin-bottom:2px}
+.svc .fr{color:var(--acc2);font-size:12.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;font-family:'Marcellus',serif}
+.svc p{color:var(--mut);font-size:14.5px;line-height:1.9;margin:10px 0 16px}
+.svc a.go{color:#fff;font-weight:800;font-size:14.5px}
+.svc a.go:hover{color:var(--acc2)}
+.svc .price{color:var(--acc2);font-weight:900;font-size:16px;margin-top:4px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 20px}
+.step b.num{font-family:'Marcellus',serif;font-size:34px;color:var(--acc);display:block}
+.step h3{font-size:18px;font-weight:900;margin:8px 0 6px}
+.step p{color:var(--mut);font-size:14px;line-height:1.9}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.avis{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}
+.avis .stars{color:#ffc94d;letter-spacing:3px}
+.avis p{font-size:16px;line-height:1.9;margin:12px 0}
+.avis small{color:var(--mut);font-weight:700}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.gcard{border-radius:18px;overflow:hidden;position:relative;border:1px solid var(--line)}
+.gcard img{width:100%;height:300px;object-fit:cover}
+.gcard figcaption{position:absolute;bottom:0;left:0;right:0;padding:30px 16px 12px;background:linear-gradient(transparent,rgba(5,3,2,.88));font-weight:800;font-size:15px}
+#faq .acc{max-width:820px;margin:34px auto 0}
+.faq-it{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:var(--panel);overflow:hidden}
+.faq-it button{width:100%;background:none;border:0;color:var(--txt);text-align:start;padding:19px 22px;font-family:inherit;font-size:16.5px;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;gap:12px}
+.faq-it .ans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-it .ans p{padding:0 22px 20px;color:var(--mut);line-height:2;font-size:15px}
+.faq-it.open .ans{max-height:320px}
+.faq-it .pl{color:var(--acc2);font-size:22px;line-height:1}
+.rdv-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:10px}
+form.book{display:grid;gap:13px}
+form.book label{font-size:13.5px;font-weight:800;color:var(--mut)}
+form.book input,form.book select,form.book textarea{width:100%;background:#120c08;border:1px solid var(--line);border-radius:12px;color:var(--txt);padding:13px 15px;font-family:inherit;font-size:15.5px;margin-top:6px}
+form.book input:focus,form.book select:focus,form.book textarea:focus{outline:2px solid var(--acc);border-color:transparent}
+.info-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+.info-card h3{font-size:19px;font-weight:900;margin-bottom:14px}
+.info-card .row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.12);font-size:15px}
+.info-card .row:last-child{border:0}
+.info-card .row b{color:#fff} .info-card .row span{color:var(--mut);text-align:end}
+footer{border-top:1px solid var(--line);padding:44px 0 96px;background:#070503}
+.foot{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-start}
+footer .mut{color:var(--mut);font-size:14px;line-height:2}
+#wa-pill{position:fixed;bottom:18px;left:18px;z-index:250;background:var(--wa);color:#fff;font-weight:900;padding:14px 22px;border-radius:999px;box-shadow:0 16px 34px rgba(0,0,0,.45);font-size:15.5px}
+.rv{opacity:0;transform:translateY(26px)}
+.js .rv{transition:opacity .8s ease,transform .8s ease}
+.rv.on{opacity:1;transform:none}
+#loader{position:fixed;inset:0;background:var(--bg);z-index:500;display:flex;flex-direction:column;gap:18px;align-items:center;justify-content:center;transition:opacity .7s ease,visibility .7s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .lg{font-size:30px;font-weight:900} #loader .lg b{color:var(--acc2)}
+#loader .bar2{width:180px;height:3px;background:#241a12;border-radius:99px;overflow:hidden}
+#loader .bar2 i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .3s}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none}.rv{opacity:1;transform:none;transition:none}}
+@media(max-width:900px){
+  nav.chaps{display:none}
+  .hero-grid,.rdv-grid{grid-template-columns:1fr}
+  .hero-img img{height:380px}
+  .svc-grid,.avis-grid,.gal-grid{grid-template-columns:1fr}
+  .chg-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  section{padding:64px 0}
+}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<div id="loader"><div class="lg">BOUREGREG <b>HÔTEL</b> 🏨</div><div class="bar2"><i id="loadFill"></i></div><div class="micro">…كنوجدو ليك الموقع الجديد</div></div>
+<div class="demobar">✦ Démo gratuite par VERTEX WEB — voici à quoi ressemblerait votre nouveau site · ديمو مجاني من VERTEX WEB — هاكا غادي يبان موقعك الجديد ✦</div>
+<header id="hdr"><div class="bar">
+  <a class="logo" href="#hero"><span>BOUREGREG</span> <b>HÔTEL</b> 🏨</a>
+  <nav class="chaps"><a href="#services">Chambres</a><a href="#avis">Avis clients</a><a href="#faq">Questions</a><a href="#rdv">Réserver</a></nav>
+  <a class="btn btn-wa" href="https://wa.me/212660195584?text=Bonjour%2C%20je%20veux%20r%C3%A9server%20une%20chambre%20au%20Bouregreg%20H%C3%B4tel." target="_blank" rel="noopener">WhatsApp</a>
+</div></header>
+
+<section id="hero"><div class="wrap hero-grid"><div>
+  <div class="eyebrow">Hôtel 3★ · Rabat — Angle Av. Hassan II & Rue Nador</div>
+  <h1>Au cœur de Rabat,<br><em>un séjour chaleureux</em></h1>
+  <p class="sub">Chambres modernes et chaleureuses, patio traditionnel, réception 24h/24 — à deux pas des plus beaux endroits de la capitale.<span class="ar">مرحبا بيك فالرباط — الراحة والأصالة فقلب المدينة.</span></p>
+  <div class="hero-cta">
+    <a class="btn btn-wa" href="https://wa.me/212660195584?text=Bonjour%2C%20je%20veux%20r%C3%A9server%20une%20chambre%20au%20Bouregreg%20H%C3%B4tel." target="_blank" rel="noopener">Réserver sur WhatsApp</a>
+    <a class="btn btn-ghost" href="#services">Voir les chambres</a>
+  </div>
+  <div class="chips"><div class="chip"><i>✦</i> Dès 495 DH / nuit</div><div class="chip"><i>✦</i> Réception 24h/24</div><div class="chip"><i>✦</i> WiFi + parking</div></div>
+</div>
+<div class="hero-img"><img src="demo-bouregreg/img/reception.jpg" alt="Réception du Bouregreg Hôtel à Rabat" fetchpriority="high"><div class="cap">La réception — accueil convivial, 24h/24</div></div>
+</div></section>
+
+<div class="marquee" aria-hidden="true"><div class="mq-track" id="mq"><span>CHAMBRES CONFORTABLES</span><span>PATIO TRADITIONNEL</span><span>PETIT-DÉJEUNER</span><span>WIFI HAUT DÉBIT</span><span>PARKING SÉCURISÉ</span><span>RÉCEPTION 24H/24</span></div></div>
+
+<section id="change"><div class="wrap">
+  <div class="eyebrow">Ce qui change · شنو غادي يتبدل</div>
+  <h2 class="title rv">Un site plus rapide, plus sûr — sans toucher aux réservations</h2>
+  <p class="lede rv">Votre système de réservation ne change pas : on protège la page autour, sans jamais toucher au moteur de réservation. Voici ce que le nouveau site améliore.</p>
+  <div class="chg-grid"><div class="chg rv"><div class="old">✕ Aujourd'hui : Protections faibles</div><div class="new" style="margin-top:6px">✓ Avec le nouveau site : Site sécurisé, réservations intactes</div><h3>La sécurité, sans le risque</h3><p>Les protections ajoutées ne touchent pas au système de réservation — une fausse copie ne pourra plus voler vos réservations, et vos clients réservent comme avant.</p></div><div class="chg rv"><div class="old">✕ Aujourd'hui : Réservation par téléphone seulement</div><div class="new" style="margin-top:6px">✓ Avec le nouveau site : Réserver en 1 clic WhatsApp</div><h3>Plus de réservations directes</h3><p>Chaque chambre renvoie sur votre WhatsApp : le client choisit sa chambre, vous confirmez. Moins de commissions aux plateformes, plus de direct.</p></div><div class="chg rv"><div class="old">✕ Aujourd'hui : Peu visible en ligne</div><div class="new" style="margin-top:6px">✓ Avec le nouveau site : Visible pour « hôtel Rabat »</div><h3>Trouvé par les voyageurs</h3><p>SEO local et pages par chambre : les voyageurs qui cherchent un hôtel au cœur de Rabat vous trouvent avant les comparateurs.</p></div></div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <div class="eyebrow">Nos chambres · الغرف</div>
+  <h2 class="title rv">Des chambres pour chaque voyageur</h2>
+  <p class="lede rv">Quatre types de chambres, prix affichés clairement — comme sur votre site actuel.</p>
+  <div class="svc-grid"><article class="svc rv"><div class="ph"><img src="demo-bouregreg/img/standard.jpg" alt="Chambre Standard" loading="lazy"></div><div class="bd"><div class="fr">Chambre Standard</div><h3>Chambre Standard</h3><p>Un cadre confortable et cosy, idéal pour les voyageurs seuls ou les couples. Équipements modernes, décoration élégante.</p><div class="price">495 DH / nuit</div><a class="go" target="_blank" rel="noopener" href="https://wa.me/212660195584?text=Bonjour%2C%20je%20veux%20r%C3%A9server%20une%20chambre%20Standard.">Réserver sur WhatsApp ←</a></div></article><article class="svc rv"><div class="ph"><img src="demo-bouregreg/img/double.jpg" alt="Chambre Double" loading="lazy"></div><div class="bd"><div class="fr">Chambre Double</div><h3>Chambre Double</h3><p>Confort et élégance dans une chambre spacieuse et raffinée — idéale pour un séjour luxueux et relaxant.</p><div class="price">695 DH / nuit</div><a class="go" target="_blank" rel="noopener" href="https://wa.me/212660195584?text=Bonjour%2C%20je%20veux%20r%C3%A9server%20une%20chambre%20Double.">Réserver sur WhatsApp ←</a></div></article><article class="svc rv"><div class="ph"><img src="demo-bouregreg/img/suite.jpg" alt="Chambres Twin & Triple" loading="lazy"></div><div class="bd"><div class="fr">Chambre Twin · Triple</div><h3>Chambres Twin & Triple</h3><p>Parfaites pour les familles ou les petits groupes : espace généreux, plusieurs configurations de couchage, confort pour tous.</p><div class="price">Twin 695 DH · Triple 855 DH / nuit</div><a class="go" target="_blank" rel="noopener" href="https://wa.me/212660195584?text=Bonjour%2C%20je%20veux%20r%C3%A9server%20une%20chambre%20Twin%20ou%20Triple.">Réserver sur WhatsApp ←</a></div></article></div>
+</div></section>
+
+<section id="avis"><div class="wrap">
+  <div class="eyebrow">Ce que disent nos clients · آراء النزلاء</div>
+  <h2 class="title rv">Ils ont aimé leur séjour</h2>
+  <p class="lede rv">Témoignages publiés sur votre site — des voyageurs du Maroc, de France, des États-Unis et de Belgique.</p>
+  <div class="avis-grid">
+    <div class="avis rv"><div class="stars">★★★★★</div><p>« Je suis très satisfait de mon séjour. L'hôtel est propre, calme et idéalement situé. Le service est excellent. »</p><small>Thomas Wilson — États-Unis</small></div>
+    <div class="avis rv"><div class="stars">★★★★★</div><p>« Un hôtel chic avec un service impeccable. Je recommande vivement pour un séjour en famille ou en couple. »</p><small>Zahra Moussafir — Maroc</small></div>
+    <div class="avis rv"><div class="stars">★★★★★</div><p>« L'hôtel est magnifique, avec un personnel très professionnel. Tout était parfait, je reviendrai avec plaisir. »</p><small>Claire Dubois — France</small></div>
+  </div>
+  <div class="chg-grid" style="margin-top:26px">
+    <div class="chg rv"><h3>Service en chambre</h3><p>Disponible à tout moment, pendant tout votre séjour.</p></div>
+    <div class="chg rv"><h3>Petit-déjeuner</h3><p>Un délicieux petit-déjeuner, servi chaque matin.</p></div>
+    <div class="chg rv"><h3>Internet & parking</h3><p>WiFi haut débit et stationnement sécurisé inclus.</p></div>
+  </div>
+</div></section>
+
+<section id="process" style="background:var(--bg2)"><div class="wrap">
+  <div class="eyebrow">Le parcours · المراحل</div>
+  <h2 class="title rv">Comment ça se passe ?</h2>
+  <p class="lede rv">Quatre étapes claires — sans surprise.</p>
+  <div class="steps">
+    <div class="step rv"><b class="num">01</b><h3>Audit gratuit</h3><p>On vérifie votre site actuel : sécurité, visibilité Google et réservations. Vous recevez le résultat, gratuitement.</p></div>
+    <div class="step rv"><b class="num">02</b><h3>Démo — celle-ci</h3><p>Vous voyez votre nouveau site avant de décider quoi que ce soit. Si ça ne vous plaît pas, on s'arrête là.</p></div>
+    <div class="step rv"><b class="num">03</b><h3>Lancement</h3><p>On met le site en ligne avec vos photos, vos textes et vos coordonnées — et on vérifie que tout fonctionne.</p></div>
+    <div class="step rv"><b class="num">04</b><h3>Suivi</h3><p>On surveille la sécurité et la visibilité, et on vous dit quoi améliorer chaque mois.</p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="eyebrow" style="text-align:center">Questions fréquentes</div>
+  <h2 class="title rv" style="text-align:center">Les questions qu'on nous pose souvent</h2>
+  <div class="acc"><div class="faq-it"><button type="button">Est-ce que le nouveau site touche au système de réservation ?<span class="pl">+</span></button><div class="ans"><p>Non — c'est le point le plus important pour vous, et on le garantit : les correctifs de sécurité ne touchent pas au moteur de réservation. Vos réservations continuent exactement comme aujourd'hui, en plus sûr.</p></div></div><div class="faq-it"><button type="button">Combien coûte le nouveau site ?<span class="pl">+</span></button><div class="ans"><p>L'audit est gratuit. Le prix se fixe après l'audit — les sites VERTEX vont de 900 à 4 900 DH. On vous dit le prix avant de commencer, et on peut aussi vous proposer une re-vérification gratuite après les correctifs de votre prestataire actuel.</p></div></div><div class="faq-it"><button type="button">Où est l'hôtel exactement ?<span class="pl">+</span></button><div class="ans"><p>Angle Avenue Hassan II et Rue Nador, Rabat 10000 — en plein cœur de la ville, près des attractions. Réception ouverte 24h/24.</p></div></div><div class="faq-it"><button type="button">Comment réserver ?<span class="pl">+</span></button><div class="ans"><p>Par téléphone au 0537 72 04 14, par WhatsApp au 0660 19 55 84, ou directement depuis ce site — chambre Standard dès 495 DH la nuit.</p></div></div></div>
+</div></section>
+
+<section id="rdv"><div class="wrap">
+  <div class="eyebrow">Contact · تواصل</div>
+  <h2 class="title rv">Réservez votre chambre — en une minute</h2>
+  <div class="rdv-grid">
+    <form class="book rv" id="bookForm">
+      <label>Nom complet<input id="fName" type="text" placeholder="Votre nom" autocomplete="name"></label>
+      <label>Téléphone / WhatsApp<input id="fPhone" type="tel" placeholder="06 XX XX XX XX" autocomplete="tel"></label>
+      <label>Type de chambre<select id="fSvc"><option>Chambre Standard — 495 DH</option><option>Chambre Double — 695 DH</option><option>Chambre Twin — 695 DH</option><option>Chambre Triple — 855 DH</option><option>Je ne sais pas encore</option></select></label>
+      <label>Votre message<textarea id="fMsg" rows="3" placeholder="Dites-nous ce que vous voulez…"></textarea></label>
+      <button class="btn btn-wa" type="submit" style="justify-content:center;font-size:17px;padding:16px">Envoyer sur WhatsApp ←</button>
+      <p class="micro" style="text-align:center">Votre message arrive directement sur le WhatsApp Bouregreg Hôtel</p>
+    </form>
+    <div class="info-card rv">
+      <h3>Coordonnées</h3>
+      <div class="row"><b>Téléphone</b><span><span dir="ltr">0537 72 04 14</span></span></div><div class="row"><b>WhatsApp</b><span><span dir="ltr">0660 19 55 84</span></span></div><div class="row"><b>Adresse</b><span>Angle Av. Hassan II & Rue Nador, Rabat 10000</span></div><div class="row"><b>Réception</b><span>24h/24 · 69 chambres</span></div>
+      <p style="color:var(--mut);line-height:2;font-size:14.5px;margin-top:16px">Hôtel 3★ au cœur de Rabat — confort, authenticité et hospitalité marocaine. Réservez directement, sans intermédiaire.</p>
+      <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap"><a class="btn btn-ghost" href="https://bouregreghotel.com/" target="_blank" rel="noopener">Site actuel</a></div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap foot">
+  <div><div class="logo"><span>BOUREGREG</span> <b>HÔTEL</b> 🏨</div><p class="mut">Bouregreg Hôtel — Rabat.<br>Un séjour chaleureux au cœur de la capitale.</p></div>
+  <div class="mut"><b style="color:#fff">Contact</b><br>Tél : <span dir="ltr">0537 72 04 14</span> · WhatsApp : <span dir="ltr">0660 19 55 84</span><br>Angle Av. Hassan II & Rue Nador, Rabat</div>
+  <div class="mut"><b style="color:#fff">Chambres</b><br>Standard 495 DH · Double 695 DH<br>Twin 695 DH · Triple 855 DH / nuit</div>
+</div>
+<div class="wrap" style="margin-top:28px"><p class="micro">© Bouregreg Hôtel — Démo conçue par VERTEX WEB · vertex-web-tanger.onrender.com</p><p class="micro" style="margin-top:8px">Site actuel : <a href="https://bouregreghotel.com/" style="color:#7cc4ff">https://bouregreghotel.com/</a></p></div>
+</footer>
+<a id="wa-pill" href="https://wa.me/212660195584?text=Bonjour%2C%20je%20veux%20r%C3%A9server%20une%20chambre%20au%20Bouregreg%20H%C3%B4tel." target="_blank" rel="noopener">💬 WhatsApp</a>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hdr=document.getElementById('hdr');
+  window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>30);},{passive:true});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  var mq=document.getElementById('mq');mq.innerHTML+=mq.innerHTML;
+  document.querySelectorAll('.faq-it button').forEach(function(b){b.addEventListener('click',function(){var it=b.parentElement,was=it.classList.contains('open');document.querySelectorAll('.faq-it.open').forEach(function(o){o.classList.remove('open');o.querySelector('.pl').textContent='+';});if(!was){it.classList.add('open');b.querySelector('.pl').textContent='−';}});});
+  document.getElementById('bookForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){return document.getElementById(id).value.trim();};
+    var lines=['Bonjour, je viens de voir la démo de mon nouveau site.','Nom : '+(v('fName')||'—'),'Téléphone : '+(v('fPhone')||'—'),'Type de chambre : '+v('fSvc')];
+    if(v('fMsg'))lines.push('Message : '+v('fMsg'));
+    window.open('https://wa.me/212660195584?text='+encodeURIComponent(lines.join('\n')),'_blank');
+  });
+})();
+(function(){
+  var loader=document.getElementById('loader'),fill=document.getElementById('loadFill'),pr=0;
+  var iv=setInterval(function(){pr=Math.min(pr+Math.random()*22,92);fill.style.width=pr+'%';},160);
+  window.addEventListener('load',function(){clearInterval(iv);fill.style.width='100%';setTimeout(function(){loader.classList.add('done');},350);});
+  setTimeout(function(){loader.classList.add('done');},3800);
+})();
+</script>
+</body>
+</html>
