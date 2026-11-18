@@ -1,0 +1,23 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;color:#22301f;background:#fbfaf5;line-height:1.65}
+a{color:#2e6b34}
+header.site{background:#1e4d2b;color:#fff;padding:14px 20px}
+header.site a{color:#fff;text-decoration:none}
+header.site .brand{font-size:1.5rem;font-weight:700}
+header.site nav{margin-top:6px;font-size:.95rem}
+header.site nav a{margin-right:16px;color:#cfe8d2}
+main{max-width:760px;margin:0 auto;padding:24px 18px 40px}
+h1{font-size:1.9rem;line-height:1.25}
+h2{font-size:1.35rem;margin-top:1.8em}
+h3{font-size:1.12rem}
+img{max-width:100%;height:auto;border-radius:6px}
+ul,ol{padding-left:1.4em}
+.card{border-bottom:1px solid #ddd;padding:16px 0}
+.card h2{margin:0 0 4px;font-size:1.25rem}
+.card p{margin:4px 0 0;color:#444}
+footer.site{border-top:1px solid #ddd;background:#f1efe6;padding:24px 18px;text-align:center;font-size:.9rem;color:#555}
+footer.site a{margin:0 8px}
+.adbox{background:#fffbe6;border:1px solid #e6cf7a;border-radius:8px;padding:12px 16px;margin:28px 0;font-size:.95rem}
+.adbox .adtag{color:#888;font-size:.85rem}
+.meta{color:#666;font-size:.9rem}
+@media (max-width:600px){h1{font-size:1.55rem}main{padding:18px 14px 32px}}
