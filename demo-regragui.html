@@ -44,7 +44,7 @@ h2.title em{font-style:italic;color:var(--gold2)}
 section{padding:84px 0;position:relative}
 .micro{font-size:11.5px;letter-spacing:1.6px;color:var(--mut);text-transform:uppercase;font-weight:700}
 /* HERO 3D */
-#hero{min-height:96svh;display:flex;align-items:center;padding:110px 0 70px;background:radial-gradient(900px 500px at 85% -10%,rgba(212,175,55,.18),transparent 60%),radial-gradient(700px 420px at 0% 110%,rgba(179,18,63,.22),transparent 60%),var(--bg)}
+#hero{min-height:96svh;display:flex;align-items:center;padding:110px 0 70px;position:relative;background:radial-gradient(900px 500px at 85% -10%,rgba(212,175,55,.18),transparent 60%),radial-gradient(700px 420px at 0% 110%,rgba(179,18,63,.22),transparent 60%),var(--bg)}
 .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5.4vw,58px);font-weight:800;line-height:1.25;margin:14px 0 12px}
 .hero h1 em{font-style:italic;color:var(--gold2)}
@@ -124,6 +124,37 @@ form.book input:focus,form.book select:focus,form.book textarea:focus{outline:2p
 .faq-it .pl{color:var(--gold);font-size:22px;line-height:1}
 footer{border-top:1px solid var(--line);padding:34px 0 44px;color:var(--mut);font-size:14px;line-height:2}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--rose));z-index:400}
+#dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8}
+.themes{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;align-items:center}
+.themes span{font-size:12.5px;font-weight:800;letter-spacing:1.6px;color:var(--mut);text-transform:uppercase}
+.theme-btn{border:1px solid var(--line);background:var(--panel);color:var(--txt);font-family:inherit;font-weight:800;font-size:13.5px;padding:9px 16px;border-radius:999px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.theme-btn i{width:14px;height:14px;border-radius:50%;display:inline-block}
+.theme-btn.active{border-color:var(--gold);color:var(--gold2);box-shadow:0 0 0 1px var(--gold)}
+body[data-theme="rouge"]{--gold:#e8b23a;--gold2:#ffd97a;--rose:#d61f4a;--bg:#1d0810;--bg2:#2a0d16;--panel:#2c101a;--panel2:#361220;--line:#4a1c28}
+body[data-theme="violet"]{--gold:#d9b45a;--gold2:#f0d47a;--rose:#8b3fd9;--bg:#140a20;--bg2:#1e0f30;--panel:#211236;--panel2:#281640;--line:#3a2260}
+/* 3D TUNNEL */
+#tunnel{padding:0;overflow:hidden;background:#0d050c}
+.tunnel-pin{height:100svh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;perspective:1200px}
+.tunnel-title{position:absolute;top:12%;left:0;right:0;text-align:center;z-index:5;pointer-events:none}
+.tunnel-title h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4.6vw,46px);font-weight:800}
+.tunnel-title h2 em{font-style:italic;color:var(--gold2)}
+.tunnel-title p{color:var(--mut);font-weight:700;margin-top:6px}
+.tunnel-pin::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 400px at 50% 55%,rgba(212,175,55,.16),transparent 70%);pointer-events:none}
+.t-layer{position:absolute;width:min(780px,88vw);height:min(520px,62svh);border-radius:22px;overflow:hidden;border:1px solid rgba(212,175,55,.5);box-shadow:0 50px 100px rgba(0,0,0,.7);will-change:transform,opacity}
+.t-layer img{width:100%;height:100%;object-fit:cover}
+.t-layer figcaption{position:absolute;bottom:0;left:0;right:0;padding:34px 18px 14px;background:linear-gradient(transparent,rgba(10,4,12,.9));font-weight:800;font-size:16px;color:#fff}
+.t-layer figcaption small{display:block;color:var(--gold2);font-size:12.5px}
+/* 3D RING */
+#ring3d{overflow:hidden}
+.ring-wrap{perspective:1400px;height:460px;display:flex;align-items:center;justify-content:center;position:relative;margin-top:20px;cursor:grab;touch-action:pan-y}
+.ring-wrap:active{cursor:grabbing}
+.ring{position:relative;width:280px;height:360px;transform-style:preserve-3d;will-change:transform}
+.ring figure{position:absolute;inset:0;margin:0;border-radius:18px;overflow:hidden;border:1px solid rgba(212,175,55,.55);box-shadow:0 30px 60px rgba(0,0,0,.6);backface-visibility:hidden}
+.ring figure img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ring figure figcaption{position:absolute;bottom:0;left:0;right:0;padding:28px 14px 10px;background:linear-gradient(transparent,rgba(10,4,12,.9));font-weight:800;font-size:13.5px;color:#fff}
+.ring-hint{text-align:center;color:var(--mut);font-weight:700;font-size:13.5px;margin-top:8px}
+.ring-hint b{color:var(--gold2)}
 .sticky-wa{position:fixed;right:16px;bottom:16px;z-index:300;background:#22c064;color:#fff;font-weight:800;padding:13px 20px;border-radius:999px;box-shadow:0 14px 34px rgba(0,0,0,.5);font-size:15px}
 @media(max-width:900px){
   nav.chaps{display:none}
@@ -147,6 +178,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </style>
 </head>
 <body>
+<div id="progress"></div>
 <div class="demobar">✦ <b>Démo gratuite par VERTEX WEB</b> — Traiteur Regragui · site de démonstration, pas encore le site officiel ✦</div>
 <header id="hdr"><div class="bar">
 <a class="logo" href="#hero"><b>TRAITEUR</b> REGRAGUI<span>ÉVÉNEMENT · TANGER</span></a>
@@ -154,7 +186,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <a class="btn btn-wa" href="https://wa.me/212629498404?text=Bonjour%20Traiteur%20Regragui%2C%20je%20veux%20un%20devis%20pour%20mon%20%C3%A9v%C3%A9nement." target="_blank" rel="noopener">WhatsApp</a>
 </div></header>
 
-<section id="hero"><div class="wrap hero-grid">
+<section id="hero"><canvas id="dust" aria-hidden="true"></canvas><div class="wrap hero-grid">
 <div class="hero">
 <p class="eyebrow">Traiteur · Événement · Tanger</p>
 <h1>Vos plus beaux moments, <em>servis comme des rois.</em></h1>
@@ -169,6 +201,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <span class="chip">📸 <i>263</i> publications</span>
 <span class="chip">📍 Mesnana, Tanger</span>
 </div>
+<div class="themes"><span>Votre thème :</span>
+<button class="theme-btn active" data-theme="blanc" type="button"><i style="background:#f5f0e6"></i>Blanc royal</button>
+<button class="theme-btn" data-theme="rouge" type="button"><i style="background:#b3123f"></i>Rouge royal</button>
+<button class="theme-btn" data-theme="violet" type="button"><i style="background:#7b2fd9"></i>Violet</button>
+</div>
 </div>
 <div class="stage3d" id="stage3d" aria-label="Photos des réalisations Traiteur Regragui">
 <figure class="card3d c-back" data-depth="30"><img src="demo-regragui/img/wedding-red.jpg" alt="Entrée royale rouge — mariage Karim et Zineb par Traiteur Regragui"><figcaption class="cap">Entrée royale rouge — Karim &amp; Zineb</figcaption></figure>
@@ -181,6 +218,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <span>Mariages</span><span>Fiançailles</span><span>Buffets</span><span>Salles mobiles</span><span>Décoration royale</span><span>Tables dressées</span><span>Tanger</span>
 <span>Mariages</span><span>Fiançailles</span><span>Buffets</span><span>Salles mobiles</span><span>Décoration royale</span><span>Tables dressées</span><span>Tanger</span>
 </div></div>
+
+<section id="tunnel"><div class="tunnel-pin" id="tunnelPin">
+<div class="tunnel-title"><p class="eyebrow">La salle en 3D — scrollez</p><h2>Entrez dans <em>la fête.</em></h2><p>Chaque image vient vers vous — comme si vous y étiez.</p></div>
+<figure class="t-layer"><img src="demo-regragui/img/wedding-red.jpg" alt="Entrée rouge royale — Karim et Zineb"><figcaption>Entrée rouge royale — Karim &amp; Zineb<small>Mariage · Tanger</small></figcaption></figure>
+<figure class="t-layer"><img src="demo-regragui/img/buffet-luxe.jpg" alt="Miroir de bienvenue Fatima et Ali"><figcaption>Bienvenue — Fatima &amp; Ali<small>Décor rouge &amp; or</small></figcaption></figure>
+<figure class="t-layer"><img src="demo-regragui/img/salles-mobiles.jpg" alt="Salle mobile dressée"><figcaption>Salles mobiles<small>On vient chez vous</small></figcaption></figure>
+<figure class="t-layer"><img src="demo-regragui/img/buffet-2025.jpg" alt="Décor ailé lumineux"><figcaption>Décor ailé lumineux<small>Buffet 2025</small></figcaption></figure>
+<figure class="t-layer"><img src="demo-regragui/img/wedding-asaoud.jpg" alt="Arche fleurie blanche — mariage Asaoud"><figcaption>Arche fleurie — Famille Asaoud<small>Le jour le plus beau</small></figcaption></figure>
+</div></section>
 
 <section id="realisations"><div class="wrap">
 <p class="eyebrow">Nos réalisations — photos réelles</p>
@@ -254,6 +300,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <p>Ce sont les quatre mots de l'affiche officielle de Traiteur Regragui — et ce qu'on retrouve dans chaque fête : des tables dignes d'un palais, un service qui honore vos invités, et une équipe qui ne laisse rien au hasard.</p>
 <p style="margin-top:14px"><b style="color:var(--gold2)">Mariages · Fiançailles · Cérémonies</b> — et tous vos événements, à Tanger.</p>
 </div>
+</div></section>
+
+<section id="ring3d"><div class="wrap">
+<p class="eyebrow">Tour 3D — faites tourner la salle</p>
+<h2 class="title">Glissez pour <em>visiter.</em></h2>
+<p class="lede">Toutes les réalisations, en cercle autour de vous. Glissez avec le doigt ou la souris — le carrousel tourne en 3D, et continue tout seul.</p>
+<div class="ring-wrap" id="ringWrap"><div class="ring" id="ring">
+<figure><img src="demo-regragui/img/wedding-remilate.jpg" alt="Table royale Remilate"><figcaption>Table royale — Remilate</figcaption></figure>
+<figure><img src="demo-regragui/img/wedding-asaoud.jpg" alt="Mariage Asaoud"><figcaption>Mariage Asaoud</figcaption></figure>
+<figure><img src="demo-regragui/img/wedding-red.jpg" alt="Rouge royal Karim et Zineb"><figcaption>Rouge royal</figcaption></figure>
+<figure><img src="demo-regragui/img/wedding-violet.jpg" alt="Thème violet"><figcaption>Thème violet</figcaption></figure>
+<figure><img src="demo-regragui/img/buffet-luxe.jpg" alt="Fatima et Ali"><figcaption>Fatima &amp; Ali</figcaption></figure>
+<figure><img src="demo-regragui/img/table-royale.jpg" alt="Table royale 2024"><figcaption>Table royale 2024</figcaption></figure>
+<figure><img src="demo-regragui/img/salles-mobiles.jpg" alt="Salles mobiles"><figcaption>Salles mobiles</figcaption></figure>
+<figure><img src="demo-regragui/img/palais-malak.jpg" alt="Palais Malak"><figcaption>Palais Malak</figcaption></figure>
+<figure><img src="demo-regragui/img/buffet-2025.jpg" alt="Décor ailé"><figcaption>Décor ailé</figcaption></figure>
+</div></div>
+<p class="ring-hint">← Glissez pour tourner · <b>9 réalisations</b> · cliquez sur une photo pour l'ouvrir sur Instagram →</p>
 </div></section>
 
 <section id="galerie" style="background:var(--bg2)"><div class="wrap">
@@ -373,6 +437,85 @@ if(window.gsap && window.ScrollTrigger){
       scrollTrigger:{trigger:el,start:'top 88%'}});
   });
   gsap.from('.hero h1, .hero p.sub, .hero-cta, .chips',{y:34,opacity:0,duration:.8,stagger:.1,ease:'power3.out'});
+}
+</script>
+<script>
+// Progress bar
+var prog=document.getElementById('progress');
+addEventListener('scroll',function(){
+  var h=document.documentElement, p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+  prog.style.width=(p*100)+'%';
+},{passive:true});
+// Gold dust particles in the hero
+(function(){
+  var cv=document.getElementById('dust'); if(!cv) return;
+  var ctx=cv.getContext('2d'), W, H, parts=[], running=true;
+  function size(){var r=cv.parentElement.getBoundingClientRect(); W=cv.width=r.width; H=cv.height=r.height;}
+  size(); addEventListener('resize',size);
+  for(var i=0;i<45;i++) parts.push({x:Math.random(),y:Math.random(),r:Math.random()*2+.6,s:Math.random()*.35+.08,o:Math.random()*.5+.15,ph:Math.random()*6.28});
+  var hero=document.getElementById('hero');
+  new IntersectionObserver(function(en){running=en[0].isIntersecting}).observe(hero);
+  (function loop(t){
+    requestAnimationFrame(loop); if(!running) return;
+    ctx.clearRect(0,0,W,H);
+    parts.forEach(function(p){
+      p.y-=p.s/H*2; if(p.y<-.02){p.y=1.02;p.x=Math.random();}
+      var tw=.6+.4*Math.sin(t/700+p.ph);
+      ctx.beginPath(); ctx.arc(p.x*W,p.y*H,p.r,0,6.28);
+      ctx.fillStyle='rgba(212,175,55,'+(p.o*tw)+')'; ctx.fill();
+    });
+  })(0);
+})();
+// Theme switcher : Blanc / Rouge / Violet
+var themeHero={
+  blanc:{img:'demo-regragui/img/wedding-remilate.jpg',cap:'Table royale — Mariage à Remilate'},
+  rouge:{img:'demo-regragui/img/wedding-red.jpg',cap:'Entrée rouge royale — Karim & Zineb'},
+  violet:{img:'demo-regragui/img/wedding-violet.jpg',cap:'Entrée violette fleurie — Traiteur Regragui'}
+};
+document.querySelectorAll('.theme-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.theme-btn').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active');
+    var t=b.dataset.theme;
+    document.body.dataset.theme=(t==='blanc')?'':t;
+    var main=document.querySelector('.c-main img'), cap=document.querySelector('.c-main .cap');
+    if(window.gsap){gsap.to(main,{opacity:0,scale:.96,duration:.25,onComplete:function(){
+      main.src=themeHero[t].img; cap.textContent=themeHero[t].cap;
+      gsap.to(main,{opacity:1,scale:1,duration:.45});
+    }});}else{main.src=themeHero[t].img; cap.textContent=themeHero[t].cap;}
+  });
+});
+// 3D RING carousel
+(function(){
+  var ring=document.getElementById('ring'), wrap=document.getElementById('ringWrap'); if(!ring) return;
+  var urls=['https://www.instagram.com/p/DadcwpGjesR/','https://www.instagram.com/reel/Davgqc5tTou/','https://www.instagram.com/reel/DcJj9RdtDpA/','https://www.instagram.com/reel/DUI84bGDPkI/','https://www.instagram.com/reel/DadceeBNzuh/','https://www.instagram.com/p/C9qC6usgq-w/','https://www.instagram.com/reel/DcGRAJDteuk/','https://www.instagram.com/p/C6BO7QtLiYx/','https://www.instagram.com/p/DEszw3RObcn/'];
+  var figs=ring.querySelectorAll('figure'), n=figs.length, rot=0, vel=0, dragging=false, moved=0;
+  function radius(){return innerWidth<560?300:430;}
+  function layout(){figs.forEach(function(f,i){f.style.transform='rotateY('+(i*(360/n))+'deg) translateZ('+radius()+'px)';});}
+  layout(); addEventListener('resize',layout);
+  function apply(){ring.style.transform='translateZ(-'+radius()+'px) rotateY('+rot+'deg)';}
+  apply();
+  wrap.addEventListener('pointerdown',function(e){dragging=true;moved=0;vel=0;wrap.setPointerCapture(e.pointerId);});
+  wrap.addEventListener('pointermove',function(e){if(!dragging)return;var dx=e.movementX||0;rot+=dx*.25;vel=dx*.25;moved+=Math.abs(dx);apply();});
+  function endDrag(e){if(!dragging)return;dragging=false;
+    if(moved<6){var idx=Math.round(-rot/(360/n))%n; if(idx<0)idx+=n; var t=e.target.closest('figure'); if(t){open(urls[Array.prototype.indexOf.call(figs,t)],'_blank');}}
+  }
+  wrap.addEventListener('pointerup',endDrag); wrap.addEventListener('pointercancel',function(){dragging=false;});
+  (function spin(){requestAnimationFrame(spin); if(!dragging){rot+=.12+vel; vel*=.94; apply();}})();
+})();
+// 3D TUNNEL : photos fly toward you on scroll
+if(window.gsap && window.ScrollTrigger){
+  gsap.registerPlugin(ScrollTrigger);
+  var layers=gsap.utils.toArray('.t-layer');
+  gsap.set(layers,{z:-900,opacity:0,scale:.6});
+  var tl=gsap.timeline({scrollTrigger:{trigger:'#tunnel',start:'top top',end:'+=2800',scrub:1,pin:true,anticipatePin:1}});
+  tl.to('.tunnel-title',{opacity:0,y:-40,duration:.1},0);
+  layers.forEach(function(l,i){
+    var at=.06+i*.17;
+    tl.to(l,{z:0,opacity:1,scale:1,duration:.06,ease:'power1.in'},at);
+    tl.to(l,{duration:.05},at+.06);
+    tl.to(l,{z:520,opacity:0,scale:1.12,duration:.06,ease:'power1.in'},at+.11);
+  });
 }
 </script>
 </body>
